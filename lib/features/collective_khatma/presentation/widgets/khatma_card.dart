@@ -1,0 +1,219 @@
+import 'package:flutter/material.dart';
+import 'package:meshkat_elhoda/core/utils/app_colors.dart';
+import 'package:meshkat_elhoda/core/utils/app_fonts.dart';
+import 'package:meshkat_elhoda/core/utils/size_utils.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../domain/entities/collective_khatma_entity.dart';
+
+/// Card widget displaying a khatma in the list
+class KhatmaCard extends StatelessWidget {
+  final CollectiveKhatmaEntity khatma;
+  final VoidCallback onTap;
+
+  const KhatmaCard({super.key, required this.khatma, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final progressPercentage = khatma.progressPercentage;
+
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          color: isDark ? Colors.grey[850] : Colors.white,
+          borderRadius: BorderRadius.circular(16.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.05),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Column(
+          children: [
+            // Header with gradient
+            Container(
+              padding: EdgeInsets.all(16.w),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: khatma.isComplete
+                      ? [Colors.green, Colors.green.shade700]
+                      : [AppColors.goldenColor, AppColors.secondaryColor],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(16.r)),
+              ),
+              child: Row(
+                children: [
+                  // Type Icon
+                  Container(
+                    padding: EdgeInsets.all(8.w),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withValues(alpha: 0.2),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      khatma.type == KhatmaType.public
+                          ? Icons.public
+                          : Icons.lock_outline,
+                      color: Colors.white,
+                      size: 20.sp,
+                    ),
+                  ),
+                  SizedBox(width: 12.w),
+
+                  // Title and Creator
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          khatma.title,
+                          style: TextStyle(
+                            fontFamily: AppFonts.tajawal,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        SizedBox(height: 4.h),
+                        Text(
+                          '${AppLocalizations.of(context)!.by} ${khatma.creatorName}',
+                          style: TextStyle(
+                            fontFamily: AppFonts.tajawal,
+                            fontSize: 12.sp,
+                            color: Colors.white70,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  // Status Badge
+                  if (khatma.isComplete)
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 8.w,
+                        vertical: 4.h,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
+                      child: Text(
+                        AppLocalizations.of(context)!.khatmaCompleted,
+                        style: TextStyle(
+                          fontFamily: AppFonts.tajawal,
+                          fontSize: 11.sp,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green,
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+            ),
+
+            // Content
+            Padding(
+              padding: EdgeInsets.all(16.w),
+              child: Column(
+                children: [
+                  // Stats Row
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      _buildStat(
+                        icon: Icons.people_outline,
+                        label: AppLocalizations.of(context)!.participants,
+                        value: '${khatma.participantsCount}',
+                      ),
+                      _buildStat(
+                        icon: Icons.check_circle_outline,
+                        label: AppLocalizations.of(context)!.completed,
+                        value: '${khatma.completedPartsCount}/30',
+                      ),
+                      _buildStat(
+                        icon: Icons.schedule,
+                        label: AppLocalizations.of(context)!.daysRemaining,
+                        value: '${khatma.daysRemaining}',
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 16.h),
+
+                  // Progress Bar
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        '${(progressPercentage * 100).toStringAsFixed(0)}%',
+                        style: TextStyle(
+                          fontFamily: AppFonts.tajawal,
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.goldenColor,
+                        ),
+                      ),
+                      SizedBox(height: 4.h),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(4.r),
+                        child: LinearProgressIndicator(
+                          value: progressPercentage,
+                          backgroundColor: isDark
+                              ? Colors.grey[700]
+                              : Colors.grey[200],
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            khatma.isComplete
+                                ? Colors.green
+                                : AppColors.goldenColor,
+                          ),
+                          minHeight: 6.h,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildStat({
+    required IconData icon,
+    required String label,
+    required String value,
+  }) {
+    return Column(
+      children: [
+        Icon(icon, color: AppColors.goldenColor, size: 20.sp),
+        SizedBox(height: 4.h),
+        Text(
+          value,
+          style: TextStyle(
+            fontFamily: AppFonts.tajawal,
+            fontSize: 14.sp,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            fontFamily: AppFonts.tajawal,
+            fontSize: 11.sp,
+            color: Colors.grey,
+          ),
+        ),
+      ],
+    );
+  }
+}

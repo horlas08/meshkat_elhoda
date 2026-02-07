@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "521578936933",
+    "project_id": "meshkat-al-hoda",
+    "storage_bucket": "meshkat-al-hoda.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521578936933:android:fdd888a16e7620c603a48c",
+        "android_client_info": {
+          "package_name": "com.meshkatelhoda.pro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521578936933-7bmpueh2l3f1jeq657oi6ugi1ohpc3ok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSWuhZrHZVBnGhvK0bciWH78kE_Bcclj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521578936933-7bmpueh2l3f1jeq657oi6ugi1ohpc3ok.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "521578936933-l2e16b7ntiubk4al54mbbv06v447ou4c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.meshkatElhoda"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

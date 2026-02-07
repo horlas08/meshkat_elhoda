@@ -1,0 +1,28 @@
+{
+    "muezzins": [
+        {
+            "id": "ali_almula",
+            "name": "Ali Almula",
+            "audio": {
+                "fajr": "assets/athan/ali_almula_fajr.mp3",
+                "regular": "assets/athan/ali_almula_regular.mp3"
+            }
+        },
+        {
+            "id": "nasr_tobar",
+            "name": "Nasr Tobar",
+            "audio": {
+                "fajr": "assets/athan/nasr_tobar_fajr.mp3",
+                "regular": "assets/athan/nasr_tobar_regular.mp3"
+            }
+        },
+        {
+            "id": "srehi",
+            "name": "Srehi",
+            "audio": {
+                "fajr": "assets/athan/srehi_fajr.mp3",
+                "regular": "assets/athan/srehi_regular.mp3"
+            }
+        }
+    ]
+}

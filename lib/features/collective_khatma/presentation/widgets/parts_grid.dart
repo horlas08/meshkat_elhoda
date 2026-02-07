@@ -1,0 +1,182 @@
+import 'package:flutter/material.dart';
+import 'package:meshkat_elhoda/core/utils/app_colors.dart';
+import 'package:meshkat_elhoda/core/utils/app_fonts.dart';
+import 'package:meshkat_elhoda/core/utils/size_utils.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../domain/entities/collective_khatma_entity.dart';
+
+/// Grid widget displaying all 30 parts of the khatma
+class PartsGrid extends StatelessWidget {
+  final CollectiveKhatmaEntity khatma;
+  final int? userReservedPart;
+  final String? currentUserId;
+  final Function(int partNumber) onPartSelected;
+
+  const PartsGrid({
+    super.key,
+    required this.khatma,
+    this.userReservedPart,
+    this.currentUserId,
+    required this.onPartSelected,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Legend
+          _buildLegend(context),
+          SizedBox(height: 12.h),
+
+          // Grid
+          Expanded(
+            child: GridView.builder(
+              padding: EdgeInsets.only(bottom: 16.h),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 5,
+                crossAxisSpacing: 8.w,
+                mainAxisSpacing: 8.h,
+                childAspectRatio: 1,
+              ),
+              itemCount: 30,
+              itemBuilder: (context, index) {
+                final partNumber = index + 1;
+                final part = khatma.parts[index];
+                return _buildPartCell(context, partNumber, part);
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildLegend(BuildContext context) {
+    return Wrap(
+      spacing: 16.w,
+      runSpacing: 8.h,
+      children: [
+        _buildLegendItem(Colors.green, AppLocalizations.of(context)!.partCompleted),
+        _buildLegendItem(Colors.orange, AppLocalizations.of(context)!.reserved),
+        _buildLegendItem(AppColors.goldenColor, AppLocalizations.of(context)!.yourPart),
+        _buildLegendItem(Colors.grey[400]!, AppLocalizations.of(context)!.available),
+      ],
+    );
+  }
+
+  Widget _buildLegendItem(Color color, String label) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          width: 16.w,
+          height: 16.w,
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(4.r),
+          ),
+        ),
+        SizedBox(width: 4.w),
+        Text(
+          label,
+          style: TextStyle(
+            fontFamily: AppFonts.tajawal,
+            fontSize: 12.sp,
+            color: Colors.grey[600],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildPartCell(
+    BuildContext context,
+    int partNumber,
+    KhatmaPartEntity part,
+  ) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isUserPart = part.userId == currentUserId;
+    final isCompleted = part.isCompleted;
+    final isReserved = part.isReserved;
+
+    Color backgroundColor;
+    Color borderColor;
+    Color textColor;
+
+    if (isCompleted) {
+      backgroundColor = Colors.green;
+      borderColor = Colors.green.shade700;
+      textColor = Colors.white;
+    } else if (isUserPart) {
+      backgroundColor = AppColors.goldenColor;
+      borderColor = AppColors.goldenColor.withValues(alpha: 0.7);
+      textColor = Colors.white;
+    } else if (isReserved) {
+      backgroundColor = Colors.orange;
+      borderColor = Colors.orange.shade700;
+      textColor = Colors.white;
+    } else {
+      backgroundColor = isDark ? Colors.grey[800]! : Colors.grey[100]!;
+      borderColor = isDark ? Colors.grey[700]! : Colors.grey[300]!;
+      textColor = isDark ? Colors.white : Colors.black87;
+    }
+
+    return GestureDetector(
+      onTap: () => onPartSelected(partNumber),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(12.r),
+          border: Border.all(color: borderColor, width: 2),
+          boxShadow: isUserPart
+              ? [
+                  BoxShadow(
+                    color: AppColors.goldenColor.withValues(alpha: 0.4),
+                    blurRadius: 8,
+                    spreadRadius: 1,
+                  ),
+                ]
+              : null,
+        ),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            // Part Number
+            Text(
+              AppLocalizations.of(context)!.partNumber.replaceAll('{0}', partNumber.toString()),
+              style: TextStyle(
+                fontFamily: AppFonts.tajawal,
+                fontSize: 18.sp,
+                fontWeight: FontWeight.bold,
+                color: textColor,
+              ),
+            ),
+
+            // Completed Icon
+            if (isCompleted)
+              Positioned(
+                top: 2.h,
+                right: 2.w,
+                child: Icon(
+                  Icons.check_circle,
+                  size: 14.sp,
+                  color: Colors.white,
+                ),
+              ),
+
+            // User's Part Indicator
+            if (isUserPart && !isCompleted)
+              Positioned(
+                bottom: 2.h,
+                child: Icon(Icons.person, size: 12.sp, color: Colors.white70),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -1,0 +1,208 @@
+{
+    "umrah": [
+        {
+            "id": "u1",
+            "title": {
+                "ar": "الإحرام",
+                "en": "Ihram"
+            },
+            "description": {
+                "ar": "الغسل، التطيب، لبس الإحرام، وصلاة ركعتين.",
+                "en": "Perform Ghusl (ritual bath), apply perfume (to body, not clothes), wear Ihram garments, and pray 2 Rak'ahs."
+            },
+            "duas": [
+                {
+                    "title": {
+                        "ar": "نية العمرة",
+                        "en": "Intention for Umrah"
+                    },
+                    "arabic": "لَبَّيْكَ اللَّهُمَّ عُمْرَةً",
+                    "translation": {
+                        "ar": "اللهم إني أريد العمرة فيسرها لي وتقبلها مني",
+                        "en": "Labbayka Allahumma Umrah (O Allah, here I am to perform Umrah)"
+                    }
+                },
+                {
+                    "title": {
+                        "ar": "التلبية",
+                        "en": "Talbiyah"
+                    },
+                    "arabic": "لَبَّيْكَ ٱللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ ٱلْحَمْدَ وَٱلنِّعْمَةَ لَكَ وَٱلْمُلْكَ لَا شَرِيكَ لَكَ",
+                    "translation": {
+                        "ar": "...",
+                        "en": "Here I am, O Allah, here I am. Here I am, You have no partner, here I am. Verily all praise and blessings are Yours, and all sovereignty, You have no partner."
+                    }
+                }
+            ]
+        },
+        {
+            "id": "u2",
+            "title": {
+                "ar": "دخول مكة والمسجد الحرام",
+                "en": "Entering Makkah & Masjid Al-Haram"
+            },
+            "description": {
+                "ar": "دخول المسجد بالرجل اليمنى وقول دعاء الدخول.",
+                "en": "Enter with your right foot and recite the supplication for entering the mosque."
+            },
+            "duas": [
+                {
+                    "title": {
+                        "ar": "دعاء دخول المسجد",
+                        "en": "Entering the Mosque"
+                    },
+                    "arabic": "بِسْمِ اللهِ، وَالصَّلَاةُ وَالسَّلَّامُ عَلَى رَسُولِ اللهِ، اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+                    "translation": {
+                        "ar": "...",
+                        "en": "In the name of Allah, and prayers and peace be upon the Messenger of Allah. O Allah, open the gates of Your mercy for me."
+                    }
+                }
+            ]
+        },
+        {
+            "id": "u3",
+            "title": {
+                "ar": "الطواف (7 أشواط)",
+                "en": "Tawaf (7 Rounds)"
+            },
+            "description": {
+                "ar": "ابدأ من الحجر الأسود. 7 أشواط حول الكعبة.",
+                "en": "Start from the Black Stone. Circumambulate the Kaaba 7 times counter-clockwise."
+            },
+            "duas": [
+                {
+                    "title": {
+                        "ar": "بين الركن اليماني والحجر الأسود",
+                        "en": "Between Yemeni Corner & Black Stone"
+                    },
+                    "arabic": "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+                    "translation": {
+                        "ar": "...",
+                        "en": "Our Lord, give us in this world [that which is] good and in the Hereafter [that which is] good and protect us from the punishment of the Fire."
+                    }
+                }
+            ]
+        },
+        {
+            "id": "u4",
+            "title": {
+                "ar": "السعي (7 أشواط)",
+                "en": "Sa'i (7 Rounds)"
+            },
+            "description": {
+                "ar": "السعي بين الصفا والمروة 7 مرات.",
+                "en": "Walk between Safa and Marwah 7 times. Start at Safa, end at Marwah."
+            },
+            "duas": [
+                {
+                    "title": {
+                        "ar": "عند الصفا والمروة",
+                        "en": "At Safa & Marwah"
+                    },
+                    "arabic": "إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ...",
+                    "translation": {
+                        "ar": "...",
+                        "en": "Indeed, as-Safa and al-Marwah are among the symbols of Allah..."
+                    }
+                }
+            ]
+        },
+        {
+            "id": "u5",
+            "title": {
+                "ar": "الحلق أو التقصير",
+                "en": "Halq or Taqsir"
+            },
+            "description": {
+                "ar": "حلق الشعر (للرجال) أو تقصيره. النساء يقصرن قدر أنملة.",
+                "en": "Shaving the head (recommended for men) or trimming. Women trim a fingertip's length."
+            },
+            "duas": []
+        }
+    ],
+    "hajj": [
+        {
+            "id": "h1",
+            "title": {
+                "ar": "يوم التروية (8 ذي الحجة)",
+                "en": "Day of Tarwiyah (8th Dhul-Hijjah)"
+            },
+            "description": {
+                "ar": "التوجه إلى منى والمبيت فيها.",
+                "en": "Proceed to Mina and stay overnight. Pray Dhuhr, Asr, Maghrib, Isha and Fajr."
+            },
+            "duas": []
+        },
+        {
+            "id": "h2",
+            "title": {
+                "ar": "يوم عرفة (9 ذي الحجة)",
+                "en": "Day of Arafah (9th Dhul-Hijjah)"
+            },
+            "description": {
+                "ar": "الوقوف بعرفة وهو ركن الحج الأعظم.",
+                "en": "Stand at Arafah. This is the most important pillar of Hajj. Make abundant Dua."
+            },
+            "duas": [
+                {
+                    "title": {
+                        "ar": "دعاء عرفة",
+                        "en": "Dua of Arafah"
+                    },
+                    "arabic": "لا إله إلا الله وحده لا شريك له، له الملك وله الحمد، وهو على كل شيء قدير",
+                    "translation": {
+                        "en": "There is no god but Allah alone, with no partner or associate..."
+                    }
+                }
+            ]
+        },
+        {
+            "id": "h3",
+            "title": {
+                "ar": "مزدلفة (ليلة 10 ذي الحجة)",
+                "en": "Muzdalifah (Night of 10th)"
+            },
+            "description": {
+                "ar": "المبيت بمزدلفة وجمع الحصى.",
+                "en": "Stay overnight in Muzdalifah. Collect pebbles for Jamarat."
+            },
+            "duas": []
+        },
+        {
+            "id": "h4",
+            "title": {
+                "ar": "يوم النحر (10 ذي الحجة)",
+                "en": "Day of Nahr (10th Dhul-Hijjah)"
+            },
+            "description": {
+                "ar": "رمي جمرة العقبة، الهدي، الحلق، طواف الإفاضة.",
+                "en": "Stone Jamrat Al-Aqabah, Sacrifice animal, Shave/Trim, Tawaf Al-Ifadah."
+            },
+            "duas": []
+        },
+        {
+            "id": "h5",
+            "title": {
+                "ar": "أيام التشريق (11-13 ذي الحجة)",
+                "en": "Days of Tashreeq (11-13)"
+            },
+            "description": {
+                "ar": "رمي الجمرات الثلاث والمبيت بمنى.",
+                "en": "Stone the three Jamarat each day. Stay in Mina."
+            },
+            "duas": []
+        },
+        {
+            "id": "h6",
+            "title": {
+                "ar": "طواف الوداع",
+                "en": "Farewell Tawaf"
+            },
+            "description": {
+                "ar": "آخر عهد بالبيت قبل المغادرة.",
+                "en": "Perform Tawaf Al-Wada' before leaving Makkah."
+            },
+            "duas": []
+        }
+    ]
+}

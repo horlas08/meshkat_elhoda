@@ -1,0 +1,215 @@
+import 'package:flutter/material.dart';
+import 'package:meshkat_elhoda/core/utils/app_colors.dart';
+import 'package:meshkat_elhoda/core/utils/app_fonts.dart';
+import 'package:meshkat_elhoda/core/utils/size_utils.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../domain/entities/collective_khatma_entity.dart';
+
+/// Header widget showing khatma progress summary
+class KhatmaProgressHeader extends StatelessWidget {
+  final CollectiveKhatmaEntity khatma;
+
+  const KhatmaProgressHeader({super.key, required this.khatma});
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final progressPercentage = khatma.progressPercentage;
+
+    return Container(
+      margin: EdgeInsets.all(16.w),
+      padding: EdgeInsets.all(20.w),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: isDark
+              ? [AppColors.darkGrey, AppColors.darkGrey.withValues(alpha: 0.8)]
+              : [AppColors.goldenColor, AppColors.secondaryColor],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(20.r),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.goldenColor.withValues(alpha: 0.3),
+            blurRadius: 15,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          // Circular Progress
+          Row(
+            children: [
+              // Progress Circle
+              SizedBox(
+                width: 100.w,
+                height: 100.w,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    SizedBox(
+                      width: 100.w,
+                      height: 100.w,
+                      child: CircularProgressIndicator(
+                        value: progressPercentage,
+                        strokeWidth: 8,
+                        backgroundColor: Colors.white24,
+                        valueColor: const AlwaysStoppedAnimation<Color>(
+                          Colors.white,
+                        ),
+                      ),
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '${(progressPercentage * 100).toStringAsFixed(0)}%',
+                          style: TextStyle(
+                            fontSize: 24.sp,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          AppLocalizations.of(context)!.completion,
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            color: Colors.white70,
+                            fontFamily: AppFonts.tajawal,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+              SizedBox(width: 20.w),
+
+              // Stats
+              Expanded(
+                child: Column(
+                  children: [
+                    _buildStatRow(
+                      icon: Icons.check_circle,
+                      label: AppLocalizations.of(context)!.completedPartsLabel,
+                      value: '${khatma.completedPartsCount}',
+                      color: Colors.green,
+                    ),
+                    SizedBox(height: 12.h),
+                    _buildStatRow(
+                      icon: Icons.person,
+                      label: AppLocalizations.of(context)!.reservedParts,
+                      value: '${khatma.reservedPartsCount}',
+                      color: Colors.orange,
+                    ),
+                    SizedBox(height: 12.h),
+                    _buildStatRow(
+                      icon: Icons.radio_button_unchecked,
+                      label: AppLocalizations.of(context)!.availableParts,
+                      value: '${khatma.availablePartsCount}',
+                      color: Colors.white70,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+
+          SizedBox(height: 16.h),
+
+          // Divider
+          Divider(color: Colors.white24),
+
+          SizedBox(height: 16.h),
+
+          // Bottom Stats Row
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildBottomStat(
+                icon: Icons.people,
+                label: AppLocalizations.of(context)!.participants,
+                value: '${khatma.participantsCount}',
+              ),
+              _buildBottomStat(
+                icon: Icons.calendar_today,
+                label: AppLocalizations.of(context)!.startDate,
+                value: '${khatma.startDate.day}/${khatma.startDate.month}',
+              ),
+              _buildBottomStat(
+                icon: Icons.schedule,
+                label: AppLocalizations.of(context)!.daysRemaining,
+                value: '${khatma.daysRemaining} ${AppLocalizations.of(context)!.days}',
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStatRow({
+    required IconData icon,
+    required String label,
+    required String value,
+    required Color color,
+  }) {
+    return Row(
+      children: [
+        Icon(icon, color: color, size: 18.sp),
+        SizedBox(width: 8.w),
+        Expanded(
+          child: Text(
+            label,
+            style: TextStyle(
+              fontFamily: AppFonts.tajawal,
+              fontSize: 13.sp,
+              color: Colors.white70,
+            ),
+          ),
+        ),
+        Text(
+          value,
+          style: TextStyle(
+            fontFamily: AppFonts.tajawal,
+            fontSize: 16.sp,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildBottomStat({
+    required IconData icon,
+    required String label,
+    required String value,
+  }) {
+    return Column(
+      children: [
+        Icon(icon, color: Colors.white70, size: 20.sp),
+        SizedBox(height: 4.h),
+        Text(
+          value,
+          style: TextStyle(
+            fontFamily: AppFonts.tajawal,
+            fontSize: 14.sp,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            fontFamily: AppFonts.tajawal,
+            fontSize: 11.sp,
+            color: Colors.white70,
+          ),
+        ),
+      ],
+    );
+  }
+}

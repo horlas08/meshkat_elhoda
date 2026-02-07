@@ -1,0 +1,437 @@
+import 'dart:async';
+import 'dart:developer';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:meshkat_elhoda/core/utils/app_colors.dart';
+import 'package:meshkat_elhoda/core/utils/app_fonts.dart';
+import 'package:meshkat_elhoda/core/utils/app_text_styles.dart';
+import 'package:meshkat_elhoda/core/utils/size_utils.dart';
+import 'package:meshkat_elhoda/core/services/service_locator.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../bloc/collective_khatma_bloc.dart';
+import '../bloc/collective_khatma_event.dart';
+import '../bloc/collective_khatma_state.dart';
+import '../widgets/khatma_card.dart';
+import 'create_khatma_page.dart';
+import 'khatma_details_page.dart';
+import 'user_khatmas_page.dart';
+
+/// Main page for collective khatma feature - shows list of public khatmas
+class CollectiveKhatmaPage extends StatelessWidget {
+  const CollectiveKhatmaPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) =>
+          getIt<CollectiveKhatmaBloc>()..add(LoadPublicKhatmasEvent()),
+      child: const _CollectiveKhatmaPageContent(),
+    );
+  }
+}
+
+class _CollectiveKhatmaPageContent extends StatefulWidget {
+  const _CollectiveKhatmaPageContent();
+
+  @override
+  State<_CollectiveKhatmaPageContent> createState() =>
+      _CollectiveKhatmaPageContentState();
+}
+
+class _CollectiveKhatmaPageContentState
+    extends State<_CollectiveKhatmaPageContent> {
+  final TextEditingController _searchController = TextEditingController();
+  bool _isSearching = false;
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: _isSearching
+            ? TextField(
+          controller: _searchController,
+          autofocus: true,
+          style: TextStyle(
+            fontFamily: AppFonts.tajawal,
+            color: isDark ? Colors.white : Colors.black,
+          ),
+          decoration: InputDecoration(
+            hintText: AppLocalizations.of(context)!.searchKhatmaHint,
+            hintStyle: TextStyle(
+              fontFamily: AppFonts.tajawal,
+              color: isDark ? Colors.white54 : Colors.black54,
+            ),
+            border: InputBorder.none,
+          ),
+          onSubmitted: (query) {
+            context.read<CollectiveKhatmaBloc>().add(
+              SearchKhatmasEvent(query),
+            );
+          },
+        )
+            : Text(
+          AppLocalizations.of(context)!.collectiveKhatmas,
+          style: AppTextStyles.surahName.copyWith(
+            fontFamily: AppFonts.tajawal,
+            fontWeight: FontWeight.bold,
+            fontSize: 20.sp,
+            color: isDark ? Colors.white : Colors.black,
+          ),
+        ),
+        centerTitle: true,
+        actions: [
+          if (user != null && !_isSearching)
+            IconButton(
+              icon: const Icon(Icons.person_outline),
+              tooltip: AppLocalizations.of(context)!.myKhatmas,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const UserKhatmasPage(),
+                  ),
+                );
+              },
+            ),
+          if (user != null && !_isSearching)
+            IconButton(
+              icon: const Icon(Icons.link),
+              tooltip: AppLocalizations.of(context)!.joinByLink,
+              onPressed: () => _showJoinByLinkDialog(context),
+            ),
+          IconButton(
+            icon: Icon(_isSearching ? Icons.close : Icons.search),
+            onPressed: () {
+              setState(() {
+                _isSearching = !_isSearching;
+                if (!_isSearching) {
+                  _searchController.clear();
+                  context.read<CollectiveKhatmaBloc>().add(
+                    LoadPublicKhatmasEvent(),
+                  );
+                }
+              });
+            },
+          ),
+        ],
+      ),
+      body: user == null ? _buildGuestView(context) : _buildContent(context),
+      floatingActionButton: user != null
+          ? FloatingActionButton.extended(
+        onPressed: () => _navigateToCreateKhatma(context),
+        backgroundColor: AppColors.goldenColor,
+        icon: const Icon(Icons.add, color: Colors.white),
+        label: Text(
+          AppLocalizations.of(context)!.createKhatma,
+          style: TextStyle(
+            fontFamily: AppFonts.tajawal,
+            color: Colors.white,
+          ),
+        ),
+      )
+          : null,
+    );
+  }
+
+  Widget _buildGuestView(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: EdgeInsets.all(24.w),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.lock_outline, size: 80.sp, color: AppColors.goldenColor),
+            SizedBox(height: 24.h),
+            Text(
+              AppLocalizations.of(context)!.loginRequiredMessage,
+              style: AppTextStyles.surahName.copyWith(
+                fontSize: 18.sp,
+                fontFamily: AppFonts.tajawal,
+                color: Theme.of(context).textTheme.bodyLarge?.color,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 16.h),
+            Text(
+              AppLocalizations.of(context)!.loginToJoinMessage,
+              style: TextStyle(
+                fontSize: 14.sp,
+                fontFamily: AppFonts.tajawal,
+                color: Theme.of(
+                  context,
+                ).textTheme.bodyMedium?.color?.withValues(alpha: 0.7),
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildContent(BuildContext context) {
+    return BlocBuilder<CollectiveKhatmaBloc, CollectiveKhatmaState>(
+      builder: (context, state) {
+        if (state is CollectiveKhatmaLoading) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        if (state is CollectiveKhatmaError) {
+          log(state.message);
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  state.message,
+                  style: TextStyle(
+                    fontFamily: AppFonts.tajawal,
+                    fontSize: 16.sp,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 16.h),
+                ElevatedButton(
+                  onPressed: () {
+                    context.read<CollectiveKhatmaBloc>().add(
+                      LoadPublicKhatmasEvent(),
+                    );
+                  },
+                  child: Text(AppLocalizations.of(context)!.retry),
+                ),
+              ],
+            ),
+          );
+        }
+
+        List<dynamic> khatmas = [];
+        if (state is PublicKhatmasLoaded) {
+          khatmas = state.khatmas;
+        } else if (state is KhatmaSearchResults) {
+          khatmas = state.results;
+        }
+
+        if (khatmas.isEmpty) {
+          return _buildEmptyView(context);
+        }
+
+        return RefreshIndicator(
+          onRefresh: () async {
+            context.read<CollectiveKhatmaBloc>().add(LoadPublicKhatmasEvent());
+          },
+          child: ListView.builder(
+            padding: EdgeInsets.all(16.w),
+            itemCount: khatmas.length,
+            itemBuilder: (context, index) {
+              final khatma = khatmas[index];
+              return Padding(
+                padding: EdgeInsets.only(bottom: 12.h),
+                child: KhatmaCard(
+                  khatma: khatma,
+                  onTap: () => _navigateToKhatmaDetails(context, khatma.id),
+                ),
+              );
+            },
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildEmptyView(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.auto_stories_outlined,
+            size: 80.sp,
+            color: AppColors.goldenColor.withValues(alpha: 0.5),
+          ),
+          SizedBox(height: 24.h),
+          Text(
+            AppLocalizations.of(context)!.noKhatmasAvailable,
+            style: AppTextStyles.surahName.copyWith(
+              fontSize: 18.sp,
+              fontFamily: AppFonts.tajawal,
+            ),
+          ),
+          SizedBox(height: 8.h),
+          Text(
+            AppLocalizations.of(context)!.beFirstToCreate,
+            style: TextStyle(
+              fontSize: 14.sp,
+              fontFamily: AppFonts.tajawal,
+              color: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.color?.withValues(alpha: 0.7),
+            ),
+          ),
+          SizedBox(height: 24.h),
+          ElevatedButton.icon(
+            onPressed: () => _navigateToCreateKhatma(context),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.goldenColor,
+              padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
+            ),
+            icon: const Icon(Icons.add, color: Colors.white),
+            label: Text(
+              AppLocalizations.of(context)!.createNewKhatma,
+              style: TextStyle(
+                fontFamily: AppFonts.tajawal,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _navigateToCreateKhatma(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const CreateKhatmaPage()),
+    ).then((_) {
+      if (context.mounted) {
+        context.read<CollectiveKhatmaBloc>().add(LoadPublicKhatmasEvent());
+      }
+    });
+  }
+
+  void _navigateToKhatmaDetails(BuildContext context, String khatmaId) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => KhatmaDetailsPage(khatmaId: khatmaId),
+      ),
+    ).then((_) {
+      // Reload public khatmas when returning from khatma details
+      if (context.mounted) {
+        context.read<CollectiveKhatmaBloc>().add(LoadPublicKhatmasEvent());
+      }
+    });
+  }
+
+  Future<void> _showJoinByLinkDialog(BuildContext context) async {
+    final TextEditingController controller = TextEditingController();
+    final bloc = context.read<CollectiveKhatmaBloc>();
+
+    return showDialog(
+      context: context,
+      builder: (dialogContext) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            bool isLoading = false;
+
+            Future<void> _joinKhatma() async {
+              final link = controller.text.trim();
+              if (link.isEmpty) return;
+
+              setState(() => isLoading = true);
+
+              try {
+                // Create a new bloc to handle the join operation without affecting the main screen
+                final joinBloc = getIt<CollectiveKhatmaBloc>();
+
+                // Listen for the response
+                final subscription = joinBloc.stream.listen((state) {
+                  if (state is KhatmaLoaded) {
+                    Navigator.of(dialogContext).pop(); // Close the dialog
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            KhatmaDetailsPage(khatmaId: state.khatma.id),
+                      ),
+                    );
+                  } else if (state is CollectiveKhatmaError) {
+                    if (mounted) {
+                      setState(() => isLoading = false);
+                      ScaffoldMessenger.of(
+                        context,
+                      ).showSnackBar(SnackBar(content: Text(state.message)));
+                    }
+                  }
+                });
+
+                // Trigger the join event
+                joinBloc.add(LoadKhatmaByInviteLinkEvent(link));
+
+                // Clean up subscription when dialog is closed
+                Future.delayed(const Duration(seconds: 30), () {
+                  subscription.cancel();
+                });
+              } catch (e) {
+                if (mounted) {
+                  setState(() => isLoading = false);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('حدث خطأ أثناء محاولة الانضمام للختمة'),
+                    ),
+                  );
+                }
+              }
+            }
+
+            return AlertDialog(
+              title: Text(
+                'انضم إلى ختمة برابط',
+                style: TextStyle(fontFamily: AppFonts.tajawal),
+              ),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextField(
+                    controller: controller,
+                    decoration: InputDecoration(
+                      hintText: 'الصق رابط الختمة هنا',
+                      hintStyle: TextStyle(fontFamily: AppFonts.tajawal),
+                    ),
+                    onSubmitted: (_) => _joinKhatma(),
+                  ),
+                ],
+              ),
+              actions: [
+                TextButton(
+                  onPressed: isLoading
+                      ? null
+                      : () => Navigator.of(dialogContext).pop(),
+                  child: Text(
+                    'إلغاء',
+                    style: TextStyle(fontFamily: AppFonts.tajawal),
+                  ),
+                ),
+                TextButton(
+                  onPressed: isLoading ? null : _joinKhatma,
+                  child: isLoading
+                      ? const SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : Text(
+                          'إحضار الختمة',
+                          style: TextStyle(fontFamily: AppFonts.tajawal),
+                        ),
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
+}

@@ -1,0 +1,1018 @@
+﻿Analyzing meshkat_elhoda...                                     
+
+   info - Parameters ''message' and 'stackTrace'' could be super parameters - lib\core\error\failures.dart:17:9 - use_super_parameters
+   info - Parameters ''message' and 'stackTrace'' could be super parameters - lib\core\error\failures.dart:24:9 - use_super_parameters
+   info - Parameters ''message' and 'stackTrace'' could be super parameters - lib\core\error\failures.dart:31:9 - use_super_parameters
+   info - Parameters ''message' and 'stackTrace'' could be super parameters - lib\core\error\failures.dart:38:9 - use_super_parameters
+warning - Unused import: 'package:audio_service/audio_service.dart' - lib\core\services\audio_player\audio_player_service.dart:2:8 - unused_import
+   info - Unnecessary braces in a string interpolation - lib\core\services\audio_player\audio_player_service.dart:120:38 - unnecessary_brace_in_string_interps
+   info - Use 'rethrow' to rethrow a caught exception - lib\core\services\audio_player\audio_player_service.dart:129:11 - use_rethrow_when_possible
+   info - Don't invoke 'print' in production code - lib\core\services\meshkat_audio_handler.dart:59:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\services\meshkat_audio_handler.dart:70:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\services\meshkat_audio_handler.dart:85:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\services\meshkat_audio_handler.dart:110:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\services\meshkat_audio_handler.dart:114:7 - avoid_print
+   info - The import of 'package:flutter/foundation.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart' - lib\core\services\occasion_notification_service.dart:4:8 - unnecessary_import
+   info - Don't invoke 'print' in production code - lib\core\services\quran_audio_services.dart:16:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\core\services\quran_audio_services.dart:33:5 - avoid_print
+   info - 'isInDebugMode' is deprecated and shouldn't be used. Use WorkmanagerDebug handlers instead. This parameter has no effect - lib\core\services\smart_dhikr_service.dart:108:7 - deprecated_member_use
+   info - 'desiredAccuracy' is deprecated and shouldn't be used. use settings parameter with AndroidSettings, AppleSettings, WebSettings, or LocationSettings - lib\core\services\weather_service.dart:29:56 - deprecated_member_use
+warning - The operand can't be 'null', so the condition is always 'false' - lib\core\services\weather_service.dart:31:20 - unnecessary_null_comparison
+   info - The constant name 'FIGMA_DESIGN_WIDTH' isn't a lowerCamelCase identifier - lib\core\utils\size_utils.dart:3:11 - constant_identifier_names
+   info - The constant name 'FIGMA_DESIGN_HEIGHT' isn't a lowerCamelCase identifier - lib\core\utils\size_utils.dart:4:11 - constant_identifier_names
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\widgets\ad_banner_widget.dart:169:54 - deprecated_member_use
+  error - The getter 'searchHint' isn't defined for the type 'AppLocalizations' - lib\core\widgets\custom_search_field.dart:78:41 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\widgets\custom_snack_bar.dart:173:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\widgets\custom_snack_bar.dart:180:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\widgets\custom_snack_bar.dart:190:43 - deprecated_member_use
+warning - Unused import: 'package:meshkat_elhoda/core/utils/size_utils.dart' - lib\core\widgets\islamic_appbar.dart:4:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\widgets\modern_snack_bar_new.dart:203:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\core\widgets\modern_snack_bar_new.dart:216:43 - deprecated_member_use
+   info - The variable name 'asmaaAllah_en' isn't a lowerCamelCase identifier - lib\features\asmaa_allah\presentation\data\asmaa_alluah_data.dart:102:20 - non_constant_identifier_names
+   info - The imported package 'collection' isn't a dependency of the importing package - lib\features\asmaa_allah\presentation\view\asmaa_alluah_view.dart:1:8 - depend_on_referenced_packages
+   info - Parameters ''id', 'role', 'text', 'timestamp', and 'model'' could be super parameters - lib\features\assistant\data\models\chat_message_model.dart:5:9 - use_super_parameters
+   info - Parameters ''id', 'createdAt', 'lastMessage', and 'lastMessageTime'' could be super parameters - lib\features\assistant\data\models\chat_model.dart:5:9 - use_super_parameters
+   info - Statements in an if should be enclosed in a block - lib\features\assistant\data\repositories\assistant_repository_impl.dart:34:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\features\assistant\data\repositories\assistant_repository_impl.dart:68:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\features\assistant\data\repositories\assistant_repository_impl.dart:143:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\features\assistant\data\repositories\assistant_repository_impl.dart:171:9 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\features\assistant\data\repositories\assistant_repository_impl.dart:193:9 - curly_braces_in_flow_control_structures
+   info - Use interpolation to compose strings and values - lib\features\assistant\data\repositories\assistant_repository_impl.dart:220:12 - prefer_interpolation_to_compose_strings
+   info - Parameter 'key' could be a super parameter - lib\features\assistant\presentation\pages\assistant_page_example.dart:19:9 - use_super_parameters
+   info - Parameter 'key' could be a super parameter - lib\features\assistant\presentation\pages\assistant_page_example.dart:50:9 - use_super_parameters
+  error - The getter 'assistantAppBarTitle' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:86:51 - undefined_getter
+  error - The getter 'startNewChatMessage' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:196:57 - undefined_getter
+  error - The getter 'typingIndicator' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:209:34 - undefined_getter
+  error - The getter 'aiGeneratedAnswersNeedReview' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:241:28 - undefined_getter
+  error - The getter 'dailyLimitReachedTitle' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:329:43 - undefined_getter
+  error - The getter 'dailyLimitReachedMessage' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:338:43 - undefined_getter
+  error - The getter 'upgradeToPremiumButton' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:352:55 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\assistant\presentation\pages\assistant_page_example.dart:374:9 - use_super_parameters
+  error - The getter 'featureAvailableForPremium' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:388:47 - undefined_getter
+  error - The getter 'premiumFeatureContent' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:391:47 - undefined_getter
+  error - The getter 'okButton' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:396:61 - undefined_getter
+  error - The getter 'upgradeNowButton' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:403:61 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\assistant\presentation\pages\assistant_page_example.dart:422:9 - use_super_parameters
+  error - The getter 'chooseAiModelTitle' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:435:53 - undefined_getter
+  error - The getter 'gpt4oMiniTitle' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:440:59 - undefined_getter
+  error - The getter 'gpt4oMiniSubtitle' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:441:62 - undefined_getter
+   info - 'groupValue' is deprecated and shouldn't be used. Use a RadioGroup ancestor to manage group value instead. This feature was deprecated after v3.32.0-0.0.pre - lib\features\assistant\presentation\pages\assistant_page_example.dart:443:17 - deprecated_member_use
+   info - 'onChanged' is deprecated and shouldn't be used. Use RadioGroup to handle value change instead. This feature was deprecated after v3.32.0-0.0.pre - lib\features\assistant\presentation\pages\assistant_page_example.dart:444:17 - deprecated_member_use
+  error - The getter 'gpt4oTitle' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:452:59 - undefined_getter
+  error - The getter 'gpt4oSubtitle' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\pages\assistant_page_example.dart:453:62 - undefined_getter
+   info - 'groupValue' is deprecated and shouldn't be used. Use a RadioGroup ancestor to manage group value instead. This feature was deprecated after v3.32.0-0.0.pre - lib\features\assistant\presentation\pages\assistant_page_example.dart:455:17 - deprecated_member_use
+   info - 'onChanged' is deprecated and shouldn't be used. Use RadioGroup to handle value change instead. This feature was deprecated after v3.32.0-0.0.pre - lib\features\assistant\presentation\pages\assistant_page_example.dart:456:17 - deprecated_member_use
+  error - The getter 'dailyLimitReachedTitle' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\ai_question_limit_checker.dart:76:43 - undefined_getter
+  error - The getter 'dailyLimitReachedMessage' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\ai_question_limit_checker.dart:85:43 - undefined_getter
+  error - The getter 'upgradeToPremiumButton' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\ai_question_limit_checker.dart:95:55 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\assistant\presentation\widgets\ai_question_limit_checker.dart:146:30 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\assistant\presentation\widgets\ai_question_limit_checker.dart:148:49 - deprecated_member_use
+  error - The getter 'questionsRemaining' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\ai_question_limit_checker.dart:156:54 - undefined_getter
+  error - The getter 'ofWord' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\ai_question_limit_checker.dart:157:54 - undefined_getter
+  error - The getter 'upgradeToPremiumButton' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\ai_question_limit_checker.dart:208:49 - undefined_getter
+  error - The getter 'premiumFeatureContent' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\ai_question_limit_checker.dart:209:51 - undefined_getter
+  error - The getter 'laterButton' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\ai_question_limit_checker.dart:213:53 - undefined_getter
+  error - The getter 'upgradeNowButton' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\ai_question_limit_checker.dart:223:53 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\assistant\presentation\widgets\chat_list_drawer.dart:12:9 - use_super_parameters
+  error - The getter 'newConversation' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\chat_list_drawer.dart:61:55 - undefined_getter
+  error - The getter 'noConversationsMessage' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\chat_list_drawer.dart:80:55 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\assistant\presentation\widgets\chat_list_drawer.dart:113:9 - use_super_parameters
+  error - The getter 'newConversation' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\chat_list_drawer.dart:119:59 - undefined_getter
+  error - The getter 'dayAgo' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\chat_list_drawer.dart:141:10 - undefined_getter
+  error - The getter 'hourAgo' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\chat_list_drawer.dart:145:10 - undefined_getter
+  error - The getter 'minuteAgo' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\chat_list_drawer.dart:149:10 - undefined_getter
+  error - The getter 'now' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\chat_list_drawer.dart:151:44 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\assistant\presentation\widgets\input_bar.dart:9:9 - use_super_parameters
+  error - The getter 'typeMessageHint' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\input_bar.dart:56:53 - undefined_getter
+  error - The getter 'pleaseWaitHint' isn't defined for the type 'AppLocalizations' - lib\features\assistant\presentation\widgets\input_bar.dart:57:53 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\assistant\presentation\widgets\message_bubble.dart:8:9 - use_super_parameters
+   info - Parameter 'key' could be a super parameter - lib\features\assistant\presentation\widgets\model_selector.dart:8:9 - use_super_parameters
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:128:7 - avoid_print
+   info - 'window' is deprecated and shouldn't be used. Look up the current FlutterView from the context via View.of(context) or consult the PlatformDispatcher directly instead. Deprecated to prepare for the upcoming multi-window support. This feature was deprecated after v3.7.0-32.0.pre - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:151:31 - deprecated_member_use
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:194:11 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:214:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:371:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:382:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:384:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:387:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:403:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:405:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:416:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:420:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:421:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:423:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:424:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:425:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:438:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:453:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:456:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:458:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:461:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:463:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:464:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:465:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\auth\data\data_sources\auth_remote_data_source_impl.dart:473:7 - avoid_print
+   info - Parameters ''uid', 'name', 'email', 'language', 'country', 'city', 'location', 'subscription', 'createdAt', and 'deviceToken'' could be super parameters - lib\features\auth\data\models\user_model.dart:6:3 - use_super_parameters
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\auth\presentation\bloc\auth_bloc.dart:3:8 - depend_on_referenced_packages
+  error - The getter 'checkSpamMessage' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\bloc\auth_bloc.dart:235:49 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\auth\presentation\screens\forgot_password_screen.dart:14:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\features\auth\presentation\screens\forgot_password_screen.dart:17:3 - library_private_types_in_public_api
+   info - Don't use 'BuildContext's across async gaps - lib\features\auth\presentation\screens\forgot_password_screen.dart:44:29 - use_build_context_synchronously
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\presentation\screens\forgot_password_screen.dart:80:54 - deprecated_member_use
+  error - The getter 'forgotPasswordTitle' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\forgot_password_screen.dart:93:53 - undefined_getter
+  error - The getter 'forgotPasswordDescription' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\forgot_password_screen.dart:106:53 - undefined_getter
+  error - The getter 'emailLabel' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\forgot_password_screen.dart:120:60 - undefined_getter
+  error - The getter 'emailRequiredError' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\forgot_password_screen.dart:126:30 - undefined_getter
+  error - The getter 'invalidEmailError' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\forgot_password_screen.dart:133:30 - undefined_getter
+  error - The getter 'sendResetLink' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\forgot_password_screen.dart:182:67 - undefined_getter
+  error - The getter 'backToLogin' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\forgot_password_screen.dart:200:55 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\auth\presentation\screens\login_screen.dart:20:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\features\auth\presentation\screens\login_screen.dart:23:3 - library_private_types_in_public_api
+   info - The local variable '_lastMessage' starts with an underscore - lib\features\auth\presentation\screens\login_screen.dart:41:13 - no_leading_underscores_for_local_identifiers
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\features\auth\presentation\screens\login_screen.dart:88:17 - use_build_context_synchronously
+  error - The getter 'emailLabel' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\login_screen.dart:128:60 - undefined_getter
+  error - The getter 'emailRequiredError' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\login_screen.dart:134:30 - undefined_getter
+  error - The getter 'passwordLabel' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\login_screen.dart:143:60 - undefined_getter
+  error - The getter 'passwordRequiredError' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\login_screen.dart:150:30 - undefined_getter
+  error - The getter 'forgotPassword' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\login_screen.dart:170:57 - undefined_getter
+  error - The getter 'loginButton' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\login_screen.dart:231:44 - undefined_getter
+  error - The getter 'alreadyHaveAccount' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\login_screen.dart:258:44 - undefined_getter
+  error - The getter 'createAccountLink' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\login_screen.dart:268:44 - undefined_getter
+warning - Unused import: 'package:meshkat_elhoda/features/auth/presentation/widgets/searchable_dropdown.dart' - lib\features\auth\presentation\screens\register_screen.dart:11:8 - unused_import
+warning - Unused import: 'package:meshkat_elhoda/features/main_navigation/presentation/views/home_view.dart' - lib\features\auth\presentation\screens\register_screen.dart:13:8 - unused_import
+   info - Parameter 'key' could be a super parameter - lib\features\auth\presentation\screens\register_screen.dart:19:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\features\auth\presentation\screens\register_screen.dart:22:3 - library_private_types_in_public_api
+   info - The private field _selectedCountry could be 'final' - lib\features\auth\presentation\screens\register_screen.dart:31:11 - prefer_final_fields
+  error - The getter 'nameLabel' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:86:58 - undefined_getter
+  error - The getter 'nameRequiredError' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:89:62 - undefined_getter
+  error - The getter 'emailLabelRegister' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:100:58 - undefined_getter
+  error - The getter 'emailRequiredErrorRegister' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:104:62 - undefined_getter
+  error - The getter 'passwordLabelRegister' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:115:58 - undefined_getter
+  error - The getter 'passwordRequiredErrorRegister' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:120:62 - undefined_getter
+  error - The getter 'passwordMinLengthError' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:123:62 - undefined_getter
+  error - The getter 'confirmPasswordLabel' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:134:58 - undefined_getter
+  error - The getter 'confirmPasswordRequiredError' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:139:62 - undefined_getter
+  error - The getter 'passwordsMismatchError' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:142:62 - undefined_getter
+  error - The getter 'createAccountButton' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:201:59 - undefined_getter
+  error - The getter 'orText' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:221:61 - undefined_getter
+  error - The getter 'loginAsGuestButton' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:291:69 - undefined_getter
+  error - The getter 'noAccountText' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:322:72 - undefined_getter
+  error - The getter 'loginLinkText' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:330:71 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\auth\presentation\screens\register_screen.dart:358:9 - use_super_parameters
+   info - Use a 'SizedBox' to add whitespace to a layout - lib\features\auth\presentation\screens\register_screen.dart:362:12 - sized_box_for_whitespace
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\presentation\screens\register_screen.dart:371:36 - deprecated_member_use
+  error - The getter 'loginAsGuestButton' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\screens\register_screen.dart:384:45 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\auth\presentation\screens\splash_screen.dart:13:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\features\auth\presentation\screens\splash_screen.dart:16:3 - library_private_types_in_public_api
+   info - The local variable '_obscureText' starts with an underscore - lib\features\auth\presentation\widgets\custom_text_field.dart:15:8 - no_leading_underscores_for_local_identifiers
+   info - Parameter 'key' could be a super parameter - lib\features\auth\presentation\widgets\searchable_dropdown.dart:13:9 - use_super_parameters
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\auth\presentation\widgets\searchable_dropdown.dart:93:39 - deprecated_member_use
+  error - The getter 'searchHint' isn't defined for the type 'AppLocalizations' - lib\features\auth\presentation\widgets\searchable_dropdown.dart:104:61 - undefined_getter
+  error - The getter 'ofWord' isn't defined for the type 'AppLocalizations' - lib\features\azkar\presentation\screens\azkar_categories_screen.dart:245:131 - undefined_getter
+   info - The imported package 'path_provider' isn't a dependency of the importing package - lib\features\azkar\presentation\screens\zekr_details_view.dart:19:8 - depend_on_referenced_packages
+   info - The import of 'package:flutter/services.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/services.dart' - lib\features\azkar\presentation\screens\zekr_details_view.dart:21:8 - unnecessary_import
+  error - The getter 'copyZekrSuccess' isn't defined for the type 'AppLocalizations' - lib\features\azkar\presentation\screens\zekr_details_view.dart:69:41 - undefined_getter
+  error - The getter 'zekrShared' isn't defined for the type 'AppLocalizations' - lib\features\azkar\presentation\screens\zekr_details_view.dart:83:44 - undefined_getter
+   info - Don't invoke 'print' in production code - lib\features\azkar\presentation\screens\zekr_details_view.dart:94:7 - avoid_print
+   info - Don't use 'BuildContext's across async gaps - lib\features\azkar\presentation\screens\zekr_details_view.dart:97:32 - use_build_context_synchronously
+  error - The getter 'zekrShared' isn't defined for the type 'AppLocalizations' - lib\features\azkar\presentation\screens\zekr_details_view.dart:97:42 - undefined_getter
+   info - Don't use 'BuildContext's across async gaps - lib\features\azkar\presentation\screens\zekr_details_view.dart:97:77 - use_build_context_synchronously
+  error - The getter 'loadDataError' isn't defined for the type 'AppLocalizations' - lib\features\azkar\presentation\screens\zekr_details_view.dart:151:52 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\azkar\presentation\screens\zekr_details_view.dart:197:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\azkar\presentation\screens\zekr_details_view.dart:225:44 - deprecated_member_use
+  error - The getter 'removeFromFavorites' isn't defined for the type 'AppLocalizations' - lib\features\azkar\presentation\screens\zekr_details_view.dart:274:38 - undefined_getter
+  error - The getter 'addToFavoritesSuccess' isn't defined for the type 'AppLocalizations' - lib\features\azkar\presentation\screens\zekr_details_view.dart:300:38 - undefined_getter
+   info - The file name 'StartTasbeh.dart' isn't a lower_case_with_underscores identifier - lib\features\azkar\presentation\widgets\StartTasbeh.dart:1:1 - file_names
+  error - The getter 'premiumOnlyFeature' isn't defined for the type 'AppLocalizations' - lib\features\azkar\presentation\widgets\all_azkar_list.dart:47:65 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\azkar\presentation\widgets\allah_name_card.dart:22:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\azkar\presentation\widgets\allah_name_card.dart:23:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\azkar\presentation\widgets\azkar_category_card.dart:33:57 - deprecated_member_use
+warning - The value of the field '_isPlaying' isn't used - lib\features\azkar\presentation\widgets\azkar_item_card.dart:19:8 - unused_field
+warning - Unused import: 'package:meshkat_elhoda/core/utils/app_assets.dart' - lib\features\azkar\presentation\widgets\popular_azkar_grid.dart:4:8 - unused_import
+warning - Unused import: 'package:meshkat_elhoda/features/azkar/data/models/azkar_model.dart' - lib\features\azkar\presentation\widgets\popular_azkar_grid.dart:6:8 - unused_import
+warning - Unused import: 'package:meshkat_elhoda/features/azkar/domain/entities/azkar.dart' - lib\features\azkar\presentation\widgets\popular_azkar_grid.dart:7:8 - unused_import
+warning - Unused import: 'package:meshkat_elhoda/features/azkar/presentation/widgets/all_azkar_list.dart' - lib\features\azkar\presentation\widgets\popular_azkar_grid.dart:12:8 - unused_import
+  error - The getter 'premiumOnlyFeature' isn't defined for the type 'AppLocalizations' - lib\features\azkar\presentation\widgets\popular_azkar_grid.dart:50:63 - undefined_getter
+  error - The getter 'bookmarksTitle' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:26:43 - undefined_getter
+  error - The getter 'deleteBookmarkSuccess' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:43:63 - undefined_getter
+  error - The getter 'errorOccurred' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:73:53 - undefined_getter
+  error - The getter 'noBookmarksDescription' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:134:55 - undefined_getter
+  error - The getter 'deleteBookmarkConfirmation' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:186:41 - undefined_getter
+  error - The getter 'areYouSureDelete' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:191:41 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:244:54 - deprecated_member_use
+  error - The getter 'today' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:362:28 - undefined_getter
+  error - The getter 'yesterday' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:364:28 - undefined_getter
+  error - The getter 'daysAgo' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:366:28 - undefined_getter
+  error - The getter 'weekAgo' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:370:30 - undefined_getter
+  error - The getter 'weeksAgo' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:372:30 - undefined_getter
+  error - The getter 'monthAgo' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:377:30 - undefined_getter
+  error - The getter 'monthsAgo' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:379:30 - undefined_getter
+  error - The getter 'yearAgo' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:384:30 - undefined_getter
+  error - The getter 'yearsAgo' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\screens\bookmarks_screen.dart:386:30 - undefined_getter
+  error - The getter 'addBookmarkTitle' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\widgets\add_bookmark_dialog.dart:55:45 - undefined_getter
+  error - The getter 'verse' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\widgets\add_bookmark_dialog.dart:88:54 - undefined_getter
+  error - The getter 'addNote' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\widgets\add_bookmark_dialog.dart:108:49 - undefined_getter
+  error - The getter 'writeNoteHere' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\widgets\add_bookmark_dialog.dart:125:59 - undefined_getter
+  error - The getter 'save' isn't defined for the type 'AppLocalizations' - lib\features\bookmarks\presentation\widgets\add_bookmark_dialog.dart:188:53 - undefined_getter
+   info - The import of 'package:flutter/foundation.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:5:8 - unnecessary_import
+  error - The getter 'searchKhatmaHint' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:70:59 - undefined_getter
+  error - The getter 'collectiveKhatmas' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:84:47 - undefined_getter
+  error - The getter 'myKhatmas' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:97:54 - undefined_getter
+  error - The getter 'joinByLink' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:110:54 - undefined_getter
+  error - The getter 'createKhatma' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:136:47 - undefined_getter
+  error - The getter 'loginRequiredMessage' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:157:45 - undefined_getter
+  error - The getter 'loginToJoinMessage' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:167:45 - undefined_getter
+  error - The getter 'noKhatmasAvailable' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:264:43 - undefined_getter
+  error - The getter 'beFirstToCreate' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:272:43 - undefined_getter
+  error - The getter 'createNewKhatma' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:290:45 - undefined_getter
+warning - The value of the local variable 'bloc' isn't used - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:329:11 - unused_local_variable
+   info - The local variable '_joinKhatma' starts with an underscore - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:338:26 - no_leading_underscores_for_local_identifiers
+   info - Don't use 'BuildContext's across async gaps - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:351:34 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:353:23 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:363:25 - use_build_context_synchronously
+  error - The getter 'joinError' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:381:67 - undefined_getter
+  error - The getter 'joinByLinkTitle' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:390:47 - undefined_getter
+  error - The getter 'pasteLinkHint' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:399:63 - undefined_getter
+  error - The getter 'fetchKhatma' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page.dart:425:57 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\collective_khatma\presentation\pages\collective_khatma_page_with_subscription.dart:12:9 - use_super_parameters
+  error - The getter 'collectiveKhatma' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page_with_subscription.dart:44:47 - undefined_getter
+  error - The getter 'collectiveKhatma' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page_with_subscription.dart:72:37 - undefined_getter
+  error - The getter 'premiumFeature' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page_with_subscription.dart:82:20 - undefined_getter
+  error - The getter 'premiumFeatureDescription' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page_with_subscription.dart:92:47 - undefined_getter
+  error - The getter 'upgradeNow' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\collective_khatma_page_with_subscription.dart:108:32 - undefined_getter
+  error - The getter 'createKhatmaTitle' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:56:41 - undefined_getter
+  error - The getter 'khatmaCreatedSuccess' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:72:49 - undefined_getter
+  error - The getter 'khatmaTitleLabel' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:100:49 - undefined_getter
+  error - The getter 'khatmaTitleExample' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:107:61 - undefined_getter
+  error - The getter 'khatmaTitleRequired' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:122:60 - undefined_getter
+  error - The getter 'khatmaTypeLabel' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:132:49 - undefined_getter
+  error - The getter 'public' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:141:62 - undefined_getter
+  error - The getter 'publicDescription' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:144:28 - undefined_getter
+  error - The getter 'private' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:154:62 - undefined_getter
+  error - The getter 'privateDescription' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:157:28 - undefined_getter
+  error - The getter 'dateRangeLabel' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:171:49 - undefined_getter
+  error - The getter 'startDate' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:178:62 - undefined_getter
+  error - The getter 'endDate' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:195:62 - undefined_getter
+  error - The getter 'khatmaDuration' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:227:30 - undefined_getter
+  error - The getter 'createKhatma' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\create_khatma_page.dart:263:63 - undefined_getter
+  error - The getter 'khatmaDetails' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:63:45 - undefined_getter
+  error - The getter 'copyLink' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:103:59 - undefined_getter
+  error - The getter 'deleteKhatma' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:119:61 - undefined_getter
+  error - The getter 'partReservedSuccess' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:143:49 - undefined_getter
+  error - The getter 'partCompletedSuccess' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:156:49 - undefined_getter
+  error - The getter 'partNumber' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:308:22 - undefined_getter
+  error - The getter 'partCompletedStatus' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:323:51 - undefined_getter
+  error - The getter 'reservedForUser' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:328:51 - undefined_getter
+  error - The getter 'availableForReservation' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:336:51 - undefined_getter
+  error - The getter 'reserveThisPart' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:366:57 - undefined_getter
+  error - The getter 'completeThisPart' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:397:57 - undefined_getter
+  error - The getter 'joinedKhatmasTab' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:445:44 - undefined_getter
+  error - The getter 'linkCopied' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:453:45 - undefined_getter
+  error - The getter 'deleteConfirmationTitle' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:473:41 - undefined_getter
+  error - The getter 'deleteConfirmationMessage' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\khatma_details_page.dart:477:41 - undefined_getter
+  error - The getter 'myCollectiveKhatmas' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:73:41 - undefined_getter
+  error - The getter 'joinedKhatmasTab' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:87:47 - undefined_getter
+  error - The getter 'createdKhatmasTab' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:93:47 - undefined_getter
+  error - The getter 'noJoinedKhatmas' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:214:43 - undefined_getter
+  error - The getter 'findAndJoinKhatma' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:222:43 - undefined_getter
+  error - The getter 'joinedKhatmasTab' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:267:54 - undefined_getter
+  error - The getter 'completedPartsLabel' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:273:54 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:355:35 - deprecated_member_use
+  error - The getter 'partNumber' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:408:51 - undefined_getter
+  error - The getter 'completedStatus' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:433:53 - undefined_getter
+  error - The getter 'inProgressStatus' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:434:53 - undefined_getter
+  error - The getter 'noCreatedKhatmas' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:461:43 - undefined_getter
+  error - The getter 'startCreatingKhatma' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:469:43 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:530:35 - deprecated_member_use
+  error - The getter 'publicType' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:565:57 - undefined_getter
+  error - The getter 'privateType' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:566:57 - undefined_getter
+  error - The getter 'createdBy' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\pages\user_khatmas_page.dart:614:18 - undefined_getter
+  error - The getter 'khatmaCompleted' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\khatma_card.dart:109:55 - undefined_getter
+  error - The getter 'participants' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\khatma_card.dart:133:62 - undefined_getter
+  error - The getter 'completed' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\khatma_card.dart:138:62 - undefined_getter
+  error - The getter 'daysRemaining' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\khatma_card.dart:143:62 - undefined_getter
+  error - The getter 'completion' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\khatma_progress_header.dart:75:57 - undefined_getter
+  error - The getter 'completedPartsLabel' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\khatma_progress_header.dart:96:60 - undefined_getter
+  error - The getter 'reservedParts' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\khatma_progress_header.dart:103:60 - undefined_getter
+  error - The getter 'availableParts' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\khatma_progress_header.dart:110:60 - undefined_getter
+  error - The getter 'participants' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\khatma_progress_header.dart:133:54 - undefined_getter
+  error - The getter 'startDate' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\khatma_progress_header.dart:138:54 - undefined_getter
+  error - The getter 'daysRemaining' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\khatma_progress_header.dart:143:54 - undefined_getter
+  error - The getter 'partCompleted' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\parts_grid.dart:62:70 - undefined_getter
+  error - The getter 'reserved' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\parts_grid.dart:63:71 - undefined_getter
+  error - The getter 'yourPart' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\parts_grid.dart:64:79 - undefined_getter
+  error - The getter 'available' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\parts_grid.dart:65:75 - undefined_getter
+  error - The getter 'partNumber' isn't defined for the type 'AppLocalizations' - lib\features\collective_khatma\presentation\widgets\parts_grid.dart:150:45 - undefined_getter
+   info - Parameters ''favorites' and 'isItemFavorite'' could be super parameters - lib\features\favorites\presentation\bloc\favorites_state.dart:60:9 - use_super_parameters
+warning - Unused import: 'dart:developer' - lib\features\favorites\presentation\screens\favorites_screen.dart:1:8 - unused_import
+   info - Parameter 'key' could be a super parameter - lib\features\favorites\presentation\screens\favorites_screen.dart:18:9 - use_super_parameters
+  error - The getter 'confirmation' isn't defined for the type 'AppLocalizations' - lib\features\favorites\presentation\screens\favorites_screen.dart:78:51 - undefined_getter
+  error - The getter 'deleteAllConfirmation' isn't defined for the type 'AppLocalizations' - lib\features\favorites\presentation\screens\favorites_screen.dart:79:53 - undefined_getter
+  error - The getter 'deleteAll' isn't defined for the type 'AppLocalizations' - lib\features\favorites\presentation\screens\favorites_screen.dart:90:55 - undefined_getter
+  error - The getter 'favorites' isn't defined for the type 'AppLocalizations' - lib\features\favorites\presentation\screens\favorites_screen.dart:144:41 - undefined_getter
+  error - The getter 'deleteAllTooltip' isn't defined for the type 'AppLocalizations' - lib\features\favorites\presentation\screens\favorites_screen.dart:151:52 - undefined_getter
+  error - The getter 'noFavorites' isn't defined for the type 'AppLocalizations' - lib\features\favorites\presentation\screens\favorites_screen.dart:234:64 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\favorites\presentation\screens\favorites_screen.dart:271:9 - use_super_parameters
+  error - The getter 'deleteFromFavoritesTooltip' isn't defined for the type 'AppLocalizations' - lib\features\favorites\presentation\screens\favorites_screen.dart:331:20 - undefined_getter
+   info - Unnecessary braces in a string interpolation - lib\features\hadith\data\datasources\hadith_local_data_source.dart:239:10 - unnecessary_brace_in_string_interps
+   info - Unnecessary braces in a string interpolation - lib\features\hadith\data\datasources\hadith_local_data_source.dart:253:10 - unnecessary_brace_in_string_interps
+warning - The exception variable 'e' isn't used, so the 'catch' clause can be removed - lib\features\hadith\data\repositories\hadith_repository_impl.dart:160:33 - unused_catch_clause
+   info - The import of 'package:flutter/services.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/services.dart' - lib\features\hadith\presentation\pages\hadith_details_page.dart:19:8 - unnecessary_import
+   info - The imported package 'path_provider' isn't a dependency of the importing package - lib\features\hadith\presentation\pages\hadith_details_page.dart:21:8 - depend_on_referenced_packages
+  error - The getter 'sourceLabel' isn't defined for the type 'AppLocalizations' - lib\features\hadith\presentation\pages\hadith_details_page.dart:96:45 - undefined_getter
+  error - The getter 'explanation' isn't defined for the type 'AppLocalizations' - lib\features\hadith\presentation\pages\hadith_details_page.dart:119:45 - undefined_getter
+  error - The getter 'benefits' isn't defined for the type 'AppLocalizations' - lib\features\hadith\presentation\pages\hadith_details_page.dart:130:45 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\hadith\presentation\pages\hadith_details_page.dart:340:50 - deprecated_member_use
+  error - The getter 'favorites' isn't defined for the type 'AppLocalizations' - lib\features\hadith\presentation\pages\hadith_details_page.dart:457:63 - undefined_getter
+  error - The getter 'explanation' isn't defined for the type 'AppLocalizations' - lib\features\hadith\presentation\pages\hadith_details_page.dart:477:52 - undefined_getter
+  error - The getter 'benefits' isn't defined for the type 'AppLocalizations' - lib\features\hadith\presentation\pages\hadith_details_page.dart:504:57 - undefined_getter
+   info - Unnecessary use of 'toList' in a spread - lib\features\hadith\presentation\pages\hadith_details_page.dart:542:26 - unnecessary_to_list_in_spreads
+  error - The getter 'wordsMeaning' isn't defined for the type 'AppLocalizations' - lib\features\hadith\presentation\pages\hadith_details_page.dart:570:57 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\hadith\presentation\pages\hadith_details_page.dart:594:66 - deprecated_member_use
+   info - Unnecessary use of 'toList' in a spread - lib\features\hadith\presentation\pages\hadith_details_page.dart:622:26 - unnecessary_to_list_in_spreads
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\hadith\presentation\pages\hadith_details_page.dart:643:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\hadith\presentation\pages\hadith_details_page.dart:664:44 - deprecated_member_use
+  error - The getter 'copyrightHadithNotice' isn't defined for the type 'AppLocalizations' - lib\features\hadith\presentation\pages\hadith_list_page.dart:215:47 - undefined_getter
+  error - The getter 'sourceLabel' isn't defined for the type 'AppLocalizations' - lib\features\hadith\presentation\widgets\hadith_info.dart:25:44 - undefined_getter
+  error - The getter 'hadithGradeLabel' isn't defined for the type 'AppLocalizations' - lib\features\hadith\presentation\widgets\hadith_info.dart:35:44 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\hadith\presentation\widgets\hadith_navigation.dart:12:9 - use_super_parameters
+  error - The getter 'next' isn't defined for the type 'AppLocalizations' - lib\features\hadith\presentation\widgets\hadith_navigation.dart:29:49 - undefined_getter
+  error - The getter 'previous' isn't defined for the type 'AppLocalizations' - lib\features\hadith\presentation\widgets\hadith_navigation.dart:37:49 - undefined_getter
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\hajj_umrah\presentation\bloc\hajj_umrah_cubit.dart:1:8 - depend_on_referenced_packages
+warning - Two keys in a map literal shouldn't be equal - lib\features\halal_restaurants\data\models\restaurant_model.dart:38:7 - equal_keys_in_map
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\halal_restaurants\presentation\bloc\halal_restaurants_bloc.dart:1:8 - depend_on_referenced_packages
+   info - 'desiredAccuracy' is deprecated and shouldn't be used. use settings parameter with AndroidSettings, AppleSettings, WebSettings, or LocationSettings - lib\features\halal_restaurants\presentation\bloc\halal_restaurants_bloc.dart:29:9 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block - lib\features\halal_restaurants\presentation\pages\halal_restaurants_map_screen.dart:60:9 - curly_braces_in_flow_control_structures
+  error - The getter 'map' isn't defined for the type 'AppLocalizations' - lib\features\halal_restaurants\presentation\pages\halal_restaurants_map_screen.dart:127:56 - undefined_getter
+  error - The getter 'myCurrentLocation' isn't defined for the type 'AppLocalizations' - lib\features\halal_restaurants\presentation\pages\halal_restaurants_map_screen.dart:148:61 - undefined_getter
+  error - The getter 'directions' isn't defined for the type 'AppLocalizations' - lib\features\halal_restaurants\presentation\pages\halal_restaurants_map_screen.dart:241:52 - undefined_getter
+  error - The getter 'openInMaps' isn't defined for the type 'AppLocalizations' - lib\features\halal_restaurants\presentation\pages\halal_restaurants_map_screen.dart:263:52 - undefined_getter
+  error - The getter 'pleaseWaitForMosquesToLoad' isn't defined for the type 'AppLocalizations' - lib\features\halal_restaurants\presentation\pages\halal_restaurants_screen.dart:64:49 - undefined_getter
+  error - The getter 'showOnMap' isn't defined for the type 'AppLocalizations' - lib\features\halal_restaurants\presentation\pages\halal_restaurants_screen.dart:85:61 - undefined_getter
+  error - The getter 'updating' isn't defined for the type 'AppLocalizations' - lib\features\halal_restaurants\presentation\pages\halal_restaurants_screen.dart:130:67 - undefined_getter
+  error - The getter 'updateLocation' isn't defined for the type 'AppLocalizations' - lib\features\halal_restaurants\presentation\pages\halal_restaurants_screen.dart:133:45 - undefined_getter
+  error - The getter 'noNearbyMosquesInRange' isn't defined for the type 'AppLocalizations' - lib\features\halal_restaurants\presentation\pages\halal_restaurants_screen.dart:169:41 - undefined_getter
+   info - Unnecessary use of multiple underscores - lib\features\halal_restaurants\presentation\pages\halal_restaurants_screen.dart:180:49 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\halal_restaurants\presentation\widgets\restaurant_card.dart:41:55 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\halal_restaurants\presentation\widgets\restaurant_card.dart:50:44 - deprecated_member_use
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\hisn_muslim\presentation\bloc\hisn_muslim_bloc.dart:2:8 - depend_on_referenced_packages
+   info - Don't use 'BuildContext's across async gaps - lib\features\hisn_muslim\presentation\pages\hisn_dhikr_screen.dart:44:28 - use_build_context_synchronously
+  error - The getter 'haramLiveTitle' isn't defined for the type 'AppLocalizations' - lib\features\live\haram_live_view.dart:29:26 - undefined_getter
+  error - The getter 'chooseChannel' isn't defined for the type 'AppLocalizations' - lib\features\live\haram_live_view.dart:37:19 - undefined_getter
+  error - The getter 'makkah' isn't defined for the type 'AppLocalizations' - lib\features\live\haram_live_view.dart:47:26 - undefined_getter
+  error - The getter 'saudiChannel' isn't defined for the type 'AppLocalizations' - lib\features\live\haram_live_view.dart:48:32 - undefined_getter
+  error - The getter 'quranChannel' isn't defined for the type 'AppLocalizations' - lib\features\live\haram_live_view.dart:64:40 - undefined_getter
+  error - The getter 'madinah' isn't defined for the type 'AppLocalizations' - lib\features\live\haram_live_view.dart:76:26 - undefined_getter
+  error - The getter 'madinahChannel' isn't defined for the type 'AppLocalizations' - lib\features\live\haram_live_view.dart:77:32 - undefined_getter
+  error - The getter 'madinah' isn't defined for the type 'AppLocalizations' - lib\features\live\haram_live_view.dart:93:40 - undefined_getter
+   info - The imported package 'webview_flutter' isn't a dependency of the importing package - lib\features\live\live_stream.dart:5:8 - depend_on_referenced_packages
+   info - The imported package 'webview_flutter_android' isn't a dependency of the importing package - lib\features\live\live_stream.dart:6:8 - depend_on_referenced_packages
+   info - The imported package 'webview_flutter_wkwebview' isn't a dependency of the importing package - lib\features\live\live_stream.dart:7:8 - depend_on_referenced_packages
+  error - The getter 'initializing' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:53:54 - undefined_getter
+  error - The getter 'loadingStream' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:83:64 - undefined_getter
+  error - The getter 'streamLoadFailed' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:111:28 - undefined_getter
+  error - The getter 'playingStream' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:218:36 - undefined_getter
+  error - The getter 'clickToPlay' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:221:36 - undefined_getter
+  error - The getter 'clickToPlay' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:237:34 - undefined_getter
+  error - The getter 'playingStream' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:263:26 - undefined_getter
+  error - The getter 'reload' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:287:26 - undefined_getter
+  error - The getter 'openInBrowser' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:298:23 - undefined_getter
+  error - The getter 'openInBrowserDescription' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:299:25 - undefined_getter
+   info - 'launch' is deprecated and shouldn't be used. Use launchUrl instead - lib\features\live\live_stream.dart:308:28 - deprecated_member_use
+  error - The getter 'open' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:310:27 - undefined_getter
+  error - The getter 'liveStreamTitle' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:320:28 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\live\live_stream.dart:400:27 - deprecated_member_use
+  error - The getter 'retryAttempt' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:418:22 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\live\live_stream.dart:438:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\live\live_stream.dart:462:27 - deprecated_member_use
+  error - The getter 'streamLoadFailed' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:472:19 - undefined_getter
+  error - The getter 'reload' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:495:35 - undefined_getter
+  error - The getter 'openInBrowser' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:504:35 - undefined_getter
+warning - The value of the local variable 's' isn't used - lib\features\live\live_stream.dart:516:11 - unused_local_variable
+  error - The getter 'reload' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:570:27 - undefined_getter
+  error - The getter 'openInBrowser' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:582:27 - undefined_getter
+  error - The getter 'importantNotice' isn't defined for the type 'AppLocalizations' - lib\features\live\live_stream.dart:612:19 - undefined_getter
+  error - The getter 'licensedBroadcast' isn't defined for the type 'AppLocalizations' - lib\features\live\widgets\live_channel_card.dart:71:32 - undefined_getter
+  error - The getter 'liveNow' isn't defined for the type 'AppLocalizations' - lib\features\live\widgets\live_now_weidget.dart:15:41 - undefined_getter
+   info - 'desiredAccuracy' is deprecated and shouldn't be used. use settings parameter with AndroidSettings, AppleSettings, WebSettings, or LocationSettings - lib\features\location\data\data_sources\location_remote_data_source.dart:70:11 - deprecated_member_use
+   info - 'timeLimit' is deprecated and shouldn't be used. use settings parameter with AndroidSettings, AppleSettings, WebSettings, or LocationSettings - lib\features\location\data\data_sources\location_remote_data_source.dart:71:11 - deprecated_member_use
+   info - The local variable '_timeOfDayToDateTime' starts with an underscore - lib\features\main_navigation\presentation\views\home_view.dart:85:14 - no_leading_underscores_for_local_identifiers
+   info - Don't invoke 'print' in production code - lib\features\main_navigation\presentation\views\home_view.dart:185:7 - avoid_print
+   info - Don't use 'BuildContext's across async gaps - lib\features\main_navigation\presentation\views\home_view.dart:217:15 - use_build_context_synchronously
+warning - The value of the local variable 'widthScreen' isn't used - lib\features\main_navigation\presentation\views\main_navigation_views.dart:73:18 - unused_local_variable
+  error - The getter 'home' isn't defined for the type 'AppLocalizations' - lib\features\main_navigation\presentation\views\main_navigation_views.dart:106:49 - undefined_getter
+  error - The getter 'favorites' isn't defined for the type 'AppLocalizations' - lib\features\main_navigation\presentation\views\main_navigation_views.dart:112:49 - undefined_getter
+  error - The getter 'settings' isn't defined for the type 'AppLocalizations' - lib\features\main_navigation\presentation\views\main_navigation_views.dart:118:49 - undefined_getter
+  error - The getter 'quranKareem' isn't defined for the type 'AppLocalizations' - lib\features\main_navigation\presentation\widgets\islamic_gridview.dart:123:49 - undefined_getter
+  error - The getter 'azkarAndAdiyah' isn't defined for the type 'AppLocalizations' - lib\features\main_navigation\presentation\widgets\islamic_gridview.dart:135:49 - undefined_getter
+  error - The getter 'khatma' isn't defined for the type 'AppLocalizations' - lib\features\main_navigation\presentation\widgets\islamic_gridview.dart:161:49 - undefined_getter
+  error - The getter 'collectiveKhatma' isn't defined for the type 'AppLocalizations' - lib\features\main_navigation\presentation\widgets\islamic_gridview.dart:167:49 - undefined_getter
+  error - The getter 'liveBroadcastAndHaram' isn't defined for the type 'AppLocalizations' - lib\features\main_navigation\presentation\widgets\islamic_gridview.dart:222:49 - undefined_getter
+  error - The getter 'smartAssistant' isn't defined for the type 'AppLocalizations' - lib\features\main_navigation\presentation\widgets\islamic_gridview.dart:228:49 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\main_navigation\presentation\widgets\next_prayer_card.dart:51:42 - deprecated_member_use
+   info - Don't invoke 'print' in production code - lib\features\mosques\data\repositories\mosque_repository_impl.dart:30:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\mosques\data\repositories\mosque_repository_impl.dart:36:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\mosques\data\repositories\mosque_repository_impl.dart:45:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\mosques\data\repositories\mosque_repository_impl.dart:56:11 - avoid_print
+   info - The imported package 'bloc' isn't a dependency of the importing package - lib\features\mosques\presentation\bloc\mosque_bloc.dart:1:8 - depend_on_referenced_packages
+   info - 'desiredAccuracy' is deprecated and shouldn't be used. use settings parameter with AndroidSettings, AppleSettings, WebSettings, or LocationSettings - lib\features\mosques\presentation\bloc\mosque_bloc.dart:27:9 - deprecated_member_use
+warning - Unused import: 'package:meshkat_elhoda/core/utils/app_fonts.dart' - lib\features\mosques\presentation\pages\mosques_map_screen.dart:9:8 - unused_import
+   info - Statements in an if should be enclosed in a block - lib\features\mosques\presentation\pages\mosques_map_screen.dart:61:9 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps - lib\features\mosques\presentation\pages\mosques_map_screen.dart:68:17 - use_build_context_synchronously
+  error - The method 'directionsApiError' isn't defined for the type 'AppLocalizations' - lib\features\mosques\presentation\pages\mosques_map_screen.dart:69:18 - undefined_method
+  error - The getter 'map' isn't defined for the type 'AppLocalizations' - lib\features\mosques\presentation\pages\mosques_map_screen.dart:133:56 - undefined_getter
+  error - The getter 'myCurrentLocation' isn't defined for the type 'AppLocalizations' - lib\features\mosques\presentation\pages\mosques_map_screen.dart:154:61 - undefined_getter
+  error - The getter 'directions' isn't defined for the type 'AppLocalizations' - lib\features\mosques\presentation\pages\mosques_map_screen.dart:247:52 - undefined_getter
+  error - The getter 'openInMaps' isn't defined for the type 'AppLocalizations' - lib\features\mosques\presentation\pages\mosques_map_screen.dart:269:52 - undefined_getter
+  error - The getter 'nearbyMosques' isn't defined for the type 'AppLocalizations' - lib\features\mosques\presentation\pages\mosques_screen.dart:34:53 - undefined_getter
+  error - The getter 'pleaseWaitForMosquesToLoad' isn't defined for the type 'AppLocalizations' - lib\features\mosques\presentation\pages\mosques_screen.dart:64:46 - undefined_getter
+  error - The getter 'showOnMap' isn't defined for the type 'AppLocalizations' - lib\features\mosques\presentation\pages\mosques_screen.dart:85:61 - undefined_getter
+  error - The getter 'updating' isn't defined for the type 'AppLocalizations' - lib\features\mosques\presentation\pages\mosques_screen.dart:129:67 - undefined_getter
+  error - The getter 'updateLocation' isn't defined for the type 'AppLocalizations' - lib\features\mosques\presentation\pages\mosques_screen.dart:133:44 - undefined_getter
+  error - The getter 'noNearbyMosquesInRange' isn't defined for the type 'AppLocalizations' - lib\features\mosques\presentation\pages\mosques_screen.dart:169:38 - undefined_getter
+   info - Unnecessary use of multiple underscores - lib\features\mosques\presentation\pages\mosques_screen.dart:180:49 - unnecessary_underscores
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\mosques\presentation\widgets\mosque_card.dart:41:55 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\mosques\presentation\widgets\mosque_card.dart:50:44 - deprecated_member_use
+   info - Parameter 'key' could be a super parameter - lib\features\onboarding\presentation\screens\features_overview_screen.dart:10:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\features\onboarding\presentation\screens\features_overview_screen.dart:13:3 - library_private_types_in_public_api
+   info - The private field _showRights could be 'final' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:24:8 - prefer_final_fields
+warning - The value of the field '_showRights' isn't used - lib\features\onboarding\presentation\screens\features_overview_screen.dart:24:8 - unused_field
+  error - The getter 'aboutApp' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:106:32 - undefined_getter
+  error - The getter 'appDescription' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:199:28 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\onboarding\presentation\screens\features_overview_screen.dart:215:44 - deprecated_member_use
+  error - The getter 'version' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:219:30 - undefined_getter
+  error - The getter 'quranKareem' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:239:31 - undefined_getter
+  error - The getter 'quranDescription' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:241:24 - undefined_getter
+  error - The getter 'quranFeatures' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:245:24 - undefined_getter
+  error - The getter 'hadithsDescription' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:252:24 - undefined_getter
+  error - The getter 'hadithFeatures' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:256:24 - undefined_getter
+  error - The getter 'azkarAndDua' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:261:31 - undefined_getter
+  error - The getter 'azkarDescription' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:263:24 - undefined_getter
+  error - The getter 'azkarFeatures' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:267:24 - undefined_getter
+  error - The getter 'allahNamesDescription' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:274:24 - undefined_getter
+  error - The getter 'allahNamesFeatures' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:278:24 - undefined_getter
+  error - The getter 'khatmaTracker' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:283:31 - undefined_getter
+  error - The getter 'khatmaDescription' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:285:24 - undefined_getter
+  error - The getter 'khatmaFeatures' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:289:24 - undefined_getter
+  error - The getter 'prayerTimes' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:296:31 - undefined_getter
+  error - The getter 'prayerTimesDescription' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:298:24 - undefined_getter
+  error - The getter 'prayerFeatures' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:302:24 - undefined_getter
+  error - The getter 'nearbyMosques' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:307:31 - undefined_getter
+  error - The getter 'mosquesDescription' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:309:24 - undefined_getter
+  error - The getter 'mosqueFeatures' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:313:24 - undefined_getter
+  error - The getter 'islamicAudio' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:320:31 - undefined_getter
+  error - The getter 'audioDescription' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:322:24 - undefined_getter
+  error - The getter 'audioFeatures' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:325:24 - undefined_getter
+  error - The getter 'liveBroadcast' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:330:31 - undefined_getter
+  error - The getter 'broadcastDescription' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:332:24 - undefined_getter
+  error - The getter 'broadcastFeatures' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:336:24 - undefined_getter
+  error - The getter 'smartAssistant' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:341:31 - undefined_getter
+  error - The getter 'assistantDescription' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:343:24 - undefined_getter
+  error - The getter 'assistantFeatures' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:347:24 - undefined_getter
+  error - The getter 'zakatDescription' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:354:24 - undefined_getter
+  error - The getter 'zakatFeatures' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:357:24 - undefined_getter
+  error - The getter 'dateConverterDescription' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:364:24 - undefined_getter
+  error - The getter 'dateFeatures' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:368:24 - undefined_getter
+  error - The getter 'mainFeatures' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:381:30 - undefined_getter
+  error - The getter 'aboutAndRights' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:418:28 - undefined_getter
+  error - The getter 'generalInfo' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:445:38 - undefined_getter
+  error - The getter 'appFullDescription' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:453:38 - undefined_getter
+  error - The getter 'intellectualRights' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:468:38 - undefined_getter
+  error - The getter 'copyProhibition' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:487:42 - undefined_getter
+  error - The getter 'contentSource' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:495:42 - undefined_getter
+  error - The getter 'designProtection' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:503:42 - undefined_getter
+  error - The getter 'legalInformation' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:531:28 - undefined_getter
+  error - The getter 'privacyPolicy' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:558:38 - undefined_getter
+  error - The getter 'dataCollection' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:575:46 - undefined_getter
+  error - The getter 'locationDataCollect' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:576:49 - undefined_getter
+  error - The getter 'accountDataStorage' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:576:147 - undefined_getter
+  error - The getter 'noDataSharing' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:576:234 - undefined_getter
+  error - The getter 'guestData' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:580:46 - undefined_getter
+  error - The getter 'guestUsage' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:581:49 - undefined_getter
+  error - The getter 'localStorage' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:581:122 - undefined_getter
+  error - The getter 'accountConversion' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:581:201 - undefined_getter
+  error - The getter 'security' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:585:46 - undefined_getter
+  error - The getter 'sslEncryption' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:586:49 - undefined_getter
+  error - The getter 'passwordEncryption' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:586:122 - undefined_getter
+  error - The getter 'dataProtection' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:586:196 - undefined_getter
+  error - The getter 'termsOfUse' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:602:38 - undefined_getter
+  error - The getter 'acceptableUse' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:619:46 - undefined_getter
+  error - The getter 'worshipUsage' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:621:49 - undefined_getter
+  error - The getter 'respectIntellectualProperty' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:621:138 - undefined_getter
+  error - The getter 'complyWithLaws' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:621:228 - undefined_getter
+  error - The getter 'restrictions' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:625:46 - undefined_getter
+  error - The getter 'illegalUsageProhibition' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:626:49 - undefined_getter
+  error - The getter 'copyModifyProhibition' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:626:144 - undefined_getter
+  error - The getter 'respectfulEnvironment' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:626:225 - undefined_getter
+  error - The getter 'contactUs' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:642:38 - undefined_getter
+  error - The getter 'appInquiry' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:660:48 - undefined_getter
+  error - The getter 'welcomeQuestions' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:690:42 - undefined_getter
+  error - The getter 'legalInformation' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:713:42 - undefined_getter
+  error - The getter 'lastUpdate' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:722:45 - undefined_getter
+  error - The getter 'compatibility' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:722:106 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\onboarding\presentation\screens\features_overview_screen.dart:741:52 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\onboarding\presentation\screens\features_overview_screen.dart:744:54 - deprecated_member_use
+  error - The getter 'version' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\features_overview_screen.dart:767:42 - undefined_getter
+   info - Constructors for public widgets should have a named 'key' parameter - lib\features\onboarding\presentation\screens\features_overview_screen.dart:816:9 - use_key_in_widget_constructors
+   info - Invalid use of a private type in a public API - lib\features\onboarding\presentation\screens\features_overview_screen.dart:819:3 - library_private_types_in_public_api
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\onboarding\presentation\screens\features_overview_screen.dart:860:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\onboarding\presentation\screens\features_overview_screen.dart:875:49 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\onboarding\presentation\screens\features_overview_screen.dart:886:53 - deprecated_member_use
+   info - Parameter 'key' could be a super parameter - lib\features\onboarding\presentation\screens\onboarding_screen.dart:11:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\features\onboarding\presentation\screens\onboarding_screen.dart:14:3 - library_private_types_in_public_api
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\onboarding\presentation\screens\onboarding_screen.dart:182:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\onboarding\presentation\screens\onboarding_screen.dart:208:69 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\onboarding\presentation\screens\onboarding_screen.dart:246:69 - deprecated_member_use
+  error - The getter 'previous' isn't defined for the type 'AppLocalizations' - lib\features\onboarding\presentation\screens\onboarding_screen.dart:256:48 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\onboarding\presentation\screens\onboarding_screen.dart:355:9 - use_super_parameters
+   info - Use a 'SizedBox' to add whitespace to a layout - lib\features\onboarding\presentation\screens\onboarding_screen.dart:363:12 - sized_box_for_whitespace
+   info - Parameters ''id', 'name', 'fajrAudioPath', and 'regularAudioPath'' could be super parameters - lib\features\prayer_times\data\models\muezzin_model.dart:4:9 - use_super_parameters
+   info - An uninitialized variable should have an explicit type annotation - lib\features\prayer_times\data\repositories\prayer_times_repository_impl.dart:25:18 - prefer_typing_uninitialized_variables
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\views\date_converter_view.dart:74:43 - deprecated_member_use
+  error - The getter 'gregorianToHijri' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\date_converter_view.dart:84:53 - undefined_getter
+  error - The getter 'dateGregorianLabel' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\date_converter_view.dart:137:68 - undefined_getter
+  error - The getter 'dateHijriLabel' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\date_converter_view.dart:137:142 - undefined_getter
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\features\prayer_times\presentation\views\date_converter_view.dart:141:52 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\features\prayer_times\presentation\views\date_converter_view.dart:145:39 - use_build_context_synchronously
+  error - The getter 'errorConvertingGregorianToHijri' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\date_converter_view.dart:146:40 - undefined_getter
+  error - The getter 'selectGregorianDate' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\date_converter_view.dart:159:55 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\views\date_converter_view.dart:173:45 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\views\date_converter_view.dart:177:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\views\date_converter_view.dart:207:43 - deprecated_member_use
+  error - The getter 'hijriToGregorian' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\date_converter_view.dart:217:53 - undefined_getter
+  error - The getter 'enterHijriDate' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\date_converter_view.dart:228:53 - undefined_getter
+  error - The getter 'hijriDateExample' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\date_converter_view.dart:266:28 - undefined_getter
+  error - The getter 'convert' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\date_converter_view.dart:286:55 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\views\date_converter_view.dart:300:45 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\views\date_converter_view.dart:304:58 - deprecated_member_use
+  error - The method 'hijriToGregorianResult' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\date_converter_view.dart:344:12 - undefined_method
+  error - The getter 'errorConvertingHijriDate' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\date_converter_view.dart:356:45 - undefined_getter
+   info - The import of 'package:flutter/services.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart' - lib\features\prayer_times\presentation\views\prayer_times_view.dart:1:8 - unnecessary_import
+   info - Don't use 'BuildContext's across async gaps - lib\features\prayer_times\presentation\views\prayer_times_view.dart:151:21 - use_build_context_synchronously
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\views\prayer_times_view.dart:250:50 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\views\prayer_times_view.dart:251:50 - deprecated_member_use
+  error - The getter 'qibla' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\prayer_times_view.dart:334:73 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\views\prayer_times_view.dart:488:36 - deprecated_member_use
+   info - Parameter 'key' could be a super parameter - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:15:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:18:3 - library_private_types_in_public_api
+   info - Don't use 'BuildContext's across async gaps - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:73:43 - use_build_context_synchronously
+  error - The getter 'locationServicesDisabled' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:73:53 - undefined_getter
+   info - Don't use 'BuildContext's across async gaps - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:81:31 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:88:29 - use_build_context_synchronously
+  error - The getter 'locationPermissionDeniedForeverTitle' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:88:39 - undefined_getter
+  error - The getter 'errorCalculatingQiblaDirection' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:110:14 - undefined_getter
+  error - The getter 'errorAccessingCompass' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:134:59 - undefined_getter
+  error - The getter 'qiblaDirection' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:151:54 - undefined_getter
+  error - The getter 'locatingYourPosition' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:175:45 - undefined_getter
+  error - The getter 'qiblaDirectionFromNorth' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:253:49 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:270:37 - deprecated_member_use
+  error - The getter 'youAreFacingTheQibla' isn't defined for the type 'AppLocalizations' - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:280:51 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:321:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:327:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:430:57 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\views\qebla_direction_screen.dart:454:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\widgets\prayer_times_card.dart:19:36 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\prayer_times\presentation\widgets\prayer_times_card.dart:28:43 - deprecated_member_use
+   info - The imported package 'path_provider' isn't a dependency of the importing package - lib\features\quran_audio\data\datasources\audio_download_service.dart:4:8 - depend_on_referenced_packages
+   info - Unnecessary braces in a string interpolation - lib\features\quran_audio\data\datasources\quran_audio_remote_data_source_impl.dart:35:50 - unnecessary_brace_in_string_interps
+   info - The member 'copyWith' overrides an inherited member but isn't annotated with '@override' - lib\features\quran_audio\data\models\audio_track_model.dart:35:19 - annotate_overrides
+   info - The member 'copyWith' overrides an inherited member but isn't annotated with '@override' - lib\features\quran_audio\data\models\radio_station_model.dart:47:21 - annotate_overrides
+   info - The member 'copyWith' overrides an inherited member but isn't annotated with '@override' - lib\features\quran_audio\data\models\reciter_model.dart:39:16 - annotate_overrides
+   info - The member 'copyWith' overrides an inherited member but isn't annotated with '@override' - lib\features\quran_audio\data\models\surah_model.dart:35:14 - annotate_overrides
+warning - The value of the field '_allSurahs' isn't used - lib\features\quran_audio\presentation\bloc\quran_audio_cubit.dart:35:15 - unused_field
+warning - The value of the field '_selectedReciter' isn't used - lib\features\quran_audio\presentation\bloc\quran_audio_cubit.dart:36:12 - unused_field
+warning - The member 'emit' can only be used within 'package:bloc/src/bloc.dart' or a test - lib\features\quran_audio\presentation\bloc\quran_audio_cubit.dart:204:13 - invalid_use_of_visible_for_testing_member
+warning - The member 'emit' can only be used within 'package:bloc/src/bloc.dart' or a test - lib\features\quran_audio\presentation\bloc\quran_audio_cubit.dart:217:11 - invalid_use_of_visible_for_testing_member
+warning - The member 'emit' can only be used within 'package:bloc/src/bloc.dart' or a test - lib\features\quran_audio\presentation\bloc\quran_audio_cubit.dart:236:11 - invalid_use_of_visible_for_testing_member
+warning - The member 'emit' can only be used within 'package:bloc/src/bloc.dart' or a test - lib\features\quran_audio\presentation\bloc\quran_audio_cubit.dart:245:11 - invalid_use_of_visible_for_testing_member
+   info - Parameter 'key' could be a super parameter - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:10:9 - use_super_parameters
+  error - The getter 'quranAudio' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:76:41 - undefined_getter
+  error - The getter 'quranRecitations' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:98:54 - undefined_getter
+  error - The getter 'quranRecitationsDesc' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:99:60 - undefined_getter
+  error - The getter 'quranRadio' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:124:54 - undefined_getter
+  error - The getter 'quranRadioDesc' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:125:60 - undefined_getter
+  error - The getter 'downloadedAudio' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:146:54 - undefined_getter
+  error - The getter 'downloadedAudioDesc' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:147:60 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:193:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:194:38 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:204:48 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:208:34 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:209:34 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:215:36 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:216:36 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:223:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:245:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:246:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:262:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:263:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:287:51 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:304:50 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:305:50 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:356:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_main_screen.dart:357:46 - deprecated_member_use
+   info - Parameter 'key' could be a super parameter - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:21:9 - use_super_parameters
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:57:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:74:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:88:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:97:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:99:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:115:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:118:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:132:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:140:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:146:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:154:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:158:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:197:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:205:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:215:11 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:223:11 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:233:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:236:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:241:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:252:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:259:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:264:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:269:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:279:5 - avoid_print
+   info - The local variable '_getButtonText' starts with an underscore - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:323:12 - no_leading_underscores_for_local_identifiers
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:455:45 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:463:52 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:587:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:614:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:639:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_player_screen.dart:644:54 - deprecated_member_use
+   info - Parameter 'key' could be a super parameter - lib\features\quran_audio\presentation\screens\audio_radio_screen.dart:15:9 - use_super_parameters
+  error - The getter 'quranRadio' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_radio_screen.dart:61:41 - undefined_getter
+  error - The getter 'noStationsAvailable' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_radio_screen.dart:85:59 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\quran_audio\presentation\screens\audio_radio_screen.dart:188:9 - use_super_parameters
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_radio_screen.dart:329:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_radio_screen.dart:330:42 - deprecated_member_use
+  error - The getter 'liveRadio' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_radio_screen.dart:335:61 - undefined_getter
+  error - The getter 'offlineRadio' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_radio_screen.dart:336:61 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_radio_screen.dart:361:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_radio_screen.dart:362:39 - deprecated_member_use
+   info - Parameter 'key' could be a super parameter - lib\features\quran_audio\presentation\screens\audio_reciters_screen.dart:16:9 - use_super_parameters
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_reciters_screen.dart:50:7 - avoid_print
+  error - The getter 'reciters' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_reciters_screen.dart:75:41 - undefined_getter
+  error - The getter 'searchRecitersHint' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_reciters_screen.dart:120:26 - undefined_getter
+  error - The getter 'noResultsFound' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_reciters_screen.dart:141:59 - undefined_getter
+  error - The getter 'reciterPremiumOnly' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_reciters_screen.dart:183:48 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\quran_audio\presentation\screens\audio_reciters_screen.dart:228:9 - use_super_parameters
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_reciters_screen.dart:260:53 - deprecated_member_use
+  error - The getter 'surahsCount' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_reciters_screen.dart:301:55 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\quran_audio\presentation\screens\audio_surahs_screen.dart:16:9 - use_super_parameters
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_surahs_screen.dart:31:7 - avoid_print
+   info - 'WillPopScope' is deprecated and shouldn't be used. Use PopScope instead. The Android predictive back feature will not work with WillPopScope. This feature was deprecated after v3.12.0-1.0.pre - lib\features\quran_audio\presentation\screens\audio_surahs_screen.dart:42:12 - deprecated_member_use
+   info - Don't invoke 'print' in production code - lib\features\quran_audio\presentation\screens\audio_surahs_screen.dart:45:9 - avoid_print
+  error - The getter 'surahs' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_surahs_screen.dart:57:47 - undefined_getter
+   info - Parameter 'key' could be a super parameter - lib\features\quran_audio\presentation\screens\audio_surahs_screen.dart:157:9 - use_super_parameters
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_surahs_screen.dart:181:43 - deprecated_member_use
+  error - The getter 'ayahsCount' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\audio_surahs_screen.dart:214:51 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\audio_surahs_screen.dart:233:50 - deprecated_member_use
+   info - Parameter 'key' could be a super parameter - lib\features\quran_audio\presentation\screens\offline_audios_screen.dart:13:9 - use_super_parameters
+  error - The getter 'downloadedAudio' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\offline_audios_screen.dart:21:53 - undefined_getter
+  error - The getter 'noDownloadedAudio' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\offline_audios_screen.dart:39:55 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\screens\offline_audios_screen.dart:55:64 - deprecated_member_use
+  error - The getter 'deleteAudioTitle' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\offline_audios_screen.dart:76:63 - undefined_getter
+  error - The getter 'deleteAudioConfirm' isn't defined for the type 'AppLocalizations' - lib\features\quran_audio\presentation\screens\offline_audios_screen.dart:81:36 - undefined_getter
+warning - Unused import: 'package:meshkat_elhoda/l10n/app_localizations.dart' - lib\features\quran_audio\presentation\widgets\mini_audio_player.dart:5:8 - unused_import
+   info - Parameter 'key' could be a super parameter - lib\features\quran_audio\presentation\widgets\mini_audio_player.dart:8:9 - use_super_parameters
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\widgets\mini_audio_player.dart:28:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\widgets\mini_audio_player.dart:29:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_audio\presentation\widgets\mini_audio_player.dart:40:46 - deprecated_member_use
+warning - The '!' will have no effect because the receiver can't be null - lib\features\quran_audio\presentation\widgets\mini_audio_player.dart:107:56 - unnecessary_non_null_assertion
+warning - The '!' will have no effect because the receiver can't be null - lib\features\quran_audio\presentation\widgets\mini_audio_player.dart:109:39 - unnecessary_non_null_assertion
+   info - Don't invoke 'print' in production code - lib\features\quran_index\data\models\ayah_model.dart:28:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\data\models\ayah_model.dart:29:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\data\models\ayah_model.dart:31:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\data\models\ayah_model.dart:33:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\data\repositories\quran_repository_impl.dart:31:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\data\repositories\quran_repository_impl.dart:35:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\data\repositories\quran_repository_impl.dart:41:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\data\repositories\quran_repository_impl.dart:47:11 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\data\repositories\quran_repository_impl.dart:49:11 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\data\repositories\quran_repository_impl.dart:82:11 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\data\repositories\quran_repository_impl.dart:87:11 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\data\repositories\quran_repository_impl.dart:93:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\data\repositories\quran_repository_impl.dart:112:11 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\data\repositories\quran_repository_impl.dart:116:11 - avoid_print
+   info - The member 'repository' overrides an inherited member but isn't annotated with '@override' - lib\features\quran_index\data\usecases\get_audio_url_impl.dart:7:25 - annotate_overrides
+   info - Don't invoke 'print' in production code - lib\features\quran_index\presentation\bloc\quran_settings_cubit.dart:25:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\presentation\bloc\quran_settings_cubit.dart:32:11 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\presentation\bloc\quran_settings_cubit.dart:38:11 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\presentation\bloc\quran_settings_cubit.dart:41:15 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\presentation\bloc\quran_settings_cubit.dart:47:15 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\presentation\bloc\quran_settings_cubit.dart:64:15 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\presentation\bloc\quran_settings_cubit.dart:65:15 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\presentation\bloc\quran_settings_cubit.dart:84:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\presentation\bloc\quran_settings_cubit.dart:85:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\presentation\bloc\quran_settings_cubit.dart:111:7 - avoid_print
+   info - Parameter 'key' could be a super parameter - lib\features\quran_index\presentation\screens\juz_surahs_screen.dart:18:9 - use_super_parameters
+   info - 'WillPopScope' is deprecated and shouldn't be used. Use PopScope instead. The Android predictive back feature will not work with WillPopScope. This feature was deprecated after v3.12.0-1.0.pre - lib\features\quran_index\presentation\screens\juz_surahs_screen.dart:35:12 - deprecated_member_use
+   info - Don't use 'BuildContext's across async gaps - lib\features\quran_index\presentation\screens\juz_surahs_screen.dart:152:29 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\quran_index\presentation\screens\surah_screen.dart:147:15 - use_build_context_synchronously
+   info - Don't invoke 'print' in production code - lib\features\quran_index\presentation\screens\surah_screen.dart:170:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_index\presentation\screens\surah_screen.dart:173:7 - avoid_print
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\screens\surah_screen.dart:264:41 - deprecated_member_use
+   info - Don't use 'BuildContext's across async gaps - lib\features\quran_index\presentation\screens\surah_screen.dart:399:37 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\quran_index\presentation\screens\surah_screen.dart:400:44 - use_build_context_synchronously
+   info - Unnecessary use of string interpolation - lib\features\quran_index\presentation\screens\surah_screen.dart:560:15 - unnecessary_string_interpolations
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\screens\surah_screen.dart:713:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\screens\surah_screen.dart:741:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\screens\surah_screen.dart:760:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\screens\surah_screen.dart:761:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\screens\surah_screen.dart:780:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\screens\surah_screen.dart:847:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\screens\surah_screen.dart:898:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\screens\surah_screen.dart:944:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\screens\surah_screen.dart:963:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\screens\surah_screen.dart:964:46 - deprecated_member_use
+   info - Unnecessary use of 'toList' in a spread - lib\features\quran_index\presentation\screens\surah_screen.dart:972:14 - unnecessary_to_list_in_spreads
+   info - Use a 'SizedBox' to add whitespace to a layout - lib\features\quran_index\presentation\screens\surah_screen.dart:1188:12 - sized_box_for_whitespace
+   info - Use a 'SizedBox' to add whitespace to a layout - lib\features\quran_index\presentation\screens\surah_screen.dart:1195:22 - sized_box_for_whitespace
+   info - The private field _searchController could be 'final' - lib\features\quran_index\presentation\views\quran_index_view.dart:41:25 - prefer_final_fields
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\views\quran_index_view.dart:421:54 - deprecated_member_use
+   info - Parameter 'key' could be a super parameter - lib\features\quran_index\presentation\widgets\audio_dialoge.dart:15:9 - use_super_parameters
+   info - Don't invoke 'print' in production code - lib\features\quran_index\presentation\widgets\audio_dialoge.dart:78:7 - avoid_print
+   info - The local variable '_getButtonText' starts with an underscore - lib\features\quran_index\presentation\widgets\audio_dialoge.dart:201:12 - no_leading_underscores_for_local_identifiers
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\ayah_widget.dart:26:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\ayah_widget.dart:51:24 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\ayah_widget.dart:54:50 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\ayah_widget.dart:77:41 - deprecated_member_use
+   info - The imported package 'intl' isn't a dependency of the importing package - lib\features\quran_index\presentation\widgets\khatma_progress_card.dart:13:8 - depend_on_referenced_packages
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\khatma_progress_card.dart:37:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\khatma_progress_card.dart:38:42 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\khatma_progress_card.dart:41:45 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\khatma_progress_card.dart:42:48 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\khatma_progress_card.dart:50:46 - deprecated_member_use
+   info - 'color' is deprecated and shouldn't be used. Use colorFilter instead - lib\features\quran_index\presentation\widgets\khatma_progress_card.dart:67:25 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\khatma_progress_card.dart:89:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\khatma_progress_card.dart:156:53 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\khatma_progress_card.dart:169:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\khatma_progress_card.dart:176:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\khatma_progress_card.dart:184:47 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\khatma_progress_card.dart:255:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\quran_appbar.dart:31:33 - deprecated_member_use
+warning - Unused import: 'package:meshkat_elhoda/core/utils/app_text_styles.dart' - lib\features\quran_index\presentation\widgets\quran_icon.dart:5:8 - unused_import
+warning - Unused import: 'package:meshkat_elhoda/core/utils/app_fonts.dart' - lib\features\quran_index\presentation\widgets\surah_details_widget.dart:3:8 - unused_import
+   info - Parameter 'key' could be a super parameter - lib\features\quran_index\presentation\widgets\tafsier_dialog.dart:17:9 - use_super_parameters
+   info - 'onPopInvoked' is deprecated and shouldn't be used. Use onPopInvokedWithResult instead. This feature was deprecated after v3.22.0-12.0.pre - lib\features\quran_index\presentation\widgets\tafsier_dialog.dart:56:7 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_index\presentation\widgets\tafsier_dialog.dart:158:54 - deprecated_member_use
+   info - Don't invoke 'print' in production code - lib\features\quran_khatmah\data\datasources\khatmah_remote_datasource.dart:21:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\quran_khatmah\presentation\bloc\khatmah_bloc.dart:159:7 - avoid_print
+  error - The getter 'yourDailyWird' isn't defined for the type 'AppLocalizations' - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:38:26 - undefined_getter
+  error - The getter 'errorOccurred' isn't defined for the type 'AppLocalizations' - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:60:36 - undefined_getter
+  error - The getter 'tryAgain' isn't defined for the type 'AppLocalizations' - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:66:48 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:101:63 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:109:48 - deprecated_member_use
+  error - The method 'ayahsRangeText' isn't defined for the type 'AppLocalizations' - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:129:34 - undefined_method
+  error - The getter 'pageNumber' isn't defined for the type 'AppLocalizations' - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:148:42 - undefined_getter
+  error - The getter 'currentJuz' isn't defined for the type 'AppLocalizations' - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:153:42 - undefined_getter
+  error - The getter 'readJuz' isn't defined for the type 'AppLocalizations' - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:158:42 - undefined_getter
+  error - The getter 'remainingPages' isn't defined for the type 'AppLocalizations' - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:163:42 - undefined_getter
+  error - The getter 'todayProgress' isn't defined for the type 'AppLocalizations' - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:168:42 - undefined_getter
+  error - The getter 'pagesUnit' isn't defined for the type 'AppLocalizations' - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:169:95 - undefined_getter
+  error - The getter 'khatmaPercentage' isn't defined for the type 'AppLocalizations' - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:195:42 - undefined_getter
+  error - The getter 'khatmaTrackingNote' isn't defined for the type 'AppLocalizations' - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:255:40 - undefined_getter
+  error - The getter 'continueReading' isn't defined for the type 'AppLocalizations' - lib\features\quran_khatmah\presentation\screens\khatmah_screen.dart:295:32 - undefined_getter
+   info - The imported package 'intl' isn't a dependency of the importing package - lib\features\quran_khatmah\presentation\widgets\khatmah_home_section.dart:12:8 - depend_on_referenced_packages
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_khatmah\presentation\widgets\khatmah_home_section.dart:50:38 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_khatmah\presentation\widgets\khatmah_home_section.dart:51:38 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_khatmah\presentation\widgets\khatmah_home_section.dart:54:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_khatmah\presentation\widgets\khatmah_home_section.dart:55:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_khatmah\presentation\widgets\khatmah_home_section.dart:63:42 - deprecated_member_use
+   info - 'color' is deprecated and shouldn't be used. Use colorFilter instead - lib\features\quran_khatmah\presentation\widgets\khatmah_home_section.dart:81:21 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\quran_khatmah\presentation\widgets\khatmah_home_section.dart:98:39 - deprecated_member_use
+   info - The imported package 'intl' isn't a dependency of the importing package - lib\features\ramdan\presentation\views\ramdan_view.dart:16:8 - depend_on_referenced_packages
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\views\ramdan_view.dart:133:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\views\ramdan_view.dart:153:67 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\views\ramdan_view.dart:191:59 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:46:38 - deprecated_member_use
+  error - The getter 'chooseKhatmaCount' isn't defined for the type 'AppLocalizations' - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:68:28 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:97:48 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:102:50 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:127:35 - deprecated_member_use
+  error - The getter 'pagesPerDay' isn't defined for the type 'AppLocalizations' - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:147:45 - undefined_getter
+  error - The getter 'juzPerDay' isn't defined for the type 'AppLocalizations' - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:152:45 - undefined_getter
+  error - The getter 'khatma' isn't defined for the type 'AppLocalizations' - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:157:45 - undefined_getter
+  error - The getter 'hideSchedule' isn't defined for the type 'AppLocalizations' - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:180:36 - undefined_getter
+  error - The getter 'showDetailedSchedule' isn't defined for the type 'AppLocalizations' - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:181:36 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:207:57 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:247:41 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:260:29 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:269:47 - deprecated_member_use
+  error - The getter 'dayColumn' isn't defined for the type 'AppLocalizations' - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:277:36 - undefined_getter
+  error - The getter 'pagesColumn' isn't defined for the type 'AppLocalizations' - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:289:36 - undefined_getter
+  error - The getter 'surahsColumn' isn't defined for the type 'AppLocalizations' - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:300:36 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:331:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:341:59 - deprecated_member_use
+  error - The method 'pagesCountText' isn't defined for the type 'AppLocalizations' - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:370:46 - undefined_method
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:374:61 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\khatma_calculater.dart:388:57 - deprecated_member_use
+   info - The imported package 'path_provider' isn't a dependency of the importing package - lib\features\ramdan\presentation\widgets\ramadan_greeting_card.dart:11:8 - depend_on_referenced_packages
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\ramadan_greeting_card.dart:76:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\ramadan_greeting_card.dart:124:57 - deprecated_member_use
+  error - The getter 'ramadanMubarakFull' isn't defined for the type 'AppLocalizations' - lib\features\ramdan\presentation\widgets\ramadan_greeting_card.dart:145:34 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\ramadan_greeting_card.dart:149:49 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\ramdan\presentation\widgets\ramadan_greeting_card.dart:169:46 - deprecated_member_use
+   info - Don't invoke 'print' in production code - lib\features\settings\presentation\cubit\theme_cubit.dart:18:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\settings\presentation\cubit\theme_cubit.dart:22:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\settings\presentation\cubit\theme_cubit.dart:37:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\settings\presentation\cubit\theme_cubit.dart:42:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\settings\presentation\cubit\theme_cubit.dart:45:9 - avoid_print
+   info - Parameter 'key' could be a super parameter - lib\features\settings\presentation\pages\test_subscription_page.dart:10:9 - use_super_parameters
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\pages\test_subscription_page.dart:241:32 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\pages\test_subscription_page.dart:312:37 - deprecated_member_use
+  error - The getter 'monthlySubscription' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\account_and_subscription.dart:28:18 - undefined_getter
+  error - The getter 'yearlySubscription' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\account_and_subscription.dart:30:18 - undefined_getter
+  error - The getter 'premiumSubscription' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\account_and_subscription.dart:32:18 - undefined_getter
+  error - The getter 'freeSubscription' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\account_and_subscription.dart:35:18 - undefined_getter
+  error - The getter 'freeSubscription' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\account_and_subscription.dart:49:31 - undefined_getter
+  error - The getter 'accountAndSubscription' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\account_and_subscription.dart:76:28 - undefined_getter
+  error - The getter 'accountStatus' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\account_and_subscription.dart:90:36 - undefined_getter
+  error - The getter 'expiresOn' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\account_and_subscription.dart:113:38 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\widgets\account_and_subscription.dart:124:52 - deprecated_member_use
+  error - The getter 'manageSubscription' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\account_and_subscription.dart:140:41 - undefined_getter
+  error - The getter 'upgradeAccount' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\account_and_subscription.dart:140:64 - undefined_getter
+  error - The getter 'manage' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\account_and_subscription.dart:167:45 - undefined_getter
+  error - The getter 'subscribe' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\account_and_subscription.dart:167:56 - undefined_getter
+  error - The getter 'deleteAccountWarning' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\delete_account_section.dart:32:13 - undefined_getter
+  error - The getter 'areYouSureDeleteAccount' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\delete_account_section.dart:46:19 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\widgets\delete_account_section.dart:59:37 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\widgets\delete_account_section.dart:61:56 - deprecated_member_use
+  error - The getter 'deleteAccountConsequences' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\delete_account_section.dart:67:25 - undefined_getter
+  error - The getter 'allPersonalDataDeleted' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\delete_account_section.dart:76:41 - undefined_getter
+  error - The getter 'activeSubscriptionCancelled' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\delete_account_section.dart:77:41 - undefined_getter
+  error - The getter 'actionCannotUndone' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\delete_account_section.dart:78:41 - undefined_getter
+  error - The getter 'needNewAccountToUseApp' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\delete_account_section.dart:79:41 - undefined_getter
+  error - The getter 'deleteAccountSuccess' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\delete_account_section.dart:105:25 - undefined_getter
+  error - The getter 'errorOccurred' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\delete_account_section.dart:123:25 - undefined_getter
+  error - The getter 'deleting' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\delete_account_section.dart:146:33 - undefined_getter
+  error - The getter 'deleteAccount' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\delete_account_section.dart:146:46 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\widgets\delete_account_section.dart:198:25 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\widgets\delete_account_section.dart:201:44 - deprecated_member_use
+  error - The getter 'deleteAccount' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\delete_account_section.dart:217:27 - undefined_getter
+  error - The getter 'deleteAccountAndAssociatedData' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\delete_account_section.dart:227:27 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\widgets\delete_account_section.dart:231:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\widgets\delete_account_section.dart:248:55 - deprecated_member_use
+  error - The getter 'deleteAccount' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\delete_account_section.dart:260:25 - undefined_getter
+   info - Don't use 'BuildContext's across async gaps - lib\features\settings\presentation\widgets\location_settings.dart:65:5 - use_build_context_synchronously
+  error - The getter 'locationUpdatedSuccessfully' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\location_settings.dart:81:15 - undefined_getter
+  error - The getter 'locationSettingsTitle' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\location_settings.dart:189:24 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\widgets\location_settings.dart:206:42 - deprecated_member_use
+  error - The getter 'countryLabel' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\location_settings.dart:215:35 - undefined_getter
+  error - The getter 'unknown' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\location_settings.dart:226:61 - undefined_getter
+  error - The getter 'regionLabel' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\location_settings.dart:244:35 - undefined_getter
+  error - The getter 'unknown' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\location_settings.dart:255:58 - undefined_getter
+  error - The getter 'autoRefreshLocation' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\location_settings.dart:279:23 - undefined_getter
+   info - 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre - lib\features\settings\presentation\widgets\location_settings.dart:288:19 - deprecated_member_use
+  error - The getter 'updating' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\location_settings.dart:313:39 - undefined_getter
+  error - The getter 'refreshLocationNow' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\location_settings.dart:313:52 - undefined_getter
+   info - The import of 'package:flutter/foundation.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/material.dart' - lib\features\settings\presentation\widgets\notifications.dart:1:8 - unnecessary_import
+  error - The getter 'notificationsTitle' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:68:34 - undefined_getter
+  error - The getter 'athanNotification' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:75:36 - undefined_getter
+  error - The getter 'preAthanNotification' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:95:36 - undefined_getter
+  error - The getter 'morningEveningAzkar' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:111:36 - undefined_getter
+  error - The getter 'khushooMode' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:127:36 - undefined_getter
+  error - The getter 'collectiveKhatmaNotifications' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:143:36 - undefined_getter
+  error - The getter 'remindMeOfAllah' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:166:40 - undefined_getter
+  error - The getter 'halfHour' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:195:48 - undefined_getter
+  error - The getter 'hour' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:207:48 - undefined_getter
+  error - The getter 'twoHours' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:219:48 - undefined_getter
+  error - The getter 'fourHours' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:231:48 - undefined_getter
+  error - The getter 'halfHour' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:296:48 - undefined_getter
+  error - The getter 'hour' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:309:48 - undefined_getter
+  error - The getter 'twoHours' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:322:48 - undefined_getter
+  error - The getter 'fourHours' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:335:48 - undefined_getter
+  error - The getter 'premiumFeature' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:439:20 - undefined_getter
+  error - The getter 'premiumFeatureDescription' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:443:13 - undefined_getter
+  error - The getter 'upgradeNow' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\notifications.dart:467:27 - undefined_getter
+  error - The getter 'prayersAndMuezzinsTitle' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:57:24 - undefined_getter
+  error - The getter 'notSpecified' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:63:49 - undefined_getter
+  error - The getter 'selectMuezzin' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:82:30 - undefined_getter
+   info - Don't use 'BuildContext's across async gaps - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:114:48 - use_build_context_synchronously
+  error - The getter 'playingMuezzinSound' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:117:35 - undefined_getter
+  error - The getter 'selectMuezzinFirst' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:137:35 - undefined_getter
+  error - The getter 'playAthanSound' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:153:30 - undefined_getter
+  error - The getter 'selectMuezzinDialogTitle' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:186:23 - undefined_getter
+  error - The getter 'noRecitersAvailable' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:191:23 - undefined_getter
+  error - The getter 'chooseFavoriteMuezzin' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:208:25 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:232:55 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:234:59 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:235:59 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:255:63 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:256:63 - deprecated_member_use
+  error - The getter 'muezzinSelected' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:315:37 - undefined_getter
+  error - The getter 'premiumFeature' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:355:17 - undefined_getter
+  error - The getter 'premiumFeatureDescription' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:364:13 - undefined_getter
+  error - The getter 'upgradeNow' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\prayers_and_muezzins.dart:388:27 - undefined_getter
+  error - The getter 'quranSettingsTitle' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\quran_settings.dart:128:28 - undefined_getter
+  error - The getter 'notAvailable' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\quran_settings.dart:175:39 - undefined_getter
+  error - The getter 'notAvailableEnglish' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\quran_settings.dart:176:46 - undefined_getter
+  error - The getter 'notAvailable' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\quran_settings.dart:186:39 - undefined_getter
+  error - The getter 'notAvailableEnglish' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\quran_settings.dart:187:46 - undefined_getter
+  error - The getter 'favoriteTafsir' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\quran_settings.dart:196:40 - undefined_getter
+  error - The getter 'chooseTafsir' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\quran_settings.dart:200:35 - undefined_getter
+  error - The getter 'favoriteReciter' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\quran_settings.dart:209:40 - undefined_getter
+  error - The getter 'chooseReciter' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\quran_settings.dart:213:35 - undefined_getter
+  error - The getter 'settingsLoadError' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\quran_settings.dart:235:35 - undefined_getter
+   info - 'groupValue' is deprecated and shouldn't be used. Use a RadioGroup ancestor to manage group value instead. This feature was deprecated after v3.32.0-0.0.pre - lib\features\settings\presentation\widgets\quran_settings.dart:330:27 - deprecated_member_use
+   info - 'onChanged' is deprecated and shouldn't be used. Use RadioGroup to handle value change instead. This feature was deprecated after v3.32.0-0.0.pre - lib\features\settings\presentation\widgets\quran_settings.dart:332:27 - deprecated_member_use
+  error - The getter 'premiumFeature' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\quran_settings.dart:373:19 - undefined_getter
+  error - The getter 'premiumFeatureDescription' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\quran_settings.dart:384:13 - undefined_getter
+  error - The getter 'upgradeNow' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\quran_settings.dart:405:27 - undefined_getter
+  error - The getter 'chooseLanguage' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\settings_genral.dart:75:31 - undefined_getter
+   info - 'groupValue' is deprecated and shouldn't be used. Use a RadioGroup ancestor to manage group value instead. This feature was deprecated after v3.32.0-0.0.pre - lib\features\settings\presentation\widgets\settings_genral.dart:118:27 - deprecated_member_use
+   info - 'onChanged' is deprecated and shouldn't be used. Use RadioGroup to handle value change instead. This feature was deprecated after v3.32.0-0.0.pre - lib\features\settings\presentation\widgets\settings_genral.dart:119:27 - deprecated_member_use
+  error - The getter 'premiumFeature' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\settings_genral.dart:169:17 - undefined_getter
+  error - The getter 'premiumFeatureDescription' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\settings_genral.dart:175:13 - undefined_getter
+  error - The getter 'upgradeNow' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\settings_genral.dart:196:27 - undefined_getter
+   info - 'WillPopScope' is deprecated and shouldn't be used. Use PopScope instead. The Android predictive back feature will not work with WillPopScope. This feature was deprecated after v3.12.0-1.0.pre - lib\features\settings\presentation\widgets\settings_genral.dart:215:36 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\settings\presentation\widgets\settings_genral.dart:228:39 - deprecated_member_use
+  error - The getter 'updatingLanguage' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\settings_genral.dart:244:21 - undefined_getter
+  error - The getter 'languageUpdateError' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\settings_genral.dart:288:17 - undefined_getter
+  error - The getter 'generalTitle' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\settings_genral.dart:322:28 - undefined_getter
+  error - The getter 'language' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\settings_genral.dart:328:30 - undefined_getter
+  error - The getter 'arabic' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\settings_genral.dart:329:72 - undefined_getter
+  error - The getter 'rateApp' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\settings_genral.dart:334:30 - undefined_getter
+  error - The getter 'aboutApp' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\settings_genral.dart:349:30 - undefined_getter
+  error - The getter 'privacyPolicy' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\settings_genral.dart:361:30 - undefined_getter
+warning - The value of the field '_isExpanded' isn't used - lib\features\settings\presentation\widgets\settings_title.dart:29:8 - unused_field
+  error - The getter 'appearanceTitle' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\theme_option.dart:45:28 - undefined_getter
+  error - The getter 'darkMode' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\theme_option.dart:63:38 - undefined_getter
+  error - The getter 'lightMode' isn't defined for the type 'AppLocalizations' - lib\features\settings\presentation\widgets\theme_option.dart:63:51 - undefined_getter
+  error - The getter 'upgradeAccount' isn't defined for the type 'AppLocalizations' - lib\features\subscription\presentation\pages\subscription_page.dart:52:23 - undefined_getter
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\subscription\presentation\pages\subscription_page.dart:82:40 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\subscription\presentation\pages\subscription_page.dart:83:39 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\subscription\presentation\pages\subscription_page.dart:105:58 - deprecated_member_use
+  error - The getter 'premiumSubscription' isn't defined for the type 'AppLocalizations' - lib\features\subscription\presentation\pages\subscription_page.dart:178:13 - undefined_getter
+  error - The getter 'subscriptionFeatures' isn't defined for the type 'AppLocalizations' - lib\features\subscription\presentation\pages\subscription_page.dart:202:19 - undefined_getter
+  error - The getter 'noProductsAvailable' isn't defined for the type 'AppLocalizations' - lib\features\subscription\presentation\pages\subscription_page.dart:241:21 - undefined_getter
+  error - The getter 'mostSaving' isn't defined for the type 'AppLocalizations' - lib\features\subscription\presentation\pages\subscription_page.dart:307:27 - undefined_getter
+  error - The getter 'yearlySubscription' isn't defined for the type 'AppLocalizations' - lib\features\subscription\presentation\pages\subscription_page.dart:312:34 - undefined_getter
+  error - The getter 'monthlySubscription' isn't defined for the type 'AppLocalizations' - lib\features\subscription\presentation\pages\subscription_page.dart:312:57 - undefined_getter
+  error - The getter 'yearlySubscription' isn't defined for the type 'AppLocalizations' - lib\features\subscription\presentation\pages\subscription_page.dart:337:32 - undefined_getter
+  error - The getter 'monthlySubscription' isn't defined for the type 'AppLocalizations' - lib\features\subscription\presentation\pages\subscription_page.dart:338:32 - undefined_getter
+warning - The declaration '_buildTermsLinks' isn't referenced - lib\features\subscription\presentation\pages\subscription_page.dart:349:10 - unused_element
+  error - The getter 'privacyPolicy' isn't defined for the type 'AppLocalizations' - lib\features\subscription\presentation\pages\subscription_page.dart:365:29 - undefined_getter
+  error - The getter 'termsOfUse' isn't defined for the type 'AppLocalizations' - lib\features\subscription\presentation\pages\subscription_page.dart:375:29 - undefined_getter
+   info - Don't invoke 'print' in production code - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:55:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:78:7 - avoid_print
+  error - The getter 'mustLoginFirst' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:93:41 - undefined_getter
+   info - Don't use 'BuildContext's across async gaps - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:134:40 - use_build_context_synchronously
+  error - The getter 'savedSuccessfully' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:134:50 - undefined_getter
+   info - Don't use 'BuildContext's across async gaps - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:136:37 - use_build_context_synchronously
+   info - Don't invoke 'print' in production code - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:137:7 - avoid_print
+  error - The getter 'errorSavingTasbeh' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:137:18 - undefined_getter
+  error - The getter 'saveFailed' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:138:22 - undefined_getter
+   info - Don't invoke 'print' in production code - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:185:9 - avoid_print
+   info - Don't invoke 'print' in production code - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:216:7 - avoid_print
+  error - The getter 'subhanAllah' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:234:9 - undefined_getter
+  error - The getter 'alhamdulillah' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:235:9 - undefined_getter
+  error - The getter 'allahuAkbar' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:236:9 - undefined_getter
+  error - The getter 'laIlahaIllallah' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:237:9 - undefined_getter
+  error - The getter 'astaghfirullah' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:238:9 - undefined_getter
+  error - The getter 'rememberAllah' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:266:19 - undefined_getter
+  error - The getter 'rememberAllahDescription' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\view\tasbeeh_view.dart:274:19 - undefined_getter
+  error - The getter 'subhanAllah' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\widget\tasbeh_container.dart:23:9 - undefined_getter
+  error - The getter 'alhamdulillah' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\widget\tasbeh_container.dart:24:9 - undefined_getter
+  error - The getter 'allahuAkbar' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\widget\tasbeh_container.dart:25:9 - undefined_getter
+  error - The getter 'laIlahaIllallah' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\widget\tasbeh_container.dart:26:9 - undefined_getter
+  error - The getter 'astaghfirullah' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\widget\tasbeh_container.dart:27:9 - undefined_getter
+warning - The value of the local variable 's' isn't used - lib\features\tasbeh\presentation\widget\tasbeh_container.dart:34:11 - unused_local_variable
+  error - The getter 'reset' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\widget\tasbeh_with_action.dart:82:23 - undefined_getter
+  error - The getter 'saving' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\widget\tasbeh_with_action.dart:85:41 - undefined_getter
+  error - The getter 'save' isn't defined for the type 'AppLocalizations' - lib\features\tasbeh\presentation\widget\tasbeh_with_action.dart:85:52 - undefined_getter
+   info - 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre - lib\features\zakat_calculator\presentation\screens\zakat_calculator_screen.dart:177:25 - deprecated_member_use
+   info - 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre - lib\features\zakat_calculator\presentation\screens\zakat_calculator_screen.dart:243:23 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\zakat_calculator\presentation\screens\zakat_calculator_screen.dart:285:54 - deprecated_member_use
+warning - The getter doesn't override an inherited getter - lib\l10n\old\app_localizations_ar.dart:418:14 - override_on_non_overriding_member
+warning - The getter doesn't override an inherited getter - lib\l10n\old\app_localizations_ar.dart:558:14 - override_on_non_overriding_member
+warning - The getter doesn't override an inherited getter - lib\l10n\old\app_localizations_bn.dart:434:14 - override_on_non_overriding_member
+warning - The getter doesn't override an inherited getter - lib\l10n\old\app_localizations_de.dart:437:14 - override_on_non_overriding_member
+warning - The getter doesn't override an inherited getter - lib\l10n\old\app_localizations_en.dart:432:14 - override_on_non_overriding_member
+warning - The getter doesn't override an inherited getter - lib\l10n\old\app_localizations_en.dart:569:14 - override_on_non_overriding_member
+warning - The getter doesn't override an inherited getter - lib\l10n\old\app_localizations_es.dart:435:14 - override_on_non_overriding_member
+warning - The getter doesn't override an inherited getter - lib\l10n\old\app_localizations_fa.dart:433:14 - override_on_non_overriding_member
+warning - The getter doesn't override an inherited getter - lib\l10n\old\app_localizations_fr.dart:461:14 - override_on_non_overriding_member
+warning - The getter doesn't override an inherited getter - lib\l10n\old\app_localizations_id.dart:420:14 - override_on_non_overriding_member
+warning - The getter doesn't override an inherited getter - lib\l10n\old\app_localizations_ms.dart:420:14 - override_on_non_overriding_member
+warning - The getter doesn't override an inherited getter - lib\l10n\old\app_localizations_tr.dart:431:14 - override_on_non_overriding_member
+warning - The getter doesn't override an inherited getter - lib\l10n\old\app_localizations_ur.dart:442:14 - override_on_non_overriding_member
+warning - The getter doesn't override an inherited getter - lib\l10n\old\app_localizations_zh.dart:428:14 - override_on_non_overriding_member
+warning - The method doesn't override an inherited method - lib\l10n\old\app_localizations_zh.dart:1446:10 - override_on_non_overriding_member
+warning - Unused import: 'package:meshkat_elhoda/features/onboarding/presentation/screens/onboarding_screen.dart' - lib\main.dart:52:8 - unused_import
+warning - Unused import: 'features/prayer_times/presentation/bloc/prayer_times_state.dart' - lib\main.dart:68:8 - unused_import
+   info - Invalid use of a private type in a public API - lib\main.dart:143:10 - library_private_types_in_public_api
+   info - Don't use 'BuildContext's across async gaps - lib\main.dart:180:7 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\main.dart:249:29 - use_build_context_synchronously
+warning - Unused import: 'package:meshkat_elhoda/main.dart' - test\widget_test.dart:11:8 - unused_import
+
+flutter : 1008 issues found. (ran in 28.1s)
+At line:1 char:1
++ flutter analyze 2>&1 | Out-File -Encoding utf8 flutter_analyze_full.t ...
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (1008 issues found. (ran in 28.1s):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

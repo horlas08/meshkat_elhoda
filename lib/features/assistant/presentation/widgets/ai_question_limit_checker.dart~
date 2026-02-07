@@ -1,0 +1,225 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../../subscription/domain/entities/feature_manager.dart';
+import '../../../subscription/presentation/bloc/subscription_bloc.dart';
+import '../../../subscription/presentation/bloc/subscription_state.dart';
+import '../bloc/assistant_bloc.dart';
+import '../bloc/assistant_state.dart';
+
+/// Widget للتحقق من صلاحيات الاشتراك قبل إرسال رسالة
+class AiQuestionLimitChecker extends StatelessWidget {
+  final Widget child;
+  final VoidCallback onLimitReached;
+
+  const AiQuestionLimitChecker({
+    super.key,
+    required this.child,
+    required this.onLimitReached,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SubscriptionBloc, SubscriptionState>(
+      builder: (context, subscriptionState) {
+        if (subscriptionState is! SubscriptionLoaded) {
+          return child;
+        }
+
+        return BlocBuilder<AssistantBloc, AssistantState>(
+          builder: (context, assistantState) {
+            final featureManager = subscriptionState.featureManager;
+            final dailyCount = assistantState.dailyQuestionCount;
+            final maxQuestions = featureManager.maxDailyQuestions;
+
+            // Check if user has reached the limit
+            final hasReachedLimit =
+                dailyCount >= maxQuestions && !featureManager.canUseAIUnlimited;
+
+            if (hasReachedLimit) {
+              return _buildLimitReachedWidget(
+                context,
+                featureManager,
+                dailyCount,
+                maxQuestions,
+              );
+            }
+
+            return child;
+          },
+        );
+      },
+    );
+  }
+
+  Widget _buildLimitReachedWidget(
+    BuildContext context,
+    FeatureManager featureManager,
+    int dailyCount,
+    int maxQuestions,
+  ) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.orange.shade50,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.orange.shade300),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.lock, size: 48, color: Colors.orange.shade700),
+          const SizedBox(height: 12),
+          Text(
+            AppLocalizations.of(context)!.dailyLimitReachedTitle,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.orange.shade900,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            AppLocalizations.of(context)!.dailyLimitReachedMessage
+                .replaceAll('{dailyCount}', dailyCount.toString())
+                .replaceAll('{maxQuestions}', maxQuestions.toString()),
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.orange.shade800),
+          ),
+          const SizedBox(height: 16),
+          ElevatedButton.icon(
+            onPressed: onLimitReached,
+            icon: const Icon(Icons.upgrade),
+            label: Text(AppLocalizations.of(context)!.upgradeToPremiumButton),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.orange.shade700,
+              foregroundColor: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Widget لعرض عداد الأسئلة المتبقية
+class DailyQuestionCounter extends StatelessWidget {
+  const DailyQuestionCounter({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SubscriptionBloc, SubscriptionState>(
+      builder: (context, subscriptionState) {
+        if (subscriptionState is! SubscriptionLoaded) {
+          return const SizedBox.shrink();
+        }
+
+        return BlocBuilder<AssistantBloc, AssistantState>(
+          builder: (context, assistantState) {
+            final featureManager = subscriptionState.featureManager;
+            final dailyCount = assistantState.dailyQuestionCount;
+            final maxQuestions = featureManager.maxDailyQuestions;
+
+            // Don't show counter for premium users
+            if (featureManager.canUseAIUnlimited) {
+              return const SizedBox.shrink();
+            }
+
+            final remaining = maxQuestions - dailyCount;
+            final percentage = dailyCount / maxQuestions;
+
+            Color color;
+            if (percentage < 0.5) {
+              color = Colors.green;
+            } else if (percentage < 0.8) {
+              color = Colors.orange;
+            } else {
+              color = Colors.red;
+            }
+
+            return Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              margin: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: color.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: color.withOpacity(0.3)),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.help_outline, size: 16, color: color),
+                  const SizedBox(width: 6),
+                  Text(
+                    '${AppLocalizations.of(context)!.questionsRemaining.replaceAll('{remaining}', remaining.toString())} '
+                        '${AppLocalizations.of(context)!.of} $maxQuestions',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: color,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+}
+
+/// Helper function للتحقق قبل إرسال رسالة
+Future<bool> canSendMessage(BuildContext context) async {
+  final subscriptionBloc = context.read<SubscriptionBloc>();
+  final assistantBloc = context.read<AssistantBloc>();
+
+  final subscriptionState = subscriptionBloc.state;
+  final assistantState = assistantBloc.state;
+
+  if (subscriptionState is! SubscriptionLoaded) {
+    return true; // Allow if subscription not loaded yet
+  }
+
+  final featureManager = subscriptionState.featureManager;
+  final dailyCount = assistantState.dailyQuestionCount;
+  final maxQuestions = featureManager.maxDailyQuestions;
+
+  // Premium users have unlimited access
+  if (featureManager.canUseAIUnlimited) {
+    return true;
+  }
+
+  // Check if limit reached
+  if (dailyCount >= maxQuestions) {
+    _showUpgradeDialog(context);
+    return false;
+  }
+
+  return true;
+}
+
+void _showUpgradeDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: Text(AppLocalizations.of(context)!.upgradeToPremiumButton),
+      content: Text(AppLocalizations.of(context)!.premiumFeatureContent,),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text(AppLocalizations.of(context)!.laterButton),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+            // Navigate to subscription page
+            // Navigator.pushNamed(context, '/subscription');
+          },
+          child: const Text('ترقية الآن'),
+        ),
+      ],
+    ),
+  );
+}

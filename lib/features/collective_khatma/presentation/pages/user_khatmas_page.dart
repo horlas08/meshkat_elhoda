@@ -1,0 +1,626 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meshkat_elhoda/core/utils/app_colors.dart';
+import 'package:meshkat_elhoda/core/utils/app_fonts.dart';
+import 'package:meshkat_elhoda/core/utils/app_text_styles.dart';
+import 'package:meshkat_elhoda/core/utils/size_utils.dart';
+import 'package:meshkat_elhoda/core/services/service_locator.dart';
+import 'package:meshkat_elhoda/features/quran_index/presentation/widgets/loading_widget.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../domain/entities/collective_khatma_entity.dart';
+import '../../domain/usecases/get_user_collective_khatmas_usecase.dart';
+import '../../domain/usecases/get_user_created_khatmas_usecase.dart';
+import '../bloc/user_joined_khatmas_bloc.dart';
+import '../bloc/user_created_khatmas_bloc.dart';
+import 'khatma_details_page.dart';
+
+/// Page showing user's participated and created collective khatmas
+class UserKhatmasPage extends StatelessWidget {
+  const UserKhatmasPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => UserJoinedKhatmasBloc(
+            getUserCollectiveKhatmas: getIt<GetUserCollectiveKhatmasUseCase>(),
+          )..add(LoadUserJoinedKhatmasEvent()),
+        ),
+        BlocProvider(
+          create: (context) => UserCreatedKhatmasBloc(
+            getUserCreatedKhatmas: getIt<GetUserCreatedKhatmasUseCase>(),
+          )..add(LoadUserCreatedTabEvent()),
+        ),
+      ],
+      child: const _UserKhatmasPageContent(),
+    );
+  }
+}
+
+class _UserKhatmasPageContent extends StatefulWidget {
+  const _UserKhatmasPageContent();
+
+  @override
+  State<_UserKhatmasPageContent> createState() =>
+      _UserKhatmasPageContentState();
+}
+
+class _UserKhatmasPageContentState extends State<_UserKhatmasPageContent>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        title: Text(
+          AppLocalizations.of(context)!.myCollectiveKhatmas,
+          style: AppTextStyles.surahName.copyWith(
+            fontFamily: AppFonts.tajawal,
+            fontWeight: FontWeight.bold,
+            fontSize: 20.sp,
+            color: isDark ? Colors.white : Colors.black,
+          ),
+        ),
+        centerTitle: true,
+        bottom: TabBar(
+          controller: _tabController,
+          tabs: [
+            Tab(
+              child: Text(
+                AppLocalizations.of(context)!.joinedKhatmasTab,
+                style: TextStyle(fontFamily: AppFonts.tajawal, fontSize: 14.sp),
+              ),
+            ),
+            Tab(
+              child: Text(
+                AppLocalizations.of(context)!.createdKhatmasTab,
+                style: TextStyle(fontFamily: AppFonts.tajawal, fontSize: 14.sp),
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          _buildJoinedKhatmasTab(context),
+          _buildCreatedKhatmasTab(context),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildJoinedKhatmasTab(BuildContext context) {
+    return BlocBuilder<UserJoinedKhatmasBloc, UserJoinedKhatmasState>(
+      builder: (context, state) {
+        if (state is UserJoinedLoading) {
+          return const Center(child: QuranLottieLoading());
+        }
+
+        if (state is UserJoinedError) {
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  state.message,
+                  style: TextStyle(
+                    fontFamily: AppFonts.tajawal,
+                    fontSize: 16.sp,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 16.h),
+                ElevatedButton(
+                  onPressed: () {
+                    context.read<UserJoinedKhatmasBloc>().add(
+                      RefreshUserJoinedKhatmasEvent(),
+                    );
+                  },
+                  child: Text(AppLocalizations.of(context)!.retry),
+                ),
+              ],
+            ),
+          );
+        }
+
+        if (state is UserJoinedLoaded) {
+          if (state.khatmas.isEmpty) {
+            return _buildEmptyView(context);
+          }
+          return _buildContent(context, state.khatmas, state.completedCount);
+        }
+
+        return const Center(child: QuranLottieLoading());
+      },
+    );
+  }
+
+  Widget _buildCreatedKhatmasTab(BuildContext context) {
+    return BlocBuilder<UserCreatedKhatmasBloc, UserCreatedKhatmasState>(
+      builder: (context, state) {
+        if (state is UserCreatedLoading) {
+          return const Center(child: QuranLottieLoading());
+        }
+
+        if (state is UserCreatedError) {
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  state.message,
+                  style: TextStyle(
+                    fontFamily: AppFonts.tajawal,
+                    fontSize: 16.sp,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 16.h),
+                ElevatedButton(
+                  onPressed: () {
+                    context.read<UserCreatedKhatmasBloc>().add(
+                      RefreshUserCreatedTabEvent(),
+                    );
+                  },
+                  child: Text(AppLocalizations.of(context)!.retry),
+                ),
+              ],
+            ),
+          );
+        }
+
+        if (state is UserCreatedLoaded) {
+          if (state.khatmas.isEmpty) {
+            return _buildEmptyCreatedView(context);
+          }
+          return _buildCreatedContent(context, state.khatmas);
+        }
+
+        return const Center(child: QuranLottieLoading());
+      },
+    );
+  }
+
+  Widget _buildEmptyView(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.auto_stories_outlined,
+            size: 80.sp,
+            color: AppColors.goldenColor.withValues(alpha: 0.5),
+          ),
+          SizedBox(height: 24.h),
+          Text(
+            AppLocalizations.of(context)!.noJoinedKhatmas,
+            style: AppTextStyles.surahName.copyWith(
+              fontSize: 18.sp,
+              fontFamily: AppFonts.tajawal,
+            ),
+          ),
+          SizedBox(height: 8.h),
+          Text(
+            AppLocalizations.of(context)!.findAndJoinKhatma,
+            style: TextStyle(
+              fontSize: 14.sp,
+              fontFamily: AppFonts.tajawal,
+              color: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.color?.withValues(alpha: 0.7),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildContent(
+    BuildContext context,
+    List<UserCollectiveKhatmaEntity> khatmas,
+    int completedCount,
+  ) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    return Column(
+      children: [
+        // Stats Header
+        Container(
+          margin: EdgeInsets.all(16.w),
+          padding: EdgeInsets.all(20.w),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: isDark
+                  ? [
+                      AppColors.darkGrey,
+                      AppColors.darkGrey.withValues(alpha: 0.8),
+                    ]
+                  : [AppColors.goldenColor, AppColors.secondaryColor],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(16.r),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildStatItem(
+                icon: Icons.menu_book,
+                label: AppLocalizations.of(context)!.joinedKhatmasTab,
+                value: '${khatmas.length}',
+              ),
+              Container(width: 1, height: 50.h, color: Colors.white24),
+              _buildStatItem(
+                icon: Icons.check_circle,
+                label: AppLocalizations.of(context)!.completedPartsLabel,
+                value: '$completedCount',
+              ),
+            ],
+          ),
+        ),
+
+        // List
+        Expanded(
+          child: RefreshIndicator(
+            onRefresh: () async {
+              context.read<UserJoinedKhatmasBloc>().add(
+                RefreshUserJoinedKhatmasEvent(),
+              );
+            },
+            child: ListView.builder(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              itemCount: khatmas.length,
+              itemBuilder: (context, index) {
+                final khatma = khatmas[index];
+                return _buildKhatmaItem(context, khatma);
+              },
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildStatItem({
+    required IconData icon,
+    required String label,
+    required String value,
+  }) {
+    return Column(
+      children: [
+        Icon(icon, color: Colors.white, size: 28.sp),
+        SizedBox(height: 8.h),
+        Text(
+          value,
+          style: TextStyle(
+            fontSize: 24.sp,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            fontFamily: AppFonts.tajawal,
+            fontSize: 12.sp,
+            color: Colors.white70,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildKhatmaItem(
+    BuildContext context,
+    UserCollectiveKhatmaEntity khatma,
+  ) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isCompleted = khatma.isCompleted;
+
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => KhatmaDetailsPage(khatmaId: khatma.khatmaId),
+          ),
+        );
+      },
+      child: Container(
+        margin: EdgeInsets.only(bottom: 12.h),
+        padding: EdgeInsets.all(16.w),
+        decoration: BoxDecoration(
+          color: isDark ? Colors.grey[850] : Colors.white,
+          borderRadius: BorderRadius.circular(12.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            // Part Number Badge
+            Container(
+              width: 50.w,
+              height: 50.w,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: isCompleted
+                      ? [Colors.green, Colors.green.shade700]
+                      : [AppColors.goldenColor, AppColors.secondaryColor],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(12.r),
+              ),
+              child: Center(
+                child: Text(
+                  '${khatma.assignedPart}',
+                  style: TextStyle(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+
+            SizedBox(width: 16.w),
+
+            // Info
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    khatma.khatmaTitle,
+                    style: TextStyle(
+                      fontFamily: AppFonts.tajawal,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  SizedBox(height: 4.h),
+                  Text(
+                    AppLocalizations.of(context)!.partNumber.replaceAll(
+                      '{0}',
+                      khatma.assignedPart.toString(),
+                    ),
+                    style: TextStyle(
+                      fontFamily: AppFonts.tajawal,
+                      fontSize: 13.sp,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            // Status
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+              decoration: BoxDecoration(
+                color: isCompleted
+                    ? Colors.green.withValues(alpha: 0.1)
+                    : Colors.orange.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(20.r),
+              ),
+              child: Text(
+                isCompleted
+                    ? AppLocalizations.of(context)!.completedStatus
+                    : AppLocalizations.of(context)!.inProgressStatus,
+                style: TextStyle(
+                  fontFamily: AppFonts.tajawal,
+                  fontSize: 12.sp,
+                  fontWeight: FontWeight.w600,
+                  color: isCompleted ? Colors.green : Colors.orange,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildEmptyCreatedView(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.auto_stories_outlined,
+            size: 80.sp,
+            color: AppColors.goldenColor.withValues(alpha: 0.5),
+          ),
+          SizedBox(height: 24.h),
+          Text(
+            AppLocalizations.of(context)!.noCreatedKhatmas,
+            style: AppTextStyles.surahName.copyWith(
+              fontSize: 18.sp,
+              fontFamily: AppFonts.tajawal,
+            ),
+          ),
+          SizedBox(height: 8.h),
+          Text(
+            AppLocalizations.of(context)!.startCreatingKhatma,
+            style: TextStyle(
+              fontSize: 14.sp,
+              fontFamily: AppFonts.tajawal,
+              color: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.color?.withValues(alpha: 0.7),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCreatedContent(
+    BuildContext context,
+    List<CollectiveKhatmaEntity> khatmas,
+  ) {
+    return RefreshIndicator(
+      onRefresh: () async {
+        context.read<UserCreatedKhatmasBloc>().add(
+          RefreshUserCreatedTabEvent(),
+        );
+      },
+      child: ListView.builder(
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+        itemCount: khatmas.length,
+        itemBuilder: (context, index) {
+          final khatma = khatmas[index];
+          return _buildCreatedKhatmaItem(context, khatma);
+        },
+      ),
+    );
+  }
+
+  Widget _buildCreatedKhatmaItem(
+    BuildContext context,
+    CollectiveKhatmaEntity khatma,
+  ) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final completedParts = khatma.parts
+        .where((p) => p.status == PartStatus.read)
+        .length;
+
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => KhatmaDetailsPage(khatmaId: khatma.id),
+          ),
+        );
+      },
+      child: Container(
+        margin: EdgeInsets.only(bottom: 12.h),
+        padding: EdgeInsets.all(16.w),
+        decoration: BoxDecoration(
+          color: isDark ? Colors.grey[850] : Colors.white,
+          borderRadius: BorderRadius.circular(12.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Title and Type Badge
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    khatma.title,
+                    style: TextStyle(
+                      fontFamily: AppFonts.tajawal,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                SizedBox(width: 8.w),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                  decoration: BoxDecoration(
+                    color: khatma.type == KhatmaType.public
+                        ? Colors.blue.withValues(alpha: 0.1)
+                        : Colors.purple.withValues(alpha: 0.1),
+                    borderRadius: BorderRadius.circular(12.r),
+                  ),
+                  child: Text(
+                    khatma.type == KhatmaType.public
+                        ? AppLocalizations.of(context)!.publicType
+                        : AppLocalizations.of(context)!.privateType,
+                    style: TextStyle(
+                      fontFamily: AppFonts.tajawal,
+                      fontSize: 11.sp,
+                      fontWeight: FontWeight.w600,
+                      color: khatma.type == KhatmaType.public
+                          ? Colors.blue
+                          : Colors.purple,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 12.h),
+            // Progress Bar
+            Row(
+              children: [
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.r),
+                    child: LinearProgressIndicator(
+                      value: khatma.parts.isEmpty
+                          ? 0
+                          : completedParts / khatma.parts.length,
+                      minHeight: 8.h,
+                      backgroundColor: Colors.grey.withValues(alpha: 0.2),
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        AppColors.goldenColor,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 12.w),
+                Text(
+                  '$completedParts/${khatma.parts.length}',
+                  style: TextStyle(
+                    fontFamily: AppFonts.tajawal,
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 12.h),
+            // Creator Info
+            Text(
+              AppLocalizations.of(
+                context,
+              )!.createdBy.replaceAll('{0}', khatma.creatorName),
+              style: TextStyle(
+                fontFamily: AppFonts.tajawal,
+                fontSize: 12.sp,
+                color: Colors.grey,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

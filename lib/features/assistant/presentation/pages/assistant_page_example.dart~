@@ -1,0 +1,427 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meshkat_elhoda/features/quran_index/presentation/widgets/loading_widget.dart';
+import '../../../../l10n/app_localizations.dart';
+import '../../../subscription/presentation/bloc/subscription_bloc.dart';
+import '../../../subscription/presentation/bloc/subscription_event.dart';
+import '../../../subscription/presentation/bloc/subscription_state.dart';
+import '../bloc/assistant_bloc.dart';
+import '../bloc/assistant_event.dart';
+import '../bloc/assistant_state.dart';
+import '../widgets/input_bar.dart';
+import '../widgets/message_bubble.dart';
+import '../widgets/model_selector.dart';
+import '../widgets/chat_list_drawer.dart';
+import '../widgets/ai_question_limit_checker.dart';
+
+class AssistantPageWithSubscription extends StatefulWidget {
+  const AssistantPageWithSubscription({Key? key}) : super(key: key);
+
+  @override
+  State<AssistantPageWithSubscription> createState() =>
+      _AssistantPageWithSubscriptionState();
+}
+
+class _AssistantPageWithSubscriptionState
+    extends State<AssistantPageWithSubscription> {
+  bool _isInitialized = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_isInitialized) {
+      _isInitialized = true;
+      // تحميل بيانات الاشتراك وقائمة المحادثات
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        context.read<SubscriptionBloc>().add(LoadSubscriptionEvent());
+        context.read<AssistantBloc>().add(LoadChatListEvent());
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return const AssistantViewWithSubscription();
+  }
+}
+
+class AssistantViewWithSubscription extends StatefulWidget {
+  const AssistantViewWithSubscription({Key? key}) : super(key: key);
+
+  @override
+  State<AssistantViewWithSubscription> createState() =>
+      _AssistantViewWithSubscriptionState();
+}
+
+class _AssistantViewWithSubscriptionState
+    extends State<AssistantViewWithSubscription> {
+  final ScrollController _scrollController = ScrollController();
+
+  void _scrollToBottom() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_scrollController.hasClients) {
+        _scrollController.animateTo(
+          _scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.assistantAppBarTitle),
+        actions: [
+          // عرض عداد الأسئلة المتبقية
+          const DailyQuestionCounter(),
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {
+              context.read<AssistantBloc>().add(CreateNewChatEvent());
+            },
+          ),
+          // Model Selector مع التحقق من الاشتراك
+          BlocBuilder<SubscriptionBloc, SubscriptionState>(
+            builder: (context, subscriptionState) {
+              if (subscriptionState is SubscriptionLoaded) {
+                return ModelSelectorWithSubscription(
+                  featureManager: subscriptionState.featureManager,
+                );
+              }
+              return const ModelSelector();
+            },
+          ),
+        ],
+      ),
+      drawer: const ChatListDrawer(),
+      body: BlocConsumer<AssistantBloc, AssistantState>(
+        listener: (context, state) {
+          if (state is AssistantLoaded || state is AssistantSending) {
+            _scrollToBottom();
+          }
+          if (state is AssistantError) {
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text(state.message)));
+          }
+        },
+        builder: (context, state) {
+          // معالجة جميع الحالات بشكل منظم
+          if (state is AssistantInitial ||
+              (state is AssistantLoading && state.chats.isEmpty)) {
+            return const Center(child: QuranLottieLoading());
+          }
+
+          if (state is AssistantError) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(state.message),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.read<AssistantBloc>().add(CreateNewChatEvent());
+                    },
+                    child: Text(AppLocalizations.of(context)!.retry),
+                  ),
+                ],
+              ),
+            );
+          }
+
+          // إذا كانت القائمة محملة ولكن لا توجد محادثة نشطة
+          if (state is ChatListLoaded) {
+            if (state.chats.isEmpty) {
+              // إنشاء محادثة جديدة تلقائياً إذا لم توجد محادثات
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                context.read<AssistantBloc>().add(CreateNewChatEvent());
+              });
+              return const Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    QuranLottieLoading(),
+                  ],
+                ),
+              );
+            } else {
+              // تحديد أول محادثة تلقائياً إذا لم توجد محادثة نشطة
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                context.read<AssistantBloc>().add(
+                  SelectChatEvent(state.chats.first.id),
+                );
+              });
+              return const Center(child: QuranLottieLoading());
+            }
+          }
+
+          // الحالات التي تحتوي على محادثة نشطة
+          final messages = state is AssistantLoaded
+              ? state.messages
+              : state is AssistantSending
+              ? state.messages
+              : [];
+
+          final selectedModel = state is AssistantLoaded
+              ? state.selectedModel
+              : state is AssistantSending
+              ? state.selectedModel
+              : 'gpt-4o-mini';
+
+          final currentChatId = state is AssistantLoaded
+              ? state.currentChatId
+              : state is AssistantSending
+              ? state.currentChatId
+              : '';
+
+          final isSending = state is AssistantSending;
+
+          return Column(
+            children: [
+              Expanded(
+                child: messages.isEmpty && !isSending
+                    ? Center(
+                        child: Text(
+                          AppLocalizations.of(context)!.startNewChatMessage,
+                          style: TextStyle(fontSize: 16, color: Colors.grey),
+                        ),
+                      )
+                    : ListView.builder(
+                        controller: _scrollController,
+                        padding: const EdgeInsets.all(16),
+                        itemCount: messages.length + (isSending ? 1 : 0),
+                        itemBuilder: (context, index) {
+                          if (index == messages.length && isSending) {
+                            return MessageBubble(
+                              message: AppLocalizations.of(context)!.typingIndicator,
+                              isUser: false,
+                              isTyping: true,
+                            );
+                          }
+                          final message = messages[index];
+                          return MessageBubble(
+                            message: message.text,
+                            isUser: message.role == 'user',
+                          );
+                        },
+                      ),
+              ),
+              // Input Bar مع التحقق من الحد اليومي
+              BlocBuilder<SubscriptionBloc, SubscriptionState>(
+                builder: (context, subscriptionState) {
+                  if (subscriptionState is! SubscriptionLoaded) {
+                    return InputBar(
+                      onSendMessage: (message) {
+                        if (currentChatId.isNotEmpty) {
+                          context.read<AssistantBloc>().add(
+                            SendMessageEvent(
+                              chatId: currentChatId,
+                              message: message,
+                              model: selectedModel,
+                            ),
+                          );
+                        }
+                      },
+                      enabled: !isSending && currentChatId.isNotEmpty,
+                    );
+                  }
+
+                  final featureManager = subscriptionState.featureManager;
+                  final dailyCount = state.dailyQuestionCount;
+                  final maxQuestions = featureManager.maxDailyQuestions;
+                  final hasReachedLimit =
+                      dailyCount >= maxQuestions &&
+                      !featureManager.canUseAIUnlimited;
+
+                  if (hasReachedLimit) {
+                    return _buildLimitReachedWidget(
+                      context,
+                      dailyCount,
+                      maxQuestions,
+                    );
+                  }
+
+                  return InputBar(
+                    onSendMessage: (message) {
+                      if (currentChatId.isNotEmpty) {
+                        context.read<AssistantBloc>().add(
+                          SendMessageEvent(
+                            chatId: currentChatId,
+                            message: message,
+                            model: selectedModel,
+                          ),
+                        );
+                      }
+                    },
+                    enabled: !isSending && currentChatId.isNotEmpty,
+                  );
+                },
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildLimitReachedWidget(
+    BuildContext context,
+    int dailyCount,
+    int maxQuestions,
+  ) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.all(16),
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.orange.shade50,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.orange.shade300),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.lock, size: 32, color: Colors.orange.shade700),
+          const SizedBox(height: 8),
+          Text(
+            AppLocalizations.of(context)!.dailyLimitReachedTitle,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.orange.shade900,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            AppLocalizations.of(context)!.dailyLimitReachedMessage
+                .replaceAll('{dailyCount}', dailyCount.toString())
+                .replaceAll('{maxQuestions}', maxQuestions.toString()),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 12),
+          ElevatedButton.icon(
+            onPressed: () {
+              // Navigate to subscription page
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('صفحة الاشتراك قريباً')),
+              );
+            },
+            icon: const Icon(Icons.upgrade),
+            label: Text(AppLocalizations.of(context)!.upgradeToPremiumButton),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.orange.shade700,
+              foregroundColor: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+}
+
+// Model Selector مع التحقق من الاشتراك
+class ModelSelectorWithSubscription extends StatelessWidget {
+  final dynamic featureManager;
+
+  const ModelSelectorWithSubscription({Key? key, required this.featureManager})
+    : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: const Icon(Icons.settings),
+      onPressed: () {
+        if (!featureManager.canUseAIUnlimited) {
+          // عرض رسالة أن اختيار الموديل متاح للمميزين فقط
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text(AppLocalizations.of(context)!.featureAvailableForPremium),
+              content: Text(AppLocalizations.of(context)!.premiumFeatureContent
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text(AppLocalizations.of(context)!.okButton),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    // Navigate to subscription
+                  },
+                  child: Text(AppLocalizations.of(context)!.upgradeNowButton),
+                ),
+              ],
+            ),
+          );
+        } else {
+          // عرض Model Selector العادي
+          showDialog(
+            context: context,
+            builder: (context) => const ModelSelectorDialog(),
+          );
+        }
+      },
+    );
+  }
+}
+
+// Dialog لاختيار الموديل (للمستخدمين المميزين فقط)
+class ModelSelectorDialog extends StatelessWidget {
+  const ModelSelectorDialog({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<AssistantBloc, AssistantState>(
+      builder: (context, state) {
+        final selectedModel = state is AssistantLoaded
+            ? state.selectedModel
+            : state is AssistantSending
+            ? state.selectedModel
+            : 'gpt-4o-mini';
+
+        return AlertDialog(
+          title: Text(AppLocalizations.of(context)!.chooseAiModelTitle),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              RadioListTile<String>(
+                title: const Text('GPT-4o Mini'),
+                subtitle: Text(AppLocalizations.of(context)!.gpt4oMiniSubtitle),
+                value: 'gpt-4o-mini',
+                groupValue: selectedModel,
+                onChanged: (value) {
+                  if (value != null) {
+                    context.read<AssistantBloc>().add(SelectModelEvent(value));
+                    Navigator.pop(context);
+                  }
+                },
+              ),
+              RadioListTile<String>(
+                title: Text(AppLocalizations.of(context)!.gpt4oTitle),
+                subtitle: Text(AppLocalizations.of(context)!.gpt4oSubtitle),
+                value: 'gpt-4o',
+                groupValue: selectedModel,
+                onChanged: (value) {
+                  if (value != null) {
+                    context.read<AssistantBloc>().add(SelectModelEvent(value));
+                    Navigator.pop(context);
+                  }
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}

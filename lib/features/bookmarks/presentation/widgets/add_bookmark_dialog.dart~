@@ -1,0 +1,204 @@
+import 'package:flutter/material.dart';
+import 'package:meshkat_elhoda/core/utils/size_utils.dart';
+
+import '../../../../l10n/app_localizations.dart';
+
+class AddBookmarkDialog extends StatefulWidget {
+  final int surahNumber;
+  final String surahName;
+  final int ayahNumber;
+  final String ayahText;
+  final Function(String? note) onConfirm;
+
+  const AddBookmarkDialog({
+    super.key,
+    required this.surahNumber,
+    required this.surahName,
+    required this.ayahNumber,
+    required this.ayahText,
+    required this.onConfirm,
+  });
+
+  @override
+  State<AddBookmarkDialog> createState() => _AddBookmarkDialogState();
+}
+
+class _AddBookmarkDialogState extends State<AddBookmarkDialog> {
+  final TextEditingController _noteController = TextEditingController();
+  bool _addNote = false;
+
+  @override
+  void dispose() {
+    _noteController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      backgroundColor: Theme.of(context).brightness == Brightness.light
+          ? Colors.white
+          : Color(0xFF103b57),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: Padding(
+        padding: EdgeInsets.all(20.w),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.bookmark_add,
+              color: const Color(0xFFD4A574),
+              size: 48.sp,
+            ),
+            SizedBox(height: 16.h),
+            Text(
+              AppLocalizations.of(context)!.addBookmarkTitle,
+              style: TextStyle(
+                fontSize: 20.sp,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).brightness == Brightness.light
+                    ? Colors.black87
+                    : Colors.white,
+              ),
+            ),
+            SizedBox(height: 12.h),
+            Container(
+              padding: EdgeInsets.all(12.w),
+              decoration: BoxDecoration(
+                color: Theme.of(context).brightness == Brightness.light
+                    ? Color(0xFFFAF8F3)
+                    : Color(0xFF103b57),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.surahName,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? Colors.black87
+                          : Colors.white,
+                    ),
+                  ),
+                  SizedBox(height: 4.h),
+                  Text(
+                    '${AppLocalizations.of(context)!.verse} ${widget.ayahNumber}',
+                    style: TextStyle(fontSize: 14.sp, color: Colors.grey[600]),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 16.h),
+            Row(
+              children: [
+                Checkbox(
+                  value: _addNote,
+                  onChanged: (value) {
+                    setState(() {
+                      _addNote = value ?? false;
+                    });
+                  },
+                  activeColor: const Color(0xFFD4A574),
+                ),
+                Text(
+                  AppLocalizations.of(context)!.addNote,
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? Colors.black87
+                        : Colors.white,
+                  ),
+                ),
+              ],
+            ),
+            if (_addNote) ...[
+              SizedBox(height: 12.h),
+              TextField(
+                controller: _noteController,
+                maxLines: 3,
+                textAlign: TextAlign.right,
+                decoration: InputDecoration(
+                  hintText: AppLocalizations.of(context)!.writeNoteHere,
+                  hintStyle: TextStyle(
+                    fontSize: 14.sp,
+                    color: Colors.grey[400],
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: Colors.grey[300]!),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide(color: Colors.grey[300]!),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: const BorderSide(
+                      color: Color(0xFFD4A574),
+                      width: 2,
+                    ),
+                  ),
+                  contentPadding: EdgeInsets.all(12.w),
+                ),
+              ),
+            ],
+            SizedBox(height: 20.h),
+            Row(
+              children: [
+                Expanded(
+                  child: TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.symmetric(vertical: 12.h),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: Text(
+                      AppLocalizations.of(context)!.cancel,
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        color: Colors.grey[600],
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 12.w),
+                Expanded(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      final note = _addNote && _noteController.text.isNotEmpty
+                          ? _noteController.text
+                          : null;
+                      Navigator.pop(context);
+                      widget.onConfirm(note);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFD4A574),
+                      padding: EdgeInsets.symmetric(vertical: 12.h),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: Text(
+                      'حفظ',
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

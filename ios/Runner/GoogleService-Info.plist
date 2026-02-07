@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>521578936933-cd4e8nod5jpo1no72odi87vi08mctrlc.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBvhRpDGH8cx71K9CUkF5GUygIzJNJWCCs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>521578936933</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.meshkatelhoda.pro</string>
+	<key>PROJECT_ID</key>
+	<string>meshkat-al-hoda</string>
+	<key>STORAGE_BUCKET</key>
+	<string>meshkat-al-hoda.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:521578936933:ios:41ffe45a622d32ba03a48c</string>
+</dict>
+</plist>

@@ -1,0 +1,1627 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for Turkish (`tr`).
+class AppLocalizationsTr extends AppLocalizations {
+  AppLocalizationsTr([String locale = 'tr']) : super(locale);
+
+  @override
+  String get appTitle => 'Meshkat El-Huda';
+
+  @override
+  String get welcome => 'Hoş Geldiniz';
+
+  @override
+  String get login => 'Giriş Yap';
+
+  @override
+  String get signup => 'Hesap Oluştur';
+
+  @override
+  String get skip => 'Atla';
+
+  @override
+  String get finish => 'Bitir';
+
+  @override
+  String get onboardingDescription1 =>
+      'Kuran, Zikirler ve Hadisleri tek bir yerde toplayan bir uygulama ile manevi yolculuğunuza başlayın.';
+
+  @override
+  String get onboardingDescription2 =>
+      '50\'den fazla okuyucudan tilavetleri dinleyin ve son okuma konumunuzu kolayca kaydedin.';
+
+  @override
+  String get onboardingDescription3 =>
+      'Günlük zikirler ve hayatınız için kategorize edilmiş dualarla her an size Allah\'ı hatırlatır.';
+
+  @override
+  String get onboardingDescription4 =>
+      'Mekke ve Medine\'den doğrudan manevi atmosferi istediğiniz zaman ve yerde yaşayın.';
+
+  @override
+  String get allAzkar => 'Tüm Azkarlar';
+
+  @override
+  String get errorLoadingAzkar => 'Azkar yüklenirken hata oluştu';
+
+  @override
+  String get azkarAndDuas => 'Azkar & Duas';
+
+  @override
+  String get startYourAzkar => 'Azkarlarını şimdi başlat';
+
+  @override
+  String get seeMore => 'Daha fazla';
+
+  @override
+  String get favoriteAzkarToast => 'Favori Azkar\'ınızı tesbih etmek için';
+
+  @override
+  String get retry => 'Tekrar dene';
+
+  @override
+  String get noData => 'Veri yok';
+
+  @override
+  String get favoriteAzkar => 'Favori Azkar';
+
+  @override
+  String get errorLoadingData => 'Veri yüklenirken hata oluştu';
+
+  @override
+  String get audioError => 'Ses çalarken hata';
+
+  @override
+  String get repeat => 'Tekrarla';
+
+  @override
+  String get copy => 'Kopyala';
+
+  @override
+  String get share => 'Paylaş';
+
+  @override
+  String get smartMisbah => 'Akıllı Tesbih';
+
+  @override
+  String get startTasbeh => 'Tesbih Başlat';
+
+  @override
+  String get locationPermissionDeniedTitle => 'Konum izni reddedildi';
+
+  @override
+  String get locationPermissionDescription =>
+      'Doğru namaz vakitlerini göstermek için konumunuza ihtiyacımız var. Şunları yapabilirsiniz:';
+
+  @override
+  String get locationPermissionOptionAllow => '• Konum erişimine izin ver';
+
+  @override
+  String get locationPermissionOptionManual => '• Şehir ve ülkeyi manuel girin';
+
+  @override
+  String get locationPermissionManualButton => 'Manuel giriş';
+
+  @override
+  String get locationPermissionAllowButton => 'Konuma izin ver';
+
+  @override
+  String get manualLocationTitle => 'Konumunuzu manuel girin';
+
+  @override
+  String get manualLocationCityLabel => 'Şehir';
+
+  @override
+  String get manualLocationCountryLabel => 'Ülke';
+
+  @override
+  String get manualLocationCityError => 'Lütfen şehri girin';
+
+  @override
+  String get manualLocationCountryError => 'Lütfen ülkeyi girin';
+
+  @override
+  String get cancel => 'İptal';
+
+  @override
+  String get manualLocationConfirmButton => 'Onayla';
+
+  @override
+  String get readingModeTitle => 'Okuma Modu';
+
+  @override
+  String get readingModeVerticalTitle => 'Dikey Kaydırma';
+
+  @override
+  String get readingModeVerticalSubtitle => 'Yukarı ve aşağı kaydırın';
+
+  @override
+  String get readingModeHorizontalTitle => 'Sayfa Çevirme';
+
+  @override
+  String get readingModeHorizontalSubtitle => 'Sağa ve sola çevirin';
+
+  @override
+  String get ayah => 'Ayet';
+
+  @override
+  String get ayahOptionAddBookmark => 'Yer İmi Ekle';
+
+  @override
+  String get ayahOptionPlay => 'Oynat';
+
+  @override
+  String get ayahOptionTafsir => 'Tefsir';
+
+  @override
+  String get ayahOptionDownload => 'İndir';
+
+  @override
+  String get bookmarkAddedMessage => 'Yer imi başarıyla eklendi';
+
+  @override
+  String get loading => 'Yükleniyor...';
+
+  @override
+  String get page => 'Sayfa';
+
+  @override
+  String get juzSurahsTitle => 'Cüz Suraları';
+
+  @override
+  String get errorMessage => 'Bir hata oluştu';
+
+  @override
+  String get noSurahsInJuz => 'Bu cüzde sure yok';
+
+  @override
+  String get bookmarkDeletedMessage => 'Yer imi silindi';
+
+  @override
+  String get noBookmarks => 'Yer imi yok';
+
+  @override
+  String get addBookmarkHint => 'Okuma sayfasından yer imi ekleyin';
+
+  @override
+  String get deleteBookmarkTitle => 'Yer İmini Sil';
+
+  @override
+  String get deleteBookmarkContent =>
+      'Bu yer imini silmek istediğinizden emin misiniz?';
+
+  @override
+  String get delete => 'Sil';
+
+  @override
+  String get searchInSurahNames => 'Sure adlarında ara';
+
+  @override
+  String get restart => 'Yeniden Başlat';
+
+  @override
+  String get ayahLabel => 'Ayet';
+
+  @override
+  String get surahLabel => 'Sure';
+
+  @override
+  String get audioLoadError => 'Ses yüklenirken hata oluştu';
+
+  @override
+  String get audioLoading => 'Ses yükleniyor...';
+
+  @override
+  String get stop => 'Durdur';
+
+  @override
+  String get close => 'Kapat';
+
+  @override
+  String get ayahOptionLanguage => 'Dil';
+
+  @override
+  String get ayahOptionShare => 'Paylaş';
+
+  @override
+  String get surahArrangementLabel => 'Numara';
+
+  @override
+  String get surahAyahsCountLabel => 'Ayet Sayısı';
+
+  @override
+  String get quranIndex => 'Dizin';
+
+  @override
+  String get quranParts => 'Bölümler';
+
+  @override
+  String get quranBookmarks => 'Yer İmleri';
+
+  @override
+  String get tafsirLoadingMessage => 'Tefsir yükleniyor...';
+
+  @override
+  String get tafsirOfAyah => 'Ayetin Tefsiri';
+
+  @override
+  String get tafsirNameLabel => 'Tefsir Adı';
+
+  @override
+  String get tafsirErrorLog => 'Tefsir yüklenirken hata oluştu';
+
+  @override
+  String get part => 'Cüz';
+
+  @override
+  String get smart_assistant => 'Akıllı Asistan';
+
+  @override
+  String get quran => 'Kuran-ı Kerim';
+
+  @override
+  String get current_khatma => 'Mevcut Hatiminiz';
+
+  @override
+  String get khatmat => 'Hatimler';
+
+  @override
+  String get start_your_journey => 'Kuran ile yolculuğunuza başlayın';
+
+  @override
+  String get mushaf => 'Mushaf';
+
+  @override
+  String get new_khatma => 'Yeni Hatim';
+
+  @override
+  String get haram_and_live => 'Harem & Canlı Yayın';
+
+  @override
+  String get choose_channel => 'İzlemek istediğiniz kanalı seçin';
+
+  @override
+  String get mecca => 'Mekke';
+
+  @override
+  String get saudi_channel => 'Suudi Kanalı';
+
+  @override
+  String get licensed_broadcast =>
+      'Bu yayın resmi Suudi kanallarından lisanslıdır';
+
+  @override
+  String get online => 'Şu an yayında';
+
+  @override
+  String get watch => 'İzle';
+
+  @override
+  String get madina => 'Medine';
+
+  @override
+  String get madina_channel => 'Medine Kanalı';
+
+  @override
+  String get set_qibla => 'Kıble Yönünü Ayarla';
+
+  @override
+  String get after => 'Sonra';
+
+  @override
+  String get fajr => 'Fecr';
+
+  @override
+  String get sunrise => 'Gündoğumu';
+
+  @override
+  String get duhr => 'Öğle';
+
+  @override
+  String get asr => 'İkindi';
+
+  @override
+  String get maghrib => 'Akşam';
+
+  @override
+  String get isha => 'Yatsı';
+
+  @override
+  String get ramadanKarim => 'Ramazan Mübarek';
+
+  @override
+  String get todayDuaaHeader => 'Günün Duası';
+
+  @override
+  String get greetYourLovedOnes => 'Sevdiklerinizi selamlayın';
+
+  @override
+  String get quranKarem => 'Kuran-ı Kerim';
+
+  @override
+  String get ramadanKarimGreeting => 'Ramazan Mübarek';
+
+  @override
+  String get ramadanWirdCalculatorTitle => 'Ramazan Vird Hesaplayıcı';
+
+  @override
+  String get khatmaCountHint => 'Tamamlamak istediğiniz hatim sayısı';
+
+  @override
+  String get khatmaCountExceededMessage => 'Hatim sayısı çok fazla';
+
+  @override
+  String get dailyWirdHeader => 'Günlük Vird';
+
+  @override
+  String get dailyAjzaaLabel => 'Günlük Cüz';
+
+  @override
+  String get dailyPagesLabel => 'Günlük Sayfa';
+
+  @override
+  String get goToMushafButton => 'Mushafa Git';
+
+  @override
+  String get assistantAppBarTitle => 'AI Asistan';
+
+  @override
+  String get createNewChat => 'Yeni Sohbet';
+
+  @override
+  String get aiModelSelection => 'AI Model Seçimi';
+
+  @override
+  String get retryButton => 'Tekrar Dene';
+
+  @override
+  String get creatingNewChatMessage => 'Yeni sohbet oluşturuluyor...';
+
+  @override
+  String get noActiveChatMessage => 'Aktif sohbet yok';
+
+  @override
+  String get startNewChatMessage =>
+      'Bir mesaj göndererek yeni bir konuşma başlatın';
+
+  @override
+  String get pleaseWait => 'Lütfen bekleyin...';
+
+  @override
+  String get typingIndicator => 'Yazıyor...';
+
+  @override
+  String get dailyLimitReachedTitle => 'Günlük Limit Aşıldı';
+
+  @override
+  String get dailyLimitReachedMessage =>
+      'Bugün {maxQuestions} sorudan {dailyCount} tanesini kullandınız';
+
+  @override
+  String get upgradeToPremiumButton => 'Premium\'a Yükselt';
+
+  @override
+  String get featureAvailableForPremium => 'Premium Özellik';
+
+  @override
+  String get premiumFeatureTitle =>
+      'AI model seçimi sadece premium aboneler için kullanılabilir';
+
+  @override
+  String get premiumFeatureContent =>
+      'Yükselterek elde edin:\n• Gelişmiş model seçimi\n• Sınırsız soru\n• Daha detaylı cevaplar';
+
+  @override
+  String get okButton => 'Tamam';
+
+  @override
+  String get upgradeNowButton => 'Şimdi Yükselt';
+
+  @override
+  String get laterButton => 'Sonra';
+
+  @override
+  String get questionsRemaining => 'Kalan: {remaining}';
+
+  @override
+  String get of => '/';
+
+  @override
+  String get chooseAiModelTitle => 'AI Modeli Seç';
+
+  @override
+  String get gpt4oMiniTitle => 'GPT-4o Mini';
+
+  @override
+  String get gpt4oMiniSubtitle => 'Hızlı ve dengeli';
+
+  @override
+  String get gpt4oTitle => 'GPT-4o';
+
+  @override
+  String get gpt4oSubtitle => 'Daha doğru ve detaylı';
+
+  @override
+  String get conversationsTitle => 'Konuşmalar';
+
+  @override
+  String get newConversation => 'Yeni Konuşma';
+
+  @override
+  String get noConversationsMessage =>
+      'Henüz konuşma yok. Yeni oluşturmak için +\'ya tıklayın';
+
+  @override
+  String get newChatCreationMessage => 'Yeni sohbet oluşturuluyor...';
+
+  @override
+  String get dayAgo => '{days} gün önce';
+
+  @override
+  String get hourAgo => '{hours} saat önce';
+
+  @override
+  String get minuteAgo => '{minutes} dakika önce';
+
+  @override
+  String get now => 'Şimdi';
+
+  @override
+  String get typeMessageHint => 'Mesajınızı yazın...';
+
+  @override
+  String get pleaseWaitHint => 'Lütfen bekleyin...';
+
+  @override
+  String get fourHours => '4 saat';
+
+  @override
+  String get aiGeneratedAnswersNeedReview =>
+      'Yapay zeka tarafından oluşturulan cevapların gözden geçirilmesi gerekir';
+
+  @override
+  String get tryAgain => 'Tekrar Dene';
+
+  @override
+  String get emailLabel => 'E-posta';
+
+  @override
+  String get emailRequiredError => 'Lütfen e-posta adresinizi girin';
+
+  @override
+  String get passwordLabel => 'Şifre';
+
+  @override
+  String get passwordRequiredError => 'Lütfen şifrenizi girin';
+
+  @override
+  String get loginButton => 'Giriş Yap';
+
+  @override
+  String get alreadyHaveAccount => 'Zaten hesabınız var mı? ';
+
+  @override
+  String get createAccountLink => 'Hesap Oluştur';
+
+  @override
+  String get nameLabel => 'Ad';
+
+  @override
+  String get nameRequiredError => 'Lütfen adınızı girin';
+
+  @override
+  String get emailLabelRegister => 'E-posta';
+
+  @override
+  String get emailRequiredErrorRegister => 'Lütfen e-posta adresinizi girin';
+
+  @override
+  String get passwordLabelRegister => 'Şifre';
+
+  @override
+  String get passwordRequiredErrorRegister => 'Lütfen şifrenizi girin';
+
+  @override
+  String get passwordMinLengthError => 'Şifre en az 6 karakter olmalıdır';
+
+  @override
+  String get confirmPasswordLabel => 'Şifreyi Onayla';
+
+  @override
+  String get confirmPasswordRequiredError => 'Lütfen şifrenizi onaylayın';
+
+  @override
+  String get passwordsMismatchError => 'Şifreler eşleşmiyor';
+
+  @override
+  String get createAccountButton => 'Hesap Oluştur';
+
+  @override
+  String get orText => 'VEYA';
+
+  @override
+  String get loginAsGuestButton => 'Misafir Olarak Giriş Yap';
+
+  @override
+  String get loginLinkText => 'Giriş Yap';
+
+  @override
+  String get noAccountText => 'Zaten hesabınız var mı? ';
+
+  @override
+  String get countryLabel => 'Ülke';
+
+  @override
+  String get searchHint => 'Ara...';
+
+  @override
+  String get loginSuccessMessage => 'Giriş başarılı';
+
+  @override
+  String get guestLoginSuccessMessage => 'Misafir girişi başarılı';
+
+  @override
+  String get registerSuccessMessage => 'Hesap başarıyla oluşturuldu';
+
+  @override
+  String get errorOccurred => 'Bir hata oluştu';
+
+  @override
+  String get invalidEmailError => 'Geçersiz e-posta adresi';
+
+  @override
+  String get userNotFoundError => 'Kullanıcı bulunamadı';
+
+  @override
+  String get wrongPasswordError => 'Yanlış şifre';
+
+  @override
+  String get emailAlreadyInUseError => 'E-posta zaten kullanımda';
+
+  @override
+  String get weakPasswordError => 'Şifre çok zayıf';
+
+  @override
+  String get networkError => 'Ağ hatası';
+
+  @override
+  String get copyZekrSuccess => 'Zikir panoya kopyalandı';
+
+  @override
+  String get addToFavoritesSuccess => 'Favorilere eklendi ✅';
+
+  @override
+  String get removeFromFavorites => 'Favorilerden kaldırıldı';
+
+  @override
+  String get zekrCopied => 'Zikir kopyalandı';
+
+  @override
+  String get zekrShared => 'Zikir paylaşıldı';
+
+  @override
+  String get premiumOnlyFeature => '🔒 Bu zikir sadece aboneler için';
+
+  @override
+  String get subscribeToUnlock => 'Tüm zikirleri açmak için abone olun';
+
+  @override
+  String get lockedAzkarMessage => 'Bu bölüm sadece premium aboneler için';
+
+  @override
+  String get searchResults => 'Sonuçlar';
+
+  @override
+  String get zoomIn => 'Yakınlaştır';
+
+  @override
+  String get zoomOut => 'Uzaklaştır';
+
+  @override
+  String get morningEveningAzkar => 'Sabah ve Akşam Zikirleri';
+
+  @override
+  String get sleepAzkar => 'Uyku Zikirleri';
+
+  @override
+  String get afterPrayerAzkar => 'Namaz Sonrası Zikirleri';
+
+  @override
+  String get morningAzkar => 'Sabah Zikirleri';
+
+  @override
+  String get eveningAzkar => 'Akşam Zikirleri';
+
+  @override
+  String get loadDataError => 'Veri yükleme hatası';
+
+  @override
+  String get shareError => 'Paylaşım hatası';
+
+  @override
+  String get bookmarksTitle => 'Yer İmleri';
+
+  @override
+  String get deleteBookmarkSuccess => 'Yer imi başarıyla silindi';
+
+  @override
+  String get deleteBookmarkConfirmation => 'Yer İmini Sil';
+
+  @override
+  String get areYouSureDelete =>
+      'Bu yer imini silmek istediğinizden emin misiniz?';
+
+  @override
+  String get noBookmarksDescription => 'Okuma sayfasından yer imi ekleyin';
+
+  @override
+  String get addBookmarkFromReading => 'Okuma sayfasından yer imi ekleyin';
+
+  @override
+  String get addBookmarkTitle => 'Yer İmi Ekle';
+
+  @override
+  String get verse => 'Ayet';
+
+  @override
+  String get addNote => 'Not ekle';
+
+  @override
+  String get writeNoteHere => 'Notunuzu buraya yazın...';
+
+  @override
+  String get save => 'Kaydet';
+
+  @override
+  String get verseNumber => 'Ayet';
+
+  @override
+  String get today => 'Bugün';
+
+  @override
+  String get yesterday => 'Dün';
+
+  @override
+  String get daysAgo => '{days} gün önce';
+
+  @override
+  String get weekAgo => 'Bir hafta önce';
+
+  @override
+  String get weeksAgo => '{weeks} hafta önce';
+
+  @override
+  String get monthAgo => 'Bir ay önce';
+
+  @override
+  String get monthsAgo => '{months} ay önce';
+
+  @override
+  String get yearAgo => 'Bir yıl önce';
+
+  @override
+  String get yearsAgo => '{years} yıl önce';
+
+  @override
+  String get deleteBookmarkError => 'Yer imi silinirken hata';
+
+  @override
+  String get loadBookmarksError => 'Yer imleri yüklenirken hata';
+
+  @override
+  String get collectiveKhatmas => 'Toplu Hatimler';
+  @override
+  String get myKhatmas => 'Hatimlerim';
+  @override
+  String get joinByLink => 'Bağlantı ile Katıl';
+  @override
+  String get searchKhatmaHint => 'Hatme ara...';
+  @override
+  String get createKhatma => 'Hatme Oluştur';
+  @override
+  String get loginRequiredMessage =>
+      'Bu özelliğe erişmek için giriş yapmalısınız';
+  @override
+  String get loginToJoinMessage =>
+      'Dünyanın dört bir yanındaki Müslümanlarla toplu hatmelere katılmak için giriş yapın';
+  @override
+  String get noKhatmasAvailable => 'Şu anda hiç hatme yok';
+  @override
+  String get beFirstToCreate => 'Toplu hatme oluşturan ilk kişi olun!';
+  @override
+  String get createNewKhatma => 'Yeni Hatme Oluştur';
+  @override
+  String get joinByLinkTitle => 'Bağlantı ile Hatmeye Katıl';
+  @override
+  String get pasteLinkHint => 'Hatme bağlantısını buraya yapıştırın';
+  @override
+  String get fetchKhatma => 'Hatmeyi Getir';
+  @override
+  String get joinError => 'Hatmeye katılmaya çalışırken bir hata oluştu';
+  @override
+  String get createKhatmaTitle => 'Toplu Hatme Oluştur';
+  @override
+  String get khatmaTitleLabel => 'Hatme Başlığı';
+  @override
+  String get khatmaTitleExample => 'Örnek: Ramazan Hatmesi';
+  @override
+  String get khatmaTitleRequired => 'Lütfen hatme başlığını girin';
+  @override
+  String get khatmaTypeLabel => 'Hatme Türü';
+  @override
+  String get public => 'Genel';
+  @override
+  String get publicDescription => 'Herkes katılabilir';
+  @override
+  String get private => 'Özel';
+  @override
+  String get privateDescription => 'Yalnızca davet ile';
+  @override
+  String get dateRangeLabel => 'Başlangıç ve Bitiş Tarihi';
+  @override
+  String get startDate => 'Başlangıç Tarihi';
+  @override
+  String get endDate => 'Bitiş Tarihi';
+  @override
+  String get khatmaDuration => 'Hatme Süresi: {0} gün';
+  @override
+  String get khatmaCreatedSuccess => 'Hatme başarıyla oluşturuldu!';
+  @override
+  String get khatmaDetails => 'Hatme Detayları';
+  @override
+  String get copyLink => 'Bağlantıyı Kopyala';
+  @override
+  String get deleteKhatma => 'Hatme Sil';
+  @override
+  String get partReservedSuccess => '{0}. cüz başarıyla rezerve edildi!';
+  @override
+  String get partCompletedSuccess => 'Tebrikler! {0}. cüzü tamamladınız';
+  @override
+  String get deleteConfirmationTitle => 'Hatme Sil';
+  @override
+  String get deleteConfirmationMessage =>
+      'Bu hatmeyi silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.';
+  @override
+  String get reserveThisPart => 'Bu Cüzü Rezerve Et';
+  @override
+  String get completeThisPart => 'Bu Cüzü Tamamla';
+  @override
+  String get alreadyReservedPart =>
+      'Zaten rezerve edilmiş bir cüzünüz var ({0}. cüz)';
+  @override
+  String get linkCopied => 'Bağlantı kopyalandı';
+  @override
+  String get myCollectiveKhatmas => 'Toplu Hatimlerim';
+  @override
+  String get joinedKhatmasTab => 'Katıldığım Hatmeler';
+  @override
+  String get createdKhatmasTab => 'Oluşturduğum Hatmeler';
+  @override
+  String get noJoinedKhatmas => 'Henüz hiç hatmeye katılmadınız';
+  @override
+  String get findAndJoinKhatma => 'Toplu hatme arayın ve katılın';
+  @override
+  String get participatedKhatmas => 'Katıldığım Hatmeler';
+  @override
+  String get completedParts => 'Tamamlanan Cüzler';
+  @override
+  String get noCreatedKhatmas => 'Henüz hiç hatme oluşturmadınız';
+  @override
+  String get startCreatingKhatma => 'Yeni toplu hatme oluşturmaya başlayın';
+  @override
+  String get partNumber => '{0}. Cüz';
+  @override
+  String get completedStatus => 'Tamamlandı ✓';
+  @override
+  String get inProgressStatus => 'Okunuyor';
+  @override
+  String get publicType => 'Genel';
+  @override
+  String get privateType => 'Özel';
+  @override
+  String get createdBy => 'Oluşturan: {0}';
+  @override
+  String get participants => 'Katılımcılar';
+  @override
+  String get completed => 'Tamamlandı';
+  @override
+  String get daysRemaining => 'Kalan Günler';
+  @override
+  String get completion => 'Tamamlanma';
+  @override
+  String get completedPartsLabel => 'Tamamlanan Cüzler';
+  @override
+  String get reservedParts => 'Rezerve Edilen Cüzler';
+  @override
+  String get availableParts => 'Mevcut Cüzler';
+  @override
+  String get khatmaCompleted => 'Tamamlandı ✓';
+  @override
+  String get availableForReservation => 'Rezervasyon için müsait';
+  @override
+  String get reservedForUser => '{0} için rezerve edildi';
+  @override
+  String get partCompletedStatus => 'Tamamlandı ✓';
+  @override
+  String get partCompleted => 'Tamamlandı';
+  @override
+  String get reserved => 'Rezerve Edildi';
+  @override
+  String get yourPart => 'Sizin Cüzünüz';
+  @override
+  String get available => 'Mevcut';
+  @override
+  String get confirmation => 'Onay';
+  @override
+  String get deleteAllConfirmation => 'Tüm favorileri silmek istiyor musunuz?';
+  @override
+  String get deleteAll => 'Tümünü Sil';
+  @override
+  String get favorites => 'Favoriler';
+  @override
+  String get deleteAllTooltip => 'Tüm Favorileri Sil';
+  @override
+  String get hadithLoadError => 'Hadis yüklenemedi: {0}';
+  @override
+  String get noFavorites => 'Favori öğe yok';
+  @override
+  String get deleteFromFavoritesTooltip => 'Favorilerden Sil';
+  @override
+  String get favoriteItemDescription => 'Favori öğe: {0}';
+
+  @override
+  String get quranAudio => 'Ses';
+  @override
+  String get quranRecitations => 'Kuran Tilavetleri';
+  @override
+  String get quranRecitationsDesc =>
+      'Ünlü okuyuculardan Kuran tilavetlerini dinleyin';
+  @override
+  String get quranRadio => 'Kuran Radyosu';
+  @override
+  String get quranRadioDesc => 'Canlı Kuran radyo istasyonlarını dinleyin';
+  @override
+  String get downloadedAudio => 'İndirilen Sesler';
+  @override
+  String get downloadedAudioDesc => 'İndirilen tilavetleri çevrimdışı dinleyin';
+  @override
+  String get reciters => 'Okuyucular';
+  @override
+  String get searchRecitersHint => 'Okuyucu ara...';
+  @override
+  String get noResultsFound => 'Sonuç bulunamadı';
+  @override
+  String get reciterPremiumOnly =>
+      '🔒 Bu okuyucu sadece premium aboneler içindir';
+  @override
+  String get surahsCount => '{count} Sure';
+  @override
+  String get surahs => 'Sureler';
+  @override
+  String get ayahsCount => '{count} Ayet';
+  @override
+  String get noDownloadedAudio => 'İndirilen ses yok';
+  @override
+  String get deleteAudioTitle => 'Sesi Sil';
+  @override
+  String get deleteAudioConfirm =>
+      'Bu sesi silmek istediğinizden emin misiniz?';
+  @override
+  String get noStationsAvailable => 'Kullanılabilir istasyon yok';
+  @override
+  String get liveRadio => '🟢 Canlı';
+  @override
+  String get offlineRadio => '⚫ Çevrimdışı';
+  @override
+  String get audioPlayer => 'Ses Oynatıcı';
+  @override
+  String get downloadSuccess => 'Başarıyla indirildi';
+  @override
+  String get fileAlreadyDownloaded => 'Dosya zaten indirildi';
+  @override
+  String get skipBack15s => '15sn geri sar';
+  @override
+  String get skipForward15s => '15sn ileri sar';
+  @override
+  String get pause => 'Duraklat';
+  @override
+  String get play => 'Oynat';
+  @override
+  String get playing => 'Oynatılıyor';
+  @override
+  String get playbackCompleted => 'Oynatma Tamamlandı';
+  @override
+  String get surahIndex => 'Sure {current} / {total}';
+
+  @override
+  String get replay => 'Tekrar Oynat';
+
+  @override
+  String get audioLoadingError => 'Ses yükleme hatası';
+  @override
+  String get gradeLabel => 'Derece';
+  @override
+  String get scholarLabel => 'Alim';
+  @override
+  String get gradeSahih => 'Sahih';
+  @override
+  String get gradeHasan => 'Hasan';
+  @override
+  String get gradeDaif => 'Daif';
+  @override
+  String get gradeMawdu => 'Mevdu';
+  @override
+  String get gradeMaqbul => 'Makbul';
+  @override
+  String get gradeEvaluation => 'Değerlendirme';
+  @override
+  String get next => 'Sonraki';
+  @override
+  String get previous => 'Önceki';
+  @override
+  String get sourceLabel => 'Kaynak';
+  @override
+  String get hadithGradeLabel => 'Hadis Derecesi';
+
+  @override
+  String get bookBukhari => 'Sahih-i Buhari';
+  @override
+  String get bookMuslim => 'Sahih-i Müslim';
+  @override
+  String get bookAbuDawud => 'Sünen-i Ebu Davud';
+  @override
+  String get bookTirmidhi => 'Cami-i Tirmizi';
+  @override
+  String get bookNasai => 'Sünen-i Nesai';
+  @override
+  String get bookIbnMajah => 'Sünen-i İbn Mace';
+  @override
+  String get bookMalik => 'Muvatta Malik';
+  @override
+  String get bookNawawi => 'Kırk Hadis-i Nevevi';
+  @override
+  String get bookQudsi => 'Kudsi Hadisler';
+  @override
+  String get bookDehlawi => 'Şah Veliyyullah Dehlevi\'nin Kırk Hadisi';
+
+  @override
+  String get qiblaDirection => 'Kıble Yönü';
+  @override
+  String get locatingYourPosition => 'Konumunuz belirleniyor...';
+  @override
+  String get errorCalculatingQibla => 'Kıble hesaplama hatası';
+  @override
+  String get compassAccessError => 'Pusula erişim hatası';
+  @override
+  String get locationServicesDisabled => 'Konum servisleri devre dışı';
+  @override
+  String get locationPermissionPermanentlyDenied =>
+      'Konum izni kalıcı olarak reddedildi';
+  @override
+  String get qiblaAngleFromNorth => 'Kuzeyden Kıble açısı';
+  @override
+  String get facingQiblaNow => 'Artık Kıble\'ye dönüksünüz';
+  @override
+  String get qibla => 'Kıble';
+
+  @override
+  String get gregorianToHijri => 'Miladi\'den Hicri\'ye';
+  @override
+  String get pickGregorianDate => 'Miladi Tarih Seçin';
+  @override
+  String get errorConvertingGregorianToHijri => 'Tarih dönüştürme hatası';
+  @override
+  String get hijriToGregorian => 'Hicri\'den Miladi\'ye';
+  @override
+  String get enterHijriDateHint => 'Hicri Tarih Girin (GG/AA/YYYY)';
+  @override
+  String get hijriDateExample => 'Örnek: 01/09/1445';
+  @override
+  String get convert => 'Dönüştür';
+  @override
+  String get dateHijriLabel => 'Hicri Tarih';
+  @override
+  String get dateGregorianLabel => 'Miladi Tarih';
+  @override
+  String get errorConvertingHijriToGregorian => 'Tarih dönüştürme hatası';
+
+  @override
+  String get locationPermissionDeniedForeverTitle =>
+      'Konum izni kalıcı olarak reddedildi, izin isteyemiyoruz.';
+  @override
+  String get errorCalculatingQiblaDirection => 'Kıble yönü hesaplama hatası';
+  @override
+  String get errorAccessingCompass => 'Pusula erişim hatası';
+  @override
+  String get qiblaDirectionFromNorth => 'Kuzeyden Kıble açısı';
+  @override
+  String get youAreFacingTheQibla => 'Artık Kıble\'ye dönüksünüz';
+
+  @override
+  String get selectGregorianDate => 'Miladi Tarih Seçin';
+  @override
+  String get enterHijriDate => 'Hicri Tarih Girin (GG-AA-YYYY)';
+  @override
+  String get errorConvertingHijriDate =>
+      'Hicri tarihi Miladi\'ye dönüştürme hatası';
+  @override
+  String hijriToGregorianResult(String hijriDate, String gregorianDate) {
+    return 'Hicri Tarih: $hijriDate\nMiladi Tarih: $gregorianDate';
+  }
+
+  @override
+  String get dateConverter => 'Date Converter';
+
+  @override
+  String get haramLiveTitle => 'Harem ve Canlı Yayın';
+  @override
+  String get chooseChannel => 'Şimdi izlemek istediğiniz kanalı seçin';
+  @override
+  String get makkah => 'Mekke';
+  @override
+  String get saudiChannel => 'Suudi Kanalı';
+  @override
+  String get quranChannel => 'Kuran Kanalı';
+  @override
+  String get madinah => 'Medine';
+  @override
+  String get madinahChannel => 'Medine Kanalı';
+  @override
+  String get liveStreamTitle => 'Canlı Yayın';
+  @override
+  String get initializing => 'Başlatılıyor...';
+  @override
+  String get loadingStream => 'Canlı yayın yükleniyor...';
+  @override
+  String get playingStream => 'Yayın oynatılıyor...';
+  @override
+  String get clickToPlay => 'Yayını başlatmak için oynat düğmesine tıklayın';
+  @override
+  String get openInBrowser => 'Tarayıcıda Aç';
+  @override
+  String get openInBrowserDescription =>
+      'Canlı yayın, cihazın harici tarayıcısında açılacak';
+  @override
+  String get open => 'Aç';
+  @override
+  String get streamLoadFailed => 'Yayın yüklenemedi';
+  @override
+  String get retryAttempt => 'Deneme';
+  @override
+  String get reload => 'Yeniden Yükle';
+  @override
+  String get importantNotice => 'Önemli Uyarı';
+  @override
+  String get copyrightNotice =>
+      'Yayın, YouTube platformunda Yayıncılık ve Televizyon Kurumu\'na bağlı {0} kanalından yayınlanmaktadır. Uygulama herhangi bir içeriği yayınlamaz, depolamaz veya yeniden yayınlamaz ve tüm hakları sahiplerine aittir.';
+  @override
+  String get copyrightRights =>
+      '© Tüm hakları saklıdır - İki Kutsal Caminin İşleri Genel Başkanlığı';
+  @override
+  String get locationSettingsTitle => 'Konum Ayarları';
+  @override
+  String get unknown => 'Bilinmiyor';
+  @override
+  String get regionLabel => 'Bölge';
+  @override
+  String get autoRefreshLocation => 'Başlatıldığında otomatik konum yenileme';
+  @override
+  String get updating => 'Güncelleniyor...';
+  @override
+  String get refreshLocationNow => 'Konumu Şimdi Yenile';
+  @override
+  String get locationUpdatedSuccessfully => 'Konum başarıyla güncellendi';
+
+  @override
+  String get notificationsTitle => 'Bildirimler';
+  @override
+  String get athanNotification => 'Ezan Bildirimi';
+  @override
+  String get preAthanNotification => 'Ezandan 5 Dakika Önce Uyarı';
+  @override
+  String get khushooMode => 'Huşu Modu (Namaz Sırasında Sessiz)';
+  @override
+  String get collectiveKhatmaNotifications => 'Toplu Hatim Bildirimleri';
+  @override
+  String get remindMeOfAllah => 'Allah\'ı Bana Hatırlat';
+  @override
+  String get minute => 'Dakika';
+  @override
+  String get halfHour => 'Yarım Saat';
+  @override
+  String get hour => 'Saat';
+  @override
+  String get twoHours => 'İki Saat';
+  @override
+  String get premiumFeature => 'Premium Özellik';
+  @override
+  String get premiumFeatureDescription =>
+      'Bu özellik sadece premium aboneler için mevcuttur.\nTüm özelliklerden yararlanmak için yükseltin!';
+  @override
+  String get upgradeNow => 'Şimdi Yükselt';
+
+  @override
+  String get prayersAndMuezzinsTitle => 'Namazlar ve Müezzinler';
+  @override
+  String get selectMuezzin => 'Müezzin Seçin: {0}';
+  @override
+  String get notSpecified => 'Belirtilmemiş';
+  @override
+  String get playAthanSound => 'Ezan Sesi Çal';
+  @override
+  String get selectMuezzinDialogTitle => 'Müezzin Seçin';
+  @override
+  String get noRecitersAvailable => 'Şu anda mevcut okuyucu yok';
+  @override
+  String get chooseFavoriteMuezzin => 'Favori Müezzini Seçin';
+  @override
+  String get muezzinSelected => 'Müezzin seçildi: {0}';
+  @override
+  String get selectMuezzinFirst => 'Lütfen önce bir müezzin seçin';
+  @override
+  String get playingMuezzinSound => 'Müezzin sesi çalınıyor: {0}';
+
+  @override
+  String get quranSettingsTitle => 'Kuran Ayarları';
+  @override
+  String get favoriteTafsir => 'Favori Tefsir';
+  @override
+  String get favoriteReciter => 'Favori Okuyucu';
+  @override
+  String get notAvailable => 'Mevcut Değil';
+  @override
+  String get chooseTafsir => 'Tefsir Seçin';
+  @override
+  String get chooseReciter => 'Okuyucu Seçin';
+  @override
+  String get notAvailableEnglish => 'Not Available';
+  @override
+  String get settingsLoadError => 'Ayarlar yüklenirken hata oluştu';
+
+  @override
+  String get generalTitle => 'Genel';
+  @override
+  String get language => 'Dil';
+  @override
+  String get arabic => 'Arapça';
+  @override
+  String get english => 'İngilizce';
+  @override
+  String get french => 'Fransızca';
+  @override
+  String get indonesian => 'Endonezce';
+  @override
+  String get urdu => 'Urduca';
+  @override
+  String get turkish => 'Türkçe';
+  @override
+  String get bengali => 'Bengalce';
+  @override
+  String get malay => 'Malayca';
+  @override
+  String get persian => 'Farsça';
+  @override
+  String get spanish => 'İspanyolca';
+  @override
+  String get german => 'Almanca';
+  @override
+  String get chinese => 'Çince';
+  @override
+  String get chooseLanguage => 'Dil Seçin';
+  @override
+  String get rateApp => 'Uygulamayı Değerlendir';
+  @override
+  String get aboutApp => 'Uygulama Hakkında';
+  @override
+  String get privacyPolicy => 'Gizlilik Politikası';
+  @override
+  String get updatingLanguage => 'Dil güncelleniyor...';
+  @override
+  String get languageUpdateError => 'Dil güncellenirken hata: {0}';
+
+  @override
+  String get appearanceTitle => 'Görünüm';
+  @override
+  String get darkMode => 'Karanlık Mod';
+  @override
+  String get lightMode => 'Aydınlık Mod';
+
+  @override
+  String get home => 'Ana Sayfa';
+  @override
+  String get settings => 'Ayarlar';
+  @override
+  String get rememberAllah => 'Allah\'ı An';
+  @override
+  String get rememberAllahDescription => 'Allah\'ı her zaman ve her yerde an';
+  @override
+  String get mustLoginFirst => 'Önce giriş yapmalısınız';
+  @override
+  String get savedSuccessfully => 'Başarıyla kaydedildi ✅';
+  @override
+  String get saveFailed => 'Kaydetme başarısız';
+  @override
+  String get subhanAllah => 'Sübhanallah';
+  @override
+  String get errorLoadingTasbehData => 'Tesbih verileri yüklenirken hata';
+  @override
+  String get errorLoadingCounter => 'Sayaç yüklenirken hata';
+  @override
+  String get errorSavingTasbeh => 'Tesbih kaydedilirken hata';
+  @override
+  String get errorSavingSelectedZikr => 'Seçilen zikir kaydedilirken hata';
+  @override
+  String get errorResettingCounter => 'Sayaç sıfırlanırken hata';
+
+  @override
+  String get alhamdulillah => 'Elhamdülillah';
+  @override
+  String get allahuAkbar => 'Allahuekber';
+  @override
+  String get laIlahaIllallah => 'La İlahe İllallah';
+  @override
+  String get astaghfirullah => 'Estağfirullah';
+  @override
+  String get reset => 'Sıfırla';
+  @override
+  String get saving => 'Kaydediliyor...';
+
+  @override
+  String get accountAndSubscription => 'Hesap & Abonelik';
+  @override
+  String get monthlySubscription => 'Aylık Abonelik';
+  @override
+  String get yearlySubscription => 'Yıllık Abonelik';
+  @override
+  String get premiumSubscription => 'Premium';
+  @override
+  String get freeSubscription => 'Ücretsiz';
+  @override
+  String get accountStatus => 'Hesap Durumu';
+  @override
+  String get expiresOn => 'Son Kullanma Tarihi';
+  @override
+  String get manageSubscription => 'Aboneliği Yönet';
+  @override
+  String get upgradeAccount => 'Hesabı Yükselt';
+  @override
+  String get manage => 'Yönet';
+  @override
+  String get subscribe => 'Abone Ol';
+
+  @override
+  String get zakatCalculator => 'Zekat Hesaplayıcı';
+  @override
+  String get zakatDisclaimer =>
+      'Not: Bu hesaplama yaklaşıktır ve dini bir fetva değildir.\nDoğru dini karar için lütfen bilgili alimlere danışın.';
+  @override
+  String get totalCash => 'Toplam Nakit Para';
+  @override
+  String get doYouOwnGold => 'Altınınız var mı?';
+  @override
+  String get goldValue => 'Altın Değeri (doğrudan biliniyorsa)';
+  @override
+  String get goldGrams => 'Altın Gramı';
+  @override
+  String get gold24kPrice => '24 Ayar Altın Gram Fiyatı';
+  @override
+  String get requiredForNisaab =>
+      'Nisab hesaplaması için gereklidir (85 gram altın)';
+  @override
+  String get requiredForGoldValue =>
+      'Gramdan altın değerini hesaplamak için gereklidir';
+  @override
+  String get tradeValue => 'Ticari Mal Değeri';
+  @override
+  String get enableNisaab => 'Nisab Şartını Etkinleştir';
+  @override
+  String get calculateZakat => 'Zekat Hesapla';
+  @override
+  String get fieldRequired => 'Bu alan gereklidir';
+  @override
+  String get enterValidNumber => 'Lütfen geçerli bir sayı girin';
+
+  String get worshipSectionTitle => 'İbadet Bölümü';
+  String get prayerGuideSectionTitle => 'Namaz Rehberi';
+  String get islamicServicesSectionTitle => 'İslami Hizmetler';
+  String get hadiths => 'Hadisler';
+  String get allahNames => 'Allah\'ın İsimleri';
+  String get ramadanFeatures => 'Ramazan Özellikleri';
+  String get prayerAndQibla => 'Namaz & Kıble';
+  String get locationAndMosques => 'Konum & Camiler';
+  String get audio => 'Ses';
+  String get chatList => 'Sohbet Listesi';
+  String get class_ => 'Sınıf';
+  String get premiumBookMessage => 'Premium Kitap Mesajı';
+  String get upgrade => 'Yükselt';
+  String get selectBook => 'Kitap Seç';
+  String get noHadithsAvailable => 'Mevcut Hadis Yok';
+  String get by => 'Tarafından';
+  String get days => 'Gün';
+  String get ofWord => 'Of';
+  String get hadithCopied => 'Hadis Kopyalandı';
+  String get hadithRemovedFromFavorites => 'Hadis Favorilerden Kaldırıldı';
+  String get hadithAddedToFavorites => 'Hadis Favorilere Eklendi';
+  String get narrator => 'Ravi';
+  String get shareHadithText => 'Hadis Metnini Paylaş';
+  String get scholarsEvaluation => 'Alimlerin Değerlendirmesi';
+  String get hadithDetails => 'Hadis Detayları';
+  String get collectiveKhatma => 'Toplu Hatim';
+
+  String get quranKareem => 'Kuran-ı Kerim';
+  String get azkarAndAdiyah => 'Zikirler & Dualar';
+  String get khatma => 'Hatim';
+  String get liveBroadcastAndHaram => 'Canlı Yayın & Harem';
+  String get smartAssistant => 'Akıllı Asistan';
+  String get maxZoom => 'Maksimum Yakınlaştırma';
+  String get licensedBroadcast =>
+      'Bu yayın resmi Suudi kanallarından lisanslanmıştır';
+  String get chooseKhatmaCount => 'Hatim sayısını seçin:';
+  String get chooseKhatmaCountHint => 'Hatim sayısını seçin';
+  String get pagesPerDay => 'Sayfa/Gün';
+  String get juzPerDay => 'Cüz/Gün';
+  String get hideSchedule => 'Programı Gizle';
+  String get showDetailedSchedule => 'Ayrıntılı Programı Göster';
+  String get dayColumn => 'Gün';
+  String get pagesColumn => 'Sayfalar';
+  String get surahsColumn => 'Sureler';
+  String pagesCountText(int count) => '($count sayfa)';
+  @override
+  String get yourDailyWird => 'Günlük Virdiniz';
+  @override
+  String ayahsRangeText(int start, int end) => 'Ayet $start - $end';
+  @override
+  String get pageNumber => 'Sayfa Numarası';
+  @override
+  String get currentJuz => 'Mevcut Cüz';
+  @override
+  String get readJuz => 'Okunan Cüzler';
+  @override
+  String get remainingPages => 'Kalan Sayfalar';
+  @override
+  String get todayProgress => 'Bugünün İlerlemesi';
+  @override
+  String get pagesUnit => 'Sayfa';
+  @override
+  String get khatmaPercentage => 'Hatime Yüzdesi';
+  @override
+  String get khatmaTrackingNote =>
+      'Hatime takibi sadece "Yatay Çevirme" modunda çalışır';
+  @override
+  String get continueReading => 'Okumaya Devam Et';
+  @override
+  String get liveNow => 'Canlı Yayın';
+
+  @override
+  String get nearbyMosques => 'Yakındaki Camiler';
+  @override
+  String get pleaseWaitForMosquesToLoad =>
+      'Lütfen camilerin yüklenmesini bekleyin';
+  @override
+  String get showOnMap => 'Haritada Göster';
+  @override
+  String get updateLocation => 'Konumu Güncelle';
+  @override
+  String get noNearbyMosquesInRange => 'Mevcut menzilde yakın cami yok';
+  @override
+  String get map => 'Harita';
+  @override
+  String get myCurrentLocation => 'Mevcut Konumum';
+  @override
+  String get directions => 'Yol Tarifi';
+  @override
+  String get openInMaps => 'Haritada Aç';
+  @override
+  String directionsApiError(String status, String errorMessage) =>
+      'Yol Tarifi API Hatası: $status - ${errorMessage.isNotEmpty ? errorMessage : "Hata mesajı yok"}';
+  @override
+  String get benefits => 'Faydalar';
+  @override
+  String get explanation => 'Açıklama';
+  @override
+  String get forgotPassword => 'Şifrenizi mi unuttunuz?';
+  @override
+  String get forgotPasswordTitle => 'Şifre Sıfırlama';
+  @override
+  String get forgotPasswordDescription =>
+      'E-posta adresinizi girin, size şifrenizi sıfırlamanız için bir bağlantı göndereceğiz';
+  @override
+  String get sendResetLink => 'Sıfırlama Bağlantısı Gönder';
+  @override
+  String get backToLogin => 'Girişe Geri Dön';
+  @override
+  String get checkSpamMessage =>
+      'Not: E-posta Spam klasörüne gidebilir, lütfen kontrol edin';
+  @override
+  String get copyrightHadithNotice =>
+      'Tüm hakları kaynağa aittir. (HadeethEnc.com)';
+  @override
+  String get wordsMeaning => 'Kelimelerin Anlamı';
+
+  @override
+  String get ramadanMubarakFull =>
+      'Ramazan Mübarek, Allah onu bize ve size bereket ve rahmetle geri getirsin';
+  String get appName => 'Mishkat Al-Hoda';
+  String get appDescription =>
+      'İbadet ve İslami bilgi için kapsamlı uygulamanız';
+  String get version => 'Sürüm 1.0.0';
+  String get mainFeatures => 'Ana Özellikler';
+  String get aboutAndRights => 'Uygulama ve Haklar Hakkında';
+  String get generalInfo => 'Genel Bilgiler';
+  String get appFullDescription =>
+      'Mishkat Al-Hoda Pro, dünya çapındaki Müslümanlar için ibadet ve İslami bilgiyi kolaylaştırmayı amaçlayan kapsamlı bir İslami uygulamadır.';
+  String get intellectualRights => 'Fikri Mülkiyet Hakları';
+  String get copyProhibition =>
+      '• İzin almadan içeriği kopyalamak veya dağıtmak yasaktır';
+  String get contentSource => '• Güvenilir kaynaklardan İslami içerik';
+  String get designProtection =>
+      '• Uygulama tasarımı ve programlama telif hakkı ile korunmaktadır';
+  String get legalInformation => 'Yasal Bilgiler';
+  String get dataCollection => 'Veri Toplama';
+  String get locationDataCollect =>
+      '• Doğru namaz vakitleri sağlamak için konum verisi topluyoruz';
+  String get accountDataStorage =>
+      '• Hesap verileri yedekleme için güvenli bir şekilde saklanır';
+  String get noDataSharing =>
+      '• Kişisel verilerinizi üçüncü taraflarla paylaşmıyoruz';
+  String get guestData => 'Misafir Verisi';
+  String get guestUsage =>
+      '• Uygulama kayıt olmadan misafir olarak kullanılabilir';
+  String get localStorage =>
+      '• Misafir verisi yalnızca cihazınızda yerel olarak saklanır';
+  String get accountConversion =>
+      '• İstediğiniz zaman kayıtlı hesaba dönüştürebilirsiniz';
+  String get security => 'Güvenlik';
+  String get sslEncryption =>
+      '• Tüm iletişimler için SSL şifrelemesi kullanıyoruz';
+  String get passwordEncryption => '• Şifreler şifrelenmiş formda saklanır';
+  String get dataProtection => '• Küresel veri koruma standartlarına uyuyoruz';
+  String get termsOfUse => 'Kullanım Şartları';
+  String get acceptableUse => 'Kabul Edilebilir Kullanım';
+  String get worshipUsage =>
+      '• Uygulamayı ibadet ve İslami bilgi amaçları için kullanın';
+  String get respectIntellectualProperty =>
+      '• İçeriğin fikri mülkiyet haklarına saygı gösterin';
+  String get complyWithLaws => '• Yerel ve uluslararası yasalara uyun';
+  String get restrictions => 'Kısıtlamalar';
+  String get illegalUsageProhibition =>
+      '• Uygulamanın yasadışı amaçlar için kullanımına izin verilmez';
+  String get copyModifyProhibition =>
+      '• İzin almadan içeriği kopyalamak veya değiştirmek yasaktır';
+  String get respectfulEnvironment => '• Saygılı bir kullanım ortamı koruyun';
+  String get contactUs => 'Bize Ulaşın';
+  String get appInquiry => 'Mishkat Al-Hoda Uygulaması Hakkında Soru';
+  String get welcomeQuestions =>
+      'Uygulama hakkındaki soru ve taleplerinizi memnuniyetle karşılıyoruz';
+  String get lastUpdate => 'Son Güncelleme: 10 Aralık 2025';
+  String get compatibility => 'Uyumluluk: iOS 13+ / Android 8+';
+
+  // مميزات
+  String get quranDescription => 'Tefsir ve tilavet ile tam Kuran okuması';
+  List<String> get quranFeatures => ['114 sure', 'Ayet tefsiri', 'Kuran hatmi'];
+  String get hadithsDescription =>
+      'Açıklama ve sınıflandırma ile sahih hadisler koleksiyonu';
+  List<String> get hadithFeatures => [
+    'Sahih hadisler',
+    'Açıklama ve faydalar',
+    'Gelişmiş arama',
+  ];
+  String get azkarAndDua => 'Zikir ve Dualar';
+  String get azkarDescription => "Sabah ve akşam zikirleri ve me'sur dualar";
+  List<String> get azkarFeatures => [
+    'Günlük zikirler',
+    'Me\'sur dualar',
+    'Hatırlatıcılar',
+  ];
+  String get allahNamesDescription =>
+      'Anlamları ve faziletleri ile Allah\'ın Güzel İsimlerini öğrenin';
+  List<String> get allahNamesFeatures => [
+    '99 isim',
+    'Anlamlar ve açıklamalar',
+    'Faziletler ve sevap',
+  ];
+  String get khatmaTracker => 'Hatim Takipçisi';
+  String get khatmaDescription => 'Kuran\'ı tamamlama ilerlemenizi takip edin';
+  List<String> get khatmaFeatures => [
+    'İlerleme takibi',
+    'İstatistikler',
+    'Günlük hedefler',
+  ];
+  String get prayerTimes => 'Namaz Vakitleri';
+  String get prayerTimesDescription => 'Konumunuz için doğru namaz vakitleri';
+  List<String> get prayerFeatures => [
+    '5 günlük namaz vakti',
+    'Kıble',
+    'Bildirimler',
+  ];
+  String get mosquesDescription => 'Konumunuza yakın camileri keşfedin';
+  List<String> get mosqueFeatures => [
+    'Cami haritası',
+    'Mesafe ve zaman',
+    'Bilgiler',
+  ];
+  String get islamicAudio => 'İslami Sesler';
+  String get audioDescription => 'Kuran, hutbeler ve ders sesleri';
+  List<String> get audioFeatures => [
+    'Kutsal Kuran',
+    'Hutbeler ve dersler',
+    'Kuran radyosu',
+  ];
+  String get liveBroadcast => 'Canlı Yayın';
+  String get broadcastDescription =>
+      'Mekke\'deki Mescid-i Haram\'dan canlı yayın izleyin';
+  List<String> get broadcastFeatures => [
+    'Mescid-i Haram',
+    'Mescid-i Nebevi',
+    'İslami kanallar',
+  ];
+  String get assistantDescription => 'Sorularınıza İslami tarzda cevaplar';
+  List<String> get assistantFeatures => [
+    'İslami fetvalar',
+    'Doğru cevaplar',
+    'Rehber kılavuz',
+  ];
+  String get zakatDescription => 'Zekatınızı doğru ve kolayca hesaplayın';
+  List<String> get zakatFeatures => [
+    'Para zekatı',
+    'Altın zekatı',
+    'Ticaret zekatı',
+  ];
+  String get dateConverterDescription =>
+      'Hicri ve Miladi tarihler arasında dönüştürme';
+  List<String> get dateFeatures => [
+    'Tarih dönüştürme',
+    'Hicri takvim',
+    'İslami etkinlikler',
+  ];
+
+  List<String> get subscriptionFeatures => [
+    "Sınırsız AI soruları",
+    "Tamamen reklam kaldırma",
+    "Arka planda otomatik ezan etkinleştirme",
+    "Tüm kitaplara ve hadislere erişim",
+    "Uygulama geliştirmeyi destekleme",
+  ];
+
+  String get noProductsAvailable => "Şu anda ürün mevcut değil";
+  String get mostSaving => "En Tasarruflu";
+  @override
+  String get deleteAccountWarning => 'Uyarı: Hesabı Sil';
+
+  @override
+  String get areYouSureDeleteAccount =>
+      'Hesabınızı silmek istediğinizden emin misiniz?';
+
+  @override
+  String get deleteAccountConsequences => '⚠️ Hesap Silme Sonuçları:';
+
+  @override
+  String get allPersonalDataDeleted => 'Tüm kişisel verileriniz silinecek';
+
+  @override
+  String get activeSubscriptionCancelled => 'Aktif abonelik iptal edilecek';
+
+  @override
+  String get actionCannotUndone => 'Bu işlem geri alınamaz';
+
+  @override
+  String get needNewAccountToUseApp =>
+      'Uygulamayı kullanmak için yeni bir hesap oluşturmanız gerekecek';
+
+  @override
+  String get deleteAccountSuccess => 'Hesap başarıyla silindi';
+
+  @override
+  String get deleting => 'Siliniyor...';
+
+  @override
+  String get deleteAccount => 'Hesabı Sil';
+
+  @override
+  String get deleteAccountAndAssociatedData =>
+      'Hesabınızı ve ilişkili verileri silin';
+}

@@ -1,0 +1,362 @@
+import 'dart:developer';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meshkat_elhoda/core/services/service_locator.dart';
+import 'package:meshkat_elhoda/features/favorites/domain/entities/favorite_item.dart';
+import 'package:meshkat_elhoda/features/favorites/presentation/bloc/favorites_bloc.dart';
+import 'package:meshkat_elhoda/features/favorites/presentation/bloc/favorites_event.dart';
+import 'package:meshkat_elhoda/features/favorites/presentation/bloc/favorites_state.dart';
+import 'package:meshkat_elhoda/features/azkar/presentation/screens/zekr_details_view.dart';
+import 'package:meshkat_elhoda/features/hadith/presentation/pages/hadith_details_page.dart';
+import 'package:meshkat_elhoda/features/quran_index/presentation/widgets/loading_widget.dart';
+
+import '../../../../l10n/app_localizations.dart';
+
+/// ✅ مثال كامل على استخدام FavoritesBloc
+class FavoritesExampleScreen extends StatefulWidget {
+  const FavoritesExampleScreen({Key? key}) : super(key: key);
+
+  @override
+  State<FavoritesExampleScreen> createState() => _FavoritesExampleScreenState();
+}
+
+class _FavoritesExampleScreenState extends State<FavoritesExampleScreen>
+    with SingleTickerProviderStateMixin {
+  late FavoritesBloc _favoritesBloc;
+  late AnimationController _animationController;
+  late Animation<double> _opacityAnimation;
+  late Animation<Offset> _slideAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    // ✅ الحصول على Bloc من Service Locator
+    _favoritesBloc = getIt<FavoritesBloc>();
+    // ✅ تحميل المفضلات عند فتح الشاشة (بدون تمرير userId)
+    _favoritesBloc.add(const LoadFavorites());
+
+    // Initialize animations
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 600),
+      vsync: this,
+    );
+
+    _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeInOut),
+    );
+
+    _slideAnimation =
+        Tween<Offset>(begin: const Offset(0, 0.1), end: Offset.zero).animate(
+          CurvedAnimation(
+            parent: _animationController,
+            curve: Curves.easeOutCubic,
+          ),
+        );
+
+    // Start animation
+    _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    _favoritesBloc.close();
+    super.dispose();
+  }
+
+  /// ✅ حذف عنصر من المفضلات
+  void _removeFavorite(String itemId) {
+    _favoritesBloc.add(RemoveFavorite(itemId: itemId));
+  }
+
+  /// ✅ حذف جميع المفضلات
+  void _clearAllFavorites() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(AppLocalizations.of(context)!.confirmation),
+        content: Text(AppLocalizations.of(context)!.deleteAllConfirmation),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(AppLocalizations.of(context)!.cancel),
+          ),
+          TextButton(
+            onPressed: () {
+              _favoritesBloc.add(const ClearAllFavorites());
+              Navigator.pop(context);
+            },
+            child: Text(AppLocalizations.of(context)!.deleteAll),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// ✅ التنقل إلى تفاصيل العنصر المفضل
+  void _navigateToDetails(FavoriteItem favorite) async {
+    if (favorite.category == 'حديث') {
+      // استخراج hadithId من الـ id
+      // Format: hadith_{hadithId}
+      final parts = favorite.id.split('_');
+      if (parts.length >= 2) {
+        final hadithId = parts[1];
+
+        // التنقل مباشرة إلى صفحة التفاصيل
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HadithDetailsPage(
+              hadithId: hadithId,
+              languageCode: Localizations.localeOf(context).languageCode,
+            ),
+          ),
+        );
+      }
+    } else if (favorite.category == 'ذكر') {
+      // استخراج zekrCategoryId من الـ id
+      // Format: zekr_{categoryId}_{zekrId}
+      final parts = favorite.id.split('_');
+      if (parts.length >= 2) {
+        final categoryId = int.tryParse(parts[1]);
+        if (categoryId != null) {
+          // التنقل إلى صفحة تفاصيل الذكر
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ZekrDetailsView(
+                zekrId: categoryId,
+                categoryTitle: favorite.description ?? 'أذكار',
+              ),
+            ),
+          );
+        }
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          AppLocalizations.of(context)!.favorites,
+          style: TextStyle(fontWeight: FontWeight.w700),
+        ),
+        actions: [
+          IconButton(
+            onPressed: _clearAllFavorites,
+            icon: const Icon(Icons.delete_sweep),
+            tooltip: AppLocalizations.of(context)!.deleteAllTooltip,
+          ),
+        ],
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+      ),
+      body: SlideTransition(
+        position: _slideAnimation,
+        child: FadeTransition(
+          opacity: _opacityAnimation,
+          child: BlocProvider<FavoritesBloc>(
+            create: (context) => _favoritesBloc,
+            child: BlocListener<FavoritesBloc, FavoritesState>(
+              listener: (context, state) {
+                // ✅ معالجة الأخطاء والنجاح
+                if (state is FavoritesError) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.message),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                } else if (state is FavoritesSuccess) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(state.message),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
+                }
+              },
+              child: BlocBuilder<FavoritesBloc, FavoritesState>(
+                buildWhen: (previous, current) {
+                  // ✅ أعد البناء فقط عند تغيير الحالة المهمة
+                  return current is FavoritesLoading ||
+                      current is FavoritesLoaded ||
+                      current is FavoritesError;
+                },
+                builder: (context, state) {
+                  // ✅ حالة التحميل
+                  if (state is FavoritesLoading) {
+                    return const Center(child: QuranLottieLoading());
+                  }
+
+                  // ✅ حالة الخطأ
+                  if (state is FavoritesError) {
+                    return Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(
+                            Icons.error_outline,
+                            size: 64,
+                            color: Colors.red,
+                          ),
+                          const SizedBox(height: 16),
+                          Text(state.message),
+                          const SizedBox(height: 16),
+                          ElevatedButton(
+                            onPressed: () =>
+                                _favoritesBloc.add(const LoadFavorites()),
+                            child: Text(AppLocalizations.of(context)!.retry),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+
+                  // ✅ حالة النجاح مع قائمة المفضلات
+                  if (state is FavoritesLoaded) {
+                    final favorites = state.favorites;
+
+                    if (favorites.isEmpty) {
+                      return Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.favorite_border,
+                              size: 64,
+                              color: Colors.grey,
+                            ),
+                            const SizedBox(height: 16),
+                            Text(AppLocalizations.of(context)!.noFavorites),
+                          ],
+                        ),
+                      );
+                    }
+
+                    // ✅ عرض قائمة المفضلات
+                    return ListView.builder(
+                      itemCount: favorites.length,
+                      itemBuilder: (context, index) {
+                        final favorite = favorites[index];
+                        return _FavoriteCard(
+                          favorite: favorite,
+                          onRemove: () => _removeFavorite(favorite.id),
+                          onTap: () => _navigateToDetails(favorite),
+                        );
+                      },
+                    );
+                  }
+
+                  return const SizedBox.shrink();
+                },
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// ✅ Widget للعنصر الواحد في قائمة المفضلات
+class _FavoriteCard extends StatelessWidget {
+  final FavoriteItem favorite;
+  final VoidCallback onRemove;
+  final VoidCallback onTap;
+
+  const _FavoriteCard({
+    Key? key,
+    required this.favorite,
+    required this.onRemove,
+    required this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12),
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Row(
+            children: [
+              // ✅ أيقونة حسب النوع
+              Icon(
+                _getCategoryIcon(favorite.category),
+                color: _getCategoryColor(favorite.category),
+                size: 32,
+              ),
+              const SizedBox(width: 12),
+              // ✅ معلومات العنصر
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      favorite.title,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    if (favorite.description != null &&
+                        favorite.description!.isNotEmpty)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Text(
+                          favorite.description!,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+              // ✅ زر ال حذف
+              IconButton(
+                onPressed: onRemove,
+                icon: const Icon(Icons.close),
+                color: Colors.red,
+                tooltip: AppLocalizations.of(
+                  context,
+                )!.deleteFromFavoritesTooltip,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Helper methods للحصول على أيقونة ولون حسب النوع
+  IconData _getCategoryIcon(String? category) {
+    switch (category) {
+      case 'حديث':
+        return Icons.book;
+      case 'ذكر':
+        return Icons.spa;
+      default:
+        return Icons.favorite;
+    }
+  }
+
+  Color _getCategoryColor(String? category) {
+    switch (category) {
+      case 'حديث':
+        return Colors.brown;
+      case 'ذكر':
+        return Colors.green;
+      default:
+        return Colors.red;
+    }
+  }
+}
