@@ -139,7 +139,7 @@
   "days": "Days",
   "searchResults": "Results",
   "off": "of",
-  "hadithLoadError": "Failed to load hadith: {0}",
+  "hadithLoadError": "Failed to load hadith: {error}",
   "hadithCopied": "Hadith copied to clipboard",
   "hadithRemovedFromFavorites": "Hadith removed from favorites",
   "hadithAddedToFavorites": "Hadith added to favorites",
@@ -311,18 +311,18 @@
   "dateRangeLabel": "Start and End Date",
   "startDate": "Start Date",
   "endDate": "End Date",
-  "khatmaDuration": "Khatma Duration: {0} days",
+  "khatmaDuration": "Khatma Duration: {days} days",
   "khatmaCreatedSuccess": "Khatma created successfully!",
   "khatmaDetails": "Khatma Details",
   "copyLink": "Copy Link",
   "deleteKhatma": "Delete Khatma",
-  "partReservedSuccess": "Part {0} reserved successfully!",
-  "partCompletedSuccess": "Congratulations! You completed part {0}",
+  "partReservedSuccess": "Part {part} reserved successfully!",
+  "partCompletedSuccess": "Congratulations! You completed part {part}",
   "deleteConfirmationTitle": "Delete Khatma",
   "deleteConfirmationMessage": "Are you sure you want to delete this khatma? This action cannot be undone.",
   "reserveThisPart": "Reserve This Part",
   "completeThisPart": "Complete This Part",
-  "alreadyReservedPart": "You already have a reserved part (Part {0})",
+  "alreadyReservedPart": "You already have a reserved part (Part {part})",
   "linkCopied": "Link copied",
   "myCollectiveKhatmas": "My Collective Khatmas",
   "joinedKhatmasTab": "Joined Khatmas",
@@ -333,12 +333,12 @@
   "completedParts": "Completed Parts",
   "noCreatedKhatmas": "Haven\\'t created any khatmas yet",
   "startCreatingKhatma": "Start creating a new collective khatma",
-  "partNumber": "Part {0}",
+  "partNumber": "Part {part}",
   "completedStatus": "Completed ✓",
   "inProgressStatus": "In Progress",
   "publicType": "Public",
   "privateType": "Private",
-  "createdBy": "Creator: {0}",
+  "createdBy": "Creator: {creator}",
   "participants": "Participants",
   "completed": "Completed",
   "daysRemaining": "Days Remaining",
@@ -348,7 +348,7 @@
   "availableParts": "Available Parts",
   "khatmaCompleted": "Completed ✓",
   "availableForReservation": "Available for reservation",
-  "reservedForUser": "Reserved for {0}",
+  "reservedForUser": "Reserved for {user}",
   "partCompletedStatus": "Completed ✓",
   "partCompleted": "Completed",
   "reserved": "Reserved",
@@ -361,7 +361,7 @@
   "deleteAllTooltip": "Delete All Favorites",
   "noFavorites": "No favorite items",
   "deleteFromFavoritesTooltip": "Delete from Favorites",
-  "favoriteItemDescription": "Favorite item: {0}",
+  "favoriteItemDescription": "Favorite item: {item}",
   "quranAudio": "Audio",
   "quranRecitations": "Quran Recitations",
   "quranRecitationsDesc": "Listen to Quran recitations by renowned reciters",
@@ -477,7 +477,7 @@
   "retryAttempt": "Attempt",
   "reload": "Reload",
   "importantNotice": "Important Notice",
-  "copyrightNotice": "The stream is broadcast from {0} channel affiliated with the Broadcasting and Television Authority on YouTube platform. The application does not publish, store, or rebroadcast any content, and all rights are reserved to their owners.",
+  "copyrightNotice": "The stream is broadcast from {channel} channel affiliated with the Broadcasting and Television Authority on YouTube platform. The application does not publish, store, or rebroadcast any content, and all rights are reserved to their owners.",
   "copyrightRights": "© All rights reserved - General Presidency for the Affairs of the Two Holy Mosques",
   "locationSettingsTitle": "Location Settings",
   "unknown": "Unknown",
@@ -501,15 +501,15 @@
   "premiumFeatureDescription": "This feature is available only for premium subscribers.\\nUpgrade to enjoy all features!",
   "upgradeNow": "Upgrade Now",
   "prayersAndMuezzinsTitle": "Prayers and Muezzins",
-  "selectMuezzin": "Select Muezzin: {0}",
+  "selectMuezzin": "Select Muezzin: {muezzinName}",
   "notSpecified": "Not Specified",
   "playAthanSound": "Play Athan Sound",
   "selectMuezzinDialogTitle": "Select Muezzin",
   "noRecitersAvailable": "No reciters available currently",
   "chooseFavoriteMuezzin": "Choose Favorite Muezzin",
-  "muezzinSelected": "Muezzin selected: {0}",
+  "muezzinSelected": "Muezzin selected: {muezzinName}",
   "selectMuezzinFirst": "Please select a muezzin first",
-  "playingMuezzinSound": "Playing muezzin sound: {0}",
+  "playingMuezzinSound": "Playing muezzin sound: {muezzinName}",
   "quranSettingsTitle": "Quran Settings",
   "favoriteTafsir": "Favorite Tafsir",
   "favoriteReciter": "Favorite Reciter",
@@ -537,7 +537,7 @@
   "aboutApp": "About App",
   "privacyPolicy": "Privacy Policy",
   "updatingLanguage": "Updating language...",
-  "languageUpdateError": "Error updating language: {0}",
+  "languageUpdateError": "Error updating language: {error}",
   "appearanceTitle": "Appearance",
   "darkMode": "Dark Mode",
   "lightMode": "Light Mode",
@@ -672,5 +672,131 @@
   "deleteAccountSuccess": "Account deleted successfully",
   "deleting": "Deleting...",
   "deleteAccount": "Delete Account",
-  "deleteAccountAndAssociatedData": "Delete your account and associated data"
+  "deleteAccountAndAssociatedData": "Delete your account and associated data",
+  "@hadithLoadError": {
+    "description": "Auto-generated description for hadithLoadError",
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "example": "example"
+      }
+    }
+  },
+  "@languageUpdateError": {
+    "description": "Auto-generated description for languageUpdateError",
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "example": "example"
+      }
+    }
+  },
+  "@copyrightNotice": {
+    "description": "Auto-generated description for copyrightNotice",
+    "placeholders": {
+      "channel": {
+        "type": "String",
+        "example": "example"
+      }
+    }
+  },
+  "@khatmaDuration": {
+    "description": "Auto-generated description for khatmaDuration",
+    "placeholders": {
+      "days": {
+        "type": "String",
+        "example": "example"
+      }
+    }
+  },
+  "@partReservedSuccess": {
+    "description": "Auto-generated description for partReservedSuccess",
+    "placeholders": {
+      "part": {
+        "type": "String",
+        "example": "example"
+      }
+    }
+  },
+  "@partCompletedSuccess": {
+    "description": "Auto-generated description for partCompletedSuccess",
+    "placeholders": {
+      "part": {
+        "type": "String",
+        "example": "example"
+      }
+    }
+  },
+  "@alreadyReservedPart": {
+    "description": "Auto-generated description for alreadyReservedPart",
+    "placeholders": {
+      "part": {
+        "type": "String",
+        "example": "example"
+      }
+    }
+  },
+  "@partNumber": {
+    "description": "Auto-generated description for partNumber",
+    "placeholders": {
+      "part": {
+        "type": "String",
+        "example": "example"
+      }
+    }
+  },
+  "@createdBy": {
+    "description": "Auto-generated description for createdBy",
+    "placeholders": {
+      "creator": {
+        "type": "String",
+        "example": "example"
+      }
+    }
+  },
+  "@reservedForUser": {
+    "description": "Auto-generated description for reservedForUser",
+    "placeholders": {
+      "user": {
+        "type": "String",
+        "example": "example"
+      }
+    }
+  },
+  "@favoriteItemDescription": {
+    "description": "Auto-generated description for favoriteItemDescription",
+    "placeholders": {
+      "item": {
+        "type": "String",
+        "example": "example"
+      }
+    }
+  },
+  "@selectMuezzin": {
+    "description": "Auto-generated description for selectMuezzin",
+    "placeholders": {
+      "muezzinName": {
+        "type": "String",
+        "example": "example"
+      }
+    }
+  },
+  "@muezzinSelected": {
+    "description": "Auto-generated description for muezzinSelected",
+    "placeholders": {
+      "muezzinName": {
+        "type": "String",
+        "example": "example"
+      }
+    }
+  },
+  "@playingMuezzinSound": {
+    "description": "Auto-generated description for playingMuezzinSound",
+    "placeholders": {
+      "muezzinName": {
+        "type": "String",
+        "example": "example"
+      }
+    }
+  }
 }

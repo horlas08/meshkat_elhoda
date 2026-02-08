@@ -27,20 +27,16 @@ class AppLocalizationsBn extends AppLocalizations {
   String get finish => 'শেষ';
 
   @override
-  String get onboardingDescription1 =>
-      'একটি অ্যাপ দিয়ে আপনার আধ্যাত্মিক যাত্রা শুরু করুন যা কুরআন, আযকার এবং হাদিস এক জায়গায় একত্রিত করে।';
+  String get onboardingDescription1 => 'একটি অ্যাপ দিয়ে আপনার আধ্যাত্মিক যাত্রা শুরু করুন যা কুরআন, আযকার এবং হাদিস এক জায়গায় একত্রিত করে।';
 
   @override
-  String get onboardingDescription2 =>
-      '৫০ জনেরও বেশি ক্বারীর তিলাওয়াত শুনুন এবং আপনার শেষ পড়ার অবস্থান সহজেই সংরক্ষণ করুন।';
+  String get onboardingDescription2 => '৫০ জনেরও বেশি ক্বারীর তিলাওয়াত শুনুন এবং আপনার শেষ পড়ার অবস্থান সহজেই সংরক্ষণ করুন।';
 
   @override
-  String get onboardingDescription3 =>
-      'দৈনিক আযকার এবং আপনার জীবনের জন্য শ্রেণীবদ্ধ দোয়ার সাথে প্রতিটি মুহূর্তে আপনাকে আল্লাহর স্মরণ করিয়ে দেয়।';
+  String get onboardingDescription3 => 'দৈনিক আযকার এবং আপনার জীবনের জন্য শ্রেণীবদ্ধ দোয়ার সাথে প্রতিটি মুহূর্তে আপনাকে আল্লাহর স্মরণ করিয়ে দেয়।';
 
   @override
-  String get onboardingDescription4 =>
-      'যেকোনো সময় এবং যেকোনো জায়গায় সরাসরি মক্কা ও মদিনা থেকে আধ্যাত্মিক পরিবেশ অনুভব করুন।';
+  String get onboardingDescription4 => 'যেকোনো সময় এবং যেকোনো জায়গায় সরাসরি মক্কা ও মদিনা থেকে আধ্যাত্মিক পরিবেশ অনুভব করুন।';
 
   @override
   String get allAzkar => 'সমস্ত আজকার';
@@ -94,16 +90,13 @@ class AppLocalizationsBn extends AppLocalizations {
   String get locationPermissionDeniedTitle => 'অবস্থান অনুমতি অস্বীকৃত';
 
   @override
-  String get locationPermissionDescription =>
-      'নির্ভুল নামাজের সময় দেখানোর জন্য, আমাদের আপনার অবস্থানের প্রয়োজন। আপনি করতে পারেন:';
+  String get locationPermissionDescription => 'নির্ভুল নামাজের সময় দেখানোর জন্য, আমাদের আপনার অবস্থানের প্রয়োজন। আপনি করতে পারেন:';
 
   @override
-  String get locationPermissionOptionAllow =>
-      '• অবস্থান অ্যাক্সেস অনুমোদন করুন';
+  String get locationPermissionOptionAllow => '• অবস্থান অ্যাক্সেস অনুমোদন করুন';
 
   @override
-  String get locationPermissionOptionManual =>
-      '• শহর এবং দেশ ম্যানুয়ালি লিখুন';
+  String get locationPermissionOptionManual => '• শহর এবং দেশ ম্যানুয়ালি লিখুন';
 
   @override
   String get locationPermissionManualButton => 'ম্যানুয়াল এন্ট্রি';
@@ -271,6 +264,9 @@ class AppLocalizationsBn extends AppLocalizations {
   String get khatmat => 'খতমসমূহ';
 
   @override
+  String get continueLabel => 'চালিয়ে যান';
+
+  @override
   String get start_your_journey => 'কুরআনের সঙ্গে আপনার যাত্রা শুরু করুন';
 
   @override
@@ -283,8 +279,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get haram_and_live => 'হারাম ও লাইভ সম্প্রচার';
 
   @override
-  String get choose_channel =>
-      'এখন আপনি যে চ্যানেলটি দেখতে চান তা নির্বাচন করুন';
+  String get choose_channel => 'এখন আপনি যে চ্যানেলটি দেখতে চান তা নির্বাচন করুন';
 
   @override
   String get mecca => 'মক্কা';
@@ -293,8 +288,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get saudi_channel => 'সৌদি চ্যানেল';
 
   @override
-  String get licensed_broadcast =>
-      'এই সম্প্রচারটি সরকারি সৌদি চ্যানেল থেকে লাইসেন্সকৃত';
+  String get licensed_broadcast => 'এই সম্প্রচারটি সরকারি সৌদি চ্যানেল থেকে লাইসেন্সকৃত';
 
   @override
   String get online => 'এখন অনলাইনে';
@@ -339,8 +333,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get todayDuaaHeader => 'আজকের দুআ';
 
   @override
-  String get greetYourLovedOnes =>
-      'আপনার প্রিয় বন্ধুদের সাথে আপনার সুন্দর শুভেচ্ছা দিন দিন করুন';
+  String get greetYourLovedOnes => 'আপনার প্রিয় বন্ধুদের সাথে আপনার সুন্দর শুভেচ্ছা দিন দিন করুন';
 
   @override
   String get quranKarem => 'কুরআন কারেম';
@@ -370,6 +363,179 @@ class AppLocalizationsBn extends AppLocalizations {
   String get goToMushafButton => 'মুসহাফে যান';
 
   @override
+  String get worshipSectionTitle => 'ইবাদত বিভাগ';
+
+  @override
+  String get prayerGuideSectionTitle => 'নামাজ গাইড';
+
+  @override
+  String get islamicServicesSectionTitle => 'ইসলামিক সেবা';
+
+  @override
+  String get hadiths => 'হাদিস';
+
+  @override
+  String get allahNames => 'আল্লাহর নামসমূহ';
+
+  @override
+  String get ramadanFeatures => 'রমজান বৈশিষ্ট্য';
+
+  @override
+  String get prayerAndQibla => 'নামাজ ও কিবলা';
+
+  @override
+  String get locationAndMosques => 'অবস্থান ও মসজিদ';
+
+  @override
+  String get audio => 'অডিও';
+
+  @override
+  String get zakatCalculator => 'যাকাত ক্যালকুলেটর';
+
+  @override
+  String get dateConverter => 'Date Converter';
+
+  @override
+  String get chatList => 'চ্যাট তালিকা';
+
+  @override
+  String get classLabel => 'Class';
+
+  @override
+  String get class_ => 'শ্রেণী';
+
+  @override
+  String get premiumBookMessage => 'প্রিমিয়াম বই বার্তা';
+
+  @override
+  String get upgrade => 'আপগ্রেড';
+
+  @override
+  String get selectBook => 'বই নির্বাচন করুন';
+
+  @override
+  String get noHadithsAvailable => 'কোন হাদিস নেই';
+
+  @override
+  String get by => 'দ্বারা';
+
+  @override
+  String get days => 'দিন';
+
+  @override
+  String get searchResults => 'ফলাফল';
+
+  @override
+  String get off => 'of';
+
+  @override
+  String hadithLoadError(String error) {
+    return 'হাদীস লোড করতে ব্যর্থ: $error';
+  }
+
+  @override
+  String get hadithCopied => 'হাদিস কপি হয়েছে';
+
+  @override
+  String get hadithRemovedFromFavorites => 'হাদিস পছন্দ থেকে সরানো হয়েছে';
+
+  @override
+  String get hadithAddedToFavorites => 'হাদিস পছন্দে যোগ করা হয়েছে';
+
+  @override
+  String get narrator => 'বর্ণনাকারী';
+
+  @override
+  String get shareHadithText => 'হাদিসের পাঠ্য শেয়ার করুন';
+
+  @override
+  String get scholarsEvaluation => 'বিদ্বানদের মূল্যায়ন';
+
+  @override
+  String get hadithDetails => 'হাদিসের বিস্তারিত';
+
+  @override
+  String get aiDisclaimerWarning => '⚠️ AI-generated answers should be reviewed from reliable sources';
+
+  @override
+  String get subscriptionSuccess => 'Subscription activated successfully';
+
+  @override
+  String get halalRestaurants => 'Halal Restaurants';
+
+  @override
+  String get hisnAlMuslim => 'Hisn Al-Muslim';
+
+  @override
+  String get smartVoiceDhikr => 'Smart Voice Dhikr';
+
+  @override
+  String get smartVoiceDescription => 'Control your dhikr with voice commands';
+
+  @override
+  String get zakatDisclaimer => 'দ্রষ্টব্য: এই গণনা আনুমানিক এবং এটি একটি ধর্মীয় ফতোয়া নয়।\\nসঠিক ধর্মীয় সিদ্ধান্তের জন্য দয়া করে জ্ঞানী আলেমদের সাথে পরামর্শ করুন।';
+
+  @override
+  String get totalCash => 'মোট নগদ টাকা';
+
+  @override
+  String get doYouOwnGold => 'আপনার কি সোনা আছে?';
+
+  @override
+  String get goldValue => 'সোনার মূল্য (যদি সরাসরি জানা থাকে)';
+
+  @override
+  String get goldGrams => 'সোনার গ্রাম';
+
+  @override
+  String get gold24kPrice => '২৪ ক্যারেট সোনার প্রতি গ্রাম মূল্য';
+
+  @override
+  String get requiredForNisaab => 'নির্ভুল নিসাব গণনার জন্য প্রয়োজনীয় (৮৫ গ্রাম সোনা)';
+
+  @override
+  String get requiredForGoldValue => 'গ্রাম থেকে সোনার মূল্য গণনার জন্য প্রয়োজনীয়';
+
+  @override
+  String get tradeValue => 'ব্যবসায়িক পণ্যের মূল্য';
+
+  @override
+  String get enableNisaab => 'নিসাব শর্ত সক্রিয় করুন';
+
+  @override
+  String get calculateZakat => 'যাকাত গণনা করুন';
+
+  @override
+  String get fieldRequired => 'এই ক্ষেত্রটি প্রয়োজনীয়';
+
+  @override
+  String get enterValidNumber => 'দয়া করে একটি বৈধ নম্বর লিখুন';
+
+  @override
+  String get connectedNow => 'Connected Now';
+
+  @override
+  String get haramAndLive => 'Haram & Live Broadcast';
+
+  @override
+  String get khatmahList => 'Khatma List';
+
+  @override
+  String get licensedMessage => 'This broadcast is licensed from official Saudi channels';
+
+  @override
+  String get newKhatmah => 'New Khatma';
+
+  @override
+  String get setQibla => 'Set Qibla';
+
+  @override
+  String get startQuranJourney => 'Start your Quran Journey';
+
+  @override
+  String get yourCurrentKhatmah => 'Your Current Khatma';
+
+  @override
   String get assistantAppBarTitle => 'এআই সহকারী';
 
   @override
@@ -388,8 +554,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get noActiveChatMessage => 'কোন সক্রিয় চ্যাট নেই';
 
   @override
-  String get startNewChatMessage =>
-      'একটি বার্তা পাঠিয়ে নতুন কথোপকথন শুরু করুন';
+  String get startNewChatMessage => 'একটি বার্তা পাঠিয়ে নতুন কথোপকথন শুরু করুন';
 
   @override
   String get pleaseWait => 'অনুগ্রহ করে অপেক্ষা করুন...';
@@ -401,8 +566,9 @@ class AppLocalizationsBn extends AppLocalizations {
   String get dailyLimitReachedTitle => 'দৈনিক সীমা অতিক্রম করেছে';
 
   @override
-  String get dailyLimitReachedMessage =>
-      'আপনি আজ {maxQuestions} প্রশ্নের মধ্যে {dailyCount} ব্যবহার করেছেন';
+  String dailyLimitReachedMessage(Object dailyCount, Object maxQuestions) {
+    return 'আপনি আজ $maxQuestions প্রশ্নের মধ্যে $dailyCount ব্যবহার করেছেন';
+  }
 
   @override
   String get upgradeToPremiumButton => 'প্রিমিয়ামে আপগ্রেড করুন';
@@ -411,12 +577,10 @@ class AppLocalizationsBn extends AppLocalizations {
   String get featureAvailableForPremium => 'প্রিমিয়াম বৈশিষ্ট্য';
 
   @override
-  String get premiumFeatureTitle =>
-      'এআই মডেল নির্বাচন শুধুমাত্র প্রিমিয়াম গ্রাহকদের জন্য উপলব্ধ';
+  String get premiumFeatureTitle => 'এআই মডেল নির্বাচন শুধুমাত্র প্রিমিয়াম গ্রাহকদের জন্য উপলব্ধ';
 
   @override
-  String get premiumFeatureContent =>
-      'আপগ্রেড করে পান:\n• উন্নত মডেল নির্বাচন\n• সীমাহীন প্রশ্ন\n• আরও বিশদ উত্তর';
+  String get premiumFeatureContent => 'আপগ্রেড করে পান:\\n• উন্নত মডেল নির্বাচন\\n• সীমাহীন প্রশ্ন\\n• আরও বিশদ উত্তর';
 
   @override
   String get okButton => 'ঠিক আছে';
@@ -428,7 +592,9 @@ class AppLocalizationsBn extends AppLocalizations {
   String get laterButton => 'পরে';
 
   @override
-  String get questionsRemaining => 'বাকি: {remaining}';
+  String questionsRemaining(Object remaining) {
+    return 'বাকি: $remaining';
+  }
 
   @override
   String get of => 'এর';
@@ -455,20 +621,25 @@ class AppLocalizationsBn extends AppLocalizations {
   String get newConversation => 'নতুন কথোপকথন';
 
   @override
-  String get noConversationsMessage =>
-      'এখনও কোনো কথোপকথন নেই। নতুন তৈরি করতে + ক্লিক করুন';
+  String get noConversationsMessage => 'এখনও কোনো কথোপকথন নেই। নতুন তৈরি করতে + ক্লিক করুন';
 
   @override
   String get newChatCreationMessage => 'নতুন চ্যাট তৈরি করা হচ্ছে...';
 
   @override
-  String get dayAgo => '{days} দিন আগে';
+  String dayAgo(Object days) {
+    return '$days দিন আগে';
+  }
 
   @override
-  String get hourAgo => '{hours} ঘন্টা আগে';
+  String hourAgo(Object hours) {
+    return '$hours ঘন্টা আগে';
+  }
 
   @override
-  String get minuteAgo => '{minutes} মিনিট আগে';
+  String minuteAgo(Object minutes) {
+    return '$minutes মিনিট আগে';
+  }
 
   @override
   String get now => 'এখন';
@@ -477,14 +648,10 @@ class AppLocalizationsBn extends AppLocalizations {
   String get typeMessageHint => 'আপনার বার্তা টাইপ করুন...';
 
   @override
+  String get aiGeneratedAnswersNeedReview => 'এআই উৎপন্ন উত্তরগুলির পর্যালোচনা প্রয়োজন';
+
+  @override
   String get pleaseWaitHint => 'অনুগ্রহ করে অপেক্ষা করুন...';
-
-  @override
-  String get aiGeneratedAnswersNeedReview =>
-      'এআই উৎপন্ন উত্তরগুলির পর্যালোচনা প্রয়োজন';
-
-  @override
-  String get fourHours => '4 ঘন্টা';
 
   @override
   String get tryAgain => 'আবার চেষ্টা করুন';
@@ -535,8 +702,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get confirmPasswordLabel => 'পাসওয়ার্ড নিশ্চিত করুন';
 
   @override
-  String get confirmPasswordRequiredError =>
-      'দয়া করে আপনার পাসওয়ার্ড নিশ্চিত করুন';
+  String get confirmPasswordRequiredError => 'দয়া করে আপনার পাসওয়ার্ড নিশ্চিত করুন';
 
   @override
   String get passwordsMismatchError => 'পাসওয়ার্ড মিলছে না';
@@ -614,11 +780,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get subscribeToUnlock => 'সাবস্ক্রাইব করুন সমস্ত আজকার আনলক করতে';
 
   @override
-  String get lockedAzkarMessage =>
-      'এই বিভাগ শুধুমাত্র প্রিমিয়াম গ্রাহকদের জন্য';
-
-  @override
-  String get searchResults => 'ফলাফল';
+  String get lockedAzkarMessage => 'এই বিভাগ শুধুমাত্র প্রিমিয়াম গ্রাহকদের জন্য';
 
   @override
   String get zoomIn => 'বড় করুন';
@@ -660,12 +822,10 @@ class AppLocalizationsBn extends AppLocalizations {
   String get areYouSureDelete => 'আপনি কি এই বুকমার্ক মুছতে নিশ্চিত?';
 
   @override
-  String get noBookmarksDescription =>
-      'পাঠ্য পৃষ্ঠা থেকে একটি বুকমার্ক যোগ করুন';
+  String get noBookmarksDescription => 'পাঠ্য পৃষ্ঠা থেকে একটি বুকমার্ক যোগ করুন';
 
   @override
-  String get addBookmarkFromReading =>
-      'পাঠ্য পৃষ্ঠা থেকে একটি বুকমার্ক যোগ করুন';
+  String get addBookmarkFromReading => 'পাঠ্য পৃষ্ঠা থেকে একটি বুকমার্ক যোগ করুন';
 
   @override
   String get addBookmarkTitle => 'বুকমার্ক যোগ করুন';
@@ -692,25 +852,33 @@ class AppLocalizationsBn extends AppLocalizations {
   String get yesterday => 'গতকাল';
 
   @override
-  String get daysAgo => '{days} দিন আগে';
+  String daysAgo(Object days) {
+    return '$days দিন আগে';
+  }
 
   @override
   String get weekAgo => 'এক সপ্তাহ আগে';
 
   @override
-  String get weeksAgo => '{weeks} সপ্তাহ আগে';
+  String weeksAgo(Object weeks) {
+    return '$weeks সপ্তাহ আগে';
+  }
 
   @override
   String get monthAgo => 'এক মাস আগে';
 
   @override
-  String get monthsAgo => '{months} মাস আগে';
+  String monthsAgo(Object months) {
+    return '$months মাস আগে';
+  }
 
   @override
   String get yearAgo => 'এক বছর আগে';
 
   @override
-  String get yearsAgo => '{years} বছর আগে';
+  String yearsAgo(Object years) {
+    return '$years বছর আগে';
+  }
 
   @override
   String get deleteBookmarkError => 'বুকমার্ক মুছে ফেলার ত্রুটি';
@@ -720,229 +888,346 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get collectiveKhatmas => 'সমষ্টিগত খতম';
+
   @override
   String get myKhatmas => 'আমার খতম';
+
   @override
   String get joinByLink => 'লিঙ্ক দ্বারা যোগ দিন';
+
   @override
   String get searchKhatmaHint => 'খতম খুঁজুন...';
+
   @override
   String get createKhatma => 'খতম তৈরি করুন';
+
   @override
-  String get loginRequiredMessage =>
-      'এই বৈশিষ্ট্যে অ্যাক্সেস করতে লগইন প্রয়োজন';
+  String get loginRequiredMessage => 'এই বৈশিষ্ট্যে অ্যাক্সেস করতে লগইন প্রয়োজন';
+
   @override
-  String get loginToJoinMessage =>
-      'সারা বিশ্বের মুসলমানদের সাথে সমষ্টিগত খতমে যোগদান করতে লগইন করুন';
+  String get loginToJoinMessage => 'সারা বিশ্বের মুসলমানদের সাথে সমষ্টিগত খতমে যোগদান করতে লগইন করুন';
+
   @override
   String get noKhatmasAvailable => 'বর্তমানে কোনো খতম নেই';
+
   @override
   String get beFirstToCreate => 'সমষ্টিগত খতম তৈরি করার প্রথম ব্যক্তি হোন!';
+
   @override
   String get createNewKhatma => 'নতুন খতম তৈরি করুন';
+
   @override
   String get joinByLinkTitle => 'লিঙ্ক দ্বারা খতমে যোগ দিন';
+
   @override
   String get pasteLinkHint => 'খতমের লিঙ্ক এখানে পেস্ট করুন';
+
   @override
   String get fetchKhatma => 'খতম আনুন';
+
   @override
   String get joinError => 'খতমে যোগদান করার চেষ্টা করার সময় একটি ত্রুটি ঘটেছে';
+
   @override
   String get createKhatmaTitle => 'সমষ্টিগত খতম তৈরি করুন';
+
   @override
   String get khatmaTitleLabel => 'খতমের শিরোনাম';
+
   @override
   String get khatmaTitleExample => 'উদাহরণ: রমজানের খতম';
+
   @override
   String get khatmaTitleRequired => 'অনুগ্রহ করে খতমের শিরোনাম লিখুন';
+
   @override
   String get khatmaTypeLabel => 'খতমের প্রকার';
+
   @override
   String get public => 'সর্বসাধারণের';
+
   @override
   String get publicDescription => 'সবাই যোগ দিতে পারেন';
+
   @override
   String get private => 'ব্যক্তিগত';
+
   @override
   String get privateDescription => 'শুধুমাত্র আমন্ত্রণ দ্বারা';
+
   @override
   String get dateRangeLabel => 'শুরু এবং শেষ তারিখ';
+
   @override
   String get startDate => 'শুরুর তারিখ';
+
   @override
   String get endDate => 'শেষ তারিখ';
+
   @override
-  String get khatmaDuration => 'খতমের সময়কাল: {0} দিন';
+  String khatmaDuration(String days) {
+    return 'খতমের সময়কাল: $days দিন';
+  }
+
   @override
   String get khatmaCreatedSuccess => 'খতম সফলভাবে তৈরি হয়েছে!';
+
   @override
   String get khatmaDetails => 'খতমের বিবরণ';
+
   @override
   String get copyLink => 'লিঙ্ক কপি করুন';
+
   @override
   String get deleteKhatma => 'খতম মুছুন';
+
   @override
-  String get partReservedSuccess => 'অংশ {0} সফলভাবে সংরক্ষিত হয়েছে!';
+  String partReservedSuccess(String part) {
+    return 'অংশ $part সফলভাবে সংরক্ষিত হয়েছে!';
+  }
+
   @override
-  String get partCompletedSuccess => 'অভিনন্দন! আপনি অংশ {0} সম্পূর্ণ করেছেন';
+  String partCompletedSuccess(String part) {
+    return 'অভিনন্দন! আপনি অংশ $part সম্পূর্ণ করেছেন';
+  }
+
   @override
   String get deleteConfirmationTitle => 'খতম মুছুন';
+
   @override
-  String get deleteConfirmationMessage =>
-      'আপনি কি নিশ্চিত যে আপনি এই খতমটি মুছতে চান? এই ক্রিয়া পূর্বাবস্থায় ফেরানো যাবে না।';
+  String get deleteConfirmationMessage => 'আপনি কি নিশ্চিত যে আপনি এই খতমটি মুছতে চান? এই ক্রিয়া পূর্বাবস্থায় ফেরানো যাবে না।';
+
   @override
   String get reserveThisPart => 'এই অংশ সংরক্ষণ করুন';
+
   @override
   String get completeThisPart => 'এই অংশ সম্পূর্ণ করুন';
+
   @override
-  String get alreadyReservedPart =>
-      'আপনার ইতিমধ্যে একটি সংরক্ষিত অংশ রয়েছে (অংশ {0})';
+  String alreadyReservedPart(String part) {
+    return 'আপনার ইতিমধ্যে একটি সংরক্ষিত অংশ রয়েছে (অংশ $part)';
+  }
+
   @override
   String get linkCopied => 'লিঙ্ক কপি হয়েছে';
+
   @override
   String get myCollectiveKhatmas => 'আমার সমষ্টিগত খতম';
+
   @override
   String get joinedKhatmasTab => 'যোগদান করা খতম';
+
   @override
   String get createdKhatmasTab => 'আমার তৈরি খতম';
+
   @override
   String get noJoinedKhatmas => 'এখনো কোনো খতমে যোগ দেননি';
+
   @override
   String get findAndJoinKhatma => 'সমষ্টিগত খতম খুঁজুন এবং এতে যোগ দিন';
+
   @override
   String get participatedKhatmas => 'অংশগ্রহণ করা খতম';
+
   @override
   String get completedParts => 'সম্পূর্ণ অংশ';
+
   @override
   String get noCreatedKhatmas => 'এখনো কোনো খতম তৈরি করেননি';
+
   @override
   String get startCreatingKhatma => 'নতুন সমষ্টিগত খতম তৈরি শুরু করুন';
+
   @override
-  String get partNumber => 'অংশ {0}';
+  String partNumber(String part) {
+    return 'অংশ $part';
+  }
+
   @override
   String get completedStatus => 'সম্পূর্ণ ✓';
+
   @override
   String get inProgressStatus => 'পড়া চলছে';
+
   @override
   String get publicType => 'সর্বসাধারণের';
+
   @override
   String get privateType => 'ব্যক্তিগত';
+
   @override
-  String get createdBy => 'তৈরি করেছেন: {0}';
+  String createdBy(String creator) {
+    return 'তৈরি করেছেন: $creator';
+  }
+
   @override
   String get participants => 'অংশগ্রহণকারী';
+
   @override
   String get completed => 'সম্পূর্ণ';
+
   @override
   String get daysRemaining => 'অবশিষ্ট দিন';
+
   @override
   String get completion => 'সমাপ্তি';
+
   @override
   String get completedPartsLabel => 'সম্পূর্ণ অংশ';
+
   @override
   String get reservedParts => 'সংরক্ষিত অংশ';
+
   @override
   String get availableParts => 'উপলব্ধ অংশ';
+
   @override
   String get khatmaCompleted => 'সম্পূর্ণ ✓';
+
   @override
   String get availableForReservation => 'সংরক্ষণের জন্য উপলব্ধ';
+
   @override
-  String get reservedForUser => '{0} এর জন্য সংরক্ষিত';
+  String reservedForUser(String user) {
+    return '$user এর জন্য সংরক্ষিত';
+  }
+
   @override
   String get partCompletedStatus => 'সম্পূর্ণ ✓';
+
   @override
   String get partCompleted => 'সম্পূর্ণ';
+
   @override
   String get reserved => 'সংরক্ষিত';
+
   @override
   String get yourPart => 'আপনার অংশ';
+
   @override
   String get available => 'উপলব্ধ';
+
   @override
   String get confirmation => 'নিশ্চিতকরণ';
+
   @override
   String get deleteAllConfirmation => 'আপনি কি সমস্ত প্রিয় মুছে ফেলতে চান?';
+
   @override
   String get deleteAll => 'সব মুছুন';
+
   @override
   String get favorites => 'প্রিয়';
+
   @override
   String get deleteAllTooltip => 'সমস্ত প্রিয় মুছুন';
-  @override
-  String get hadithLoadError => 'হাদীস লোড করতে ব্যর্থ: {0}';
+
   @override
   String get noFavorites => 'কোন প্রিয় আইটেম নেই';
+
   @override
   String get deleteFromFavoritesTooltip => 'প্রিয় থেকে মুছুন';
+
   @override
-  String get favoriteItemDescription => 'প্রিয় আইটেম: {0}';
+  String favoriteItemDescription(String item) {
+    return 'প্রিয় আইটেম: $item';
+  }
 
   @override
   String get quranAudio => 'Audio';
+
   @override
   String get quranRecitations => 'Quran Recitations';
+
   @override
-  String get quranRecitationsDesc =>
-      'Listen to Quran recitations by renowned reciters';
+  String get quranRecitationsDesc => 'Listen to Quran recitations by renowned reciters';
+
   @override
   String get quranRadio => 'Quran Radio';
+
   @override
   String get quranRadioDesc => 'Listen to live Quran radio stations';
+
   @override
   String get downloadedAudio => 'Downloaded Audio';
+
   @override
   String get downloadedAudioDesc => 'Listen to downloaded recitations offline';
+
   @override
   String get reciters => 'Reciters';
+
   @override
   String get searchRecitersHint => 'Search reciters...';
+
   @override
   String get noResultsFound => 'No results found';
+
   @override
-  String get reciterPremiumOnly =>
-      '🔒 This reciter is available for premium subscribers only';
+  String get reciterPremiumOnly => '🔒 This reciter is available for premium subscribers only';
+
   @override
-  String get surahsCount => '{count} Surahs';
+  String surahsCount(Object count) {
+    return '$count Surahs';
+  }
+
   @override
   String get surahs => 'Surahs';
+
   @override
-  String get ayahsCount => '{count} Ayahs';
+  String ayahsCount(Object count) {
+    return '$count Ayahs';
+  }
+
   @override
   String get noDownloadedAudio => 'No downloaded audio';
+
   @override
   String get deleteAudioTitle => 'Delete Audio';
+
   @override
-  String get deleteAudioConfirm =>
-      'Are you sure you want to delete this audio?';
+  String get deleteAudioConfirm => 'Are you sure you want to delete this audio?';
+
   @override
   String get noStationsAvailable => 'No stations available';
+
   @override
   String get liveRadio => '🟢 Live';
+
   @override
   String get offlineRadio => '⚫ Offline';
+
   @override
   String get audioPlayer => 'Audio Player';
+
   @override
   String get downloadSuccess => 'Downloaded successfully';
+
   @override
   String get fileAlreadyDownloaded => 'File already downloaded';
+
   @override
   String get skipBack15s => 'Skip back 15s';
+
   @override
   String get skipForward15s => 'Skip forward 15s';
+
   @override
   String get pause => 'Pause';
+
   @override
   String get play => 'Play';
+
   @override
   String get playing => 'Playing';
+
   @override
   String get playbackCompleted => 'Playback Completed';
+
   @override
-  @override
-  String get surahIndex => 'Surah {current} of {total}';
+  String surahIndex(Object current, Object total) {
+    return 'Surah $current of $total';
+  }
 
   @override
   String get replay => 'Replay';
@@ -951,666 +1236,824 @@ class AppLocalizationsBn extends AppLocalizations {
   String get audioLoadingError => 'Audio loading error';
 
   @override
-  String get gradeLabel => 'গ্রেড';
-  @override
-  String get scholarLabel => 'পণ্ডিত';
-  @override
-  String get gradeSahih => 'সহীহ';
-  @override
-  String get gradeHasan => 'হাসান';
-  @override
-  String get gradeDaif => 'দুর্বল';
-  @override
-  String get gradeMawdu => 'মাউদু';
-  @override
-  String get gradeMaqbul => 'মাকবুল';
-  @override
-  String get gradeEvaluation => 'মূল্যায়ন';
-  @override
-  String get next => 'পরবর্তী';
-  @override
-  String get previous => 'পূর্ববর্তী';
-  @override
-  String get sourceLabel => 'উৎস';
-  @override
-  String get hadithGradeLabel => 'হাদিস গ্রেড';
+  String get bookBukhari => 'সহীহ আল-বুখারী';
 
   @override
-  String get bookBukhari => 'সহীহ আল-বুখারী';
-  @override
   String get bookMuslim => 'সহীহ মুসলিম';
+
   @override
   String get bookAbuDawud => 'সুনান আবু দাউদ';
+
   @override
   String get bookTirmidhi => 'জামি আত-তিরমিজি';
+
   @override
   String get bookNasai => 'সুনান আন-নাসাঈ';
+
   @override
   String get bookIbnMajah => 'সুনান ইবনে মাজাহ';
+
   @override
   String get bookMalik => 'মুয়াত্তা মালিক';
+
   @override
   String get bookNawawi => 'আরবাইন নববী';
+
   @override
   String get bookQudsi => 'হাদিসে কুদসী';
+
   @override
   String get bookDehlawi => 'শাহ ওয়ালিউল্লাহ দেহলভীর চল্লিশ হাদিস';
 
   @override
+  String get ramadanMubarakFull => 'রমজান মুবারক, আল্লাহ তা\'আলা আমাদের ও আপনার উপর একে বারাকাত ও রহমতসহ ফিরিয়ে আনুন';
+
+  @override
+  String get ofWord => 'এর';
+
+  @override
+  String get gradeLabel => 'গ্রেড';
+
+  @override
+  String get scholarLabel => 'পণ্ডিত';
+
+  @override
+  String get gradeSahih => 'সহীহ';
+
+  @override
+  String get gradeHasan => 'হাসান';
+
+  @override
+  String get gradeDaif => 'দুর্বল';
+
+  @override
+  String get gradeMawdu => 'মাউদু';
+
+  @override
+  String get gradeMaqbul => 'মাকবুল';
+
+  @override
+  String get gradeEvaluation => 'মূল্যায়ন';
+
+  @override
+  String get next => 'পরবর্তী';
+
+  @override
+  String get previous => 'পূর্ববর্তী';
+
+  @override
+  String get sourceLabel => 'উৎস';
+
+  @override
+  String get hadithGradeLabel => 'হাদিস গ্রেড';
+
+  @override
   String get qiblaDirection => 'কিবলা দিক';
+
   @override
   String get locatingYourPosition => 'আপনার অবস্থান নির্ধারণ করা হচ্ছে...';
+
   @override
   String get errorCalculatingQibla => 'কিবলা গণনা ত্রুটি';
+
   @override
   String get compassAccessError => 'কম্পাস অ্যাক্সেস ত্রুটি';
+
   @override
   String get locationServicesDisabled => 'অবস্থান পরিষেবা নিষ্ক্রিয়';
+
   @override
-  String get locationPermissionPermanentlyDenied =>
-      'অবস্থান অনুমতি স্থায়ীভাবে প্রত্যাখ্যান করা হয়েছে';
+  String get locationPermissionPermanentlyDenied => 'অবস্থান অনুমতি স্থায়ীভাবে প্রত্যাখ্যান করা হয়েছে';
+
   @override
   String get qiblaAngleFromNorth => 'উত্তর থেকে কিবলা কোণ';
+
   @override
   String get facingQiblaNow => 'আপনি এখন কিবলার দিকে মুখ করছেন';
+
   @override
   String get qibla => 'কিবলা';
 
   @override
   String get gregorianToHijri => 'গ্রেগরিয়ান থেকে হিজরি';
+
   @override
   String get pickGregorianDate => 'গ্রেগরিয়ান তারিখ নির্বাচন করুন';
+
   @override
   String get errorConvertingGregorianToHijri => 'তারিখ রূপান্তর ত্রুটি';
+
   @override
   String get hijriToGregorian => 'হিজরি থেকে গ্রেগরিয়ান';
+
   @override
   String get enterHijriDateHint => 'হিজরি তারিখ লিখুন (দিন/মাস/বছর)';
+
   @override
   String get hijriDateExample => 'উদাহরণ: 01/09/1445';
+
   @override
   String get convert => 'রূপান্তর';
+
   @override
   String get dateHijriLabel => 'হিজরি তারিখ';
+
   @override
   String get dateGregorianLabel => 'গ্রেগরিয়ান তারিখ';
+
   @override
   String get errorConvertingHijriToGregorian => 'তারিখ রূপান্তর ত্রুটি';
 
   @override
-  String get locationPermissionDeniedForeverTitle =>
-      'অবস্থান অনুমতি স্থায়ীভাবে প্রত্যাখ্যান করা হয়েছে, আমরা অনুমতি অনুরোধ করতে পারি না।';
+  String get locationPermissionDeniedForeverTitle => 'অবস্থান অনুমতি স্থায়ীভাবে প্রত্যাখ্যান করা হয়েছে, আমরা অনুমতি অনুরোধ করতে পারি না।';
+
   @override
   String get errorCalculatingQiblaDirection => 'কিবলা দিক গণনা ত্রুটি';
+
   @override
   String get errorAccessingCompass => 'কম্পাস অ্যাক্সেস ত্রুটি';
+
   @override
   String get qiblaDirectionFromNorth => 'উত্তর থেকে কিবলা কোণ';
+
   @override
   String get youAreFacingTheQibla => 'আপনি এখন কিবলার দিকে মুখ করছেন';
 
   @override
   String get selectGregorianDate => 'গ্রেগরিয়ান তারিখ নির্বাচন করুন';
-  @override
-  String get enterHijriDate => 'হিজরি তারিখ লিখুন (দিন-মাস-বছর)';
-  @override
-  String get errorConvertingHijriDate =>
-      'হিজরি তারিখ গ্রেগরিয়ানে রূপান্তর ত্রুটি';
-  @override
-  String hijriToGregorianResult(String hijriDate, String gregorianDate) {
-    return 'হিজরি তারিখ: $hijriDate\nগ্রেগরিয়ান তারিখ: $gregorianDate';
-  }
 
   @override
-  String get dateConverter => 'Date Converter';
+  String get enterHijriDate => 'হিজরি তারিখ লিখুন (দিন-মাস-বছর)';
+
+  @override
+  String get errorConvertingHijriDate => 'হিজরি তারিখ গ্রেগরিয়ানে রূপান্তর ত্রুটি';
 
   @override
   String get haramLiveTitle => 'হারাম এবং সরাসরি সম্প্রচার';
+
   @override
-  String get chooseChannel =>
-      'এখন আপনি যে চ্যানেলটি দেখতে চান তা নির্বাচন করুন';
+  String get chooseChannel => 'এখন আপনি যে চ্যানেলটি দেখতে চান তা নির্বাচন করুন';
+
   @override
   String get makkah => 'মক্কা';
+
   @override
   String get saudiChannel => 'সৌদি চ্যানেল';
+
   @override
   String get quranChannel => 'কুরআন চ্যানেল';
+
   @override
   String get madinah => 'মদিনা';
+
   @override
   String get madinahChannel => 'মদিনা চ্যানেল';
+
   @override
   String get liveStreamTitle => 'সরাসরি সম্প্রচার';
+
   @override
   String get initializing => 'আরম্ভ হচ্ছে...';
+
   @override
   String get loadingStream => 'সরাসরি সম্প্রচার লোড হচ্ছে...';
+
   @override
   String get playingStream => 'সম্প্রচার চলছে...';
+
   @override
   String get clickToPlay => 'সম্প্রচার শুরু করতে প্লে বাটনে ক্লিক করুন';
+
   @override
   String get openInBrowser => 'ব্রাউজারে খুলুন';
+
   @override
-  String get openInBrowserDescription =>
-      'সরাসরি সম্প্রচার ডিভাইসের বাহ্যিক ব্রাউজারে খুলবে';
+  String get openInBrowserDescription => 'সরাসরি সম্প্রচার ডিভাইসের বাহ্যিক ব্রাউজারে খুলবে';
+
+  @override
+  String get home => 'হোম';
+
+  @override
+  String get settings => 'সেটিংস';
+
+  @override
+  String get rememberAllah => 'আল্লাহকে স্মরণ করুন';
+
+  @override
+  String get rememberAllahDescription => 'যেকোনো সময় এবং যেকোনো স্থানে আল্লাহকে স্মরণ করুন';
+
+  @override
+  String get mustLoginFirst => 'আপনাকে প্রথমে লগইন করতে হবে';
+
+  @override
+  String get savedSuccessfully => 'সফলভাবে সংরক্ষিত হয়েছে ✅';
+
+  @override
+  String get saveFailed => 'সংরক্ষণ ব্যর্থ হয়েছে';
+
+  @override
+  String get subhanAllah => 'সুবহানআল্লাহ';
+
+  @override
+  String get errorLoadingTasbehData => 'তাসবীহ তথ্য লোড করতে ত্রুটি';
+
+  @override
+  String get errorLoadingCounter => 'কাউন্টার লোড করতে ত্রুটি';
+
+  @override
+  String get errorSavingTasbeh => 'তাসবীহ সংরক্ষণ করতে ত্রুটি';
+
+  @override
+  String get errorSavingSelectedZikr => 'নির্বাচিত জিকর সংরক্ষণ করতে ত্রুটি';
+
+  @override
+  String get errorResettingCounter => 'কাউন্টার রিসেট করতে ত্রুটি';
 
   @override
   String get open => 'খুলুন';
+
   @override
   String get streamLoadFailed => 'সম্প্রচার লোড করতে ব্যর্থ';
+
   @override
   String get retryAttempt => 'চেষ্টা';
 
   @override
   String get reload => 'পুনরায় লোড';
+
   @override
   String get importantNotice => 'গুরুত্বপূর্ণ বিজ্ঞপ্তি';
+
   @override
-  String get copyrightNotice =>
-      'সম্প্রচারটি YouTube প্ল্যাটফর্মে ব্রডকাস্টিং এবং টেলিভিশন কর্তৃপক্ষের সাথে সম্পর্কিত {0} চ্যানেল থেকে সম্প্রচারিত হয়। অ্যাপ্লিকেশনটি কোনও সামগ্রী প্রকাশ, সংরক্ষণ বা পুনঃপ্রচার করে না এবং সমস্ত অধিকার তাদের মালিকদের জন্য সংরক্ষিত।';
+  String copyrightNotice(String channel) {
+    return 'সম্প্রচারটি YouTube প্ল্যাটফর্মে ব্রডকাস্টিং এবং টেলিভিশন কর্তৃপক্ষের সাথে সম্পর্কিত $channel চ্যানেল থেকে সম্প্রচারিত হয়। অ্যাপ্লিকেশনটি কোনও সামগ্রী প্রকাশ, সংরক্ষণ বা পুনঃপ্রচার করে না এবং সমস্ত অধিকার তাদের মালিকদের জন্য সংরক্ষিত।';
+  }
+
   @override
-  String get copyrightRights =>
-      '© সমস্ত অধিকার সংরক্ষিত - দুই পবিত্র মসজিদের বিষয়ক সাধারণ প্রেসিডেন্সি';
+  String get copyrightRights => '© সমস্ত অধিকার সংরক্ষিত - দুই পবিত্র মসজিদের বিষয়ক সাধারণ প্রেসিডেন্সি';
+
   @override
   String get locationSettingsTitle => 'অবস্থান সেটিংস';
+
   @override
   String get unknown => 'অজানা';
+
   @override
   String get regionLabel => 'অঞ্চল';
+
   @override
-  String get autoRefreshLocation =>
-      'চালু হলে স্বয়ংক্রিয়ভাবে অবস্থান রিফ্রেশ করুন';
+  String get autoRefreshLocation => 'চালু হলে স্বয়ংক্রিয়ভাবে অবস্থান রিফ্রেশ করুন';
+
   @override
   String get updating => 'আপডেট হচ্ছে...';
+
   @override
   String get refreshLocationNow => 'এখনই অবস্থান রিফ্রেশ করুন';
+
   @override
   String get locationUpdatedSuccessfully => 'অবস্থান সফলভাবে আপডেট হয়েছে';
 
   @override
   String get notificationsTitle => 'বিজ্ঞপ্তি';
+
   @override
   String get athanNotification => 'আজান বিজ্ঞপ্তি';
+
   @override
   String get preAthanNotification => 'আজানের ৫ মিনিট আগে সতর্কতা';
+
   @override
   String get khushooMode => 'খুশু মোড (নামাজের সময় নীরব)';
+
   @override
   String get collectiveKhatmaNotifications => 'সম্মিলিত খতম বিজ্ঞপ্তি';
+
   @override
   String get remindMeOfAllah => 'আল্লাহকে স্মরণ করিয়ে দিন';
+
   @override
   String get minute => 'মিনিট';
+
   @override
   String get halfHour => 'আধা ঘন্টা';
+
   @override
   String get hour => 'ঘন্টা';
+
   @override
   String get twoHours => 'দুই ঘন্টা';
+
+  @override
+  String get fourHours => '4 ঘন্টা';
+
   @override
   String get premiumFeature => 'প্রিমিয়াম বৈশিষ্ট্য';
+
   @override
-  String get premiumFeatureDescription =>
-      'এই বৈশিষ্ট্য শুধুমাত্র প্রিমিয়াম গ্রাহকদের জন্য উপলব্ধ।\nসমস্ত বৈশিষ্ট্য উপভোগ করতে আপগ্রেড করুন!';
+  String get premiumFeatureDescription => 'এই বৈশিষ্ট্য শুধুমাত্র প্রিমিয়াম গ্রাহকদের জন্য উপলব্ধ।\\nসমস্ত বৈশিষ্ট্য উপভোগ করতে আপগ্রেড করুন!';
+
   @override
   String get upgradeNow => 'এখনই আপগ্রেড করুন';
 
   @override
   String get prayersAndMuezzinsTitle => 'নামাজ ও মুয়াজ্জিন';
+
   @override
-  String get selectMuezzin => 'মুয়াজ্জিন নির্বাচন করুন: {0}';
+  String selectMuezzin(String muezzinName) {
+    return 'মুয়াজ্জিন নির্বাচন করুন: $muezzinName';
+  }
+
   @override
   String get notSpecified => 'নির্দিষ্ট নয়';
+
   @override
   String get playAthanSound => 'আজানের শব্দ বাজান';
+
   @override
   String get selectMuezzinDialogTitle => 'মুয়াজ্জিন নির্বাচন করুন';
+
   @override
   String get noRecitersAvailable => 'বর্তমানে কোনো ক্বারী উপলব্ধ নেই';
+
   @override
   String get chooseFavoriteMuezzin => 'প্রিয় মুয়াজ্জিন নির্বাচন করুন';
+
   @override
-  String get muezzinSelected => 'মুয়াজ্জিন নির্বাচিত হয়েছে: {0}';
+  String muezzinSelected(String muezzinName) {
+    return 'মুয়াজ্জিন নির্বাচিত হয়েছে: $muezzinName';
+  }
+
   @override
-  String get selectMuezzinFirst =>
-      'দয়া করে প্রথমে একজন মুয়াজ্জিন নির্বাচন করুন';
+  String get selectMuezzinFirst => 'দয়া করে প্রথমে একজন মুয়াজ্জিন নির্বাচন করুন';
+
   @override
-  String get playingMuezzinSound => 'মুয়াজ্জিনের শব্দ বাজানো হচ্ছে: {0}';
+  String playingMuezzinSound(String muezzinName) {
+    return 'মুয়াজ্জিনের শব্দ বাজানো হচ্ছে: $muezzinName';
+  }
 
   @override
   String get quranSettingsTitle => 'কুরআন সেটিংস';
+
   @override
   String get favoriteTafsir => 'প্রিয় তাফসির';
+
   @override
   String get favoriteReciter => 'প্রিয় ক্বারী';
+
   @override
   String get notAvailable => 'উপলব্ধ নয়';
+
   @override
   String get chooseTafsir => 'তাফসির নির্বাচন করুন';
+
   @override
   String get chooseReciter => 'ক্বারী নির্বাচন করুন';
+
   @override
   String get notAvailableEnglish => 'Not Available';
+
   @override
   String get settingsLoadError => 'সেটিংস লোড করতে ত্রুটি হয়েছে';
 
   @override
   String get generalTitle => 'সাধারণ';
+
   @override
   String get language => 'ভাষা';
+
   @override
   String get arabic => 'আরবি';
+
   @override
   String get english => 'ইংরেজি';
+
   @override
   String get french => 'ফরাসি';
+
   @override
   String get indonesian => 'ইন্দোনেশীয়';
+
   @override
   String get urdu => 'উর্দু';
+
   @override
   String get turkish => 'তুর্কি';
+
   @override
   String get bengali => 'বাংলা';
+
   @override
   String get malay => 'মালয়';
+
   @override
   String get persian => 'ফার্সি';
+
   @override
   String get spanish => 'স্প্যানিশ';
+
   @override
   String get german => 'জার্মান';
+
   @override
   String get chinese => 'চীনা';
+
   @override
   String get chooseLanguage => 'ভাষা নির্বাচন করুন';
+
   @override
   String get rateApp => 'অ্যাপ রেটিং দিন';
+
   @override
   String get aboutApp => 'অ্যাপ সম্পর্কে';
+
   @override
   String get privacyPolicy => 'গোপনীয়তা নীতি';
+
   @override
   String get updatingLanguage => 'ভাষা আপডেট হচ্ছে...';
+
   @override
-  String get languageUpdateError => 'ভাষা আপডেট করতে ত্রুটি: {0}';
+  String languageUpdateError(String error) {
+    return 'ভাষা আপডেট করতে ত্রুটি: $error';
+  }
 
   @override
   String get appearanceTitle => 'দৃশ্য';
+
   @override
   String get darkMode => 'ডার্ক মোড';
+
   @override
   String get lightMode => 'লাইট মোড';
 
   @override
-  String get home => 'হোম';
-  @override
-  String get settings => 'সেটিংস';
-  @override
-  String get rememberAllah => 'আল্লাহকে স্মরণ করুন';
-  @override
-  String get rememberAllahDescription =>
-      'যেকোনো সময় এবং যেকোনো স্থানে আল্লাহকে স্মরণ করুন';
-  @override
-  String get mustLoginFirst => 'আপনাকে প্রথমে লগইন করতে হবে';
-  @override
-  String get savedSuccessfully => 'সফলভাবে সংরক্ষিত হয়েছে ✅';
-  @override
-  String get saveFailed => 'সংরক্ষণ ব্যর্থ হয়েছে';
-  @override
-  String get subhanAllah => 'সুবহানআল্লাহ';
-  @override
-  String get errorLoadingTasbehData => 'তাসবীহ তথ্য লোড করতে ত্রুটি';
-  @override
-  String get errorLoadingCounter => 'কাউন্টার লোড করতে ত্রুটি';
-  @override
-  String get errorSavingTasbeh => 'তাসবীহ সংরক্ষণ করতে ত্রুটি';
-  @override
-  String get errorSavingSelectedZikr => 'নির্বাচিত জিকর সংরক্ষণ করতে ত্রুটি';
-  @override
-  String get errorResettingCounter => 'কাউন্টার রিসেট করতে ত্রুটি';
+  String get alhamdulillah => 'আলহামদুলিল্লাহ';
 
   @override
-  String get alhamdulillah => 'আলহামদুলিল্লাহ';
-  @override
   String get allahuAkbar => 'আল্লাহু আকবার';
+
   @override
   String get laIlahaIllallah => 'লা ইলাহা ইল্লাল্লাহ';
+
   @override
   String get astaghfirullah => 'আস্তাগফিরুল্লাহ';
+
   @override
   String get reset => 'পুনরায়';
+
   @override
   String get saving => 'সংরক্ষণ হচ্ছে...';
 
   @override
   String get accountAndSubscription => 'অ্যাকাউন্ট এবং সাবস্ক্রিপশন';
+
   @override
   String get monthlySubscription => 'মাসিক সাবস্ক্রিপশন';
+
   @override
   String get yearlySubscription => 'বার্ষিক সাবস্ক্রিপশন';
+
   @override
   String get premiumSubscription => 'প্রিমিয়াম';
+
   @override
   String get freeSubscription => 'ফ্রি';
+
   @override
   String get accountStatus => 'অ্যাকাউন্টের অবস্থা';
+
   @override
   String get expiresOn => 'মেয়াদ শেষ হয়';
+
   @override
   String get manageSubscription => 'সাবস্ক্রিপশন পরিচালনা করুন';
+
   @override
   String get upgradeAccount => 'অ্যাকাউন্ট আপগ্রেড করুন';
+
   @override
   String get manage => 'পরিচালনা';
+
   @override
   String get subscribe => 'সাবস্ক্রাইব';
 
   @override
-  String get zakatCalculator => 'যাকাত ক্যালকুলেটর';
-  @override
-  String get zakatDisclaimer =>
-      'দ্রষ্টব্য: এই গণনা আনুমানিক এবং এটি একটি ধর্মীয় ফতোয়া নয়।\nসঠিক ধর্মীয় সিদ্ধান্তের জন্য দয়া করে জ্ঞানী আলেমদের সাথে পরামর্শ করুন।';
-  @override
-  String get totalCash => 'মোট নগদ টাকা';
-  @override
-  String get doYouOwnGold => 'আপনার কি সোনা আছে?';
-  @override
-  String get goldValue => 'সোনার মূল্য (যদি সরাসরি জানা থাকে)';
-  @override
-  String get goldGrams => 'সোনার গ্রাম';
-  @override
-  String get gold24kPrice => '২৪ ক্যারেট সোনার প্রতি গ্রাম মূল্য';
-  @override
-  String get requiredForNisaab =>
-      'নির্ভুল নিসাব গণনার জন্য প্রয়োজনীয় (৮৫ গ্রাম সোনা)';
-  @override
-  String get requiredForGoldValue =>
-      'গ্রাম থেকে সোনার মূল্য গণনার জন্য প্রয়োজনীয়';
-  @override
-  String get tradeValue => 'ব্যবসায়িক পণ্যের মূল্য';
-  @override
-  String get enableNisaab => 'নিসাব শর্ত সক্রিয় করুন';
-  @override
-  String get calculateZakat => 'যাকাত গণনা করুন';
-  @override
-  String get fieldRequired => 'এই ক্ষেত্রটি প্রয়োজনীয়';
-  @override
-  String get enterValidNumber => 'দয়া করে একটি বৈধ নম্বর লিখুন';
-
-  String get worshipSectionTitle => 'ইবাদত বিভাগ';
-  String get prayerGuideSectionTitle => 'নামাজ গাইড';
-  String get islamicServicesSectionTitle => 'ইসলামিক সেবা';
-  String get hadiths => 'হাদিস';
-  String get allahNames => 'আল্লাহর নামসমূহ';
-  String get ramadanFeatures => 'রমজান বৈশিষ্ট্য';
-  String get prayerAndQibla => 'নামাজ ও কিবলা';
-  String get locationAndMosques => 'অবস্থান ও মসজিদ';
-  String get audio => 'অডিও';
-  String get chatList => 'চ্যাট তালিকা';
-  String get class_ => 'শ্রেণী';
-  String get premiumBookMessage => 'প্রিমিয়াম বই বার্তা';
-  String get upgrade => 'আপগ্রেড';
-  String get selectBook => 'বই নির্বাচন করুন';
-  String get noHadithsAvailable => 'কোন হাদিস নেই';
-  String get by => 'দ্বারা';
-  String get days => 'দিন';
-  String get ofWord => 'এর';
-  String get hadithCopied => 'হাদিস কপি হয়েছে';
-  String get hadithRemovedFromFavorites => 'হাদিস পছন্দ থেকে সরানো হয়েছে';
-  String get hadithAddedToFavorites => 'হাদিস পছন্দে যোগ করা হয়েছে';
-  String get narrator => 'বর্ণনাকারী';
-  String get shareHadithText => 'হাদিসের পাঠ্য শেয়ার করুন';
-  String get scholarsEvaluation => 'বিদ্বানদের মূল্যায়ন';
-  String get hadithDetails => 'হাদিসের বিস্তারিত';
   String get collectiveKhatma => 'সামষ্টিক খতম';
 
+  @override
   String get quranKareem => 'পবিত্র কুরআন';
+
+  @override
   String get azkarAndAdiyah => 'আযকার ও দোয়া';
+
+  @override
   String get khatma => 'খতম';
+
+  @override
   String get liveBroadcastAndHaram => 'লাইভ সম্প্রচার ও হারাম';
+
+  @override
   String get smartAssistant => 'স্মার্ট সহকারী';
+
+  @override
   String get maxZoom => 'সর্বোচ্চ জুম';
-  String get licensedBroadcast =>
-      'এই সম্প্রচারটি সরকারি সৌদি চ্যানেল থেকে লাইসেন্সকৃত';
+
+  @override
+  String get licensedBroadcast => 'এই সম্প্রচারটি সরকারি সৌদি চ্যানেল থেকে লাইসেন্সকৃত';
+
+  @override
   String get chooseKhatmaCount => 'খতম সংখ্যা নির্বাচন করুন:';
+
+  @override
   String get chooseKhatmaCountHint => 'খতম সংখ্যা নির্বাচন করুন';
+
+  @override
   String get pagesPerDay => 'পৃষ্ঠা/দিন';
+
+  @override
   String get juzPerDay => 'পারা/দিন';
+
+  @override
   String get hideSchedule => 'শিডিউল লুকান';
+
+  @override
   String get showDetailedSchedule => 'বিস্তারিত শিডিউল দেখান';
+
+  @override
   String get dayColumn => 'দিন';
+
+  @override
   String get pagesColumn => 'পৃষ্ঠা';
+
+  @override
   String get surahsColumn => 'সূরা';
-  String pagesCountText(int count) => '($count পৃষ্ঠা)';
+
   @override
   String get yourDailyWird => 'আপনার দৈনিক ওয়ারদ';
-  String ayahsRangeText(int start, int end) => 'আয়াত $start - $end';
+
   @override
   String get pageNumber => 'পৃষ্ঠা নম্বর';
+
   @override
   String get currentJuz => 'বর্তমান জুজ';
+
   @override
   String get readJuz => 'পড়া জুজ';
+
   @override
   String get remainingPages => 'বাকি পৃষ্ঠা';
+
   @override
   String get todayProgress => 'আজকের অগ্রগতি';
+
   @override
   String get pagesUnit => 'পৃষ্ঠা';
+
   @override
   String get khatmaPercentage => 'খতম শতাংশ';
+
   @override
-  String get khatmaTrackingNote =>
-      'খতম ট্র্যাকিং শুধুমাত্র "অনুভূমিক ফ্লিপ" মোডে কাজ করে';
+  String get khatmaTrackingNote => 'খতম ট্র্যাকিং শুধুমাত্র \"অনুভূমিক ফ্লিপ\" মোডে কাজ করে';
+
   @override
   String get continueReading => 'পড়া চালিয়ে যান';
+
   @override
   String get liveNow => 'লাইভ এখন';
 
   @override
   String get nearbyMosques => 'কাছের মসজিদ';
+
   @override
-  String get pleaseWaitForMosquesToLoad =>
-      'অনুগ্রহ করে মসজিদ লোড হওয়ার জন্য অপেক্ষা করুন';
+  String get pleaseWaitForMosquesToLoad => 'অনুগ্রহ করে মসজিদ লোড হওয়ার জন্য অপেক্ষা করুন';
+
   @override
   String get showOnMap => 'মানচিত্রে দেখান';
+
   @override
   String get updateLocation => 'অবস্থান আপডেট করুন';
+
   @override
   String get noNearbyMosquesInRange => 'বর্তমান পরিসরে কোন কাছের মসজিদ নেই';
+
   @override
   String get map => 'মানচিত্র';
+
   @override
   String get myCurrentLocation => 'আমার বর্তমান অবস্থান';
+
   @override
   String get directions => 'দিকনির্দেশ';
+
   @override
   String get openInMaps => 'ম্যাপে খুলুন';
-  @override
-  String directionsApiError(String status, String errorMessage) =>
-      'দিকনির্দেশ API ত্রুটি: $status - ${errorMessage.isNotEmpty ? errorMessage : "কোন ত্রুটি বার্তা নেই"}';
+
   @override
   String get benefits => 'সুবিধা';
+
   @override
   String get explanation => 'ব্যাখ্যা';
+
   @override
   String get forgotPassword => 'পাসওয়ার্ড ভুলে গেছেন?';
+
   @override
   String get forgotPasswordTitle => 'পাসওয়ার্ড রিসেট করুন';
+
   @override
-  String get forgotPasswordDescription =>
-      'আপনার ইমেল দিন এবং আমরা আপনাকে পাসওয়ার্ড রিসেট করার জন্য একটি লিঙ্ক পাঠাব';
+  String get forgotPasswordDescription => 'আপনার ইমেল দিন এবং আমরা আপনাকে পাসওয়ার্ড রিসেট করার জন্য একটি লিঙ্ক পাঠাব';
+
   @override
   String get sendResetLink => 'রিসেট লিঙ্ক পাঠান';
+
   @override
   String get backToLogin => 'লগইনে ফিরে যান';
-  @override
-  String get checkSpamMessage =>
-      'দ্রষ্টব্য: ইমেল স্প্যাম ফোল্ডারে যেতে পারে, অনুগ্রহ করে এটি চেক করুন';
 
   @override
-  String get copyrightHadithNotice =>
-      'সমস্ত অধিকার উৎসের জন্য সংরক্ষিত। (HadeethEnc.com)';
+  String get checkSpamMessage => 'দ্রষ্টব্য: ইমেল স্প্যাম ফোল্ডারে যেতে পারে, অনুগ্রহ করে এটি চেক করুন';
+
+  @override
+  String get copyrightHadithNotice => 'সমস্ত অধিকার উৎসের জন্য সংরক্ষিত। (HadeethEnc.com)';
+
   @override
   String get wordsMeaning => 'শব্দের অর্থ';
+
   @override
-  String get ramadanMubarakFull =>
-      "রমজান মুবারক, আল্লাহ তা'আলা আমাদের ও আপনার উপর একে বারাকাত ও রহমতসহ ফিরিয়ে আনুন";
   String get appName => 'মেশকাতুল হুদা';
-  String get appDescription =>
-      'ইবাদত ও ইসলামিক জ্ঞানের জন্য আপনার সম্পূর্ণ অ্যাপ';
+
+  @override
+  String get appDescription => 'ইবাদত ও ইসলামিক জ্ঞানের জন্য আপনার সম্পূর্ণ অ্যাপ';
+
+  @override
   String get version => 'সংস্করণ ১.০.০';
+
+  @override
   String get mainFeatures => 'প্রধান বৈশিষ্ট্য';
+
+  @override
   String get aboutAndRights => 'অ্যাপ এবং অধিকার সম্পর্কে';
+
+  @override
   String get generalInfo => 'সাধারণ তথ্য';
-  String get appFullDescription =>
-      'মেশকাতুল হুদা প্রো একটি সম্পূর্ণ ইসলামিক অ্যাপ যা বিশ্বব্যাপী মুসলমানদের জন্য ইবাদত ও ইসলামিক জ্ঞান সহজ করতে লক্ষ্য রাখে।';
+
+  @override
+  String get appFullDescription => 'মেশকাতুল হুদা প্রো একটি সম্পূর্ণ ইসলামিক অ্যাপ যা বিশ্বব্যাপী মুসলমানদের জন্য ইবাদত ও ইসলামিক জ্ঞান সহজ করতে লক্ষ্য রাখে।';
+
+  @override
   String get intellectualRights => 'মেধাস্বত্ব';
-  String get copyProhibition =>
-      '• পূর্ব অনুমতি ছাড়া কনটেন্ট কপি বা বিতরণ নিষিদ্ধ';
+
+  @override
+  String get copyProhibition => '• পূর্ব অনুমতি ছাড়া কনটেন্ট কপি বা বিতরণ নিষিদ্ধ';
+
+  @override
   String get contentSource => '• নির্ভরযোগ্য উৎস থেকে ইসলামিক কনটেন্ট';
-  String get designProtection =>
-      '• অ্যাপ ডিজাইন এবং প্রোগ্রামিং কপিরাইট দ্বারা সুরক্ষিত';
+
+  @override
+  String get designProtection => '• অ্যাপ ডিজাইন এবং প্রোগ্রামিং কপিরাইট দ্বারা সুরক্ষিত';
+
+  @override
   String get legalInformation => 'আইনি তথ্য';
+
+  @override
   String get dataCollection => 'ডেটা সংগ্রহ';
-  String get locationDataCollect =>
-      '• সঠিক নামাজের সময় প্রদানের জন্য আমরা লোকেশন ডেটা সংগ্রহ করি';
-  String get accountDataStorage =>
-      '• অ্যাকাউন্ট ডেটা ব্যাকআপের জন্য নিরাপদে সংরক্ষিত হয়';
-  String get noDataSharing =>
-      '• আমরা আপনার ব্যক্তিগত ডেটা তৃতীয় পক্ষের সাথে শেয়ার করি না';
+
+  @override
+  String get locationDataCollect => '• সঠিক নামাজের সময় প্রদানের জন্য আমরা লোকেশন ডেটা সংগ্রহ করি';
+
+  @override
+  String get accountDataStorage => '• অ্যাকাউন্ট ডেটা ব্যাকআপের জন্য নিরাপদে সংরক্ষিত হয়';
+
+  @override
+  String get noDataSharing => '• আমরা আপনার ব্যক্তিগত ডেটা তৃতীয় পক্ষের সাথে শেয়ার করি না';
+
+  @override
   String get guestData => 'অতিথি ডেটা';
-  String get guestUsage =>
-      '• রেজিস্ট্রেশন ছাড়াই অ্যাপটি অতিথি হিসাবে ব্যবহার করা যাবে';
-  String get localStorage =>
-      '• অতিথি ডেটা শুধুমাত্র আপনার ডিভাইসে স্থানীয়ভাবে সংরক্ষিত হয়';
-  String get accountConversion =>
-      '• আপনি যেকোনো সময় রেজিস্টার্ড অ্যাকাউন্টে রূপান্তর করতে পারেন';
+
+  @override
+  String get guestUsage => '• রেজিস্ট্রেশন ছাড়াই অ্যাপটি অতিথি হিসাবে ব্যবহার করা যাবে';
+
+  @override
+  String get localStorage => '• অতিথি ডেটা শুধুমাত্র আপনার ডিভাইসে স্থানীয়ভাবে সংরক্ষিত হয়';
+
+  @override
+  String get accountConversion => '• আপনি যেকোনো সময় রেজিস্টার্ড অ্যাকাউন্টে রূপান্তর করতে পারেন';
+
+  @override
   String get security => 'সুরক্ষা';
-  String get sslEncryption =>
-      '• সমস্ত যোগাযোগের জন্য আমরা SSL এনক্রিপশন ব্যবহার করি';
-  String get passwordEncryption =>
-      '• পাসওয়ার্ড এনক্রিপ্টেড আকারে সংরক্ষিত হয়';
+
+  @override
+  String get sslEncryption => '• সমস্ত যোগাযোগের জন্য আমরা SSL এনক্রিপশন ব্যবহার করি';
+
+  @override
+  String get passwordEncryption => '• পাসওয়ার্ড এনক্রিপ্টেড আকারে সংরক্ষিত হয়';
+
+  @override
   String get dataProtection => '• আমরা বৈশ্বিক ডেটা সুরক্ষা মান মেনে চলি';
+
+  @override
   String get termsOfUse => 'ব্যবহারের শর্তাবলী';
+
+  @override
   String get acceptableUse => 'গ্রহণযোগ্য ব্যবহার';
-  String get worshipUsage =>
-      '• ইবাদত এবং ইসলামিক জ্ঞানের জন্য অ্যাপ ব্যবহার করুন';
-  String get respectIntellectualProperty =>
-      '• কনটেন্টের মেধাস্বত্বের প্রতি সম্মান প্রদর্শন করুন';
+
+  @override
+  String get worshipUsage => '• ইবাদত এবং ইসলামিক জ্ঞানের জন্য অ্যাপ ব্যবহার করুন';
+
+  @override
+  String get respectIntellectualProperty => '• কনটেন্টের মেধাস্বত্বের প্রতি সম্মান প্রদর্শন করুন';
+
+  @override
   String get complyWithLaws => '• স্থানীয় ও আন্তর্জাতিক আইন মেনে চলুন';
+
+  @override
   String get restrictions => 'নিষেধাজ্ঞা';
-  String get illegalUsageProhibition =>
-      '• অবৈধ উদ্দেশ্যে অ্যাপ ব্যবহারের অনুমতি নেই';
-  String get copyModifyProhibition =>
-      '• অনুমতি ছাড়া কনটেন্ট কপি বা পরিবর্তন নিষিদ্ধ';
-  String get respectfulEnvironment =>
-      '• সম্মানজনক ব্যবহারের পরিবেশ বজায় রাখুন';
+
+  @override
+  String get illegalUsageProhibition => '• অবৈধ উদ্দেশ্যে অ্যাপ ব্যবহারের অনুমতি নেই';
+
+  @override
+  String get copyModifyProhibition => '• অনুমতি ছাড়া কনটেন্ট কপি বা পরিবর্তন নিষিদ্ধ';
+
+  @override
+  String get respectfulEnvironment => '• সম্মানজনক ব্যবহারের পরিবেশ বজায় রাখুন';
+
+  @override
   String get contactUs => 'যোগাযোগ করুন';
+
+  @override
   String get appInquiry => 'মেশকাতুল হুদা অ্যাপ সম্পর্কে জিজ্ঞাসা';
-  String get welcomeQuestions =>
-      'আমরা অ্যাপ সম্পর্কে আপনার প্রশ্ন ও জিজ্ঞাসাগুলো স্বাগত জানাই';
+
+  @override
+  String get welcomeQuestions => 'আমরা অ্যাপ সম্পর্কে আপনার প্রশ্ন ও জিজ্ঞাসাগুলো স্বাগত জানাই';
+
+  @override
   String get lastUpdate => 'সর্বশেষ আপডেট: ১০ ডিসেম্বর ২০২৫';
+
+  @override
   String get compatibility => 'সামঞ্জস্যপূর্ণ: iOS 13+ / Android 8+';
 
-  // مميزات
+  @override
   String get quranDescription => 'তাফসির ও তিলাওয়াত সহ সম্পূর্ণ কুরআন পাঠ';
-  List<String> get quranFeatures => ['১১৪ সূরা', 'আয়াতের তাফসির', 'খতম কুরআন'];
-  String get hadithsDescription =>
-      'ব্যাখ্যা ও শ্রেণীবিভাগ সহ সহিহ হাদিসের সংগ্রহ';
-  List<String> get hadithFeatures => [
-    'সহিহ হাদিস',
-    'ব্যাখ্যা ও উপকারিতা',
-    'উন্নত অনুসন্ধান',
-  ];
-  String get azkarAndDua => 'আযকার ও দোয়া';
-  String get azkarDescription => 'সকাল-সন্ধ্যার আযকার ও মাসনুন দোয়া';
-  List<String> get azkarFeatures => [
-    'দৈনিক আযকার',
-    'মাসনুন দোয়া',
-    'রিমাইন্ডার',
-  ];
-  String get allahNamesDescription =>
-      'অর্থ ও ফজিলত সহ আল্লাহর সুন্দর নামগুলো শিখুন';
-  List<String> get allahNamesFeatures => [
-    '৯৯টি নাম',
-    'অর্থ ও ব্যাখ্যা',
-    'ফজিলত ও সওয়াব',
-  ];
-  String get khatmaTracker => 'খতম ট্র্যাকার';
-  String get khatmaDescription =>
-      'কুরআন সম্পূর্ণ করতে আপনার অগ্রগতি ট্র্যাক করুন';
-  List<String> get khatmaFeatures => [
-    'অগ্রগতি ট্র্যাকিং',
-    'পরিসংখ্যান',
-    'দৈনিক লক্ষ্য',
-  ];
-  String get prayerTimes => 'নামাজের সময়';
-  String get prayerTimesDescription => 'আপনার অবস্থানের জন্য সঠিক নামাজের সময়';
-  List<String> get prayerFeatures => [
-    '৫ দৈনিক নামাজের সময়',
-    'কিবলা',
-    'নোটিফিকেশন',
-  ];
-  String get mosquesDescription =>
-      'আপনার অবস্থানের কাছাকাছি মসজিদ আবিষ্কার করুন';
-  List<String> get mosqueFeatures => [
-    'মসজিদের মানচিত্র',
-    'দূরত্ব ও সময়',
-    'তথ্য',
-  ];
-  String get islamicAudio => 'ইসলামিক অডিও';
-  String get audioDescription => 'কুরআন, বক্তৃতা ও লেকচারের অডিও';
-  List<String> get audioFeatures => [
-    'পবিত্র কুরআন',
-    'বক্তৃতা ও লেকচার',
-    'কুরআন রেডিও',
-  ];
-  String get liveBroadcast => 'লাইভ ব্রডকাস্ট';
-  String get broadcastDescription =>
-      'মক্কার মসজিদুল হারাম থেকে লাইভ ব্রডকাস্ট দেখুন';
-  List<String> get broadcastFeatures => [
-    'মসজিদুল হারাম',
-    'মসজিদে নববি',
-    'ইসলামিক চ্যানেল',
-  ];
-  String get assistantDescription => 'আপনার প্রশ্নের ইসলামিক স্টাইলে উত্তর';
-  List<String> get assistantFeatures => [
-    'ইসলামিক ফতোয়া',
-    'সঠিক উত্তর',
-    'নির্দেশিকা গাইড',
-  ];
-  String get zakatDescription => 'সঠিকভাবে এবং সহজে আপনার যাকাত গণনা করুন';
-  List<String> get zakatFeatures => [
-    'নগদ যাকাত',
-    'সোনার যাকাত',
-    'ব্যবসায়িক যাকাত',
-  ];
-  String get dateConverterDescription =>
-      'হিজরি ও গ্রেগরিয়ান তারিখের মধ্যে রূপান্তর';
-  List<String> get dateFeatures => [
-    'তারিখ রূপান্তর',
-    'হিজরি ক্যালেন্ডার',
-    'ইসলামিক অনুষ্ঠান',
-  ];
-  List<String> get subscriptionFeatures => [
-    "সীমাহীন AI প্রশ্ন",
-    "সম্পূর্ণ বিজ্ঞাপন অপসারণ",
-    "পটভূমিতে স্বয়ংক্রিয় আজান সক্রিয় করুন",
-    "সমস্ত বই ও হাদিসে অ্যাক্সেস",
-    "অ্যাপ উন্নয়ন সমর্থন করুন",
-  ];
 
-  String get noProductsAvailable => "বর্তমানে কোন পণ্য নেই";
-  String get mostSaving => "সর্বাধিক সাশ্রয়ী";
+  @override
+  String get hadithsDescription => 'ব্যাখ্যা ও শ্রেণীবিভাগ সহ সহিহ হাদিসের সংগ্রহ';
+
+  @override
+  String get azkarAndDua => 'আযকার ও দোয়া';
+
+  @override
+  String get azkarDescription => 'সকাল-সন্ধ্যার আযকার ও মাসনুন দোয়া';
+
+  @override
+  String get allahNamesDescription => 'অর্থ ও ফজিলত সহ আল্লাহর সুন্দর নামগুলো শিখুন';
+
+  @override
+  String get khatmaTracker => 'খতম ট্র্যাকার';
+
+  @override
+  String get khatmaDescription => 'কুরআন সম্পূর্ণ করতে আপনার অগ্রগতি ট্র্যাক করুন';
+
+  @override
+  String get prayerTimes => 'নামাজের সময়';
+
+  @override
+  String get prayerTimesDescription => 'আপনার অবস্থানের জন্য সঠিক নামাজের সময়';
+
+  @override
+  String get mosquesDescription => 'আপনার অবস্থানের কাছাকাছি মসজিদ আবিষ্কার করুন';
+
+  @override
+  String get islamicAudio => 'ইসলামিক অডিও';
+
+  @override
+  String get audioDescription => 'কুরআন, বক্তৃতা ও লেকচারের অডিও';
+
+  @override
+  String get liveBroadcast => 'লাইভ ব্রডকাস্ট';
+
+  @override
+  String get broadcastDescription => 'মক্কার মসজিদুল হারাম থেকে লাইভ ব্রডকাস্ট দেখুন';
+
+  @override
+  String get assistantDescription => 'আপনার প্রশ্নের ইসলামিক স্টাইলে উত্তর';
+
+  @override
+  String get zakatDescription => 'সঠিকভাবে এবং সহজে আপনার যাকাত গণনা করুন';
+
+  @override
+  String get dateConverterDescription => 'হিজরি ও গ্রেগরিয়ান তারিখের মধ্যে রূপান্তর';
+
+  @override
+  String get noProductsAvailable => 'বর্তমানে কোন পণ্য নেই';
+
+  @override
+  String get mostSaving => 'সর্বাধিক সাশ্রয়ী';
+
   @override
   String get deleteAccountWarning => 'সতর্কতা: অ্যাকাউন্ট মুছে ফেলুন';
 
   @override
-  String get areYouSureDeleteAccount =>
-      'আপনি কি নিশ্চিত যে আপনি আপনার অ্যাকাউন্ট মুছে ফেলতে চান?';
+  String get areYouSureDeleteAccount => 'আপনি কি নিশ্চিত যে আপনি আপনার অ্যাকাউন্ট মুছে ফেলতে চান?';
 
   @override
   String get deleteAccountConsequences => '⚠️ অ্যাকাউন্ট মুছে ফেলার পরিণাম:';
@@ -1619,15 +2062,13 @@ class AppLocalizationsBn extends AppLocalizations {
   String get allPersonalDataDeleted => 'আপনার সমস্ত ব্যক্তিগত ডেটা মুছে যাবে';
 
   @override
-  String get activeSubscriptionCancelled =>
-      'সক্রিয় সাবস্ক্রিপশন বাতিল করা হবে';
+  String get activeSubscriptionCancelled => 'সক্রিয় সাবস্ক্রিপশন বাতিল করা হবে';
 
   @override
   String get actionCannotUndone => 'এই কর্মটি পূর্বাবস্থায় ফেরানো যাবে না';
 
   @override
-  String get needNewAccountToUseApp =>
-      'অ্যাপ ব্যবহার করতে আপনাকে নতুন অ্যাকাউন্ট তৈরি করতে হবে';
+  String get needNewAccountToUseApp => 'অ্যাপ ব্যবহার করতে আপনাকে নতুন অ্যাকাউন্ট তৈরি করতে হবে';
 
   @override
   String get deleteAccountSuccess => 'অ্যাকাউন্ট সফলভাবে মুছে ফেলা হয়েছে';
@@ -1639,15 +2080,5 @@ class AppLocalizationsBn extends AppLocalizations {
   String get deleteAccount => 'অ্যাকাউন্ট মুছে ফেলুন';
 
   @override
-  String get deleteAccountAndAssociatedData =>
-      'আপনার অ্যাকাউন্ট এবং সংশ্লিষ্ট ডেটা মুছে ফেলুন';
-
-  @override
-  String get halalRestaurants => 'Halal Restaurants';
-  @override
-  String get hisnAlMuslim => 'Hisn Al-Muslim';
-  @override
-  String get smartVoiceDhikr => 'Smart Voice Dhikr';
-  @override
-  String get smartVoiceDescription => 'Control your dhikr with voice commands';
+  String get deleteAccountAndAssociatedData => 'আপনার অ্যাকাউন্ট এবং সংশ্লিষ্ট ডেটা মুছে ফেলুন';
 }

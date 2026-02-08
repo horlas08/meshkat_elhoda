@@ -27,20 +27,16 @@ class AppLocalizationsMs extends AppLocalizations {
   String get finish => 'Selesai';
 
   @override
-  String get onboardingDescription1 =>
-      'Mulakan perjalanan spiritual anda dengan aplikasi yang menghimpunkan Al-Quran, Azkar, dan Hadis dalam satu tempat.';
+  String get onboardingDescription1 => 'Mulakan perjalanan spiritual anda dengan aplikasi yang menghimpunkan Al-Quran, Azkar, dan Hadis dalam satu tempat.';
 
   @override
-  String get onboardingDescription2 =>
-      'Dengarkan bacaan daripada lebih 50 qari, dan simpan dengan mudah kedudukan bacaan terakhir anda.';
+  String get onboardingDescription2 => 'Dengarkan bacaan daripada lebih 50 qari, dan simpan dengan mudah kedudukan bacaan terakhir anda.';
 
   @override
-  String get onboardingDescription3 =>
-      'Mengingatkan anda kepada Allah pada setiap saat dengan Azkar harian dan doa-doa yang dikategorikan untuk hidup anda.';
+  String get onboardingDescription3 => 'Mengingatkan anda kepada Allah pada setiap saat dengan Azkar harian dan doa-doa yang dikategorikan untuk hidup anda.';
 
   @override
-  String get onboardingDescription4 =>
-      'Alami suasana spiritual langsung dari Mekah dan Madinah, pada bila-bila masa dan di mana sahaja.';
+  String get onboardingDescription4 => 'Alami suasana spiritual langsung dari Mekah dan Madinah, pada bila-bila masa dan di mana sahaja.';
 
   @override
   String get allAzkar => 'Semua Azkar';
@@ -94,15 +90,13 @@ class AppLocalizationsMs extends AppLocalizations {
   String get locationPermissionDeniedTitle => 'Kebenaran lokasi ditolak';
 
   @override
-  String get locationPermissionDescription =>
-      'Untuk menunjukkan waktu solat yang tepat, kami memerlukan lokasi anda. Anda boleh:';
+  String get locationPermissionDescription => 'Untuk menunjukkan waktu solat yang tepat, kami memerlukan lokasi anda. Anda boleh:';
 
   @override
   String get locationPermissionOptionAllow => '• Benarkan akses lokasi';
 
   @override
-  String get locationPermissionOptionManual =>
-      '• Masukkan bandar dan negara secara manual';
+  String get locationPermissionOptionManual => '• Masukkan bandar dan negara secara manual';
 
   @override
   String get locationPermissionManualButton => 'Masukan manual';
@@ -192,8 +186,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get deleteBookmarkTitle => 'Padam Penanda';
 
   @override
-  String get deleteBookmarkContent =>
-      'Adakah anda pasti ingin memadam penanda ini?';
+  String get deleteBookmarkContent => 'Adakah anda pasti ingin memadam penanda ini?';
 
   @override
   String get delete => 'Padam';
@@ -271,6 +264,9 @@ class AppLocalizationsMs extends AppLocalizations {
   String get khatmat => 'Khatmas';
 
   @override
+  String get continueLabel => 'Teruskan';
+
+  @override
   String get start_your_journey => 'Start your journey with the Quran';
 
   @override
@@ -292,8 +288,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get saudi_channel => 'Saudi Channel';
 
   @override
-  String get licensed_broadcast =>
-      'This broadcast is licensed from official Saudi channels';
+  String get licensed_broadcast => 'This broadcast is licensed from official Saudi channels';
 
   @override
   String get online => 'Online now';
@@ -333,28 +328,213 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get ramadanKarim => 'Ramadan Mubarak';
+
   @override
   String get todayDuaaHeader => 'Doa Hari Ini';
+
   @override
   String get greetYourLovedOnes => 'Ucapkan Tahniah kepada Orang Tersayang';
+
   @override
   String get quranKarem => 'Al-Quran Karim';
+
   @override
   String get ramadanKarimGreeting => 'Ucapan Ramadan Mubarak';
+
   @override
   String get ramadanWirdCalculatorTitle => 'Kalkulator Wird Ramadan';
+
   @override
   String get khatmaCountHint => 'Petunjuk Bilangan Khatam';
+
   @override
   String get khatmaCountExceededMessage => 'Bilangan Khatam Melebihi Had';
+
   @override
   String get dailyWirdHeader => 'Wird Harian';
+
   @override
   String get dailyAjzaaLabel => 'Juzuk Harian';
+
   @override
   String get dailyPagesLabel => 'Muka Surat Harian';
+
   @override
   String get goToMushafButton => 'Pergi ke Mushaf';
+
+  @override
+  String get worshipSectionTitle => 'Bahagian Ibadah';
+
+  @override
+  String get prayerGuideSectionTitle => 'Panduan Solat';
+
+  @override
+  String get islamicServicesSectionTitle => 'Perkhidmatan Islam';
+
+  @override
+  String get hadiths => 'Hadis';
+
+  @override
+  String get allahNames => 'Nama-nama Allah';
+
+  @override
+  String get ramadanFeatures => 'Ciri-ciri Ramadan';
+
+  @override
+  String get prayerAndQibla => 'Solat & Kiblat';
+
+  @override
+  String get locationAndMosques => 'Lokasi & Masjid';
+
+  @override
+  String get audio => 'Audio';
+
+  @override
+  String get zakatCalculator => 'Kalkulator Zakat';
+
+  @override
+  String get dateConverter => 'Date Converter';
+
+  @override
+  String get chatList => 'Senarai Sembang';
+
+  @override
+  String get classLabel => 'Class';
+
+  @override
+  String get class_ => 'Kelas';
+
+  @override
+  String get premiumBookMessage => 'Mesej Buku Premium';
+
+  @override
+  String get upgrade => 'Naik Taraf';
+
+  @override
+  String get selectBook => 'Pilih Buku';
+
+  @override
+  String get noHadithsAvailable => 'Tiada Hadis Tersedia';
+
+  @override
+  String get by => 'Oleh';
+
+  @override
+  String get days => 'Hari';
+
+  @override
+  String get searchResults => 'Keputusan';
+
+  @override
+  String get off => 'of';
+
+  @override
+  String hadithLoadError(String error) {
+    return 'Gagal memuat hadis: $error';
+  }
+
+  @override
+  String get hadithCopied => 'Hadis Disalin';
+
+  @override
+  String get hadithRemovedFromFavorites => 'Hadis Dialih Keluar daripada Kegemaran';
+
+  @override
+  String get hadithAddedToFavorites => 'Hadis Ditambah ke Kegemaran';
+
+  @override
+  String get narrator => 'Perawi';
+
+  @override
+  String get shareHadithText => 'Kongsi Teks Hadis';
+
+  @override
+  String get scholarsEvaluation => 'Penilaian Ulama';
+
+  @override
+  String get hadithDetails => 'Butiran Hadis';
+
+  @override
+  String get aiDisclaimerWarning => '⚠️ AI-generated answers should be reviewed from reliable sources';
+
+  @override
+  String get subscriptionSuccess => 'Subscription activated successfully';
+
+  @override
+  String get halalRestaurants => 'Halal Restaurants';
+
+  @override
+  String get hisnAlMuslim => 'Hisn Al-Muslim';
+
+  @override
+  String get smartVoiceDhikr => 'Smart Voice Dhikr';
+
+  @override
+  String get smartVoiceDescription => 'Control your dhikr with voice commands';
+
+  @override
+  String get zakatDisclaimer => 'Nota: Pengiraan ini adalah anggaran dan bukan fatwa agama.\\nUntuk keputusan agama yang tepat, sila rujuk kepada ulama yang berpengetahuan.';
+
+  @override
+  String get totalCash => 'Jumlah Wang Tunai';
+
+  @override
+  String get doYouOwnGold => 'Adakah anda memiliki emas?';
+
+  @override
+  String get goldValue => 'Nilai Emas (jika diketahui secara langsung)';
+
+  @override
+  String get goldGrams => 'Gram Emas';
+
+  @override
+  String get gold24kPrice => 'Harga Emas 24K Se Gram';
+
+  @override
+  String get requiredForNisaab => 'Diperlukan untuk pengiraan Nisab yang tepat (85 gram emas)';
+
+  @override
+  String get requiredForGoldValue => 'Diperlukan untuk mengira nilai emas dari gram';
+
+  @override
+  String get tradeValue => 'Nilai Barangan Dagangan';
+
+  @override
+  String get enableNisaab => 'Aktifkan Syarat Nisab';
+
+  @override
+  String get calculateZakat => 'Kira Zakat';
+
+  @override
+  String get fieldRequired => 'Medan ini diperlukan';
+
+  @override
+  String get enterValidNumber => 'Sila masukkan nombor yang sah';
+
+  @override
+  String get connectedNow => 'Bersambung Sekarang';
+
+  @override
+  String get haramAndLive => 'Masjidil Haram & Siaran Langsung';
+
+  @override
+  String get khatmahList => 'Senarai Khatmah';
+
+  @override
+  String get licensedMessage => 'Siaran ini dilesenkan dari saluran rasmi Saudi';
+
+  @override
+  String get newKhatmah => 'Khatmah Baru';
+
+  @override
+  String get setQibla => 'Tetapkan Kiblat';
+
+  @override
+  String get startQuranJourney => 'Mulakan perjalanan Al-Quran anda';
+
+  @override
+  String get yourCurrentKhatmah => 'Khatmah Semasa Anda';
+
   @override
   String get assistantAppBarTitle => 'Pembantu AI';
 
@@ -374,8 +554,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get noActiveChatMessage => 'Tiada sembang aktif';
 
   @override
-  String get startNewChatMessage =>
-      'Mulakan perbualan baru dengan menghantar mesej';
+  String get startNewChatMessage => 'Mulakan perbualan baru dengan menghantar mesej';
 
   @override
   String get pleaseWait => 'Sila tunggu...';
@@ -387,8 +566,9 @@ class AppLocalizationsMs extends AppLocalizations {
   String get dailyLimitReachedTitle => 'Had Harian Dicapai';
 
   @override
-  String get dailyLimitReachedMessage =>
-      'Anda telah menggunakan {dailyCount} daripada {maxQuestions} soalan hari ini';
+  String dailyLimitReachedMessage(Object dailyCount, Object maxQuestions) {
+    return 'Anda telah menggunakan $dailyCount daripada $maxQuestions soalan hari ini';
+  }
 
   @override
   String get upgradeToPremiumButton => 'Naik Taraf ke Premium';
@@ -397,12 +577,10 @@ class AppLocalizationsMs extends AppLocalizations {
   String get featureAvailableForPremium => 'Ciri Premium';
 
   @override
-  String get premiumFeatureTitle =>
-      'Pemilihan model AI hanya tersedia untuk pelanggan premium';
+  String get premiumFeatureTitle => 'Pemilihan model AI hanya tersedia untuk pelanggan premium';
 
   @override
-  String get premiumFeatureContent =>
-      'Naik taraf untuk dapatkan:\n• Pemilihan model lanjutan\n• Soalan tanpa had\n• Jawapan lebih terperinci';
+  String get premiumFeatureContent => 'Naik taraf untuk dapatkan:\\n• Pemilihan model lanjutan\\n• Soalan tanpa had\\n• Jawapan lebih terperinci';
 
   @override
   String get okButton => 'OK';
@@ -414,7 +592,9 @@ class AppLocalizationsMs extends AppLocalizations {
   String get laterButton => 'Kemudian';
 
   @override
-  String get questionsRemaining => 'Baki: {remaining}';
+  String questionsRemaining(Object remaining) {
+    return 'Baki: $remaining';
+  }
 
   @override
   String get of => 'daripada';
@@ -441,26 +621,34 @@ class AppLocalizationsMs extends AppLocalizations {
   String get newConversation => 'Perbualan Baru';
 
   @override
-  String get noConversationsMessage =>
-      'Tiada perbualan lagi. Klik + untuk buat baru';
+  String get noConversationsMessage => 'Tiada perbualan lagi. Klik + untuk buat baru';
 
   @override
   String get newChatCreationMessage => 'Mencipta sembang baru...';
 
   @override
-  String get dayAgo => '{days} hari yang lalu';
+  String dayAgo(Object days) {
+    return '$days hari yang lalu';
+  }
 
   @override
-  String get hourAgo => '{hours} jam yang lalu';
+  String hourAgo(Object hours) {
+    return '$hours jam yang lalu';
+  }
 
   @override
-  String get minuteAgo => '{minutes} minit yang lalu';
+  String minuteAgo(Object minutes) {
+    return '$minutes minit yang lalu';
+  }
 
   @override
   String get now => 'Sekarang';
 
   @override
   String get typeMessageHint => 'Taip mesej anda...';
+
+  @override
+  String get aiGeneratedAnswersNeedReview => 'Jawapan dijana AI perlu disemak semula';
 
   @override
   String get pleaseWaitHint => 'Sila tunggu...';
@@ -482,13 +670,6 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get loginButton => 'Log Masuk';
-
-  @override
-  String get aiGeneratedAnswersNeedReview =>
-      'Jawapan dijana AI perlu disemak semula';
-
-  @override
-  String get fourHours => '4 jam';
 
   @override
   String get alreadyHaveAccount => 'Sudah ada akaun? ';
@@ -515,8 +696,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get passwordRequiredErrorRegister => 'Sila masukkan kata laluan anda';
 
   @override
-  String get passwordMinLengthError =>
-      'Kata laluan mesti sekurang-kurangnya 6 aksara';
+  String get passwordMinLengthError => 'Kata laluan mesti sekurang-kurangnya 6 aksara';
 
   @override
   String get confirmPasswordLabel => 'Sahkan Kata Laluan';
@@ -603,9 +783,6 @@ class AppLocalizationsMs extends AppLocalizations {
   String get lockedAzkarMessage => 'Bahagian ini hanya untuk pelanggan premium';
 
   @override
-  String get searchResults => 'Keputusan';
-
-  @override
   String get zoomIn => 'Zum Masuk';
 
   @override
@@ -642,16 +819,13 @@ class AppLocalizationsMs extends AppLocalizations {
   String get deleteBookmarkConfirmation => 'Padam Penanda Buku';
 
   @override
-  String get areYouSureDelete =>
-      'Adakah anda pasti mahu memadam penanda buku ini?';
+  String get areYouSureDelete => 'Adakah anda pasti mahu memadam penanda buku ini?';
 
   @override
-  String get noBookmarksDescription =>
-      'Tambah penanda buku dari halaman bacaan';
+  String get noBookmarksDescription => 'Tambah penanda buku dari halaman bacaan';
 
   @override
-  String get addBookmarkFromReading =>
-      'Tambah penanda buku dari halaman bacaan';
+  String get addBookmarkFromReading => 'Tambah penanda buku dari halaman bacaan';
 
   @override
   String get addBookmarkTitle => 'Tambah Penanda Buku';
@@ -678,25 +852,33 @@ class AppLocalizationsMs extends AppLocalizations {
   String get yesterday => 'Semalam';
 
   @override
-  String get daysAgo => '{days} hari yang lalu';
+  String daysAgo(Object days) {
+    return '$days hari yang lalu';
+  }
 
   @override
   String get weekAgo => 'Seminggu yang lalu';
 
   @override
-  String get weeksAgo => '{weeks} minggu yang lalu';
+  String weeksAgo(Object weeks) {
+    return '$weeks minggu yang lalu';
+  }
 
   @override
   String get monthAgo => 'Sebulan yang lalu';
 
   @override
-  String get monthsAgo => '{months} bulan yang lalu';
+  String monthsAgo(Object months) {
+    return '$months bulan yang lalu';
+  }
 
   @override
   String get yearAgo => 'Setahun yang lalu';
 
   @override
-  String get yearsAgo => '{years} tahun yang lalu';
+  String yearsAgo(Object years) {
+    return '$years tahun yang lalu';
+  }
 
   @override
   String get deleteBookmarkError => 'Ralat memadam penanda buku';
@@ -706,232 +888,346 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get collectiveKhatmas => 'Khatam Berjemaah';
+
   @override
   String get myKhatmas => 'Khatam Saya';
+
   @override
   String get joinByLink => 'Sertai Melalui Pautan';
+
   @override
   String get searchKhatmaHint => 'Cari khatam...';
+
   @override
   String get createKhatma => 'Buat Khatam';
+
   @override
-  String get loginRequiredMessage =>
-      'Log masuk diperlukan untuk mengakses ciri ini';
+  String get loginRequiredMessage => 'Log masuk diperlukan untuk mengakses ciri ini';
+
   @override
-  String get loginToJoinMessage =>
-      'Log masuk untuk menyertai khatam berjemaah dengan muslim di seluruh dunia';
+  String get loginToJoinMessage => 'Log masuk untuk menyertai khatam berjemaah dengan muslim di seluruh dunia';
+
   @override
   String get noKhatmasAvailable => 'Tiada khatam buat masa ini';
+
   @override
-  String get beFirstToCreate =>
-      'Jadilah orang pertama mencipta khatam berjemaah!';
+  String get beFirstToCreate => 'Jadilah orang pertama mencipta khatam berjemaah!';
+
   @override
   String get createNewKhatma => 'Buat Khatam Baru';
+
   @override
   String get joinByLinkTitle => 'Sertai Khatam Melalui Pautan';
+
   @override
   String get pasteLinkHint => 'Tampal pautan khatam di sini';
+
   @override
   String get fetchKhatma => 'Ambil Khatam';
+
   @override
   String get joinError => 'Ralat berlaku semasa cuba menyertai khatam';
+
   @override
   String get createKhatmaTitle => 'Buat Khatam Berjemaah';
+
   @override
   String get khatmaTitleLabel => 'Tajuk Khatam';
+
   @override
   String get khatmaTitleExample => 'Contoh: Khatam Ramadan';
+
   @override
   String get khatmaTitleRequired => 'Sila masukkan tajuk khatam';
+
   @override
   String get khatmaTypeLabel => 'Jenis Khatam';
+
   @override
   String get public => 'Awam';
+
   @override
   String get publicDescription => 'Semua orang boleh menyertai';
+
   @override
   String get private => 'Peribadi';
+
   @override
   String get privateDescription => 'Hanya dengan jemputan';
+
   @override
   String get dateRangeLabel => 'Tarikh Mula dan Tamat';
+
   @override
   String get startDate => 'Tarikh Mula';
+
   @override
   String get endDate => 'Tarikh Tamat';
+
   @override
-  String get khatmaDuration => 'Tempoh Khatam: {0} hari';
+  String khatmaDuration(String days) {
+    return 'Tempoh Khatam: $days hari';
+  }
+
   @override
   String get khatmaCreatedSuccess => 'Khatam berjaya dicipta!';
+
   @override
   String get khatmaDetails => 'Butiran Khatam';
+
   @override
   String get copyLink => 'Salin Pautan';
+
   @override
   String get deleteKhatma => 'Padam Khatam';
+
   @override
-  String get partReservedSuccess => 'Bahagian {0} berjaya ditempah!';
+  String partReservedSuccess(String part) {
+    return 'Bahagian $part berjaya ditempah!';
+  }
+
   @override
-  String get partCompletedSuccess =>
-      'Tahniah! Anda telah menamatkan bahagian {0}';
+  String partCompletedSuccess(String part) {
+    return 'Tahniah! Anda telah menamatkan bahagian $part';
+  }
+
   @override
   String get deleteConfirmationTitle => 'Padam Khatam';
+
   @override
-  String get deleteConfirmationMessage =>
-      'Adakah anda pasti mahu memadam khatam ini? Tindakan ini tidak boleh dibatalkan.';
+  String get deleteConfirmationMessage => 'Adakah anda pasti mahu memadam khatam ini? Tindakan ini tidak boleh dibatalkan.';
+
   @override
   String get reserveThisPart => 'Tempah Bahagian Ini';
+
   @override
   String get completeThisPart => 'Selesaikan Bahagian Ini';
+
   @override
-  String get alreadyReservedPart =>
-      'Anda sudah mempunyai bahagian yang ditempah (Bahagian {0})';
+  String alreadyReservedPart(String part) {
+    return 'Anda sudah mempunyai bahagian yang ditempah (Bahagian $part)';
+  }
+
   @override
   String get linkCopied => 'Pautan disalin';
+
   @override
   String get myCollectiveKhatmas => 'Khatam Berjemaah Saya';
+
   @override
   String get joinedKhatmasTab => 'Khatam yang Disertai';
+
   @override
   String get createdKhatmasTab => 'Khatam yang Saya Cipta';
+
   @override
   String get noJoinedKhatmas => 'Belum menyertai sebarang khatam';
+
   @override
   String get findAndJoinKhatma => 'Cari khatam berjemaah dan sertai';
+
   @override
   String get participatedKhatmas => 'Khatam yang Disertai';
+
   @override
   String get completedParts => 'Bahagian Selesai';
+
   @override
   String get noCreatedKhatmas => 'Belum mencipta sebarang khatam';
+
   @override
   String get startCreatingKhatma => 'Mula mencipta khatam berjemaah baru';
+
   @override
-  String get partNumber => 'Bahagian {0}';
+  String partNumber(String part) {
+    return 'Bahagian $part';
+  }
+
   @override
   String get completedStatus => 'Selesai ✓';
+
   @override
   String get inProgressStatus => 'Sedang Dibaca';
+
   @override
   String get publicType => 'Awam';
+
   @override
   String get privateType => 'Peribadi';
+
   @override
-  String get createdBy => 'Pencipta: {0}';
+  String createdBy(String creator) {
+    return 'Pencipta: $creator';
+  }
+
   @override
   String get participants => 'Peserta';
+
   @override
   String get completed => 'Selesai';
+
   @override
   String get daysRemaining => 'Hari Tinggal';
+
   @override
   String get completion => 'Penyelesaian';
+
   @override
   String get completedPartsLabel => 'Bahagian Selesai';
+
   @override
   String get reservedParts => 'Bahagian Ditempah';
+
   @override
   String get availableParts => 'Bahagian Tersedia';
+
   @override
   String get khatmaCompleted => 'Selesai ✓';
+
   @override
   String get availableForReservation => 'Tersedia untuk tempahan';
+
   @override
-  String get reservedForUser => 'Ditempah untuk {0}';
+  String reservedForUser(String user) {
+    return 'Ditempah untuk $user';
+  }
+
   @override
   String get partCompletedStatus => 'Selesai ✓';
+
   @override
   String get partCompleted => 'Selesai';
+
   @override
   String get reserved => 'Ditempah';
+
   @override
   String get yourPart => 'Bahagian Anda';
+
   @override
   String get available => 'Tersedia';
+
   @override
   String get confirmation => 'Pengesahan';
+
   @override
-  String get deleteAllConfirmation =>
-      'Adakah anda ingin memadam semua kegemaran?';
+  String get deleteAllConfirmation => 'Adakah anda ingin memadam semua kegemaran?';
+
   @override
   String get deleteAll => 'Padam Semua';
+
   @override
   String get favorites => 'Kegemaran';
+
   @override
   String get deleteAllTooltip => 'Padam Semua Kegemaran';
-  @override
-  String get hadithLoadError => 'Gagal memuat hadis: {0}';
+
   @override
   String get noFavorites => 'Tiada item kegemaran';
+
   @override
   String get deleteFromFavoritesTooltip => 'Padam dari Kegemaran';
+
   @override
-  String get favoriteItemDescription => 'Item kegemaran: {0}';
+  String favoriteItemDescription(String item) {
+    return 'Item kegemaran: $item';
+  }
 
   @override
   String get quranAudio => 'Audio';
+
   @override
   String get quranRecitations => 'Quran Recitations';
+
   @override
-  String get quranRecitationsDesc =>
-      'Listen to Quran recitations by renowned reciters';
+  String get quranRecitationsDesc => 'Listen to Quran recitations by renowned reciters';
+
   @override
   String get quranRadio => 'Quran Radio';
+
   @override
   String get quranRadioDesc => 'Listen to live Quran radio stations';
+
   @override
   String get downloadedAudio => 'Downloaded Audio';
+
   @override
   String get downloadedAudioDesc => 'Listen to downloaded recitations offline';
+
   @override
   String get reciters => 'Reciters';
+
   @override
   String get searchRecitersHint => 'Search reciters...';
+
   @override
   String get noResultsFound => 'No results found';
+
   @override
-  String get reciterPremiumOnly =>
-      '🔒 This reciter is available for premium subscribers only';
+  String get reciterPremiumOnly => '🔒 This reciter is available for premium subscribers only';
+
   @override
-  String get surahsCount => '{count} Surahs';
+  String surahsCount(Object count) {
+    return '$count Surahs';
+  }
+
   @override
   String get surahs => 'Surahs';
+
   @override
-  String get ayahsCount => '{count} Ayahs';
+  String ayahsCount(Object count) {
+    return '$count Ayahs';
+  }
+
   @override
   String get noDownloadedAudio => 'No downloaded audio';
+
   @override
   String get deleteAudioTitle => 'Delete Audio';
+
   @override
-  String get deleteAudioConfirm =>
-      'Are you sure you want to delete this audio?';
+  String get deleteAudioConfirm => 'Are you sure you want to delete this audio?';
+
   @override
   String get noStationsAvailable => 'No stations available';
+
   @override
   String get liveRadio => '🟢 Live';
+
   @override
   String get offlineRadio => '⚫ Offline';
+
   @override
   String get audioPlayer => 'Audio Player';
+
   @override
   String get downloadSuccess => 'Downloaded successfully';
+
   @override
   String get fileAlreadyDownloaded => 'File already downloaded';
+
   @override
   String get skipBack15s => 'Skip back 15s';
+
   @override
   String get skipForward15s => 'Skip forward 15s';
+
   @override
   String get pause => 'Pause';
+
   @override
   String get play => 'Play';
+
   @override
   String get playing => 'Playing';
+
   @override
   String get playbackCompleted => 'Playback Completed';
+
   @override
-  @override
-  String get surahIndex => 'Surah {current} of {total}';
+  String surahIndex(Object current, Object total) {
+    return 'Surah $current of $total';
+  }
 
   @override
   String get replay => 'Replay';
@@ -940,673 +1236,824 @@ class AppLocalizationsMs extends AppLocalizations {
   String get audioLoadingError => 'Audio loading error';
 
   @override
-  String get gradeLabel => 'Gred';
-  @override
-  String get scholarLabel => 'Ulama';
-  @override
-  String get gradeSahih => 'Sahih';
-  @override
-  String get gradeHasan => 'Hasan';
-  @override
-  String get gradeDaif => 'Daif';
-  @override
-  String get gradeMawdu => 'Mawdu';
-  @override
-  String get gradeMaqbul => 'Maqbul';
-  @override
-  String get gradeEvaluation => 'Penilaian';
-  @override
-  String get next => 'Seterusnya';
-  @override
-  String get previous => 'Sebelumnya';
-  @override
-  String get sourceLabel => 'Sumber';
-  @override
-  String get hadithGradeLabel => 'Gred Hadis';
+  String get bookBukhari => 'Sahih Al-Bukhari';
 
   @override
-  String get bookBukhari => 'Sahih Al-Bukhari';
-  @override
   String get bookMuslim => 'Sahih Muslim';
+
   @override
   String get bookAbuDawud => 'Sunan Abu Dawud';
+
   @override
   String get bookTirmidhi => 'Jami At-Tirmidhi';
+
   @override
   String get bookNasai => 'Sunan An-Nasai';
+
   @override
   String get bookIbnMajah => 'Sunan Ibn Majah';
+
   @override
   String get bookMalik => 'Muwatta Malik';
+
   @override
   String get bookNawawi => 'Arbain Nawawi';
+
   @override
   String get bookQudsi => 'Hadis Qudsi';
+
   @override
   String get bookDehlawi => 'Arbain Shah Waliullah Dehlawi';
 
   @override
+  String get ramadanMubarakFull => 'Ramadan Mubarak, semoga Allah mengembalikannya kepada kita dan anda dengan keberkatan dan rahmat';
+
+  @override
+  String get ofWord => 'Daripada';
+
+  @override
+  String get gradeLabel => 'Gred';
+
+  @override
+  String get scholarLabel => 'Ulama';
+
+  @override
+  String get gradeSahih => 'Sahih';
+
+  @override
+  String get gradeHasan => 'Hasan';
+
+  @override
+  String get gradeDaif => 'Daif';
+
+  @override
+  String get gradeMawdu => 'Mawdu';
+
+  @override
+  String get gradeMaqbul => 'Maqbul';
+
+  @override
+  String get gradeEvaluation => 'Penilaian';
+
+  @override
+  String get next => 'Seterusnya';
+
+  @override
+  String get previous => 'Sebelumnya';
+
+  @override
+  String get sourceLabel => 'Sumber';
+
+  @override
+  String get hadithGradeLabel => 'Gred Hadis';
+
+  @override
   String get qiblaDirection => 'Arah Kiblat';
+
   @override
   String get locatingYourPosition => 'Menentukan lokasi anda...';
+
   @override
   String get errorCalculatingQibla => 'Ralat mengira Kiblat';
+
   @override
   String get compassAccessError => 'Ralat mengakses kompas';
+
   @override
   String get locationServicesDisabled => 'Perkhidmatan lokasi dinyahaktifkan';
+
   @override
-  String get locationPermissionPermanentlyDenied =>
-      'Kebenaran lokasi ditolak secara kekal';
+  String get locationPermissionPermanentlyDenied => 'Kebenaran lokasi ditolak secara kekal';
+
   @override
   String get qiblaAngleFromNorth => 'Sudut Kiblat dari Utara';
+
   @override
   String get facingQiblaNow => 'Anda kini menghadap Kiblat';
+
   @override
   String get qibla => 'Kiblat';
 
   @override
   String get gregorianToHijri => 'Gregory ke Hijrah';
+
   @override
   String get pickGregorianDate => 'Pilih Tarikh Gregory';
+
   @override
   String get errorConvertingGregorianToHijri => 'Ralat menukar tarikh';
+
   @override
   String get hijriToGregorian => 'Hijrah ke Gregory';
+
   @override
   String get enterHijriDateHint => 'Masukkan Tarikh Hijrah (HH/BB/TTTT)';
+
   @override
   String get hijriDateExample => 'Contoh: 01/09/1445';
+
   @override
   String get convert => 'Tukar';
+
   @override
   String get dateHijriLabel => 'Tarikh Hijrah';
+
   @override
   String get dateGregorianLabel => 'Tarikh Gregory';
+
   @override
   String get errorConvertingHijriToGregorian => 'Ralat menukar tarikh';
 
   @override
-  String get locationPermissionDeniedForeverTitle =>
-      'Kebenaran lokasi ditolak secara kekal, kami tidak boleh meminta kebenaran.';
+  String get locationPermissionDeniedForeverTitle => 'Kebenaran lokasi ditolak secara kekal, kami tidak boleh meminta kebenaran.';
+
   @override
   String get errorCalculatingQiblaDirection => 'Ralat mengira arah Kiblat';
+
   @override
   String get errorAccessingCompass => 'Ralat mengakses kompas';
+
   @override
   String get qiblaDirectionFromNorth => 'Sudut Kiblat dari Utara';
+
   @override
   String get youAreFacingTheQibla => 'Anda kini menghadap Kiblat';
 
   @override
   String get selectGregorianDate => 'Pilih Tarikh Gregory';
-  @override
-  String get enterHijriDate => 'Masukkan Tarikh Hijrah (HH-BB-TTTT)';
-  @override
-  String get errorConvertingHijriDate =>
-      'Ralat menukar tarikh Hijrah ke Gregory';
-  @override
-  String hijriToGregorianResult(String hijriDate, String gregorianDate) {
-    return 'Tarikh Hijrah: $hijriDate\nTarikh Gregory: $gregorianDate';
-  }
 
   @override
-  String get dateConverter => 'Date Converter';
+  String get enterHijriDate => 'Masukkan Tarikh Hijrah (HH-BB-TTTT)';
+
+  @override
+  String get errorConvertingHijriDate => 'Ralat menukar tarikh Hijrah ke Gregory';
 
   @override
   String get haramLiveTitle => 'Haram dan Siaran Langsung';
+
   @override
   String get chooseChannel => 'Pilih saluran yang anda ingin tonton sekarang';
+
   @override
   String get makkah => 'Mekah';
+
   @override
   String get saudiChannel => 'Saluran Saudi';
+
   @override
   String get quranChannel => 'Saluran Al-Quran';
+
   @override
   String get madinah => 'Madinah';
+
   @override
   String get madinahChannel => 'Saluran Madinah';
+
   @override
   String get liveStreamTitle => 'Siaran Langsung';
+
   @override
   String get initializing => 'Memulakan...';
+
   @override
   String get loadingStream => 'Memuat siaran langsung...';
+
   @override
   String get playingStream => 'Memainkan siaran...';
+
   @override
   String get clickToPlay => 'Klik butang main untuk memulakan siaran';
+
   @override
   String get openInBrowser => 'Buka dalam Pelayar';
+
   @override
-  String get openInBrowserDescription =>
-      'Siaran langsung akan dibuka dalam pelayar luaran peranti';
+  String get openInBrowserDescription => 'Siaran langsung akan dibuka dalam pelayar luaran peranti';
+
+  @override
+  String get home => 'Laman Utama';
+
+  @override
+  String get settings => 'Tetapan';
+
+  @override
+  String get rememberAllah => 'Ingatlah Allah';
+
+  @override
+  String get rememberAllahDescription => 'Ingatlah Allah pada bila-bila masa dan di mana sahaja';
+
+  @override
+  String get mustLoginFirst => 'Anda perlu log masuk terlebih dahulu';
+
+  @override
+  String get savedSuccessfully => 'Berjaya disimpan ✅';
+
+  @override
+  String get saveFailed => 'Gagal menyimpan';
+
+  @override
+  String get subhanAllah => 'Subhanallah';
+
+  @override
+  String get errorLoadingTasbehData => 'Ralat memuatkan data tasbih';
+
+  @override
+  String get errorLoadingCounter => 'Ralat memuatkan pembilang';
+
+  @override
+  String get errorSavingTasbeh => 'Ralat menyimpan tasbih';
+
+  @override
+  String get errorSavingSelectedZikr => 'Ralat menyimpan zikir terpilih';
+
+  @override
+  String get errorResettingCounter => 'Ralat menetapkan semula pembilang';
 
   @override
   String get open => 'Buka';
+
   @override
   String get streamLoadFailed => 'Gagal memuat siaran';
+
   @override
   String get retryAttempt => 'Percubaan';
 
   @override
   String get reload => 'Muat Semula';
+
   @override
   String get importantNotice => 'Notis Penting';
+
   @override
-  String get copyrightNotice =>
-      'Siaran disiarkan dari saluran {0} yang bernaung di bawah Pihak Berkuasa Penyiaran dan Televisyen di platform YouTube. Aplikasi tidak menerbitkan, menyimpan atau menyiarkan semula sebarang kandungan, dan semua hak milik pemiliknya.';
+  String copyrightNotice(String channel) {
+    return 'Siaran disiarkan dari saluran $channel yang bernaung di bawah Pihak Berkuasa Penyiaran dan Televisyen di platform YouTube. Aplikasi tidak menerbitkan, menyimpan atau menyiarkan semula sebarang kandungan, dan semua hak milik pemiliknya.';
+  }
+
   @override
-  String get copyrightRights =>
-      '© Hak Cipta Terpelihara - Presidensi Umum Urusan Dua Masjid Suci';
+  String get copyrightRights => '© Hak Cipta Terpelihara - Presidensi Umum Urusan Dua Masjid Suci';
+
   @override
   String get locationSettingsTitle => 'Tetapan Lokasi';
+
   @override
   String get unknown => 'Tidak Diketahui';
+
   @override
   String get regionLabel => 'Wilayah';
+
   @override
-  String get autoRefreshLocation =>
-      'Segarkan lokasi secara automatik semasa permulaan';
+  String get autoRefreshLocation => 'Segarkan lokasi secara automatik semasa permulaan';
+
   @override
   String get updating => 'Mengemas kini...';
+
   @override
   String get refreshLocationNow => 'Segarkan Lokasi Sekarang';
+
   @override
   String get locationUpdatedSuccessfully => 'Lokasi berjaya dikemas kini';
 
   @override
   String get notificationsTitle => 'Pemberitahuan';
+
   @override
   String get athanNotification => 'Pemberitahuan Azan';
+
   @override
   String get preAthanNotification => 'Amaran 5 Minit Sebelum Azan';
+
   @override
   String get khushooMode => 'Mod Khusyuk (Senapang semasa Solat)';
+
   @override
   String get collectiveKhatmaNotifications => 'Pemberitahuan Khatma Berjemaah';
+
   @override
   String get remindMeOfAllah => 'Ingatkan Saya Tentang Allah';
+
   @override
   String get minute => 'Minit';
+
   @override
   String get halfHour => 'Setengah Jam';
+
   @override
   String get hour => 'Jam';
+
   @override
   String get twoHours => 'Dua Jam';
+
+  @override
+  String get fourHours => '4 jam';
+
   @override
   String get premiumFeature => 'Ciri Premium';
+
   @override
-  String get premiumFeatureDescription =>
-      'Ciri ini hanya tersedia untuk pelanggan premium.\nNaik taraf untuk menikmati semua ciri!';
+  String get premiumFeatureDescription => 'Ciri ini hanya tersedia untuk pelanggan premium.\\nNaik taraf untuk menikmati semua ciri!';
+
   @override
   String get upgradeNow => 'Naik Taraf Sekarang';
 
   @override
   String get prayersAndMuezzinsTitle => 'Solat dan Muazin';
+
   @override
-  String get selectMuezzin => 'Pilih Muazin: {0}';
+  String selectMuezzin(String muezzinName) {
+    return 'Pilih Muazin: $muezzinName';
+  }
+
   @override
   String get notSpecified => 'Tidak Ditentukan';
+
   @override
   String get playAthanSound => 'Mainkan Bunyi Azan';
+
   @override
   String get selectMuezzinDialogTitle => 'Pilih Muazin';
+
   @override
   String get noRecitersAvailable => 'Tiada pembaca tersedia buat masa ini';
+
   @override
   String get chooseFavoriteMuezzin => 'Pilih Muazin Kegemaran';
+
   @override
-  String get muezzinSelected => 'Muazin dipilih: {0}';
+  String muezzinSelected(String muezzinName) {
+    return 'Muazin dipilih: $muezzinName';
+  }
+
   @override
   String get selectMuezzinFirst => 'Sila pilih muazin terlebih dahulu';
+
   @override
-  String get playingMuezzinSound => 'Memainkan bunyi muazin: {0}';
+  String playingMuezzinSound(String muezzinName) {
+    return 'Memainkan bunyi muazin: $muezzinName';
+  }
 
   @override
   String get quranSettingsTitle => 'Tetapan Al-Quran';
+
   @override
   String get favoriteTafsir => 'Tafsir Kegemaran';
+
   @override
   String get favoriteReciter => 'Qari Kegemaran';
+
   @override
   String get notAvailable => 'Tidak Tersedia';
+
   @override
   String get chooseTafsir => 'Pilih Tafsir';
+
   @override
   String get chooseReciter => 'Pilih Qari';
+
   @override
   String get notAvailableEnglish => 'Not Available';
+
   @override
   String get settingsLoadError => 'Ralat memuatkan tetapan';
 
   @override
   String get generalTitle => 'Umum';
+
   @override
   String get language => 'Bahasa';
+
   @override
   String get arabic => 'Arab';
+
   @override
   String get english => 'Inggeris';
+
   @override
   String get french => 'Perancis';
+
   @override
   String get indonesian => 'Indonesia';
+
   @override
   String get urdu => 'Urdu';
+
   @override
   String get turkish => 'Turki';
+
   @override
   String get bengali => 'Bengali';
+
   @override
   String get malay => 'Melayu';
+
   @override
   String get persian => 'Parsi';
+
   @override
   String get spanish => 'Sepanyol';
+
   @override
   String get german => 'Jerman';
+
   @override
   String get chinese => 'Cina';
+
   @override
   String get chooseLanguage => 'Pilih Bahasa';
+
   @override
   String get rateApp => 'Nilai Aplikasi';
+
   @override
   String get aboutApp => 'Tentang Aplikasi';
+
   @override
   String get privacyPolicy => 'Dasar Privasi';
+
   @override
   String get updatingLanguage => 'Mengemas kini bahasa...';
+
   @override
-  String get languageUpdateError => 'Ralat mengemas kini bahasa: {0}';
+  String languageUpdateError(String error) {
+    return 'Ralat mengemas kini bahasa: $error';
+  }
 
   @override
   String get appearanceTitle => 'Penampilan';
+
   @override
   String get darkMode => 'Mod Gelap';
+
   @override
   String get lightMode => 'Mod Terang';
 
   @override
-  String get home => 'Laman Utama';
-  @override
-  String get settings => 'Tetapan';
-  @override
-  String get rememberAllah => 'Ingatlah Allah';
-  @override
-  String get rememberAllahDescription =>
-      'Ingatlah Allah pada bila-bila masa dan di mana sahaja';
-  @override
-  String get mustLoginFirst => 'Anda perlu log masuk terlebih dahulu';
-  @override
-  String get savedSuccessfully => 'Berjaya disimpan ✅';
-  @override
-  String get saveFailed => 'Gagal menyimpan';
-  @override
-  String get subhanAllah => 'Subhanallah';
-  @override
-  String get errorLoadingTasbehData => 'Ralat memuatkan data tasbih';
-  @override
-  String get errorLoadingCounter => 'Ralat memuatkan pembilang';
-  @override
-  String get errorSavingTasbeh => 'Ralat menyimpan tasbih';
-  @override
-  String get errorSavingSelectedZikr => 'Ralat menyimpan zikir terpilih';
-  @override
-  String get errorResettingCounter => 'Ralat menetapkan semula pembilang';
+  String get alhamdulillah => 'Alhamdulillah';
 
   @override
-  String get alhamdulillah => 'Alhamdulillah';
-  @override
   String get allahuAkbar => 'Allahu Akbar';
+
   @override
   String get laIlahaIllallah => 'La Ilaha Illallah';
+
   @override
   String get astaghfirullah => 'Astaghfirullah';
+
   @override
   String get reset => 'Tetapkan Semula';
+
   @override
   String get saving => 'Menyimpan...';
 
   @override
   String get accountAndSubscription => 'Akaun & Langganan';
+
   @override
   String get monthlySubscription => 'Langganan Bulanan';
+
   @override
   String get yearlySubscription => 'Langganan Tahunan';
+
   @override
   String get premiumSubscription => 'Premium';
+
   @override
   String get freeSubscription => 'Percuma';
+
   @override
   String get accountStatus => 'Status Akaun';
+
   @override
   String get expiresOn => 'Tamat Pada';
+
   @override
   String get manageSubscription => 'Urus Langganan';
+
   @override
   String get upgradeAccount => 'Naik Taraf Akaun';
+
   @override
   String get manage => 'Urus';
+
   @override
   String get subscribe => 'Langgan';
 
   @override
-  String get zakatCalculator => 'Kalkulator Zakat';
-  @override
-  String get zakatDisclaimer =>
-      'Nota: Pengiraan ini adalah anggaran dan bukan fatwa agama.\nUntuk keputusan agama yang tepat, sila rujuk kepada ulama yang berpengetahuan.';
-  @override
-  String get totalCash => 'Jumlah Wang Tunai';
-  @override
-  String get doYouOwnGold => 'Adakah anda memiliki emas?';
-  @override
-  String get goldValue => 'Nilai Emas (jika diketahui secara langsung)';
-  @override
-  String get goldGrams => 'Gram Emas';
-  @override
-  String get gold24kPrice => 'Harga Emas 24K Se Gram';
-  @override
-  String get requiredForNisaab =>
-      'Diperlukan untuk pengiraan Nisab yang tepat (85 gram emas)';
-  @override
-  String get requiredForGoldValue =>
-      'Diperlukan untuk mengira nilai emas dari gram';
-  @override
-  String get tradeValue => 'Nilai Barangan Dagangan';
-  @override
-  String get enableNisaab => 'Aktifkan Syarat Nisab';
-  @override
-  String get calculateZakat => 'Kira Zakat';
-  @override
-  String get fieldRequired => 'Medan ini diperlukan';
-  @override
-  String get enterValidNumber => 'Sila masukkan nombor yang sah';
-
-  String get worshipSectionTitle => 'Bahagian Ibadah';
-  String get prayerGuideSectionTitle => 'Panduan Solat';
-  String get islamicServicesSectionTitle => 'Perkhidmatan Islam';
-  String get hadiths => 'Hadis';
-  String get allahNames => 'Nama-nama Allah';
-  String get ramadanFeatures => 'Ciri-ciri Ramadan';
-  String get prayerAndQibla => 'Solat & Kiblat';
-  String get locationAndMosques => 'Lokasi & Masjid';
-  String get audio => 'Audio';
-  String get chatList => 'Senarai Sembang';
-  String get class_ => 'Kelas';
-  String get premiumBookMessage => 'Mesej Buku Premium';
-  String get upgrade => 'Naik Taraf';
-  String get selectBook => 'Pilih Buku';
-  String get noHadithsAvailable => 'Tiada Hadis Tersedia';
-  String get by => 'Oleh';
-  String get days => 'Hari';
-  String get ofWord => 'Daripada';
-  String get hadithCopied => 'Hadis Disalin';
-  String get hadithRemovedFromFavorites =>
-      'Hadis Dialih Keluar daripada Kegemaran';
-  String get hadithAddedToFavorites => 'Hadis Ditambah ke Kegemaran';
-  String get narrator => 'Perawi';
-  String get shareHadithText => 'Kongsi Teks Hadis';
-  String get scholarsEvaluation => 'Penilaian Ulama';
-  String get hadithDetails => 'Butiran Hadis';
   String get collectiveKhatma => 'Khatam Bersama';
 
+  @override
   String get quranKareem => 'Al-Quran';
+
+  @override
   String get azkarAndAdiyah => 'Zikir & Doa';
+
+  @override
   String get khatma => 'Khatam';
+
+  @override
   String get liveBroadcastAndHaram => 'Siaran Langsung & Haram';
+
+  @override
   String get smartAssistant => 'Pembantu Pintar';
+
+  @override
   String get maxZoom => 'Zum Maksimum';
-  String get licensedBroadcast =>
-      'Siaran ini dilesenkan daripada saluran rasmi Saudi';
+
+  @override
+  String get licensedBroadcast => 'Siaran ini dilesenkan daripada saluran rasmi Saudi';
+
+  @override
   String get chooseKhatmaCount => 'Pilih bilangan khatam:';
+
+  @override
   String get chooseKhatmaCountHint => 'Pilih bilangan khatam';
+
+  @override
   String get pagesPerDay => 'Muka Surat/Hari';
+
+  @override
   String get juzPerDay => 'Juzuk/Hari';
+
+  @override
   String get hideSchedule => 'Sembunyi Jadual';
+
+  @override
   String get showDetailedSchedule => 'Tunjukkan Jadual Terperinci';
+
+  @override
   String get dayColumn => 'Hari';
+
+  @override
   String get pagesColumn => 'Muka Surat';
+
+  @override
   String get surahsColumn => 'Surah';
-  String pagesCountText(int count) => '($count muka surat)';
+
   @override
   String get yourDailyWird => 'Wird Harian Anda';
-  @override
-  String ayahsRangeText(int start, int end) => 'Ayat $start - $end';
+
   @override
   String get pageNumber => 'Nombor Halaman';
+
   @override
   String get currentJuz => 'Juz Semasa';
+
   @override
   String get readJuz => 'Juz Dibaca';
+
   @override
   String get remainingPages => 'Halaman Tinggal';
+
   @override
   String get todayProgress => 'Kemajuan Hari Ini';
+
   @override
   String get pagesUnit => 'Halaman';
+
   @override
   String get khatmaPercentage => 'Peratusan Khatam';
+
   @override
-  String get khatmaTrackingNote =>
-      'Penjejakan Khatam hanya berfungsi dengan mod "Balik Melintang"';
+  String get khatmaTrackingNote => 'Penjejakan Khatam hanya berfungsi dengan mod \"Balik Melintang\"';
+
   @override
   String get continueReading => 'Teruskan Membaca';
+
   @override
   String get liveNow => 'Siaran Langsung';
 
   @override
   String get nearbyMosques => 'Masjid Berhampiran';
+
   @override
   String get pleaseWaitForMosquesToLoad => 'Sila tunggu sehingga masjid dimuat';
+
   @override
   String get showOnMap => 'Tunjukkan di Peta';
+
   @override
   String get updateLocation => 'Kemas Kini Lokasi';
+
   @override
-  String get noNearbyMosquesInRange =>
-      'Tiada masjid berhampiran dalam julat semasa';
+  String get noNearbyMosquesInRange => 'Tiada masjid berhampiran dalam julat semasa';
+
   @override
   String get map => 'Peta';
+
   @override
   String get myCurrentLocation => 'Lokasi Semasa Saya';
+
   @override
   String get directions => 'Arah';
+
   @override
   String get openInMaps => 'Buka dalam Peta';
-  @override
-  String directionsApiError(String status, String errorMessage) =>
-      'Ralat API Arah: $status - ${errorMessage.isNotEmpty ? errorMessage : "Tiada mesej ralat"}';
+
   @override
   String get benefits => 'Faedah';
+
   @override
   String get explanation => 'Penjelasan';
+
   @override
   String get forgotPassword => 'Lupa Kata Laluan?';
+
   @override
   String get forgotPasswordTitle => 'Tetapkan Semula Kata Laluan';
+
   @override
-  String get forgotPasswordDescription =>
-      'Masukkan e-mel anda dan kami akan menghantar pautan untuk menetapkan semula kata laluan anda';
+  String get forgotPasswordDescription => 'Masukkan e-mel anda dan kami akan menghantar pautan untuk menetapkan semula kata laluan anda';
+
   @override
   String get sendResetLink => 'Hantar Pautan Tetapan Semula';
+
   @override
   String get backToLogin => 'Kembali ke Log Masuk';
+
   @override
-  String get checkSpamMessage =>
-      'Nota: E-mel mungkin pergi ke folder Spam, sila semaknya';
+  String get checkSpamMessage => 'Nota: E-mel mungkin pergi ke folder Spam, sila semaknya';
+
   @override
-  String get copyrightHadithNotice =>
-      'Semua hak cipta terpelihara untuk sumber. (HadeethEnc.com)';
+  String get copyrightHadithNotice => 'Semua hak cipta terpelihara untuk sumber. (HadeethEnc.com)';
+
   @override
   String get wordsMeaning => 'Maksud Perkataan';
 
   @override
-  String get ramadanMubarakFull =>
-      'Ramadan Mubarak, semoga Allah mengembalikannya kepada kita dan anda dengan keberkatan dan rahmat';
   String get appName => 'Mishkat Al-Hoda';
-  String get appDescription =>
-      'Aplikasi komprehensif anda untuk ibadah dan pengetahuan Islam';
+
+  @override
+  String get appDescription => 'Aplikasi komprehensif anda untuk ibadah dan pengetahuan Islam';
+
+  @override
   String get version => 'Versi 1.0.0';
+
+  @override
   String get mainFeatures => 'Ciri-ciri Utama';
+
+  @override
   String get aboutAndRights => 'Tentang Aplikasi & Hak';
+
+  @override
   String get generalInfo => 'Maklumat Umum';
-  String get appFullDescription =>
-      'Mishkat Al-Hoda Pro ialah aplikasi Islam komprehensif yang bertujuan memudahkan ibadah dan pengetahuan Islam untuk Muslim di seluruh dunia.';
+
+  @override
+  String get appFullDescription => 'Mishkat Al-Hoda Pro ialah aplikasi Islam komprehensif yang bertujuan memudahkan ibadah dan pengetahuan Islam untuk Muslim di seluruh dunia.';
+
+  @override
   String get intellectualRights => 'Hak Intelek';
-  String get copyProhibition =>
-      '• Menyalin atau mengedarkan kandungan tanpa kebenaran terdahulu adalah dilarang';
+
+  @override
+  String get copyProhibition => '• Menyalin atau mengedarkan kandungan tanpa kebenaran terdahulu adalah dilarang';
+
+  @override
   String get contentSource => '• Kandungan Islam dari sumber yang dipercayai';
-  String get designProtection =>
-      '• Reka bentuk dan pengaturcaraan aplikasi dilindungi hak cipta';
+
+  @override
+  String get designProtection => '• Reka bentuk dan pengaturcaraan aplikasi dilindungi hak cipta';
+
+  @override
   String get legalInformation => 'Maklumat Undang-undang';
+
+  @override
   String get dataCollection => 'Pengumpulan Data';
-  String get locationDataCollect =>
-      '• Kami mengumpul data lokasi untuk menyediakan waktu solat yang tepat';
-  String get accountDataStorage =>
-      '• Data akaun disimpan dengan selamat untuk sandaran';
-  String get noDataSharing =>
-      '• Kami tidak berkongsi data peribadi anda dengan pihak ketiga';
+
+  @override
+  String get locationDataCollect => '• Kami mengumpul data lokasi untuk menyediakan waktu solat yang tepat';
+
+  @override
+  String get accountDataStorage => '• Data akaun disimpan dengan selamat untuk sandaran';
+
+  @override
+  String get noDataSharing => '• Kami tidak berkongsi data peribadi anda dengan pihak ketiga';
+
+  @override
   String get guestData => 'Data Tetamu';
-  String get guestUsage =>
-      '• Aplikasi boleh digunakan sebagai tetamu tanpa pendaftaran';
-  String get localStorage =>
-      '• Data tetamu disimpan secara tempatan pada peranti anda sahaja';
-  String get accountConversion =>
-      '• Anda boleh menukar kepada akaun berdaftar pada bila-bila masa';
+
+  @override
+  String get guestUsage => '• Aplikasi boleh digunakan sebagai tetamu tanpa pendaftaran';
+
+  @override
+  String get localStorage => '• Data tetamu disimpan secara tempatan pada peranti anda sahaja';
+
+  @override
+  String get accountConversion => '• Anda boleh menukar kepada akaun berdaftar pada bila-bila masa';
+
+  @override
   String get security => 'Keselamatan';
-  String get sslEncryption =>
-      '• Kami menggunakan penyulitan SSL untuk semua komunikasi';
-  String get passwordEncryption =>
-      '• Kata laluan disimpan dalam bentuk disulitkan';
-  String get dataProtection =>
-      '• Kami mematuhi piawaian perlindungan data global';
+
+  @override
+  String get sslEncryption => '• Kami menggunakan penyulitan SSL untuk semua komunikasi';
+
+  @override
+  String get passwordEncryption => '• Kata laluan disimpan dalam bentuk disulitkan';
+
+  @override
+  String get dataProtection => '• Kami mematuhi piawaian perlindungan data global';
+
+  @override
   String get termsOfUse => 'Syarat Penggunaan';
+
+  @override
   String get acceptableUse => 'Penggunaan yang Diterima';
-  String get worshipUsage =>
-      '• Gunakan aplikasi untuk tujuan ibadah dan pengetahuan Islam';
-  String get respectIntellectualProperty =>
-      '• Hormati hak harta intelek kandungan';
-  String get complyWithLaws =>
-      '• Patuhi undang-undang tempatan dan antarabangsa';
+
+  @override
+  String get worshipUsage => '• Gunakan aplikasi untuk tujuan ibadah dan pengetahuan Islam';
+
+  @override
+  String get respectIntellectualProperty => '• Hormati hak harta intelek kandungan';
+
+  @override
+  String get complyWithLaws => '• Patuhi undang-undang tempatan dan antarabangsa';
+
+  @override
   String get restrictions => 'Sekatan';
-  String get illegalUsageProhibition =>
-      '• Penggunaan aplikasi untuk tujuan haram tidak dibenarkan';
-  String get copyModifyProhibition =>
-      '• Dilarang menyalin atau mengubahsuai kandungan tanpa kebenaran';
-  String get respectfulEnvironment =>
-      '• Kekalkan persekitaran penggunaan yang hormat';
+
+  @override
+  String get illegalUsageProhibition => '• Penggunaan aplikasi untuk tujuan haram tidak dibenarkan';
+
+  @override
+  String get copyModifyProhibition => '• Dilarang menyalin atau mengubahsuai kandungan tanpa kebenaran';
+
+  @override
+  String get respectfulEnvironment => '• Kekalkan persekitaran penggunaan yang hormat';
+
+  @override
   String get contactUs => 'Hubungi Kami';
+
+  @override
   String get appInquiry => 'Pertanyaan mengenai Aplikasi Mishkat Al-Hoda';
-  String get welcomeQuestions =>
-      'Kami mengalu-alukan soalan dan pertanyaan anda mengenai aplikasi';
+
+  @override
+  String get welcomeQuestions => 'Kami mengalu-alukan soalan dan pertanyaan anda mengenai aplikasi';
+
+  @override
   String get lastUpdate => 'Kemaskini Terakhir: 10 Disember 2025';
+
+  @override
   String get compatibility => 'Serasi dengan: iOS 13+ / Android 8+';
 
-  // مميزات
-  String get quranDescription =>
-      'Bacaan Al-Quran lengkap dengan tafsir dan tilawah';
-  List<String> get quranFeatures => [
-    '114 surah',
-    'Tafsir ayat',
-    'Khatam Al-Quran',
-  ];
-  String get hadithsDescription =>
-      'Koleksi hadis sahih dengan penjelasan dan klasifikasi';
-  List<String> get hadithFeatures => [
-    'Hadis Sahih',
-    'Penjelasan & Kebaikan',
-    'Carian Lanjutan',
-  ];
-  String get azkarAndDua => 'Zikir & Doa';
-  String get azkarDescription => 'Zikir pagi dan petang serta doa-doa ma\'thur';
-  List<String> get azkarFeatures => [
-    'Zikir Harian',
-    'Doa Ma\'thur',
-    'Peringatan',
-  ];
-  String get allahNamesDescription =>
-      'Pelajari Nama-nama Allah yang Indah dengan makna dan kelebihan';
-  List<String> get allahNamesFeatures => [
-    '99 nama',
-    'Makna & Penjelasan',
-    'Kelebihan & Pahala',
-  ];
-  String get khatmaTracker => 'Pengesan Khatam';
-  String get khatmaDescription =>
-      'Pantau kemajuan anda dalam menyelesaikan Al-Quran';
-  List<String> get khatmaFeatures => [
-    'Pengesanan Kemajuan',
-    'Statistik',
-    'Matlamat Harian',
-  ];
-  String get prayerTimes => 'Waktu Solat';
-  String get prayerTimesDescription =>
-      'Waktu solat yang tepat untuk lokasi anda';
-  List<String> get prayerFeatures => [
-    '5 Waktu Solat Harian',
-    'Kiblat',
-    'Pemberitahuan',
-  ];
-  String get mosquesDescription => 'Temui masjid berhampiran lokasi anda';
-  List<String> get mosqueFeatures => [
-    'Peta Masjid',
-    'Jarak & Masa',
-    'Maklumat',
-  ];
-  String get islamicAudio => 'Audio Islam';
-  String get audioDescription => 'Audio Al-Quran, ucapan, dan kuliah';
-  List<String> get audioFeatures => [
-    'Al-Quran',
-    'Ucapan & Kuliah',
-    'Radio Quran',
-  ];
-  String get liveBroadcast => 'Siaran Langsung';
-  String get broadcastDescription =>
-      'Tonton siaran langsung dari Masjidil Haram di Mekah';
-  List<String> get broadcastFeatures => [
-    'Masjidil Haram',
-    'Masjid Nabawi',
-    'Saluran Islam',
-  ];
-  String get assistantDescription => 'Jawapan bergaya Islami untuk soalan anda';
-  List<String> get assistantFeatures => [
-    'Fatwa Islam',
-    'Jawapan Tepat',
-    'Panduan Bimbingan',
-  ];
-  String get zakatDescription => 'Kira zakat anda dengan tepat dan mudah';
-  List<String> get zakatFeatures => [
-    'Zakat Wang',
-    'Zakat Emas',
-    'Zakat Perniagaan',
-  ];
-  String get dateConverterDescription =>
-      'Tukar antara tarikh Hijri dan Gregorian';
-  List<String> get dateFeatures => [
-    'Penukaran Tarikh',
-    'Kalendar Hijri',
-    'Acara Islam',
-  ];
+  @override
+  String get quranDescription => 'Bacaan Al-Quran lengkap dengan tafsir dan tilawah';
 
-  List<String> get subscriptionFeatures => [
-    "Soalan AI tanpa had",
-    "Penyingkiran iklan sepenuhnya",
-    "Aktifkan azan automatik dalam latar belakang",
-    "Akses kepada semua buku dan hadis",
-    "Sokong pembangunan aplikasi",
-  ];
-  String get noProductsAvailable => "Tiada produk tersedia buat masa ini";
-  String get mostSaving => "Paling Jimat";
+  @override
+  String get hadithsDescription => 'Koleksi hadis sahih dengan penjelasan dan klasifikasi';
+
+  @override
+  String get azkarAndDua => 'Zikir & Doa';
+
+  @override
+  String get azkarDescription => 'Zikir pagi dan petang serta doa-doa ma\\\'thur';
+
+  @override
+  String get allahNamesDescription => 'Pelajari Nama-nama Allah yang Indah dengan makna dan kelebihan';
+
+  @override
+  String get khatmaTracker => 'Pengesan Khatam';
+
+  @override
+  String get khatmaDescription => 'Pantau kemajuan anda dalam menyelesaikan Al-Quran';
+
+  @override
+  String get prayerTimes => 'Waktu Solat';
+
+  @override
+  String get prayerTimesDescription => 'Waktu solat yang tepat untuk lokasi anda';
+
+  @override
+  String get mosquesDescription => 'Temui masjid berhampiran lokasi anda';
+
+  @override
+  String get islamicAudio => 'Audio Islam';
+
+  @override
+  String get audioDescription => 'Audio Al-Quran, ucapan, dan kuliah';
+
+  @override
+  String get liveBroadcast => 'Siaran Langsung';
+
+  @override
+  String get broadcastDescription => 'Tonton siaran langsung dari Masjidil Haram di Mekah';
+
+  @override
+  String get assistantDescription => 'Jawapan bergaya Islami untuk soalan anda';
+
+  @override
+  String get zakatDescription => 'Kira zakat anda dengan tepat dan mudah';
+
+  @override
+  String get dateConverterDescription => 'Tukar antara tarikh Hijri dan Gregorian';
+
+  @override
+  String get noProductsAvailable => 'Tiada produk tersedia buat masa ini';
+
+  @override
+  String get mostSaving => 'Paling Jimat';
+
   @override
   String get deleteAccountWarning => 'Amaran: Padam Akaun';
 
   @override
-  String get areYouSureDeleteAccount =>
-      'Adakah anda pasti mahu memadam akaun anda?';
+  String get areYouSureDeleteAccount => 'Adakah anda pasti mahu memadam akaun anda?';
 
   @override
   String get deleteAccountConsequences => '⚠️ Kesan Pemadaman Akaun:';
@@ -1621,8 +2068,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get actionCannotUndone => 'Tindakan ini tidak boleh dibatalkan';
 
   @override
-  String get needNewAccountToUseApp =>
-      'Anda perlu membuat akaun baharu untuk menggunakan aplikasi';
+  String get needNewAccountToUseApp => 'Anda perlu membuat akaun baharu untuk menggunakan aplikasi';
 
   @override
   String get deleteAccountSuccess => 'Akaun berjaya dipadam';
@@ -1634,15 +2080,5 @@ class AppLocalizationsMs extends AppLocalizations {
   String get deleteAccount => 'Padam Akaun';
 
   @override
-  String get deleteAccountAndAssociatedData =>
-      'Padam akaun anda dan data berkaitan';
-
-  @override
-  String get halalRestaurants => 'Halal Restaurants';
-  @override
-  String get hisnAlMuslim => 'Hisn Al-Muslim';
-  @override
-  String get smartVoiceDhikr => 'Smart Voice Dhikr';
-  @override
-  String get smartVoiceDescription => 'Control your dhikr with voice commands';
+  String get deleteAccountAndAssociatedData => 'Padam akaun anda dan data berkaitan';
 }
