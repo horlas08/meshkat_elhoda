@@ -25,8 +25,6 @@
   "share": "اشتراک گذاری",
   "smartMisbah": "تسبیح هوشمند",
   "startTasbeh": "شروع تسبیح",
-
-
   "locationPermissionDeniedTitle": "دسترسی به موقعیت مکانی رد شد",
   "locationPermissionDescription": "برای نمایش دقیق زمان نمازها، به موقعیت شما نیاز داریم. شما می‌توانید:",
   "locationPermissionOptionAllow": "• اجازه دسترسی به موقعیت مکانی",
@@ -40,7 +38,6 @@
   "manualLocationCountryError": "لطفاً کشور را وارد کنید",
   "cancel": "لغو",
   "manualLocationConfirmButton": "تأیید",
-
   "readingModeTitle": "حالت مطالعه",
   "readingModeVerticalTitle": "اسکرول عمودی",
   "readingModeVerticalSubtitle": "بالا و پایین اسکرول کنید",
@@ -82,17 +79,6 @@
   "tafsirOfAyah": "تفسیر آیه",
   "tafsirNameLabel": "نام تفسیر",
   "tafsirErrorLog": "خطا هنگام بارگذاری تفسیر",
-
-
-
-
-
-
-
-
-
-
-
   "part": "جزء",
   "smartAssistant": "دستیار هوشمند",
   "quran": "قرآن کریم",
@@ -103,48 +89,588 @@
   "mushaf": "مصحف",
   "newKhatmah": "ختم جدید",
   "haramAndLive": "حرم و پخش زنده",
-  "chooseChannel": "کانالی را که می‌خواهید تماشا کنید انتخاب کنید",
+  "chooseChannel": "کانالی که می‌خواهید هم‌اکنون تماشا کنید را انتخاب کنید",
   "makkah": "مکه",
-  "saudiChannel": "شبکه سعودی",
+  "saudiChannel": "کانال عربستان",
   "licensedMessage": "این پخش از شبکه‌های رسمی سعودی مجوز دارد",
   "connectedNow": "اکنون متصل است",
   "watch": "تماشا کنید",
   "madinah": "مدینه",
-  "madinahChannel": "شبکه مدینه",
+  "madinahChannel": "کانال مدینه",
   "setQibla": "قبله را تنظیم کنید",
-  "zakatCalculator": "حاسبة الزکاة",
-  "dateConverter": "مبدل تاریخ",
+  "zakatCalculator": "ماشین حساب زکات",
+  "dateConverter": "Date Converter",
   "chatList": "لیست چت",
   "class_": "کلاس",
-  "premiumBookMessage": "این کتاب فقط برای مشترکین پریمیوم در دسترس است.",
+  "premiumBookMessage": "پیام کتاب پریمیوم",
   "upgrade": "ارتقاء",
   "selectBook": "انتخاب کتاب",
-  "noHadithsAvailable": "هیچ حدیثی موجود نیست.",
+  "noHadithsAvailable": "هیچ حدیثی موجود نیست",
   "greetYourLovedOnes": "به عزیزانتان تبریک بگویید",
   "quranKarem": "قرآن کریم",
-  "ramadanKarimGreeting": "رمضان کریم\nماه پربرکت بر شما مبارک",
-  "ramadanWirdCalculatorTitle": "محاسبه‌گر ورد رمضان",
-  "khatmaCountHint": "تعداد ختم‌هایی که می‌خواهید",
-  "khatmaCountExceededMessage": "لطفاً عددی کمتر از ۱۰۰۰ وارد کنید",
-  "dailyWirdHeader": "ورد روزانه شما",
-  "dailyAjzaaLabel": "تعداد جزءها",
-  "dailyPagesLabel": "تعداد صفحات",
+  "ramadanKarimGreeting": "تبریک رمضان  مبارک",
+  "ramadanWirdCalculatorTitle": "ماشین حساب ورد رمضان",
+  "khatmaCountHint": "راهنمای تعداد ختم‌ها",
+  "khatmaCountExceededMessage": "تعداد ختم‌ها بیش از حد مجاز است",
+  "dailyWirdHeader": "ورد روزانه",
+  "dailyAjzaaLabel": "اجزاء روزانه",
+  "dailyPagesLabel": "صفحات روزانه",
   "goToMushafButton": "رفتن به مصحف",
-  "halalRestaurants": "رستوران‌های حلال",
-  "hisnAlMuslim": "حصن المسلم",
-  "smartVoiceDhikr": "ذکر صوتی هوشمند",
-  "smartVoiceDescription": "پخش صوتی ذکر تصادفی در پس‌زمینه",
-  "zakatDisclaimer": "توجه: این محاسبه تقریبی است.",
-  "totalCash": "مجموع نقدینگی",
+  "halalRestaurants": "Halal Restaurants",
+  "hisnAlMuslim": "Hisn Al-Muslim",
+  "smartVoiceDhikr": "Smart Voice Dhikr",
+  "smartVoiceDescription": "Control your dhikr with voice commands",
+  "zakatDisclaimer": "توجه: این محاسبه تقریبی است و حکم شرعی محسوب نمی‌شود.\\nبرای اطلاع از حکم دقیق شرعی لطفاً با علمای دینی مشورت کنید.",
+  "totalCash": "مجموع پول نقد",
   "doYouOwnGold": "آیا طلا دارید؟",
-  "goldValue": "ارزش طلا",
-  "goldGrams": "وزن طلا (گرم)",
-  "gold24kPrice": "قیمت‌ طلای ۲۴ عیار",
-  "requiredForNisaab": "مورد نیاز برای حد نصاب",
-  "requiredForGoldValue": "مورد نیاز برای ارزش طلا",
-  "tradeValue": "ارزش تجارت",
-  "enableNisaab": "فعال‌سازی حد نصاب",
+  "goldValue": "ارزش طلا (در صورت اطلاع مستقیم)",
+  "goldGrams": "گرم طلا",
+  "gold24kPrice": "قیمت هر گرم طلای 24 عیار",
+  "requiredForNisaab": "برای محاسبه دقیق نصاب الزامی است (85 گرم طلا)",
+  "requiredForGoldValue": "برای محاسبه ارزش طلا بر اساس گرم الزامی است",
+  "tradeValue": "ارزش کالای تجاری",
+  "enableNisaab": "فعال‌سازی شرط نصاب",
   "calculateZakat": "محاسبه زکات",
-  "fieldRequired": "الزامی",
-  "enterValidNumber": "شماره نامعتبر"
+  "fieldRequired": "این فیلد الزامی است",
+  "enterValidNumber": "لطفاً عدد معتبر وارد کنید",
+  "khatmat": "Khatmas",
+  "scholarsEvaluation": "ارزیابی علماء",
+  "start_your_journey": "Start your journey with the Quran",
+  "by": "توسط",
+  "locationAndMosques": "موقعیت و مساجد",
+  "subscriptionSuccess": "Subscription activated successfully",
+  "maghrib": "مغرب",
+  "duhr": "Dhuhr",
+  "set_qibla": "Set Qibla Direction",
+  "ramadanFeatures": "ویژگی‌های رمضان",
+  "days": "روز",
+  "off": "of",
+  "sunrise": "طلوع آفتاب",
+  "new_khatma": "New Khatma",
+  "licensed_broadcast": "This broadcast is licensed from official Saudi channels",
+  "after": "بعد از",
+  "online": "Online now",
+  "aiDisclaimerWarning": "⚠️ AI-generated answers should be reviewed from reliable sources",
+  "narrator": "راوی",
+  "hadithLoadError": "خطا در بارگیری حدیث: {0}",
+  "prayerAndQibla": "نماز و قبله",
+  "hadiths": "احادیث",
+  "classLabel": "Class",
+  "haram_and_live": "Haram & Live Broadcast",
+  "worshipSectionTitle": "بخش عبادات",
+  "fajr": "فجر",
+  "hadithAddedToFavorites": "حدیث به علاقه‌مندی‌ها اضافه شد",
+  "smart_assistant": "Smart Assistant",
+  "islamicServicesSectionTitle": "خدمات اسلامی",
+  "madina": "Al-Madina",
+  "hadithRemovedFromFavorites": "حدیث از علاقه‌مندی‌ها حذف شد",
+  "current_khatma": "Your Current Khatma",
+  "todayDuaaHeader": "دعای امروز",
+  "asr": "عصر",
+  "audio": "صوتی",
+  "mecca": "Mecca",
+  "ramadanKarim": "رمضان  مبارک",
+  "allahNames": "اسماء الحسنی",
+  "isha": "عشاء",
+  "shareHadithText": "اشتراک متن حدیث",
+  "choose_channel": "Choose the channel you want to watch now",
+  "saudi_channel": "Saudi Channel",
+  "prayerGuideSectionTitle": "راهنمای نماز",
+  "hadithCopied": "حدیث کپی شد",
+  "searchResults": "نتایج",
+  "madina_channel": "Madina Channel",
+  "hadithDetails": "جزئیات حدیث",
+  "copyrightHadithNotice": "تمام حقوق برای منبع محفوظ است. (HadeethEnc.com)",
+  "fourHours": "۴ ساعت",
+  "aiGeneratedAnswersNeedReview": "پاسخ‌های تولیدشده توسط هوش مصنوعی باید بازبینی شوند",
+  "wordsMeaning": "معنای کلمات",
+  "ramadanMubarakFull": "رمضان مبارک، خداوند آن را با برکت و رحمت به ما و شما بازگرداند",
+  "assistantAppBarTitle": "دستیار هوش مصنوعی",
+  "createNewChat": "چت جدید",
+  "aiModelSelection": "انتخاب مدل هوش مصنوعی",
+  "retryButton": "دوباره تلاش کنید",
+  "creatingNewChatMessage": "در حال ایجاد چت جدید...",
+  "noActiveChatMessage": "چت فعالی وجود ندارد",
+  "startNewChatMessage": "با ارسال پیام یک گفتگوی جدید شروع کنید",
+  "pleaseWait": "لطفاً صبر کنید...",
+  "typingIndicator": "در حال تایپ...",
+  "dailyLimitReachedTitle": "محدودیت روزانه تکمیل شد",
+  "dailyLimitReachedMessage": "امروز {dailyCount} از {maxQuestions} سوال را استفاده کرده اید",
+  "upgradeToPremiumButton": "ارتقا به پرمیوم",
+  "featureAvailableForPremium": "ویژگی پرمیوم",
+  "premiumFeatureTitle": "انتخاب مدل هوش مصنوعی فقط برای مشترکین پرمیوم در دسترس است",
+  "premiumFeatureContent": "ارتقا دهید تا دریافت کنید:\\n• انتخاب مدل پیشرفته\\n• سوالات نامحدود\\n• پاسخ های مفصل تر",
+  "okButton": "باشه",
+  "upgradeNowButton": "همین حالا ارتقا دهید",
+  "laterButton": "بعداً",
+  "questionsRemaining": "باقی مانده: {remaining}",
+  "of": "از",
+  "chooseAiModelTitle": "مدل هوش مصنوعی را انتخاب کنید",
+  "gpt4oMiniTitle": "GPT-4o مینی",
+  "gpt4oMiniSubtitle": "سریع و متعادل",
+  "gpt4oTitle": "GPT-4o",
+  "gpt4oSubtitle": "دقیق تر و مفصل تر",
+  "conversationsTitle": "گفتگوها",
+  "newConversation": "گفتگوی جدید",
+  "noConversationsMessage": "هنوز گفتگویی وجود ندارد. برای ایجاد جدید روی + کلیک کنید",
+  "newChatCreationMessage": "در حال ایجاد چت جدید...",
+  "dayAgo": "{days} روز پیش",
+  "hourAgo": "{hours} ساعت پیش",
+  "minuteAgo": "{minutes} دقیقه پیش",
+  "now": "اکنون",
+  "typeMessageHint": "پیام خود را تایپ کنید...",
+  "pleaseWaitHint": "لطفاً صبر کنید...",
+  "tryAgain": "دوباره تلاش کنید",
+  "emailLabel": "ایمیل",
+  "emailRequiredError": "لطفاً ایمیل خود را وارد کنید",
+  "passwordLabel": "رمز عبور",
+  "passwordRequiredError": "لطفاً رمز عبور خود را وارد کنید",
+  "loginButton": "ورود",
+  "alreadyHaveAccount": "قبلاً حساب کاربری دارید؟ ",
+  "createAccountLink": "ایجاد حساب",
+  "nameLabel": "نام",
+  "nameRequiredError": "لطفاً نام خود را وارد کنید",
+  "emailLabelRegister": "ایمیل",
+  "emailRequiredErrorRegister": "لطفاً ایمیل خود را وارد کنید",
+  "passwordLabelRegister": "رمز عبور",
+  "passwordRequiredErrorRegister": "لطفاً رمز عبور خود را وارد کنید",
+  "passwordMinLengthError": "رمز عبور باید حداقل 6 کاراکتر باشد",
+  "confirmPasswordLabel": "تأیید رمز عبور",
+  "confirmPasswordRequiredError": "لطفاً رمز عبور خود را تأیید کنید",
+  "passwordsMismatchError": "رمز عبور مطابقت ندارد",
+  "createAccountButton": "ایجاد حساب",
+  "orText": "یا",
+  "loginAsGuestButton": "ورود به عنوان مهمان",
+  "loginLinkText": "ورود",
+  "noAccountText": "قبلاً حساب کاربری دارید؟ ",
+  "countryLabel": "کشور",
+  "searchHint": "جستجو...",
+  "loginSuccessMessage": "ورود موفقیت آمیز",
+  "guestLoginSuccessMessage": "ورود مهمان موفقیت آمیز",
+  "registerSuccessMessage": "حساب کاربری با موفقیت ایجاد شد",
+  "errorOccurred": "خطایی رخ داد",
+  "invalidEmailError": "آدرس ایمیل نامعتبر است",
+  "userNotFoundError": "کاربر یافت نشد",
+  "wrongPasswordError": "رمز عبور اشتباه است",
+  "emailAlreadyInUseError": "ایمیل قبلاً استفاده شده است",
+  "weakPasswordError": "رمز عبور بسیار ضعیف است",
+  "networkError": "خطای شبکه",
+  "copyZekrSuccess": "ذکر در کلیپ‌بورد کپی شد",
+  "addToFavoritesSuccess": "به مورد علاقه اضافه شد ✅",
+  "removeFromFavorites": "از مورد علاقه حذف شد",
+  "zekrCopied": "ذکر کپی شد",
+  "zekrShared": "ذکر به اشتراک گذاشته شد",
+  "premiumOnlyFeature": "🔒 این ذکر فقط برای مشترکین است",
+  "subscribeToUnlock": "اشتراک بگیرید تا همه اذکار باز شوند",
+  "lockedAzkarMessage": "این بخش فقط برای مشترکین ویژه است",
+  "zoomIn": "بزرگنمایی",
+  "zoomOut": "کوچکنمایی",
+  "morningEveningAzkar": "اذکار صبح و عصر",
+  "sleepAzkar": "اذکار خواب",
+  "afterPrayerAzkar": "اذکار بعد از نماز",
+  "morningAzkar": "اذکار صبح",
+  "eveningAzkar": "اذکار عصر",
+  "loadDataError": "خطا در بارگیری داده",
+  "shareError": "خطا در اشتراک گذاری",
+  "bookmarksTitle": "نشان‌ها",
+  "deleteBookmarkSuccess": "نشان با موفقیت حذف شد",
+  "deleteBookmarkConfirmation": "حذف نشان",
+  "areYouSureDelete": "آیا از حذف این نشان مطمئن هستید؟",
+  "noBookmarksDescription": "از صفحه خواندن یک نشان اضافه کنید",
+  "addBookmarkFromReading": "از صفحه خواندن یک نشان اضافه کنید",
+  "addBookmarkTitle": "افزودن نشان",
+  "verse": "آیه",
+  "addNote": "افزودن یادداشت",
+  "writeNoteHere": "یادداشت خود را اینجا بنویسید...",
+  "save": "ذخیره",
+  "verseNumber": "آیه",
+  "today": "امروز",
+  "yesterday": "دیروز",
+  "daysAgo": "{days} روز پیش",
+  "weekAgo": "یک هفته پیش",
+  "weeksAgo": "{weeks} هفته پیش",
+  "monthAgo": "یک ماه پیش",
+  "monthsAgo": "{months} ماه پیش",
+  "yearAgo": "یک سال پیش",
+  "yearsAgo": "{years} سال پیش",
+  "deleteBookmarkError": "خطا در حذف نشان",
+  "loadBookmarksError": "خطا در بارگیری نشان‌ها",
+  "collectiveKhatmas": "ختم‌های جمعی",
+  "myKhatmas": "ختم‌های من",
+  "joinByLink": "عضویت از طریق لینک",
+  "searchKhatmaHint": "جستجوی ختم...",
+  "createKhatma": "ایجاد ختم",
+  "loginRequiredMessage": "برای دسترسی به این ویژگی نیاز به ورود دارید",
+  "loginToJoinMessage": "برای پیوستن به ختم‌های جمعی با مسلمانان سراسر جهان وارد شوید",
+  "noKhatmasAvailable": "در حال حاضر هیچ ختمی وجود ندارد",
+  "beFirstToCreate": "اولین نفری باشید که ختم جمعی ایجاد می‌کند!",
+  "createNewKhatma": "ایجاد ختم جدید",
+  "joinByLinkTitle": "عضویت در ختم از طریق لینک",
+  "pasteLinkHint": "لینک ختم را اینجا پیست کنید",
+  "fetchKhatma": "دریافت ختم",
+  "joinError": "خطا در هنگام تلاش برای پیوستن به ختم رخ داد",
+  "createKhatmaTitle": "ایجاد ختم جمعی",
+  "khatmaTitleLabel": "عنوان ختم",
+  "khatmaTitleExample": "مثال: ختم رمضان المبارک",
+  "khatmaTitleRequired": "لطفاً عنوان ختم را وارد کنید",
+  "khatmaTypeLabel": "نوع ختم",
+  "public": "عمومی",
+  "publicDescription": "همه می‌توانند عضو شوند",
+  "private": "خصوصی",
+  "privateDescription": "فقط با دعوت",
+  "dateRangeLabel": "تاریخ شروع و پایان",
+  "startDate": "تاریخ شروع",
+  "endDate": "تاریخ پایان",
+  "khatmaDuration": "مدت ختم: {0} روز",
+  "khatmaCreatedSuccess": "ختم با موفقیت ایجاد شد!",
+  "khatmaDetails": "جزئیات ختم",
+  "copyLink": "کپی لینک",
+  "deleteKhatma": "حذف ختم",
+  "partReservedSuccess": "جزء {0} با موفقیت رزرو شد!",
+  "partCompletedSuccess": "تبریک! شما جزء {0} را به پایان رساندید",
+  "deleteConfirmationTitle": "حذف ختم",
+  "deleteConfirmationMessage": "آیا مطمئن هستید که می‌خواهید این ختم را حذف کنید؟ این عمل قابل بازگشت نیست.",
+  "reserveThisPart": "رزرو این جزء",
+  "completeThisPart": "اتمام این جزء",
+  "alreadyReservedPart": "شما قبلاً یک جزء رزرو کرده‌اید (جزء {0})",
+  "linkCopied": "لینک کپی شد",
+  "myCollectiveKhatmas": "ختم‌های جمعی من",
+  "joinedKhatmasTab": "ختم‌های عضو شده",
+  "createdKhatmasTab": "ختم‌های ایجاد شده من",
+  "noJoinedKhatmas": "هنوز به هیچ ختمی نپیوسته‌اید",
+  "findAndJoinKhatma": "ختم جمعی جستجو کرده و به آن بپیوندید",
+  "participatedKhatmas": "ختم‌های مشارکت شده",
+  "completedParts": "اجزای تکمیل شده",
+  "noCreatedKhatmas": "هنوز هیچ ختمی ایجاد نکرده‌اید",
+  "startCreatingKhatma": "شروع به ایجاد ختم جمعی جدید کنید",
+  "partNumber": "جزء {0}",
+  "completedStatus": "تکمیل شده ✓",
+  "inProgressStatus": "در حال خواندن",
+  "publicType": "عمومی",
+  "privateType": "خصوصی",
+  "createdBy": "ایجاد شده توسط: {0}",
+  "participants": "شرکت‌کنندگان",
+  "completed": "تکمیل شده",
+  "daysRemaining": "روزهای باقی‌مانده",
+  "completion": "تکمیل",
+  "completedPartsLabel": "اجزای تکمیل شده",
+  "reservedParts": "اجزای رزرو شده",
+  "availableParts": "اجزای موجود",
+  "khatmaCompleted": "تکمیل شده ✓",
+  "availableForReservation": "برای رزرو موجود است",
+  "reservedForUser": "رزرو شده برای {0}",
+  "partCompletedStatus": "تکمیل شده ✓",
+  "partCompleted": "تکمیل شده",
+  "reserved": "رزرو شده",
+  "yourPart": "جزء شما",
+  "available": "موجود",
+  "confirmation": "تایید",
+  "deleteAllConfirmation": "آیا می‌خواهید همه موارد دلخواه را حذف کنید؟",
+  "deleteAll": "حذف همه",
+  "favorites": "موارد دلخواه",
+  "deleteAllTooltip": "حذف همه موارد دلخواه",
+  "noFavorites": "مورد دلخواهی وجود ندارد",
+  "deleteFromFavoritesTooltip": "حذف از موارد دلخواه",
+  "favoriteItemDescription": "مورد دلخواه: {0}",
+  "quranAudio": "Audio",
+  "quranRecitations": "Quran Recitations",
+  "quranRecitationsDesc": "Listen to Quran recitations by renowned reciters",
+  "quranRadio": "Quran Radio",
+  "quranRadioDesc": "Listen to live Quran radio stations",
+  "downloadedAudio": "Downloaded Audio",
+  "downloadedAudioDesc": "Listen to downloaded recitations offline",
+  "reciters": "Reciters",
+  "searchRecitersHint": "Search reciters...",
+  "noResultsFound": "No results found",
+  "reciterPremiumOnly": "🔒 This reciter is available for premium subscribers only",
+  "surahsCount": "{count} Surahs",
+  "surahs": "Surahs",
+  "ayahsCount": "{count} Ayahs",
+  "noDownloadedAudio": "No downloaded audio",
+  "deleteAudioTitle": "Delete Audio",
+  "deleteAudioConfirm": "Are you sure you want to delete this audio?",
+  "noStationsAvailable": "No stations available",
+  "liveRadio": "🟢 Live",
+  "offlineRadio": "⚫ Offline",
+  "audioPlayer": "Audio Player",
+  "downloadSuccess": "Downloaded successfully",
+  "fileAlreadyDownloaded": "File already downloaded",
+  "skipBack15s": "Skip back 15s",
+  "skipForward15s": "Skip forward 15s",
+  "pause": "Pause",
+  "play": "Play",
+  "playing": "Playing",
+  "playbackCompleted": "Playback Completed",
+  "surahIndex": "Surah {current} of {total}",
+  "replay": "Replay",
+  "audioLoadingError": "Audio loading error",
+  "gradeLabel": "درجه",
+  "scholarLabel": "عالِم",
+  "gradeSahih": "صحیح",
+  "gradeHasan": "حسن",
+  "gradeDaif": "ضعیف",
+  "gradeMawdu": "موضوع",
+  "gradeMaqbul": "مقبول",
+  "gradeEvaluation": "ارزیابی",
+  "next": "بعدی",
+  "previous": "قبلی",
+  "sourceLabel": "منبع",
+  "hadithGradeLabel": "درجه حدیث",
+  "bookBukhari": "صحیح بخاری",
+  "bookMuslim": "صحیح مسلم",
+  "bookAbuDawud": "سنن ابی داوود",
+  "bookTirmidhi": "جامع ترمذی",
+  "bookNasai": "سنن نسائی",
+  "bookIbnMajah": "سنن ابن ماجه",
+  "bookMalik": "موطأ مالک",
+  "bookNawawi": "اربعین نووی",
+  "bookQudsi": "حدیث قدسی",
+  "bookDehlawi": "اربعین شاه ولی الله دهلوی",
+  "qiblaDirection": "جهت قبله",
+  "locatingYourPosition": "در حال تعیین موقعیت شما...",
+  "errorCalculatingQibla": "خطا در محاسبه قبله",
+  "compassAccessError": "خطا در دسترسی به قطب نما",
+  "locationServicesDisabled": "سرویس‌های موقعیت غیرفعال شده است",
+  "locationPermissionPermanentlyDenied": "مجوز دسترسی به موقعیت به طور دائمی رد شده است",
+  "qiblaAngleFromNorth": "زاویه قبله از شمال",
+  "facingQiblaNow": "اکنون به سمت قبله هستید",
+  "qibla": "قبله",
+  "gregorianToHijri": "میلادی به هجری",
+  "pickGregorianDate": "انتخاب تاریخ میلادی",
+  "errorConvertingGregorianToHijri": "خطا در تبدیل تاریخ",
+  "hijriToGregorian": "هجری به میلادی",
+  "enterHijriDateHint": "تاریخ هجری را وارد کنید (روز/ماه/سال)",
+  "hijriDateExample": "مثال: 01/09/1445",
+  "convert": "تبدیل",
+  "dateHijriLabel": "تاریخ هجری",
+  "dateGregorianLabel": "تاریخ میلادی",
+  "errorConvertingHijriToGregorian": "خطا در تبدیل تاریخ",
+  "locationPermissionDeniedForeverTitle": "مجوز دسترسی به موقعیت به طور دائمی رد شده است، نمی‌توانیم مجوز درخواست کنیم.",
+  "errorCalculatingQiblaDirection": "خطا در محاسبه جهت قبله",
+  "errorAccessingCompass": "خطا در دسترسی به قطب نما",
+  "qiblaDirectionFromNorth": "زاویه قبله از شمال",
+  "youAreFacingTheQibla": "اکنون به سمت قبله هستید",
+  "selectGregorianDate": "انتخاب تاریخ میلادی",
+  "enterHijriDate": "تاریخ هجری را وارد کنید (روز-ماه-سال)",
+  "errorConvertingHijriDate": "خطا در تبدیل تاریخ هجری به میلادی",
+  "haramLiveTitle": "حرم و پخش زنده",
+  "quranChannel": "کانال قرآن",
+  "liveStreamTitle": "پخش زنده",
+  "initializing": "در حال راه‌اندازی...",
+  "loadingStream": "در حال بارگذاری پخش زنده...",
+  "playingStream": "در حال پخش...",
+  "clickToPlay": "برای شروع پخش روی دکمه پخش کلیک کنید",
+  "openInBrowser": "باز کردن در مرورگر",
+  "openInBrowserDescription": "پخش زنده در مرورگر خارجی دستگاه باز می‌شود",
+  "open": "باز کردن",
+  "streamLoadFailed": "بارگذاری پخش با مشکل مواجه شد",
+  "retryAttempt": "تلاش",
+  "reload": "بارگذاری مجدد",
+  "importantNotice": "اطلاعیه مهم",
+  "copyrightNotice": "پخش از کانال {0} وابسته به سازمان صدا و سیمای عربستان سعودی در پلتفرم یوتیوب صورت می‌گیرد. این برنامه هیچ محتوایی را منتشر، ذخیره یا بازپخش نمی‌کند و کلیه حقوق برای مالکان آن محفوظ است.",
+  "copyrightRights": "© کلیه حقوق محفوظ است - ریاست‌کل امور دو مسجد مقدس",
+  "locationSettingsTitle": "تنظیمات موقعیت",
+  "unknown": "نامشخص",
+  "regionLabel": "منطقه",
+  "autoRefreshLocation": "به‌روزرسانی خودکار موقعیت هنگام راه‌اندازی",
+  "updating": "در حال به‌روزرسانی...",
+  "refreshLocationNow": "به‌روزرسانی موقعیت",
+  "locationUpdatedSuccessfully": "موقعیت با موفقیت به‌روزرسانی شد",
+  "notificationsTitle": "اعلان‌ها",
+  "athanNotification": "اعلان اذان",
+  "preAthanNotification": "هشدار ۵ دقیقه قبل از اذان",
+  "khushooMode": "حالت خشوع (بی‌صدا در زمان نماز)",
+  "collectiveKhatmaNotifications": "اعلان‌های ختم جمعی قرآن",
+  "remindMeOfAllah": "مرا به یاد خدا بینداز",
+  "minute": "دقیقه",
+  "halfHour": "نیم ساعت",
+  "hour": "ساعت",
+  "twoHours": "دو ساعت",
+  "premiumFeature": "ویژگی ویژه",
+  "premiumFeatureDescription": "این ویژگی تنها برای مشترکین ویژه در دسترس است.\\nبرای بهره‌مندی از تمامی امکانات ارتقا دهید!",
+  "upgradeNow": "همین حالا ارتقا دهید",
+  "prayersAndMuezzinsTitle": "نمازها و مؤذنین",
+  "selectMuezzin": "انتخاب مؤذن: {0}",
+  "notSpecified": "مشخص نشده",
+  "playAthanSound": "پخش صدای اذان",
+  "selectMuezzinDialogTitle": "انتخاب مؤذن",
+  "noRecitersAvailable": "در حال حاضر قاری موجود نیست",
+  "chooseFavoriteMuezzin": "انتخاب مؤذن مورد علاقه",
+  "muezzinSelected": "مؤذن انتخاب شد: {0}",
+  "selectMuezzinFirst": "لطفاً ابتدا یک مؤذن انتخاب کنید",
+  "playingMuezzinSound": "در حال پخش صدای مؤذن: {0}",
+  "quranSettingsTitle": "تنظیمات قرآن",
+  "favoriteTafsir": "تفسیر مورد علاقه",
+  "favoriteReciter": "قاری مورد علاقه",
+  "notAvailable": "در دسترس نیست",
+  "chooseTafsir": "انتخاب تفسیر",
+  "chooseReciter": "انتخاب قاری",
+  "notAvailableEnglish": "Not Available",
+  "settingsLoadError": "خطا در بارگذاری تنظیمات",
+  "generalTitle": "عمومی",
+  "language": "زبان",
+  "arabic": "عربی",
+  "english": "انگلیسی",
+  "french": "فرانسوی",
+  "indonesian": "اندونزیایی",
+  "urdu": "اردو",
+  "turkish": "ترکی",
+  "bengali": "بنگالی",
+  "malay": "مالایی",
+  "persian": "فارسی",
+  "spanish": "اسپانیایی",
+  "german": "آلمانی",
+  "chinese": "چینی",
+  "chooseLanguage": "انتخاب زبان",
+  "rateApp": "امتیازدهی به برنامه",
+  "aboutApp": "درباره برنامه",
+  "privacyPolicy": "سیاست حفظ حریم خصوصی",
+  "updatingLanguage": "در حال به‌روزرسانی زبان...",
+  "languageUpdateError": "خطا در به‌روزرسانی زبان: {0}",
+  "appearanceTitle": "ظاهر",
+  "darkMode": "حالت تاریک",
+  "lightMode": "حالت روشن",
+  "home": "صفحه اصلی",
+  "settings": "تنظیمات",
+  "rememberAllah": "خدا را یاد کن",
+  "rememberAllahDescription": "در هر زمان و هر مکان خدا را یاد کن",
+  "mustLoginFirst": "ابتدا باید وارد شوید",
+  "savedSuccessfully": "با موفقیت ذخیره شد ✅",
+  "saveFailed": "ذخیره‌سازی ناموفق",
+  "subhanAllah": "سبحان الله",
+  "errorLoadingTasbehData": "خطا در بارگذاری داده‌های تسبیح",
+  "errorLoadingCounter": "خطا در بارگذاری شمارنده",
+  "errorSavingTasbeh": "خطا در ذخیره‌سازی تسبیح",
+  "errorSavingSelectedZikr": "خطا در ذخیره‌سازی ذکر انتخاب شده",
+  "errorResettingCounter": "خطا در بازنشانی شمارنده",
+  "alhamdulillah": "الحمد لله",
+  "allahuAkbar": "الله اکبر",
+  "laIlahaIllallah": "لا إله إلا الله",
+  "astaghfirullah": "أستغفر الله",
+  "reset": "بازنشانی",
+  "saving": "در حال ذخیره...",
+  "accountAndSubscription": "حساب و اشتراک",
+  "monthlySubscription": "اشتراک ماهانه",
+  "yearlySubscription": "اشتراک سالانه",
+  "premiumSubscription": "پریمیوم",
+  "freeSubscription": "رایگان",
+  "accountStatus": "وضعیت حساب",
+  "expiresOn": "انقضا در",
+  "manageSubscription": "مدیریت اشتراک",
+  "upgradeAccount": "ارتقای حساب",
+  "manage": "مدیریت",
+  "subscribe": "اشتراک",
+  "ofWord": "از",
+  "collectiveKhatma": "ختم جمعی",
+  "quranKareem": "قرآن کریم",
+  "azkarAndAdiyah": "اذکار و ادعیه",
+  "khatma": "ختم قرآن",
+  "liveBroadcastAndHaram": "پخش زنده و حرم",
+  "maxZoom": "حداکثر زوم",
+  "licensedBroadcast": "این پخش مجوز رسمی از شبکه‌های سعودی دارد",
+  "chooseKhatmaCount": "تعداد ختم‌ها را انتخاب کنید:",
+  "chooseKhatmaCountHint": "انتخاب تعداد ختم‌ها",
+  "pagesPerDay": "صفحه/روز",
+  "juzPerDay": "جزء/روز",
+  "hideSchedule": "مخفی کردن جدول",
+  "showDetailedSchedule": "نمایش جدول جزئیات",
+  "dayColumn": "روز",
+  "pagesColumn": "صفحات",
+  "surahsColumn": "سوره‌ها",
+  "yourDailyWird": "ورد روزانه شما",
+  "pageNumber": "شماره صفحه",
+  "currentJuz": "جزء فعلی",
+  "readJuz": "جزء‌های خوانده شده",
+  "remainingPages": "صفحات باقی‌مانده",
+  "todayProgress": "پیشرفت امروز",
+  "pagesUnit": "صفحه",
+  "khatmaPercentage": "درصد ختم",
+  "khatmaTrackingNote": "ردیابی ختم فقط با حالت \"چرخش افقی\" کار می‌کند",
+  "continueReading": "ادامه خواندن",
+  "liveNow": "پخش زنده",
+  "nearbyMosques": "مساجد نزدیک",
+  "pleaseWaitForMosquesToLoad": "لطفاً صبر کنید تا مساجد بارگذاری شوند",
+  "showOnMap": "نمایش روی نقشه",
+  "updateLocation": "به‌روزرسانی موقعیت",
+  "noNearbyMosquesInRange": "مسجد نزدیکی در محدوده فعلی وجود ندارد",
+  "map": "نقشه",
+  "myCurrentLocation": "موقعیت فعلی من",
+  "directions": "جهت‌یابی",
+  "openInMaps": "باز کردن در نقشه",
+  "benefits": "فواید",
+  "explanation": "شرح",
+  "forgotPassword": "رمز عبور را فراموش کرده‌اید؟",
+  "forgotPasswordTitle": "بازنشانی رمز عبور",
+  "forgotPasswordDescription": "ایمیل خود را وارد کنید و ما لینکی برای بازنشانی رمز عبور برای شما ارسال می‌کنیم",
+  "sendResetLink": "ارسال لینک بازنشانی",
+  "backToLogin": "بازگشت به ورود",
+  "checkSpamMessage": "توجه: ایمیل ممکن است به پوشه اسپم برود، لطفاً آن را بررسی کنید",
+  "appName": "مشکات الهدی",
+  "appDescription": "برنامه جامع شما برای عبادت و دانش اسلامی",
+  "version": "نسخه ۱.۰.۰",
+  "mainFeatures": "ویژگی‌های اصلی",
+  "aboutAndRights": "درباره برنامه و حقوق",
+  "generalInfo": "اطلاعات عمومی",
+  "appFullDescription": "مشکات الهدی پرو یک برنامه اسلامی جامع است که هدف آن تسهیل عبادت و دانش اسلامی برای مسلمانان سراسر جهان است.",
+  "intellectualRights": "حقوق مالکیت فکری",
+  "copyProhibition": "• کپی یا توزیع محتوا بدون اجازه قبلی ممنوع است",
+  "contentSource": "• محتوای اسلامی از منابع معتبر",
+  "designProtection": "• طراحی و برنامه‌نویسی برنامه توسط حق کپی‌رایت محافظت می‌شود",
+  "legalInformation": "اطلاعات قانونی",
+  "dataCollection": "جمع‌آوری داده",
+  "locationDataCollect": "• ما داده موقعیت را برای ارائه اوقات دقیق نماز جمع‌آوری می‌کنیم",
+  "accountDataStorage": "• داده‌های حساب به‌طور ایمن برای پشتیبان‌گیری ذخیره می‌شود",
+  "noDataSharing": "• ما داده‌های شخصی شما را با طرف‌های سوم به اشتراک نمی‌گذاریم",
+  "guestData": "داده میهمان",
+  "guestUsage": "• برنامه می‌تواند بدون ثبت‌نام به عنوان میهمان استفاده شود",
+  "localStorage": "• داده میهمان فقط به‌طور محلی روی دستگاه شما ذخیره می‌شود",
+  "accountConversion": "• شما می‌توانید در هر زمان به حساب ثبت‌شده تبدیل شوید",
+  "security": "امنیت",
+  "sslEncryption": "• ما از رمزگذاری SSL برای همه ارتباطات استفاده می‌کنیم",
+  "passwordEncryption": "• رمزهای عبور به‌صورت رمزگذاری شده ذخیره می‌شوند",
+  "dataProtection": "• ما به استانداردهای جهانی حفاظت از داده پایبندیم",
+  "termsOfUse": "شرایط استفاده",
+  "acceptableUse": "استفاده قابل قبول",
+  "worshipUsage": "• از برنامه برای اهداف عبادت و دانش اسلامی استفاده کنید",
+  "respectIntellectualProperty": "• به حقوق مالکیت فکری محتوا احترام بگذارید",
+  "complyWithLaws": "• به قوانین محلی و بین‌المللی پایبند باشید",
+  "restrictions": "محدودیت‌ها",
+  "illegalUsageProhibition": "• استفاده از برنامه برای اهداف غیرقانونی مجاز نیست",
+  "copyModifyProhibition": "• کپی یا تغییر محتوا بدون اجازه ممنوع است",
+  "respectfulEnvironment": "• محیط استفاده محترمانه را حفظ کنید",
+  "contactUs": "تماس با ما",
+  "appInquiry": "استعلام درباره برنامه مشکات الهدی",
+  "welcomeQuestions": "ما از سوالات و استعلامات شما درباره برنامه استقبال می‌کنیم",
+  "lastUpdate": "آخرین به‌روزرسانی: ۱۰ دسامبر ۲۰۲۵",
+  "compatibility": "سازگار با: iOS 13+ / Android 8+",
+  "quranDescription": "خواندن کامل قرآن با تفسیر و تلاوت",
+  "hadithsDescription": "مجموعه احادیث صحیح با شرح و طبقه‌بندی",
+  "azkarAndDua": "اذکار و ادعیه",
+  "azkarDescription": "اذکار صبح و شام و ادعیه مأثوره",
+  "allahNamesDescription": "نام‌های زیبای خدا را با معانی و فضایل بیاموزید",
+  "khatmaTracker": "ردیاب ختم",
+  "khatmaDescription": "پیشرفت خود در ختم قرآن را دنبال کنید",
+  "prayerTimes": "اوقات نماز",
+  "prayerTimesDescription": "اوقات دقیق نماز برای موقعیت شما",
+  "mosquesDescription": "مساجد نزدیک به موقعیت خود را کشف کنید",
+  "islamicAudio": "صوت‌های اسلامی",
+  "audioDescription": "قرآن، سخنرانی‌ها و جلسات صوتی",
+  "liveBroadcast": "پخش زنده",
+  "broadcastDescription": "پخش زنده از مسجدالحرام در مکه را تماشا کنید",
+  "assistantDescription": "پاسخ‌های اسلامی به سوالات شما",
+  "zakatDescription": "زکات خود را دقیق و آسان محاسبه کنید",
+  "dateConverterDescription": "تبدیل بین تاریخ‌های هجری و میلادی",
+  "noProductsAvailable": "در حال حاضر محصولی موجود نیست",
+  "mostSaving": "صرفه‌جویی بیشتر",
+  "deleteAccountWarning": "هشدار: حذف حساب",
+  "areYouSureDeleteAccount": "آیا مطمئن هستید که می خواهید حساب خود را حذف کنید؟",
+  "deleteAccountConsequences": "⚠️ عواقب حذف حساب:",
+  "allPersonalDataDeleted": "تمام اطلاعات شخصی شما حذف خواهد شد",
+  "activeSubscriptionCancelled": "اشتراک فعال لغو خواهد شد",
+  "actionCannotUndone": "این اقدام قابل بازگشت نیست",
+  "needNewAccountToUseApp": "برای استفاده از برنامه باید حساب جدیدی ایجاد کنید",
+  "deleteAccountSuccess": "حساب با موفقیت حذف شد",
+  "deleting": "در حال حذف...",
+  "deleteAccount": "حذف حساب",
+  "deleteAccountAndAssociatedData": "حساب خود و داده های مرتبط را حذف کنید"
 }
