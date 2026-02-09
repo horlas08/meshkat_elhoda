@@ -24,11 +24,15 @@ class AzkarItemJson {
   final int id;
   final String text;
   final int count;
+  final String? translation;
+  final String? source;
 
   AzkarItemJson({
     required this.id,
     required this.text,
     required this.count,
+    this.translation,
+    this.source,
   });
 
   factory AzkarItemJson.fromJson(Map<String, dynamic> json) {
@@ -36,6 +40,8 @@ class AzkarItemJson {
       id: json['id'] as int,
       text: json['text'] as String,
       count: json['count'] as int,
+      translation: json['translation'] as String?,
+      source: json['source'] as String?,
     );
   }
 }

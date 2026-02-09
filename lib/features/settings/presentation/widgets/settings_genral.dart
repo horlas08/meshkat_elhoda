@@ -285,7 +285,7 @@ class _SettingsGeneralState extends State<SettingsGeneral> {
         ScaffoldMessenger.of(navigatorContext).showSnackBar(
           SnackBar(
             content: Text(
-              s.languageUpdateError.replaceFirst('{0}', e.toString()),
+              s.languageUpdateError(e.toString()),
             ),
             backgroundColor: Colors.red,
           ),

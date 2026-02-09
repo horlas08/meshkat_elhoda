@@ -597,9 +597,6 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get of => 'من';
-
-  @override
   String get chooseAiModelTitle => 'اختر نموذج الذكاء الاصطناعي';
 
   @override
@@ -982,13 +979,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get deleteKhatma => 'حذف الختمة';
 
   @override
-  String partReservedSuccess(String part) {
-    return 'تم حجز الجزء $part بنجاح!';
+  String partReservedSuccess(Object number) {
+    return 'Part $number reserved successfully';
   }
 
   @override
-  String partCompletedSuccess(String part) {
-    return 'مبارك! أتممت قراءة الجزء $part';
+  String partCompletedSuccess(Object number) {
+    return 'Part $number completed successfully';
   }
 
   @override
@@ -1039,8 +1036,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get startCreatingKhatma => 'ابدأ بإنشاء ختمة جماعية جديدة';
 
   @override
-  String partNumber(String part) {
-    return 'الجزء $part';
+  String partNumber(Object number) {
+    return 'Part $number';
   }
 
   @override
@@ -1056,8 +1053,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get privateType => 'خاص';
 
   @override
-  String createdBy(String creator) {
-    return 'المنشئ: $creator';
+  String createdBy(Object name) {
+    return 'Created by $name';
   }
 
   @override
@@ -2081,4 +2078,138 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get deleteAccountAndAssociatedData => 'حذف حسابك والبيانات المرتبطة به';
+
+  @override
+  String get ofLabel => 'من';
+
+  @override
+  String get directionsApiError => 'Error getting directions';
+
+  @override
+  String get quranFeatures => 'Holy Quran';
+
+  @override
+  String get hadithFeatures => 'Hadiths';
+
+  @override
+  String get azkarFeatures => 'Azkar & Duas';
+
+  @override
+  String get allahNamesFeatures => 'Names of Allah';
+
+  @override
+  String get khatmaFeatures => 'Khatma Tracking';
+
+  @override
+  String get prayerFeatures => 'Prayer Times & Qibla';
+
+  @override
+  String get mosqueFeatures => 'Nearby Mosques';
+
+  @override
+  String get audioFeatures => 'Islamic Audio';
+
+  @override
+  String get broadcastFeatures => 'Live Broadcast';
+
+  @override
+  String get assistantFeatures => 'Smart Assistant';
+
+  @override
+  String get zakatFeatures => 'Zakat Calculator';
+
+  @override
+  String get dateFeatures => 'Date Converter';
+
+  @override
+  String get subscriptionFeatures => 'Premium Subscription';
+
+  @override
+  String hijriToGregorianResult(String hijriDate, String gregorianDate) {
+    return 'Gregorian: $gregorianDate\nHijri: $hijriDate';
+  }
+
+  @override
+  String ayahsRangeText(Object start, Object end) {
+    return 'Ayah $start - $end';
+  }
+
+  @override
+  String pagesCountText(Object count) {
+    return '$count Pages';
+  }
+
+  @override
+  String inviteLink(Object link) {
+    return 'Invite Link: $link';
+  }
+
+  @override
+  String get featureRemoveAds => 'Remove Ads';
+
+  @override
+  String get featureUnlockReciters => 'Unlock All Reciters';
+
+  @override
+  String get featureDownloadContent => 'Download Content';
+
+  @override
+  String get noNearbyRestaurantsInRange => 'لا توجد مطاعم حلال قريبة';
+
+  @override
+  String get pleaseWaitForRestaurantsToLoad => 'الرجاء الانتظار حتى يتم تحميل بيانات المطاعم';
+
+  @override
+  String get hajjAndUmrahGuide => 'دليل الحج والعمرة';
+
+  @override
+  String zakatTotalAmount(Object amount) {
+    return 'مجموع المال: $amount';
+  }
+
+  @override
+  String zakatDueAmount(Object amount) {
+    return 'مقدار الزكاة الواجبة: $amount (٢.٥٪ من المبلغ)';
+  }
+
+  @override
+  String zakatBelowNisaab(Object nisaab) {
+    return 'الغالب أنه لا تجب عليك الزكاة الآن لأن المبلغ أقل من النصاب ($nisaab). يُرجى سؤال أحد أهل العلم للمزيد من التأكد.';
+  }
+
+  @override
+  String get zakatNisaabAlert => '\n\n* تنبيه: لم يتم التحقق من النصاب لعدم إدخال سعر جرام الذهب.';
+
+  @override
+  String get zakatIntroduction => 'لم يتم إدخال أي مبالغ تُذكر لحساب الزكاة.';
+
+  @override
+  String get weatherThunderTitle => 'دعاء الرعد';
+
+  @override
+  String get weatherThunderBody => 'سُبْحَانَ الَّذِي يُسَبِّحُ الرَّعْدُ بِحَمْدِهِ وَالْمَلَائِكَةُ مِنْ خِيفَتِهِ';
+
+  @override
+  String get weatherRainTitle => 'دعاء نزول المطر';
+
+  @override
+  String get weatherRainBody => 'اللَّهُمَّ صَيِّبًا نَافِعًا';
+
+  @override
+  String get weatherWindTitle => 'دعاء الرياح';
+
+  @override
+  String get weatherWindBody => 'اللهم إني أسألك خيرها، وخير ما فيها، وخير ما أرسلت به، وأعوذ بك من شرها، وشر ما فيها، وشر ما أرسلت به';
+
+  @override
+  String get weatherHeatTitle => 'دعاء الحر الشديد';
+
+  @override
+  String get weatherHeatBody => 'لا إله إلا الله، ما أشد حر هذا اليوم! اللهم أجرني من حر جهنم';
+
+  @override
+  String get weatherColdTitle => 'دعاء البرد الشديد';
+
+  @override
+  String get weatherColdBody => 'لا إله إلا الله، ما أشد برد هذا اليوم! اللهم أجرني من زمهرير جهنم';
 }

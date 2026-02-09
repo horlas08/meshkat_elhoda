@@ -74,7 +74,8 @@ class PopularAzkarGrid extends StatelessWidget {
               await Future.delayed(const Duration(milliseconds: 300));
               if (context.mounted) {
                 // Use the full event class name with the event file import
-                context.read<AzkarBloc>().add(FetchAzkarCategories());
+                final languageCode = Localizations.localeOf(context).languageCode;
+                context.read<AzkarBloc>().add(FetchAzkarCategories(languageCode));
               }
             }
           },

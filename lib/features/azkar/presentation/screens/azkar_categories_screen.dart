@@ -51,7 +51,8 @@ class _MainAzkarViewState extends State<MainAzkarView> {
     // تحميل بيانات الاشتراك
     context.read<SubscriptionBloc>().add(LoadSubscriptionEvent());
     // تحميل الأذكار
-    context.read<AzkarBloc>().add(FetchAzkarCategories());
+    final languageCode = Localizations.localeOf(context).languageCode;
+    context.read<AzkarBloc>().add(FetchAzkarCategories(languageCode));
   }
 
   @override

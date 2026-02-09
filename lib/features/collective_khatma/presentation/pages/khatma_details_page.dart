@@ -140,8 +140,7 @@ class _KhatmaDetailsPageContent extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
-                  AppLocalizations.of(context)!.partReservedSuccess.replaceAll(
-                    '{0}',
+                  AppLocalizations.of(context)!.partReservedSuccess(
                     state.partNumber.toString(),
                   ),
                   style: TextStyle(fontFamily: AppFonts.tajawal),
@@ -153,8 +152,7 @@ class _KhatmaDetailsPageContent extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
-                  AppLocalizations.of(context)!.partCompletedSuccess.replaceAll(
-                    '{0}',
+                  AppLocalizations.of(context)!.partCompletedSuccess(
                     state.partNumber.toString(),
                   ),
                   style: TextStyle(fontFamily: AppFonts.tajawal),
@@ -305,7 +303,7 @@ class _KhatmaDetailsPageContent extends StatelessWidget {
                 Text(
                   AppLocalizations.of(
                     context,
-                  )!.partNumber.replaceAll('{0}', partNumber.toString()),
+                  )!.partNumber(partNumber.toString()),
                   style: AppTextStyles.surahName.copyWith(
                     fontSize: 24.sp,
                     fontWeight: FontWeight.bold,
@@ -325,8 +323,7 @@ class _KhatmaDetailsPageContent extends StatelessWidget {
                   )
                 else if (part.isReserved)
                   _buildStatusChip(
-                    AppLocalizations.of(context)!.reservedForUser.replaceAll(
-                      '{0}',
+                    AppLocalizations.of(context)!.reservedForUser(
                       part.userName ?? 'Unknown',
                     ),
                     Colors.orange,

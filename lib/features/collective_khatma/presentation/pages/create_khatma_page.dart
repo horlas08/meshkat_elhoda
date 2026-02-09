@@ -224,8 +224,7 @@ class _CreateKhatmaPageContentState extends State<_CreateKhatmaPageContent> {
                         child: Text(
                           AppLocalizations.of(
                             context,
-                          )!.khatmaDuration.replaceAll(
-                            '{0}',
+                          )!.khatmaDuration(
                             _endDate.difference(_startDate).inDays.toString(),
                           ),
                           style: TextStyle(

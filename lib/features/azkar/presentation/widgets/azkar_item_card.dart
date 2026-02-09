@@ -80,6 +80,36 @@ class _AzkarItemCardState extends State<AzkarItemCard> {
               textDirection: TextDirection.rtl,
             ),
             
+            if (widget.azkar.translation != null && widget.azkar.translation!.isNotEmpty) ...[
+              const SizedBox(height: 12),
+              const Divider(),
+              const SizedBox(height: 12),
+              Text(
+                widget.azkar.translation!,
+                style: const TextStyle(
+                  fontSize: 16,
+                  height: 1.5,
+                  color: Colors.black87,
+                ),
+                textAlign: TextAlign.left,
+                textDirection: TextDirection.ltr,
+              ),
+            ],
+
+            if (widget.azkar.source != null && widget.azkar.source!.isNotEmpty) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Source: ${widget.azkar.source}',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.grey[600],
+                  fontStyle: FontStyle.italic,
+                ),
+                textAlign: TextAlign.left,
+                textDirection: TextDirection.ltr,
+              ),
+            ],
+            
             const SizedBox(height: 16),
             
             // Actions Row

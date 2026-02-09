@@ -30,7 +30,7 @@ class AzkarBloc extends Bloc<AzkarEvent, AzkarState> {
   ) async {
     emit(const AzkarLoading());
 
-    final result = await getAzkarCategories();
+    final result = await getAzkarCategories(event.languageCode);
 
     result.fold(
       (failure) => emit(AzkarError(failure.message)),
@@ -44,7 +44,7 @@ class AzkarBloc extends Bloc<AzkarEvent, AzkarState> {
   ) async {
     emit(const AzkarLoading());
 
-    final result = await getAzkarItems(event.chapterId);
+    final result = await getAzkarItems(event.chapterId, event.languageCode);
 
     result.fold(
       (failure) => emit(AzkarError(failure.message)),

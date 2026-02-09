@@ -77,6 +77,8 @@ import 'package:meshkat_elhoda/core/services/athan_audio_service.dart';
 import 'package:meshkat_elhoda/core/services/smart_dhikr_service.dart';
 import 'package:meshkat_elhoda/features/hajj_umrah/presentation/bloc/hajj_umrah_cubit.dart';
 
+import 'package:meshkat_elhoda/features/auth/presentation/screens/login_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -476,7 +478,18 @@ class _MyAppState extends State<MyApp> {
                       builder: (context, snapshot) {
                         if (state is Authenticated) {
                           return const MainNavigationViews();
+                        } else if (state is Unauthenticated) {
+                           if (snapshot.connectionState == ConnectionState.waiting) {
+                             return const Scaffold(
+                               body: Center(child: QuranLottieLoading()),
+                             );
+                           }
+                           final isOnboardingCompleted = snapshot.data ?? false;
+                           return isOnboardingCompleted 
+                               ? const LoginScreen() 
+                               : const OnboardingScreen();
                         }
+                        // Default loading state (AuthInitial or AuthLoading)
                         return const Scaffold(
                           body: Center(child: QuranLottieLoading()),
                         );

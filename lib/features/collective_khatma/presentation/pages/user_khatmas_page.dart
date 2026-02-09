@@ -405,8 +405,7 @@ class _UserKhatmasPageContentState extends State<_UserKhatmasPageContent>
                   ),
                   SizedBox(height: 4.h),
                   Text(
-                    AppLocalizations.of(context)!.partNumber.replaceAll(
-                      '{0}',
+                    AppLocalizations.of(context)!.partNumber(
                       khatma.assignedPart.toString(),
                     ),
                     style: TextStyle(
@@ -611,7 +610,7 @@ class _UserKhatmasPageContentState extends State<_UserKhatmasPageContent>
             Text(
               AppLocalizations.of(
                 context,
-              )!.createdBy.replaceAll('{0}', khatma.creatorName),
+              )!.createdBy(khatma.creatorName),
               style: TextStyle(
                 fontFamily: AppFonts.tajawal,
                 fontSize: 12.sp,

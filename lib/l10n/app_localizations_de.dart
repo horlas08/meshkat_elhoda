@@ -597,9 +597,6 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get of => 'von';
-
-  @override
   String get chooseAiModelTitle => 'KI-Modell wählen';
 
   @override
@@ -982,13 +979,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get deleteKhatma => 'Khatma löschen';
 
   @override
-  String partReservedSuccess(String part) {
-    return 'Teil $part erfolgreich reserviert!';
+  String partReservedSuccess(Object number) {
+    return 'Part $number reserved successfully';
   }
 
   @override
-  String partCompletedSuccess(String part) {
-    return 'Herzlichen Glückwunsch! Sie haben Teil $part abgeschlossen';
+  String partCompletedSuccess(Object number) {
+    return 'Part $number completed successfully';
   }
 
   @override
@@ -1039,8 +1036,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get startCreatingKhatma => 'Beginnen Sie mit der Erstellung einer neuen kollektiven Khatma';
 
   @override
-  String partNumber(String part) {
-    return 'Teil $part';
+  String partNumber(Object number) {
+    return 'Part $number';
   }
 
   @override
@@ -1056,8 +1053,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get privateType => 'Privat';
 
   @override
-  String createdBy(String creator) {
-    return 'Erstellt von: $creator';
+  String createdBy(Object name) {
+    return 'Created by $name';
   }
 
   @override
@@ -2081,4 +2078,138 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get deleteAccountAndAssociatedData => 'Löschen Sie Ihr Konto und zugehörige Daten';
+
+  @override
+  String get ofLabel => 'von';
+
+  @override
+  String get directionsApiError => 'Error getting directions';
+
+  @override
+  String get quranFeatures => 'Holy Quran';
+
+  @override
+  String get hadithFeatures => 'Hadiths';
+
+  @override
+  String get azkarFeatures => 'Azkar & Duas';
+
+  @override
+  String get allahNamesFeatures => 'Names of Allah';
+
+  @override
+  String get khatmaFeatures => 'Khatma Tracking';
+
+  @override
+  String get prayerFeatures => 'Prayer Times & Qibla';
+
+  @override
+  String get mosqueFeatures => 'Nearby Mosques';
+
+  @override
+  String get audioFeatures => 'Islamic Audio';
+
+  @override
+  String get broadcastFeatures => 'Live Broadcast';
+
+  @override
+  String get assistantFeatures => 'Smart Assistant';
+
+  @override
+  String get zakatFeatures => 'Zakat Calculator';
+
+  @override
+  String get dateFeatures => 'Date Converter';
+
+  @override
+  String get subscriptionFeatures => 'Premium Subscription';
+
+  @override
+  String hijriToGregorianResult(String hijriDate, String gregorianDate) {
+    return 'Gregorian: $gregorianDate\nHijri: $hijriDate';
+  }
+
+  @override
+  String ayahsRangeText(Object start, Object end) {
+    return 'Ayah $start - $end';
+  }
+
+  @override
+  String pagesCountText(Object count) {
+    return '$count Pages';
+  }
+
+  @override
+  String inviteLink(Object link) {
+    return 'Invite Link: $link';
+  }
+
+  @override
+  String get featureRemoveAds => 'Remove Ads';
+
+  @override
+  String get featureUnlockReciters => 'Unlock All Reciters';
+
+  @override
+  String get featureDownloadContent => 'Download Content';
+
+  @override
+  String get noNearbyRestaurantsInRange => 'No halal restaurants nearby';
+
+  @override
+  String get pleaseWaitForRestaurantsToLoad => 'Please wait while restaurant data is loading';
+
+  @override
+  String get hajjAndUmrahGuide => 'Hajj & Umrah Guide';
+
+  @override
+  String zakatTotalAmount(Object amount) {
+    return 'Total Amount: $amount';
+  }
+
+  @override
+  String zakatDueAmount(Object amount) {
+    return 'Zakat Due: $amount (2.5%)';
+  }
+
+  @override
+  String zakatBelowNisaab(Object nisaab) {
+    return 'Likely no Zakat is due as the amount is below Nisaab ($nisaab). Please consult a scholar.';
+  }
+
+  @override
+  String get zakatNisaabAlert => '\n\n* Alert: Nisaab check skipped (Gold price missing).';
+
+  @override
+  String get zakatIntroduction => 'No significant amount entered.';
+
+  @override
+  String get weatherThunderTitle => 'Thunder Supplication';
+
+  @override
+  String get weatherThunderBody => 'Glory be to Him whom thunder praises with His praise, and the angels from the fear of Him.';
+
+  @override
+  String get weatherRainTitle => 'Rain Supplication';
+
+  @override
+  String get weatherRainBody => 'O Allah, (make it) a beneficial downpour.';
+
+  @override
+  String get weatherWindTitle => 'Wind Supplication';
+
+  @override
+  String get weatherWindBody => 'O Allah, I ask You for the good of it, and the good of what it contains, and the good of what it is sent with. I seek refuge in You from the evil of it, and the evil of what it contains, and the evil of what it is sent with.';
+
+  @override
+  String get weatherHeatTitle => 'Severe Heat Supplication';
+
+  @override
+  String get weatherHeatBody => 'La ilaha illa Allah, how hot is this day! O Allah, protect me from the heat of Hellfire.';
+
+  @override
+  String get weatherColdTitle => 'Severe Cold Supplication';
+
+  @override
+  String get weatherColdBody => 'La ilaha illa Allah, how cold is this day! O Allah, protect me from the bitter cold of Hellfire.';
 }

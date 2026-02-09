@@ -298,8 +298,7 @@ class ReciterCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        AppLocalizations.of(context)!.surahsCount.replaceAll(
-                          '{count}',
+                        AppLocalizations.of(context)!.surahsCount(
                           reciter.count.toString(),
                         ),
                         style: TextStyle(fontSize: 12, color: Colors.grey[500]),

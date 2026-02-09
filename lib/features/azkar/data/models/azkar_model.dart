@@ -7,6 +7,8 @@ class AzkarModel extends Azkar {
     required super.text,
     super.repeat,
     super.audioUrl,
+    super.translation,
+    super.source,
   });
 
   factory AzkarModel.fromJson(Map<String, dynamic> json) {
@@ -16,6 +18,8 @@ class AzkarModel extends Azkar {
       text: json['text'] as String? ?? '',
       repeat: json['repeat'] as int?,
       audioUrl: json['audioUrl'] as String?,
+      translation: json['translation'] as String?,
+      source: json['source'] as String?,
     );
   }
 
@@ -26,6 +30,8 @@ class AzkarModel extends Azkar {
       'text': text,
       'repeat': repeat,
       'audioUrl': audioUrl,
+      'translation': translation,
+      'source': source,
     };
   }
 

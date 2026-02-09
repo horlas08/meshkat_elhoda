@@ -170,7 +170,7 @@ class IslamicGrid extends StatelessWidget {
           IslamicItemModel(
             color: const Color(0xff2E8B57), // SeaGreen
             iconPath: AppAssets.haram,
-            text: "دليل الحج والعمرة", // We can add localizations later
+            text: AppLocalizations.of(context)?.hajjAndUmrahGuide ?? "Hajj & Umrah Guide",
             destination: const HajjUmrahHomeScreen(),
           ),
         ],

@@ -6,6 +6,8 @@ class Azkar extends Equatable {
   final String text;
   final int? repeat;
   final String? audioUrl;
+  final String? translation;
+  final String? source;
 
   const Azkar({
     required this.id,
@@ -13,8 +15,10 @@ class Azkar extends Equatable {
     required this.text,
     this.repeat,
     this.audioUrl,
+    this.translation,
+    this.source,
   });
 
   @override
-  List<Object?> get props => [id, title, text, repeat, audioUrl];
+  List<Object?> get props => [id, title, text, repeat, audioUrl, translation, source];
 }

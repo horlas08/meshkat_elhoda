@@ -79,10 +79,7 @@ class _PrayersAndMuezzinsState extends State<PrayersAndMuezzins> {
                       iconPath: AppAssets.down,
                       color: AppColors.goldenColor,
                     ),
-                    title: s.selectMuezzin.replaceFirst(
-                      '{0}',
-                      currentMuezzinName,
-                    ),
+                    title: s.selectMuezzin(currentMuezzinName),
                     onTap: () => _showMuezzinDialog(context),
                   );
                 },
@@ -114,10 +111,7 @@ class _PrayersAndMuezzinsState extends State<PrayersAndMuezzins> {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
-                                s.playingMuezzinSound.replaceFirst(
-                                  '{0}',
-                                  selectedMuezzin.name,
-                                ),
+                                s.playingMuezzinSound(selectedMuezzin.name),
                                 style: AppTextStyles.surahName,
                                 textAlign: TextAlign.center,
                               ),
@@ -312,10 +306,7 @@ class _PrayersAndMuezzinsState extends State<PrayersAndMuezzins> {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
-                                  s.muezzinSelected.replaceFirst(
-                                    '{0}',
-                                    muezzin.name,
-                                  ),
+                                  s.muezzinSelected(muezzin.name),
                                   style: AppTextStyles.surahName,
                                   textAlign: TextAlign.center,
                                 ),

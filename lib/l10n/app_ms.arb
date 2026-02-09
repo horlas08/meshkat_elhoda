@@ -199,7 +199,6 @@
   "upgradeNowButton": "Naik Taraf Sekarang",
   "laterButton": "Kemudian",
   "questionsRemaining": "Baki: {remaining}",
-  "of": "daripada",
   "chooseAiModelTitle": "Pilih Model AI",
   "gpt4oMiniTitle": "GPT-4o Mini",
   "gpt4oMiniSubtitle": "Pantas dan seimbang",
@@ -323,8 +322,8 @@
   "khatmaDetails": "Butiran Khatam",
   "copyLink": "Salin Pautan",
   "deleteKhatma": "Padam Khatam",
-  "partReservedSuccess": "Bahagian {part} berjaya ditempah!",
-  "partCompletedSuccess": "Tahniah! Anda telah menamatkan bahagian {part}",
+  "partReservedSuccess": "Part {number} reserved successfully",
+  "partCompletedSuccess": "Part {number} completed successfully",
   "deleteConfirmationTitle": "Padam Khatam",
   "deleteConfirmationMessage": "Adakah anda pasti mahu memadam khatam ini? Tindakan ini tidak boleh dibatalkan.",
   "reserveThisPart": "Tempah Bahagian Ini",
@@ -340,12 +339,12 @@
   "completedParts": "Bahagian Selesai",
   "noCreatedKhatmas": "Belum mencipta sebarang khatam",
   "startCreatingKhatma": "Mula mencipta khatam berjemaah baru",
-  "partNumber": "Bahagian {part}",
+  "partNumber": "Part {number}",
   "completedStatus": "Selesai ✓",
   "inProgressStatus": "Sedang Dibaca",
   "publicType": "Awam",
   "privateType": "Peribadi",
-  "createdBy": "Pencipta: {creator}",
+  "createdBy": "Created by {name}",
   "participants": "Peserta",
   "completed": "Selesai",
   "daysRemaining": "Hari Tinggal",
@@ -672,5 +671,84 @@
   "deleteAccountSuccess": "Akaun berjaya dipadam",
   "deleting": "Memadam...",
   "deleteAccount": "Padam Akaun",
-  "deleteAccountAndAssociatedData": "Padam akaun anda dan data berkaitan"
+  "deleteAccountAndAssociatedData": "Padam akaun anda dan data berkaitan",
+  "ofLabel": "daripada",
+  "@partNumber": {
+    "placeholders": {
+      "number": {
+        "type": "Object"
+      }
+    }
+  },
+  "@partReservedSuccess": {
+    "placeholders": {
+      "number": {
+        "type": "Object"
+      }
+    }
+  },
+  "@partCompletedSuccess": {
+    "placeholders": {
+      "number": {
+        "type": "Object"
+      }
+    }
+  },
+  "@createdBy": {
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "inviteLink": "Invite Link: {link}",
+  "@inviteLink": {
+    "placeholders": {
+      "link": {
+        "type": "Object"
+      }
+    }
+  },
+  "featureRemoveAds": "Remove Ads",
+  "featureUnlockReciters": "Unlock All Reciters",
+  "featureDownloadContent": "Download Content",
+  "noNearbyRestaurantsInRange": "No halal restaurants nearby",
+  "pleaseWaitForRestaurantsToLoad": "Please wait while restaurant data is loading",
+  "hajjAndUmrahGuide": "Hajj & Umrah Guide",
+  "zakatTotalAmount": "Total Amount: {amount}",
+  "@zakatTotalAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "Object"
+      }
+    }
+  },
+  "zakatDueAmount": "Zakat Due: {amount} (2.5%)",
+  "@zakatDueAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "Object"
+      }
+    }
+  },
+  "zakatBelowNisaab": "Likely no Zakat is due as the amount is below Nisaab ({nisaab}). Please consult a scholar.",
+  "@zakatBelowNisaab": {
+    "placeholders": {
+      "nisaab": {
+        "type": "Object"
+      }
+    }
+  },
+  "zakatNisaabAlert": "\n\n* Alert: Nisaab check skipped (Gold price missing).",
+  "zakatIntroduction": "No significant amount entered.",
+  "weatherThunderTitle": "Thunder Supplication",
+  "weatherThunderBody": "Glory be to Him whom thunder praises with His praise, and the angels from the fear of Him.",
+  "weatherRainTitle": "Rain Supplication",
+  "weatherRainBody": "O Allah, (make it) a beneficial downpour.",
+  "weatherWindTitle": "Wind Supplication",
+  "weatherWindBody": "O Allah, I ask You for the good of it, and the good of what it contains, and the good of what it is sent with. I seek refuge in You from the evil of it, and the evil of what it contains, and the evil of what it is sent with.",
+  "weatherHeatTitle": "Severe Heat Supplication",
+  "weatherHeatBody": "La ilaha illa Allah, how hot is this day! O Allah, protect me from the heat of Hellfire.",
+  "weatherColdTitle": "Severe Cold Supplication",
+  "weatherColdBody": "La ilaha illa Allah, how cold is this day! O Allah, protect me from the bitter cold of Hellfire."
 }

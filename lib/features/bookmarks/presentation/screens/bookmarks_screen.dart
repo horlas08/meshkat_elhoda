@@ -363,27 +363,27 @@ class _BookmarkCard extends StatelessWidget {
     } else if (difference.inDays == 1) {
       return localizations.yesterday;
     } else if (difference.inDays < 7) {
-      return localizations.daysAgo.replaceAll('{days}', difference.inDays.toString());
+      return localizations.daysAgo(difference.inDays.toString());
     } else if (difference.inDays < 30) {
       final weeks = (difference.inDays / 7).floor();
       if (weeks == 1) {
         return localizations.weekAgo;
       } else {
-        return localizations.weeksAgo.replaceAll('{weeks}', weeks.toString());
+        return localizations.weeksAgo(weeks.toString());
       }
     } else if (difference.inDays < 365) {
       final months = (difference.inDays / 30).floor();
       if (months == 1) {
         return localizations.monthAgo;
       } else {
-        return localizations.monthsAgo.replaceAll('{months}', months.toString());
+        return localizations.monthsAgo(months.toString());
       }
     } else {
       final years = (difference.inDays / 365).floor();
       if (years == 1) {
         return localizations.yearAgo;
       } else {
-        return localizations.yearsAgo.replaceAll('{years}', years.toString());
+        return localizations.yearsAgo(years.toString());
       }
     }
   }

@@ -56,7 +56,6 @@ android {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.22")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.core:core-ktx:1.12.0") // ⬅️ أضف -ktx
     implementation("androidx.media:media:1.7.0")

@@ -241,9 +241,8 @@ class _FeaturesOverviewScreenState extends State<FeaturesOverviewScreen>
         localizations?.quranDescription ??
             'قراءة القرآن الكريم كاملاً مع التفسير والتلاوة',
         color: Color(0xffD4AF37),
-        features:
-        localizations?.quranFeatures ??
-            ['114 سورة', 'تفسير الآيات', 'ختمة القرآن'],
+        // features: localizations?.quranFeatures ?? 
+        features: ['114 سورة', 'تفسير الآيات', 'ختمة القرآن'],
       ),
       FeatureItem(
         icon: AppAssets.hadith,
@@ -252,9 +251,8 @@ class _FeaturesOverviewScreenState extends State<FeaturesOverviewScreen>
         localizations?.hadithsDescription ??
             'مجموعة صحيح الأحاديث مع الشرح والتصنيف',
         color: Color(0xff4A7C59),
-        features:
-        localizations?.hadithFeatures ??
-            ['الأحاديث الصحيحة', 'الشرح والفوائد', 'البحث المتقدم'],
+        // features: localizations?.hadithFeatures ?? 
+        features: ['الأحاديث الصحيحة', 'الشرح والفوائد', 'البحث المتقدم'],
       ),
       FeatureItem(
         icon: AppAssets.hand,
@@ -263,9 +261,8 @@ class _FeaturesOverviewScreenState extends State<FeaturesOverviewScreen>
         localizations?.azkarDescription ??
             'أذكار الصباح والمساء والأدعية المأثورة',
         color: Color(0xffA3B18A),
-        features:
-        localizations?.azkarFeatures ??
-            ['أذكار اليوم', 'أدعية مأثورة', 'تذكيرات'],
+        // features: localizations?.azkarFeatures ?? 
+        features: ['أذكار اليوم', 'أدعية مأثورة', 'تذكيرات'],
       ),
       FeatureItem(
         icon: AppAssets.asmaaAllah,
@@ -274,9 +271,8 @@ class _FeaturesOverviewScreenState extends State<FeaturesOverviewScreen>
         localizations?.allahNamesDescription ??
             'تعلم أسماء الله الحسنى مع المعاني والفضل',
         color: Color(0xffC66B6B),
-        features:
-        localizations?.allahNamesFeatures ??
-            ['99 اسماً', 'المعاني والشرح', 'الفضل والثواب'],
+        // features: localizations?.allahNamesFeatures ?? 
+        features: ['99 اسماً', 'المعاني والشرح', 'الفضل والثواب'],
       ),
       FeatureItem(
         icon: AppAssets.khatma,
@@ -285,9 +281,8 @@ class _FeaturesOverviewScreenState extends State<FeaturesOverviewScreen>
         localizations?.khatmaDescription ??
             'تتبع تقدمك في ختم القرآن الكريم',
         color: Color(0xffD4CF37),
-        features:
-        localizations?.khatmaFeatures ??
-            ['تتبع التقدم', 'الإحصائيات', 'الأهداف اليومية'],
+        // features: localizations?.khatmaFeatures ?? 
+        features: ['تتبع التقدم', 'الإحصائيات', 'الأهداف اليومية'],
       ),
 
       // دليل الصلاة
@@ -298,9 +293,8 @@ class _FeaturesOverviewScreenState extends State<FeaturesOverviewScreen>
         localizations?.prayerTimesDescription ??
             'مواقيت الصلاة الدقيقة لموقعك',
         color: Color(0xff5BC0BE),
-        features:
-        localizations?.prayerFeatures ??
-            ['5 مواقيت يومية', 'القبلة', 'التنبيهات'],
+        // features: localizations?.prayerFeatures ?? 
+        features: ['5 مواقيت يومية', 'القبلة', 'التنبيهات'],
       ),
       FeatureItem(
         icon: AppAssets.location,
@@ -309,9 +303,8 @@ class _FeaturesOverviewScreenState extends State<FeaturesOverviewScreen>
         localizations?.mosquesDescription ??
             'اكتشف المساجد القريبة من موقعك',
         color: Color(0xff14213D),
-        features:
-        localizations?.mosqueFeatures ??
-            ['خريطة المساجد', 'المسافة والوقت', 'المعلومات'],
+        // features: localizations?.mosqueFeatures ?? 
+        features: ['خريطة المساجد', 'المسافة والوقت', 'المعلومات'],
       ),
 
       // الخدمات الإسلامية
@@ -321,9 +314,8 @@ class _FeaturesOverviewScreenState extends State<FeaturesOverviewScreen>
         description:
         localizations?.audioDescription ?? 'قرآن وخطابات ومحاضرات صوتية',
         color: Color(0xffB25986),
-        features:
-        localizations?.audioFeatures ??
-            ['قرآن كريم', 'خطب ومحاضرات', 'إذاعة قرآنية'],
+        // features: localizations?.audioFeatures ?? 
+        features: ['قرآن كريم', 'خطب ومحاضرات', 'إذاعة قرآنية'],
       ),
       FeatureItem(
         icon: AppAssets.haram,
@@ -332,9 +324,8 @@ class _FeaturesOverviewScreenState extends State<FeaturesOverviewScreen>
         localizations?.broadcastDescription ??
             'شاهد البث المباشر من الحرم المكي',
         color: Color(0xff14213D),
-        features:
-        localizations?.broadcastFeatures ??
-            ['الحرم المكي', 'المسجد النبوي', 'القنوات الإسلامية'],
+        // features: localizations?.broadcastFeatures ?? 
+        features: ['الحرم المكي', 'المسجد النبوي', 'القنوات الإسلامية'],
       ),
       FeatureItem(
         icon: AppAssets.ai,
@@ -343,9 +334,8 @@ class _FeaturesOverviewScreenState extends State<FeaturesOverviewScreen>
         localizations?.assistantDescription ??
             'أسلوبك الإسلامي للإجابة على أسئلتك',
         color: Color(0xff5C7AEA),
-        features:
-        localizations?.assistantFeatures ??
-            ['فتاوى شرعية', 'إجابات دقيقة', 'دليل إرشادي'],
+        // features: localizations?.assistantFeatures ?? 
+        features: ['فتاوى شرعية', 'إجابات دقيقة', 'دليل إرشادي'],
       ),
       FeatureItem(
         icon: AppAssets.zaka,
@@ -353,9 +343,8 @@ class _FeaturesOverviewScreenState extends State<FeaturesOverviewScreen>
         description:
         localizations?.zakatDescription ?? 'احسب زكاتك بدقة وسهولة',
         color: Color(0xffD4AF92),
-        features:
-        localizations?.zakatFeatures ??
-            ['زكاة المال', 'زكاة الذهب', 'زكاة التجارة'],
+        // features: localizations?.zakatFeatures ?? 
+        features: ['زكاة المال', 'زكاة الذهب', 'زكاة التجارة'],
       ),
       FeatureItem(
         icon: AppAssets.date,
@@ -364,9 +353,7 @@ class _FeaturesOverviewScreenState extends State<FeaturesOverviewScreen>
         localizations?.dateConverterDescription ??
             'تحويل بين الهجري والميلادي',
         color: Color(0xffE9C46A),
-        features:
-        localizations?.dateFeatures ??
-            ['تحويل التواريخ', 'التقويم الهجري', 'مناسبات إسلامية'],
+        features: ['تحويل التواريخ', 'التقويم الهجري', 'مناسبات إسلامية'],
       ),
     ];
 

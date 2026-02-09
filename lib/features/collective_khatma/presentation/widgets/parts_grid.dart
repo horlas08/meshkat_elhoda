@@ -147,7 +147,7 @@ class PartsGrid extends StatelessWidget {
           children: [
             // Part Number
             Text(
-              AppLocalizations.of(context)!.partNumber.replaceAll('{0}', partNumber.toString()),
+              AppLocalizations.of(context)!.partNumber(partNumber.toString()),
               style: TextStyle(
                 fontFamily: AppFonts.tajawal,
                 fontSize: 18.sp,

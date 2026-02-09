@@ -8,7 +8,7 @@ class GetAzkarItems {
 
   GetAzkarItems(this.repository);
 
-  Future<Either<Failure, List<Azkar>>> call(int chapterId) async {
-    return await repository.getAzkarItems(chapterId);
+  Future<Either<Failure, List<Azkar>>> call(int chapterId, String languageCode) async {
+    return await repository.getAzkarItems(chapterId, languageCode);
   }
 }

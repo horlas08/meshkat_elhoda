@@ -61,7 +61,7 @@ class HalalRestaurantsScreen extends StatelessWidget {
                                   SnackBar(
                                     content: Text(
                                       AppLocalizations.of(context)
-                                              ?.pleaseWaitForMosquesToLoad ?? // Fallback to same msg for now
+                                              ?.pleaseWaitForRestaurantsToLoad ??
                                           'الرجاء الانتظار حتى يتم تحميل البيانات',
                                     ),
                                     duration: const Duration(seconds: 2),
@@ -165,9 +165,9 @@ class HalalRestaurantsScreen extends StatelessWidget {
                         if (state.restaurants.isEmpty) {
                           return Center(
                             child: Text(
-                              AppLocalizations.of(context)
-                                      ?.noNearbyMosquesInRange ?? // Fallback
-                                  'لا توجد مطاعم حلال قريبة',
+                                      AppLocalizations.of(context)
+                                              ?.noNearbyRestaurantsInRange ??
+                                          'لا توجد مطاعم حلال قريبة',
                               style: AppTextStyles.surahName.copyWith(
                                 fontFamily: AppFonts.tajawal,
                               ),

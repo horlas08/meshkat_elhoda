@@ -108,7 +108,6 @@
   "after": "بعد",
   "fajr": "الفجر",
   "sunrise": "الشروق",
-
   "asr": "العصر",
   "maghrib": "المغرب",
   "isha": "العشاء",
@@ -201,7 +200,6 @@
   "upgradeNowButton": "ترقية الآن",
   "laterButton": "لاحقاً",
   "questionsRemaining": "متبقي: {remaining}",
-  "of": "من",
   "chooseAiModelTitle": "اختر نموذج الذكاء الاصطناعي",
   "gpt4oMiniTitle": "GPT-4o Mini",
   "gpt4oMiniSubtitle": "سريع ومتوازن",
@@ -325,8 +323,8 @@
   "khatmaDetails": "تفاصيل الختمة",
   "copyLink": "نسخ الرابط",
   "deleteKhatma": "حذف الختمة",
-  "partReservedSuccess": "تم حجز الجزء {part} بنجاح!",
-  "partCompletedSuccess": "مبارك! أتممت قراءة الجزء {part}",
+  "partReservedSuccess": "Part {number} reserved successfully",
+  "partCompletedSuccess": "Part {number} completed successfully",
   "deleteConfirmationTitle": "حذف الختمة",
   "deleteConfirmationMessage": "هل أنت متأكد من حذف هذه الختمة؟ لا يمكن التراجع عن هذا الإجراء.",
   "reserveThisPart": "حجز هذا الجزء",
@@ -342,12 +340,12 @@
   "completedParts": "أجزاء مكتملة",
   "noCreatedKhatmas": "لم تنشئ أي ختمة بعد",
   "startCreatingKhatma": "ابدأ بإنشاء ختمة جماعية جديدة",
-  "partNumber": "الجزء {part}",
+  "partNumber": "Part {number}",
   "completedStatus": "مكتمل ✓",
   "inProgressStatus": "قيد القراءة",
   "publicType": "عام",
   "privateType": "خاص",
-  "createdBy": "المنشئ: {creator}",
+  "createdBy": "Created by {name}",
   "participants": "المشاركون",
   "completed": "مكتمل",
   "daysRemaining": "الأيام المتبقية",
@@ -673,5 +671,84 @@
   "deleteAccountSuccess": "تم حذف الحساب بنجاح",
   "deleting": "جاري الحذف...",
   "deleteAccount": "حذف الحساب",
-  "deleteAccountAndAssociatedData": "حذف حسابك والبيانات المرتبطة به"
+  "deleteAccountAndAssociatedData": "حذف حسابك والبيانات المرتبطة به",
+  "ofLabel": "من",
+  "@partNumber": {
+    "placeholders": {
+      "number": {
+        "type": "Object"
+      }
+    }
+  },
+  "@partReservedSuccess": {
+    "placeholders": {
+      "number": {
+        "type": "Object"
+      }
+    }
+  },
+  "@partCompletedSuccess": {
+    "placeholders": {
+      "number": {
+        "type": "Object"
+      }
+    }
+  },
+  "@createdBy": {
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "inviteLink": "Invite Link: {link}",
+  "@inviteLink": {
+    "placeholders": {
+      "link": {
+        "type": "Object"
+      }
+    }
+  },
+  "featureRemoveAds": "Remove Ads",
+  "featureUnlockReciters": "Unlock All Reciters",
+  "featureDownloadContent": "Download Content",
+  "noNearbyRestaurantsInRange": "لا توجد مطاعم حلال قريبة",
+  "pleaseWaitForRestaurantsToLoad": "الرجاء الانتظار حتى يتم تحميل بيانات المطاعم",
+  "hajjAndUmrahGuide": "دليل الحج والعمرة",
+  "zakatTotalAmount": "مجموع المال: {amount}",
+  "@zakatTotalAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "Object"
+      }
+    }
+  },
+  "zakatDueAmount": "مقدار الزكاة الواجبة: {amount} (٢.٥٪ من المبلغ)",
+  "@zakatDueAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "Object"
+      }
+    }
+  },
+  "zakatBelowNisaab": "الغالب أنه لا تجب عليك الزكاة الآن لأن المبلغ أقل من النصاب ({nisaab}). يُرجى سؤال أحد أهل العلم للمزيد من التأكد.",
+  "@zakatBelowNisaab": {
+    "placeholders": {
+      "nisaab": {
+        "type": "Object"
+      }
+    }
+  },
+  "zakatNisaabAlert": "\n\n* تنبيه: لم يتم التحقق من النصاب لعدم إدخال سعر جرام الذهب.",
+  "zakatIntroduction": "لم يتم إدخال أي مبالغ تُذكر لحساب الزكاة.",
+  "weatherThunderTitle": "دعاء الرعد",
+  "weatherThunderBody": "سُبْحَانَ الَّذِي يُسَبِّحُ الرَّعْدُ بِحَمْدِهِ وَالْمَلَائِكَةُ مِنْ خِيفَتِهِ",
+  "weatherRainTitle": "دعاء نزول المطر",
+  "weatherRainBody": "اللَّهُمَّ صَيِّبًا نَافِعًا",
+  "weatherWindTitle": "دعاء الرياح",
+  "weatherWindBody": "اللهم إني أسألك خيرها، وخير ما فيها، وخير ما أرسلت به، وأعوذ بك من شرها، وشر ما فيها، وشر ما أرسلت به",
+  "weatherHeatTitle": "دعاء الحر الشديد",
+  "weatherHeatBody": "لا إله إلا الله، ما أشد حر هذا اليوم! اللهم أجرني من حر جهنم",
+  "weatherColdTitle": "دعاء البرد الشديد",
+  "weatherColdBody": "لا إله إلا الله، ما أشد برد هذا اليوم! اللهم أجرني من زمهرير جهنم"
 }

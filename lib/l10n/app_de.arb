@@ -198,7 +198,6 @@
   "upgradeNowButton": "Jetzt upgraden",
   "laterButton": "Später",
   "questionsRemaining": "Verbleibend: {remaining}",
-  "of": "von",
   "chooseAiModelTitle": "KI-Modell wählen",
   "gpt4oMiniTitle": "GPT-4o Mini",
   "gpt4oMiniSubtitle": "Schnell und ausgewogen",
@@ -320,8 +319,8 @@
   "khatmaDetails": "Khatma-Details",
   "copyLink": "Link kopieren",
   "deleteKhatma": "Khatma löschen",
-  "partReservedSuccess": "Teil {part} erfolgreich reserviert!",
-  "partCompletedSuccess": "Herzlichen Glückwunsch! Sie haben Teil {part} abgeschlossen",
+  "partReservedSuccess": "Part {number} reserved successfully",
+  "partCompletedSuccess": "Part {number} completed successfully",
   "deleteConfirmationTitle": "Khatma löschen",
   "deleteConfirmationMessage": "Sind Sie sicher, dass Sie diese Khatma löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
   "reserveThisPart": "Diesen Teil reservieren",
@@ -337,12 +336,12 @@
   "completedParts": "Abgeschlossene Teile",
   "noCreatedKhatmas": "Noch keine Khatma erstellt",
   "startCreatingKhatma": "Beginnen Sie mit der Erstellung einer neuen kollektiven Khatma",
-  "partNumber": "Teil {part}",
+  "partNumber": "Part {number}",
   "completedStatus": "Abgeschlossen ✓",
   "inProgressStatus": "In Bearbeitung",
   "publicType": "Öffentlich",
   "privateType": "Privat",
-  "createdBy": "Erstellt von: {creator}",
+  "createdBy": "Created by {name}",
   "participants": "Teilnehmer",
   "completed": "Abgeschlossen",
   "daysRemaining": "Verbleibende Tage",
@@ -672,5 +671,84 @@
   "deleteAccountSuccess": "Konto erfolgreich gelöscht",
   "deleting": "Wird gelöscht...",
   "deleteAccount": "Konto löschen",
-  "deleteAccountAndAssociatedData": "Löschen Sie Ihr Konto und zugehörige Daten"
+  "deleteAccountAndAssociatedData": "Löschen Sie Ihr Konto und zugehörige Daten",
+  "ofLabel": "von",
+  "@partNumber": {
+    "placeholders": {
+      "number": {
+        "type": "Object"
+      }
+    }
+  },
+  "@partReservedSuccess": {
+    "placeholders": {
+      "number": {
+        "type": "Object"
+      }
+    }
+  },
+  "@partCompletedSuccess": {
+    "placeholders": {
+      "number": {
+        "type": "Object"
+      }
+    }
+  },
+  "@createdBy": {
+    "placeholders": {
+      "name": {
+        "type": "Object"
+      }
+    }
+  },
+  "inviteLink": "Invite Link: {link}",
+  "@inviteLink": {
+    "placeholders": {
+      "link": {
+        "type": "Object"
+      }
+    }
+  },
+  "featureRemoveAds": "Remove Ads",
+  "featureUnlockReciters": "Unlock All Reciters",
+  "featureDownloadContent": "Download Content",
+  "noNearbyRestaurantsInRange": "No halal restaurants nearby",
+  "pleaseWaitForRestaurantsToLoad": "Please wait while restaurant data is loading",
+  "hajjAndUmrahGuide": "Hajj & Umrah Guide",
+  "zakatTotalAmount": "Total Amount: {amount}",
+  "@zakatTotalAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "Object"
+      }
+    }
+  },
+  "zakatDueAmount": "Zakat Due: {amount} (2.5%)",
+  "@zakatDueAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "Object"
+      }
+    }
+  },
+  "zakatBelowNisaab": "Likely no Zakat is due as the amount is below Nisaab ({nisaab}). Please consult a scholar.",
+  "@zakatBelowNisaab": {
+    "placeholders": {
+      "nisaab": {
+        "type": "Object"
+      }
+    }
+  },
+  "zakatNisaabAlert": "\n\n* Alert: Nisaab check skipped (Gold price missing).",
+  "zakatIntroduction": "No significant amount entered.",
+  "weatherThunderTitle": "Thunder Supplication",
+  "weatherThunderBody": "Glory be to Him whom thunder praises with His praise, and the angels from the fear of Him.",
+  "weatherRainTitle": "Rain Supplication",
+  "weatherRainBody": "O Allah, (make it) a beneficial downpour.",
+  "weatherWindTitle": "Wind Supplication",
+  "weatherWindBody": "O Allah, I ask You for the good of it, and the good of what it contains, and the good of what it is sent with. I seek refuge in You from the evil of it, and the evil of what it contains, and the evil of what it is sent with.",
+  "weatherHeatTitle": "Severe Heat Supplication",
+  "weatherHeatBody": "La ilaha illa Allah, how hot is this day! O Allah, protect me from the heat of Hellfire.",
+  "weatherColdTitle": "Severe Cold Supplication",
+  "weatherColdBody": "La ilaha illa Allah, how cold is this day! O Allah, protect me from the bitter cold of Hellfire."
 }

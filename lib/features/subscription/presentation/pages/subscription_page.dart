@@ -198,8 +198,14 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
     bool isDark,
     TextStyle subTitleStyle,
   ) {
+    final subscriptionFeatures = [
+      s.featureRemoveAds,
+      s.featureUnlockReciters, 
+      s.featureDownloadContent,
+    ];
+
     return Column(
-      children: s.subscriptionFeatures
+      children: subscriptionFeatures
           .map(
             (feature) => Padding(
               padding: EdgeInsets.symmetric(vertical: 8.h),

@@ -4,12 +4,14 @@ class ZakatCalculationResult {
   final double totalAmount;
   final double? zakatAmount;
   final bool isBelowNisaab;
-  final String message;
+  final double? nisaabValue;
+  final String message; // Deprecated, use UI construction
 
   const ZakatCalculationResult({
     required this.totalAmount,
     required this.zakatAmount,
     required this.isBelowNisaab,
+    this.nisaabValue,
     required this.message,
   });
 }
@@ -51,7 +53,7 @@ class ZakatCalculatorService {
         totalAmount: 0,
         zakatAmount: 0,
         isBelowNisaab: true,
-        message: 'لم يتم إدخال أي مبالغ تُذكر لحساب الزكاة.',
+        message: '',
       );
     }
 
@@ -61,13 +63,11 @@ class ZakatCalculatorService {
         totalAmount: total,
         zakatAmount: zakat,
         isBelowNisaab: false,
-        message:
-            'مجموع المال: ${total.toStringAsFixed(2)}\nمقدار الزكاة الواجبة: ${zakat.toStringAsFixed(2)}\n(٢.٥٪ من المبلغ)',
+        message: '',
       );
     }
 
     // تفعيل النصاب يتطلب وجود سعر جرام الذهب
-    // تحديث: إذا لم يتم إدخال سعر الذهب، نقوم بالحساب مع التنبيه بدلا من رمي الخطأ
     double? nisaab;
     if (goldPricePerGram24 != null && goldPricePerGram24 > 0) {
       nisaab = 85.0 * goldPricePerGram24;
@@ -79,27 +79,20 @@ class ZakatCalculatorService {
           totalAmount: total,
           zakatAmount: null,
           isBelowNisaab: true,
-          message:
-              'الغالب أنه لا تجب عليك الزكاة الآن لأن المبلغ أقل من النصاب (${nisaab.toStringAsFixed(2)}).\nيُرجى سؤال أحد أهل العلم للمزيد من التأكد.',
+          nisaabValue: nisaab,
+          message: '', // Message will be constructed in UI
         );
       }
     }
 
     final zakat = total * 0.025;
 
-    String message =
-        'مجموع المال: ${total.toStringAsFixed(2)}\nمقدار الزكاة الواجبة: ${zakat.toStringAsFixed(2)}\n(٢.٥٪ من المبلغ)';
-
-    if (enableNisaab && nisaab == null) {
-      message +=
-          '\n\n* تنبيه: لم يتم التحقق من النصاب لعدم إدخال سعر جرام الذهب.';
-    }
-
     return ZakatCalculationResult(
       totalAmount: total,
       zakatAmount: zakat,
       isBelowNisaab: false,
-      message: message,
+      nisaabValue: nisaab,
+      message: '', // Message will be constructed in UI
     );
   }
 }

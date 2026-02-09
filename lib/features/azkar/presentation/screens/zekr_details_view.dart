@@ -56,7 +56,8 @@ class _ZekrDetailsViewState extends State<ZekrDetailsView> {
   }
 
   void _loadZekrDetails() {
-    context.read<AzkarBloc>().add(FetchAzkarItems(widget.zekrId));
+    final languageCode = Localizations.localeOf(context).languageCode;
+    context.read<AzkarBloc>().add(FetchAzkarItems(widget.zekrId, languageCode));
   }
 
   void _copyZekr(String text) async {

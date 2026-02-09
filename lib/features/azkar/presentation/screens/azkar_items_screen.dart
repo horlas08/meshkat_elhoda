@@ -22,7 +22,10 @@ class AzkarItemsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<AzkarBloc>()..add(FetchAzkarItems(categoryId)),
+      create: (context) {
+        final languageCode = Localizations.localeOf(context).languageCode;
+        return getIt<AzkarBloc>()..add(FetchAzkarItems(categoryId, languageCode));
+      },
       child: Scaffold(
         appBar: AppBar(title: Text(categoryTitle), centerTitle: true),
         body: BlocBuilder<AzkarBloc, AzkarState>(
@@ -50,8 +53,9 @@ class AzkarItemsScreen extends StatelessWidget {
                     const SizedBox(height: 16),
                     ElevatedButton(
                       onPressed: () {
+                        final languageCode = Localizations.localeOf(context).languageCode;
                         context.read<AzkarBloc>().add(
-                          FetchAzkarItems(categoryId),
+                          FetchAzkarItems(categoryId, languageCode),
                         );
                       },
                       child: Text(AppLocalizations.of(context)!.retry),

@@ -335,9 +335,10 @@ class _AssistantViewWithSubscriptionState
           ),
           const SizedBox(height: 4),
           Text(
-            AppLocalizations.of(context)!.dailyLimitReachedMessage
-                .replaceAll('{dailyCount}', dailyCount.toString())
-                .replaceAll('{maxQuestions}', maxQuestions.toString()),
+            AppLocalizations.of(context)!.dailyLimitReachedMessage(
+                  dailyCount.toString(),
+                  maxQuestions.toString(),
+                ),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 12),

@@ -3,8 +3,7 @@ package com.meshkatelhoda.pro
 import com.ryanheise.audioservice.AudioServiceActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
-import androidx.work.Configuration
-import androidx.work.WorkManager
+
 import android.util.Log
 import android.app.AlarmManager
 import android.content.Context
@@ -173,15 +172,8 @@ class MainActivity: AudioServiceActivity() {
         
         Log.d(TAG, "✅ MethodChannel registered successfully")
         
-        // ✅ Initialize WorkManager
-        try {
-            val config = Configuration.Builder()
-                .setMinimumLoggingLevel(android.util.Log.INFO)
-                .build()
-            WorkManager.initialize(applicationContext, config)
-        } catch (e: IllegalStateException) {
-            // WorkManager already initialized
-        }
+        // ✅ WorkManager initialized by plugin/provider automatically
+        // Manual initialization removed to avoid conflicts
         
         // Check and log exact alarm permission status
         Log.d(TAG, "📅 Can schedule exact alarms: ${canScheduleExactAlarms()}")

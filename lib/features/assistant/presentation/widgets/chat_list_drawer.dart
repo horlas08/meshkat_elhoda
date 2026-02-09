@@ -138,15 +138,15 @@ class ChatTile extends StatelessWidget {
     if (diff.inDays > 0) {
       return AppLocalizations.of(
         context,
-      )!.dayAgo.replaceAll('{days}', diff.inDays.toString());
+      )!.dayAgo(diff.inDays.toString());
     } else if (diff.inHours > 0) {
       return AppLocalizations.of(
         context,
-      )!.hourAgo.replaceAll('{hours}', diff.inHours.toString());
+      )!.hourAgo(diff.inHours.toString());
     } else if (diff.inMinutes > 0) {
       return AppLocalizations.of(
         context,
-      )!.minuteAgo.replaceAll('{minutes}', diff.inMinutes.toString());
+      )!.minuteAgo(diff.inMinutes.toString());
     } else {
       return AppLocalizations.of(context)!.now;
     }

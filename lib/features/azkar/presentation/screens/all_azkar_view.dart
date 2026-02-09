@@ -37,7 +37,8 @@ class _AllAzkarViewState extends State<AllAzkarView> {
     // Load subscription
     context.read<SubscriptionBloc>().add(LoadSubscriptionEvent());
     // Ensure categories are loaded
-    context.read<AzkarBloc>().add(FetchAzkarCategories());
+    final languageCode = Localizations.localeOf(context).languageCode;
+    context.read<AzkarBloc>().add(FetchAzkarCategories(languageCode));
   }
 
   @override

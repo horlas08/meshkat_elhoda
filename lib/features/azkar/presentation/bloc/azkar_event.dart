@@ -8,25 +8,31 @@ abstract class AzkarEvent extends Equatable {
 }
 
 class FetchAzkarCategories extends AzkarEvent {
-  const FetchAzkarCategories();
+  final String languageCode;
+  const FetchAzkarCategories(this.languageCode);
+
+  @override
+  List<Object?> get props => [languageCode];
 }
 
 class FetchAzkarChapters extends AzkarEvent {
   final int categoryId;
+  final String languageCode;
 
-  const FetchAzkarChapters(this.categoryId);
+  const FetchAzkarChapters(this.categoryId, this.languageCode);
 
   @override
-  List<Object?> get props => [categoryId];
+  List<Object?> get props => [categoryId, languageCode];
 }
 
 class FetchAzkarItems extends AzkarEvent {
   final int chapterId;
+  final String languageCode;
 
-  const FetchAzkarItems(this.chapterId);
+  const FetchAzkarItems(this.chapterId, this.languageCode);
 
   @override
-  List<Object?> get props => [chapterId];
+  List<Object?> get props => [chapterId, languageCode];
 }
 
 class FetchAllahNames extends AzkarEvent {

@@ -211,8 +211,7 @@ class SurahCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    AppLocalizations.of(context)!.ayahsCount.replaceAll(
-                      '{count}',
+                    AppLocalizations.of(context)!.ayahsCount(
                       surah.ayahCount.toString(),
                     ),
                     style: TextStyle(fontSize: 12, color: Colors.grey[600]),

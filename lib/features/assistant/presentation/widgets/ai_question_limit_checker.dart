@@ -82,9 +82,10 @@ class AiQuestionLimitChecker extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            AppLocalizations.of(context)!.dailyLimitReachedMessage
-                .replaceAll('{dailyCount}', dailyCount.toString())
-                .replaceAll('{maxQuestions}', maxQuestions.toString()),
+            AppLocalizations.of(context)!.dailyLimitReachedMessage(
+                  dailyCount.toString(),
+                  maxQuestions.toString(),
+                ),
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.orange.shade800),
           ),
@@ -153,7 +154,7 @@ class DailyQuestionCounter extends StatelessWidget {
                   Icon(Icons.help_outline, size: 16, color: color),
                   const SizedBox(width: 6),
                   Text(
-                    '${AppLocalizations.of(context)!.questionsRemaining.replaceAll('{remaining}', remaining.toString())} '
+                    '${AppLocalizations.of(context)!.questionsRemaining(remaining.toString())} '
                     '${AppLocalizations.of(context)!.ofWord} $maxQuestions',
                     style: TextStyle(
                       fontSize: 12,

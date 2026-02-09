@@ -64,10 +64,7 @@ class _MosquesMapScreenState extends State<MosquesMapScreen> {
         final status = decoded['status'] as String? ?? 'UNKNOWN';
         final errorMessage = decoded['error_message'] as String? ?? '';
         throw Exception(
-          AppLocalizations.of(
-                context,
-              )?.directionsApiError(status, errorMessage) ??
-              'Directions API: $status - $errorMessage',
+          "${AppLocalizations.of(context)?.directionsApiError}: $status - $errorMessage",
         );
       }
       final routes = decoded['routes'] as List<dynamic>;

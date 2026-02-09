@@ -78,8 +78,29 @@ class _ZakatCalculatorScreenState extends State<ZakatCalculatorScreen> {
         enableNisaab: _enableNisaab,
       );
 
+      // Construct localized message
+      final s = AppLocalizations.of(context)!;
+      final sb = StringBuffer();
+
+      if (result.totalAmount == 0) {
+        sb.writeln(s.zakatIntroduction);
+      } else {
+        if (result.isBelowNisaab) {
+          sb.writeln(s.zakatBelowNisaab(result.nisaabValue?.toStringAsFixed(2) ?? '0'));
+        } else {
+          sb.writeln(s.zakatTotalAmount(result.totalAmount.toStringAsFixed(2)));
+          if (result.zakatAmount != null) {
+            sb.writeln(s.zakatDueAmount(result.zakatAmount!.toStringAsFixed(2)));
+          }
+        }
+        
+        if (_enableNisaab && result.nisaabValue == null) {
+          sb.writeln(s.zakatNisaabAlert);
+        }
+      }
+
       setState(() {
-        _resultMessage = result.message;
+        _resultMessage = sb.toString();
         _showResult = true;
       });
     } on ArgumentError catch (e) {

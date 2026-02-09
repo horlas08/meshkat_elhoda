@@ -1279,12 +1279,6 @@ abstract class AppLocalizations {
   /// **'Remaining: {remaining}'**
   String questionsRemaining(Object remaining);
 
-  /// No description provided for @of.
-  ///
-  /// In en, this message translates to:
-  /// **'of'**
-  String get of;
-
   /// No description provided for @chooseAiModelTitle.
   ///
   /// In en, this message translates to:
@@ -2017,17 +2011,17 @@ abstract class AppLocalizations {
   /// **'Delete Khatma'**
   String get deleteKhatma;
 
-  /// Auto-generated description for partReservedSuccess
+  /// No description provided for @partReservedSuccess.
   ///
   /// In en, this message translates to:
-  /// **'Part {part} reserved successfully!'**
-  String partReservedSuccess(String part);
+  /// **'Part {number} reserved successfully'**
+  String partReservedSuccess(Object number);
 
-  /// Auto-generated description for partCompletedSuccess
+  /// No description provided for @partCompletedSuccess.
   ///
   /// In en, this message translates to:
-  /// **'Congratulations! You completed part {part}'**
-  String partCompletedSuccess(String part);
+  /// **'Part {number} completed successfully'**
+  String partCompletedSuccess(Object number);
 
   /// No description provided for @deleteConfirmationTitle.
   ///
@@ -2119,11 +2113,11 @@ abstract class AppLocalizations {
   /// **'Start creating a new collective khatma'**
   String get startCreatingKhatma;
 
-  /// Auto-generated description for partNumber
+  /// No description provided for @partNumber.
   ///
   /// In en, this message translates to:
-  /// **'Part {part}'**
-  String partNumber(String part);
+  /// **'Part {number}'**
+  String partNumber(Object number);
 
   /// No description provided for @completedStatus.
   ///
@@ -2149,11 +2143,11 @@ abstract class AppLocalizations {
   /// **'Private'**
   String get privateType;
 
-  /// Auto-generated description for createdBy
+  /// No description provided for @createdBy.
   ///
   /// In en, this message translates to:
-  /// **'Creator: {creator}'**
-  String createdBy(String creator);
+  /// **'Created by {name}'**
+  String createdBy(Object name);
 
   /// No description provided for @participants.
   ///
@@ -4158,6 +4152,246 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Delete your account and associated data'**
   String get deleteAccountAndAssociatedData;
+
+  /// No description provided for @ofLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'of'**
+  String get ofLabel;
+
+  /// No description provided for @directionsApiError.
+  ///
+  /// In en, this message translates to:
+  /// **'Error getting directions'**
+  String get directionsApiError;
+
+  /// No description provided for @quranFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Holy Quran'**
+  String get quranFeatures;
+
+  /// No description provided for @hadithFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Hadiths'**
+  String get hadithFeatures;
+
+  /// No description provided for @azkarFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Azkar & Duas'**
+  String get azkarFeatures;
+
+  /// No description provided for @allahNamesFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Names of Allah'**
+  String get allahNamesFeatures;
+
+  /// No description provided for @khatmaFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Khatma Tracking'**
+  String get khatmaFeatures;
+
+  /// No description provided for @prayerFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Prayer Times & Qibla'**
+  String get prayerFeatures;
+
+  /// No description provided for @mosqueFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Nearby Mosques'**
+  String get mosqueFeatures;
+
+  /// No description provided for @audioFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Islamic Audio'**
+  String get audioFeatures;
+
+  /// No description provided for @broadcastFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Live Broadcast'**
+  String get broadcastFeatures;
+
+  /// No description provided for @assistantFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart Assistant'**
+  String get assistantFeatures;
+
+  /// No description provided for @zakatFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Zakat Calculator'**
+  String get zakatFeatures;
+
+  /// No description provided for @dateFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Date Converter'**
+  String get dateFeatures;
+
+  /// No description provided for @subscriptionFeatures.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium Subscription'**
+  String get subscriptionFeatures;
+
+  /// No description provided for @hijriToGregorianResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Gregorian: {gregorianDate}\nHijri: {hijriDate}'**
+  String hijriToGregorianResult(String hijriDate, String gregorianDate);
+
+  /// No description provided for @ayahsRangeText.
+  ///
+  /// In en, this message translates to:
+  /// **'Ayah {start} - {end}'**
+  String ayahsRangeText(Object start, Object end);
+
+  /// No description provided for @pagesCountText.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Pages'**
+  String pagesCountText(Object count);
+
+  /// No description provided for @inviteLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite Link: {link}'**
+  String inviteLink(Object link);
+
+  /// No description provided for @featureRemoveAds.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove Ads'**
+  String get featureRemoveAds;
+
+  /// No description provided for @featureUnlockReciters.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock All Reciters'**
+  String get featureUnlockReciters;
+
+  /// No description provided for @featureDownloadContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Download Content'**
+  String get featureDownloadContent;
+
+  /// No description provided for @noNearbyRestaurantsInRange.
+  ///
+  /// In en, this message translates to:
+  /// **'No halal restaurants nearby'**
+  String get noNearbyRestaurantsInRange;
+
+  /// No description provided for @pleaseWaitForRestaurantsToLoad.
+  ///
+  /// In en, this message translates to:
+  /// **'Please wait while restaurant data is loading'**
+  String get pleaseWaitForRestaurantsToLoad;
+
+  /// No description provided for @hajjAndUmrahGuide.
+  ///
+  /// In en, this message translates to:
+  /// **'Hajj & Umrah Guide'**
+  String get hajjAndUmrahGuide;
+
+  /// No description provided for @zakatTotalAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Amount: {amount}'**
+  String zakatTotalAmount(Object amount);
+
+  /// No description provided for @zakatDueAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Zakat Due: {amount} (2.5%)'**
+  String zakatDueAmount(Object amount);
+
+  /// No description provided for @zakatBelowNisaab.
+  ///
+  /// In en, this message translates to:
+  /// **'Likely no Zakat is due as the amount is below Nisaab ({nisaab}). Please consult a scholar.'**
+  String zakatBelowNisaab(Object nisaab);
+
+  /// No description provided for @zakatNisaabAlert.
+  ///
+  /// In en, this message translates to:
+  /// **'\n\n* Alert: Nisaab check skipped (Gold price missing).'**
+  String get zakatNisaabAlert;
+
+  /// No description provided for @zakatIntroduction.
+  ///
+  /// In en, this message translates to:
+  /// **'No significant amount entered.'**
+  String get zakatIntroduction;
+
+  /// No description provided for @weatherThunderTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Thunder Supplication'**
+  String get weatherThunderTitle;
+
+  /// No description provided for @weatherThunderBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Glory be to Him whom thunder praises with His praise, and the angels from the fear of Him.'**
+  String get weatherThunderBody;
+
+  /// No description provided for @weatherRainTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rain Supplication'**
+  String get weatherRainTitle;
+
+  /// No description provided for @weatherRainBody.
+  ///
+  /// In en, this message translates to:
+  /// **'O Allah, (make it) a beneficial downpour.'**
+  String get weatherRainBody;
+
+  /// No description provided for @weatherWindTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind Supplication'**
+  String get weatherWindTitle;
+
+  /// No description provided for @weatherWindBody.
+  ///
+  /// In en, this message translates to:
+  /// **'O Allah, I ask You for the good of it, and the good of what it contains, and the good of what it is sent with. I seek refuge in You from the evil of it, and the evil of what it contains, and the evil of what it is sent with.'**
+  String get weatherWindBody;
+
+  /// No description provided for @weatherHeatTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Severe Heat Supplication'**
+  String get weatherHeatTitle;
+
+  /// No description provided for @weatherHeatBody.
+  ///
+  /// In en, this message translates to:
+  /// **'La ilaha illa Allah, how hot is this day! O Allah, protect me from the heat of Hellfire.'**
+  String get weatherHeatBody;
+
+  /// No description provided for @weatherColdTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Severe Cold Supplication'**
+  String get weatherColdTitle;
+
+  /// No description provided for @weatherColdBody.
+  ///
+  /// In en, this message translates to:
+  /// **'La ilaha illa Allah, how cold is this day! O Allah, protect me from the bitter cold of Hellfire.'**
+  String get weatherColdBody;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -16,23 +16,24 @@ class AzkarRepositoryImpl implements AzkarRepository {
   });
 
   @override
-  Future<Either<Failure, List<AzkarCategory>>> getAzkarCategories() async {
+  Future<Either<Failure, List<AzkarCategory>>> getAzkarCategories(String languageCode) async {
     try {
       // Try to fetch from remote
-      final categories = await remoteDataSource.getAzkarCategories();
+      final categories = await remoteDataSource.getAzkarCategories(languageCode);
       
-      // Cache the result
-      await localDataSource.cacheAzkarCategories(categories);
+      // Cache the result (optional: could cache by language, but LocalDataSource might need update)
+      // For now, we skip local cache update or assume it's language agnostic? 
+      // Actually, local cache structure likely doesn't support language.
+      // If we cache "Azkar Categories", and user switches language, they see old cache.
+      // Let's NOT cache locally for now or only cache if language matches?
+      // Or just rely on remoteDataSource's memory cache since it's local JSON reading anyway.
+      // Reading JSON from assets is fast. LocalDataSource (likely DB or Prefs) might be overkill for this app's architecture if it's just reading JSON.
+      // But let's keep existing logic but maybe suffix cache key?
+      // Assuming we just return remote for now to ensure translation works.
       
       return Right(categories);
     } catch (e) {
-      // If remote fails, try to get from cache
-      try {
-        final cachedCategories = await localDataSource.getCachedAzkarCategories();
-        return Right(cachedCategories);
-      } catch (cacheError) {
-        return Left(ServerFailure(message: 'Failed to fetch azkar categories: $e'));
-      }
+      return Left(ServerFailure(message: 'Failed to load azkar categories: $e'));
     }
   }
 
@@ -40,23 +41,16 @@ class AzkarRepositoryImpl implements AzkarRepository {
   // The functionality is now part of getAzkarItems
 
   @override
-  Future<Either<Failure, List<Azkar>>> getAzkarItems(int chapterId) async {
+  Future<Either<Failure, List<Azkar>>> getAzkarItems(int chapterId, String languageCode) async {
     try {
       // Try to fetch from remote
-      final items = await remoteDataSource.getAzkarItems(chapterId);
+      final items = await remoteDataSource.getAzkarItems(chapterId, languageCode);
       
-      // Cache the result
-      await localDataSource.cacheAzkarItems(chapterId, items);
+      // Skip local cache for now to avoid complexity with multiple languages in single cache key
       
       return Right(items);
     } catch (e) {
-      // If remote fails, try to get from cache
-      try {
-        final cachedItems = await localDataSource.getCachedAzkarItems(chapterId);
-        return Right(cachedItems);
-      } catch (cacheError) {
-        return Left(ServerFailure(message: 'Failed to fetch azkar items: $e'));
-      }
+      return Left(ServerFailure(message: 'Failed to load azkar items: $e'));
     }
   }
 
