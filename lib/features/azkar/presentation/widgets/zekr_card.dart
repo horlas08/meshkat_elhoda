@@ -9,6 +9,8 @@ import '../../../../l10n/app_localizations.dart';
 
 class ZekrCard extends StatelessWidget {
   final String zekrText;
+  final String? translation;
+  final String? source;
   final VoidCallback onCoppy;
   final VoidCallback onShare;
   final VoidCallback onFavorite;
@@ -19,6 +21,8 @@ class ZekrCard extends StatelessWidget {
   const ZekrCard({
     super.key,
     required this.zekrText,
+    this.translation,
+    this.source,
     required this.onCoppy,
     required this.onShare,
     required this.onFavorite,
@@ -44,16 +48,47 @@ class ZekrCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                child: Text(
-                  zekrText,
-                  textAlign: TextAlign.center,
-                  style: AppTextStyles.surahName.copyWith(
-                    fontSize: 16.sp * fontScale,
-                    color:
-                        Theme.of(context).textTheme.bodyLarge?.color ??
-                        const Color(0xff595754),
-                    fontFamily: AppFonts.tajawal,
-                  ),
+                child: Column(
+                  children: [
+                    Text(
+                      zekrText,
+                      textAlign: TextAlign.center,
+                      style: AppTextStyles.surahName.copyWith(
+                        fontSize: 16.sp * fontScale,
+                        color:
+                            Theme.of(context).textTheme.bodyLarge?.color ??
+                            const Color(0xff595754),
+                        fontFamily: AppFonts.tajawal,
+                      ),
+                    ),
+                    if (translation != null && translation!.isNotEmpty) ...[
+                      SizedBox(height: 12.h),
+                      Text(
+                        translation!,
+                        textAlign: TextAlign.center,
+                        style: AppTextStyles.surahName.copyWith(
+                          fontSize: 14.sp * fontScale,
+                          color: Theme.of(context).textTheme.bodyMedium?.color ??
+                              Colors.grey[700],
+                          fontFamily: AppFonts.tajawal,
+                          height: 1.5,
+                        ),
+                      ),
+                    ],
+                    if (source != null && source!.isNotEmpty) ...[
+                      SizedBox(height: 8.h),
+                      Text(
+                        source!,
+                        textAlign: TextAlign.center,
+                        style: AppTextStyles.surahName.copyWith(
+                          fontSize: 12.sp * fontScale,
+                          color: Colors.grey,
+                          fontFamily: AppFonts.tajawal,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ],
+                  ],
                 ),
               ),
               FavoriteIcon(onFavorite: onFavorite, isFavorite: isFavorite),
@@ -61,16 +96,19 @@ class ZekrCard extends StatelessWidget {
           ),
 
           SizedBox(height: 16.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          SizedBox(height: 16.h),
+          Wrap(
+            spacing: 8.w,
+            runSpacing: 8.h,
+            alignment: WrapAlignment.spaceBetween,
             children: [
               ZekrActionButton(
-                width: 65.w,
+                // width: 65.w, // Remove fixed width
                 text: '$repeat ${AppLocalizations.of(context)!.repeat}',
                 onTap: () {},
               ),
               ZekrActionButton(
-                width: 65.w,
+                // width: 65.w, // Remove fixed width
                 text: AppLocalizations.of(context)!.copy,
                 icon: Icons.copy,
                 onTap: onCoppy,

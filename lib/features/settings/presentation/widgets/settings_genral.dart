@@ -85,12 +85,6 @@ class _SettingsGeneralState extends State<SettingsGeneral> {
                       final languageName = supportedLanguages[languageCode]!;
                       final isSelected = languageCode == selectedLanguage;
 
-                      // قفل جميع اللغات ماعدا العربية والإنجليزية للمستخدمين المجانيين
-                      final isLocked =
-                          languageCode != 'ar' &&
-                          languageCode != 'en' &&
-                          !isPremium;
-
                       return ListTile(
                         title: Row(
                           children: [
@@ -98,40 +92,24 @@ class _SettingsGeneralState extends State<SettingsGeneral> {
                               child: Text(
                                 languageName,
                                 style: TextStyle(
-                                  color: isLocked ? Colors.grey : null,
                                   fontFamily: AppFonts.tajawal,
                                 ),
                               ),
                             ),
-                            if (isLocked) ...[
-                              SizedBox(width: 8.w),
-                              Icon(
-                                Icons.lock,
-                                size: 16.sp,
-                                color: AppColors.goldenColor,
-                              ),
-                            ],
                           ],
                         ),
                         leading: Radio<String>(
                           value: languageCode,
                           groupValue: selectedLanguage,
-                          onChanged: isLocked
-                              ? null
-                              : (value) {
-                                  if (value != null &&
-                                      value != selectedLanguage) {
-                                    Navigator.pop(dialogContext);
-                                    _changeLanguage(context, value);
-                                  }
-                                },
+                          onChanged: (value) {
+                            if (value != null && value != selectedLanguage) {
+                              Navigator.pop(dialogContext);
+                              _changeLanguage(context, value);
+                            }
+                          },
                         ),
                         selected: isSelected,
                         onTap: () {
-                          if (isLocked) {
-                            _showPremiumDialog(context);
-                            return;
-                          }
                           if (languageCode != selectedLanguage) {
                             Navigator.pop(dialogContext);
                             _changeLanguage(context, languageCode);

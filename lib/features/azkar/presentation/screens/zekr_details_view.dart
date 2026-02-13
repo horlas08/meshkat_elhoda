@@ -44,9 +44,14 @@ class _ZekrDetailsViewState extends State<ZekrDetailsView> {
   void initState() {
     super.initState();
     favoritesBloc = getIt<FavoritesBloc>();
-    // جلب تفاصيل الذكر عند فتح الشاشة
-    _loadZekrDetails();
+    // جلب تفاصيل الذكر moved to didChangeDependencies
     favoritesBloc.add(const LoadFavorites());
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _loadZekrDetails();
   }
 
   @override
@@ -261,6 +266,8 @@ class _ZekrDetailsViewState extends State<ZekrDetailsView> {
                       padding: EdgeInsets.only(bottom: 16.h),
                       child: ZekrCard(
                         zekrText: zekr.text,
+                        translation: zekr.translation,
+                        source: zekr.source,
                         isFavorite: isFavorite,
                         onFavorite: () {
                           if (isFavorite) {

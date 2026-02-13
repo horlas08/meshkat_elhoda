@@ -50,12 +50,15 @@ class _MainAzkarViewState extends State<MainAzkarView> {
     super.initState();
     // تحميل بيانات الاشتراك
     context.read<SubscriptionBloc>().add(LoadSubscriptionEvent());
-    // تحميل الأذكار
-    final languageCode = Localizations.localeOf(context).languageCode;
-    context.read<AzkarBloc>().add(FetchAzkarCategories(languageCode));
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // تحميل الأذكار - moved here because Localizations depends on InheritedWidget
+    final languageCode = Localizations.localeOf(context).languageCode;
+    context.read<AzkarBloc>().add(FetchAzkarCategories(languageCode));
+  }
   void dispose() {
     _searchController.dispose();
     _debounce?.cancel();

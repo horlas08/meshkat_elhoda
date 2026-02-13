@@ -36,6 +36,11 @@ class _AllAzkarViewState extends State<AllAzkarView> {
     super.initState();
     // Load subscription
     context.read<SubscriptionBloc>().add(LoadSubscriptionEvent());
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     // Ensure categories are loaded
     final languageCode = Localizations.localeOf(context).languageCode;
     context.read<AzkarBloc>().add(FetchAzkarCategories(languageCode));

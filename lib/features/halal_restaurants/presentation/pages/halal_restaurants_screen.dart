@@ -14,189 +14,281 @@ import 'package:meshkat_elhoda/features/halal_restaurants/presentation/widgets/r
 import 'package:meshkat_elhoda/features/quran_index/presentation/widgets/loading_widget.dart';
 
 import '../../../../l10n/app_localizations.dart';
+import 'package:meshkat_elhoda/features/subscription/presentation/bloc/subscription_bloc.dart';
+import 'package:meshkat_elhoda/features/subscription/presentation/bloc/subscription_state.dart';
+import 'package:meshkat_elhoda/features/subscription/presentation/pages/subscription_page.dart';
 
 class HalalRestaurantsScreen extends StatelessWidget {
   const HalalRestaurantsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => getIt<HalalRestaurantsBloc>()
-        ..add(const GetNearbyHalalRestaurantsEvent()),
-      child: Scaffold(
-        body: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                IslamicAppbar(
-                  title: AppLocalizations.of(context)?.halalRestaurants ??
-                      'مطاعم حلال',
-                  fontSize: 18.sp,
-                  onTap: () => Navigator.pop(context),
-                ),
-                SizedBox(height: 16.h),
-                Row(
+    return BlocBuilder<SubscriptionBloc, SubscriptionState>(
+      builder: (context, subscriptionState) {
+        final isPremium = subscriptionState is SubscriptionLoaded &&
+            subscriptionState.subscription.isPremium;
+
+        if (!isPremium) {
+          return Scaffold(
+            body: SafeArea(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
+                child: Column(
                   children: [
+                    IslamicAppbar(
+                      title: AppLocalizations.of(context)?.halalRestaurants ??
+                          'مطاعم حلال',
+                      fontSize: 18.sp,
+                      onTap: () => Navigator.pop(context),
+                    ),
                     Expanded(
-                      child: BlocBuilder<HalalRestaurantsBloc,
-                          HalalRestaurantsState>(
-                        builder: (context, state) {
-                          return OutlinedButton.icon(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.lock_person,
+                            size: 80.sp,
+                            color: AppColors.goldenColor.withOpacity(0.5),
+                          ),
+                          SizedBox(height: 24.h),
+                          Text(
+                            AppLocalizations.of(context)?.premiumFeature ??
+                                'ميزة مدفوعة',
+                            style: AppTextStyles.topHeadline.copyWith(
+                              fontSize: 22.sp,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          SizedBox(height: 12.h),
+                          Text(
+                            AppLocalizations.of(context)
+                                    ?.premiumFeatureDescription ??
+                                'هذه الميزة متاحة فقط للمشتركين في الباقة المميزة',
+                            style: AppTextStyles.surahName.copyWith(
+                              fontSize: 16.sp,
+                              color: Colors.grey,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          SizedBox(height: 32.h),
+                          ElevatedButton(
                             onPressed: () {
-                              if (state is HalalRestaurantsLoaded &&
-                                  state.restaurants.isNotEmpty) {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (_) => HalalRestaurantsMapScreen(
-                                      restaurants: state.restaurants,
-                                      userLatitude: state.userLatitude,
-                                      userLongitude: state.userLongitude,
-                                    ),
-                                  ),
-                                );
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      AppLocalizations.of(context)
-                                              ?.pleaseWaitForRestaurantsToLoad ??
-                                          'الرجاء الانتظار حتى يتم تحميل البيانات',
-                                    ),
-                                    duration: const Duration(seconds: 2),
-                                  ),
-                                );
-                              }
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const SubscriptionPage(),
+                                ),
+                              );
                             },
-                            style: OutlinedButton.styleFrom(
-                              padding: EdgeInsets.symmetric(vertical: 14.h),
-                              side: const BorderSide(
-                                color: AppColors.goldenColor,
-                                width: 1.5,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.goldenColor,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 48.w,
+                                vertical: 12.h,
                               ),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12.r),
                               ),
-                              foregroundColor: AppColors.goldenColor,
                             ),
-                            icon: const Icon(Icons.map_outlined, size: 20),
-                            label: Text(
-                              AppLocalizations.of(context)?.showOnMap ??
-                                  'عرض على الخريطة',
-                              style: TextStyle(
-                                fontSize: 13.sp,
-                                fontFamily: AppFonts.tajawal,
+                            child: Text(
+                              AppLocalizations.of(context)?.upgradeNow ??
+                                  'اشترك الآن',
+                              style: AppTextStyles.surahName.copyWith(
+                                color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                          );
-                        },
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(width: 16.w),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
+
+        return BlocProvider(
+          create: (_) => getIt<HalalRestaurantsBloc>()
+            ..add(const GetNearbyHalalRestaurantsEvent()),
+          child: Scaffold(
+            body: SafeArea(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 16.h),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    IslamicAppbar(
+                      title: AppLocalizations.of(context)?.halalRestaurants ??
+                          'مطاعم حلال',
+                      fontSize: 18.sp,
+                      onTap: () => Navigator.pop(context),
+                    ),
+                    SizedBox(height: 16.h),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: BlocBuilder<HalalRestaurantsBloc,
+                              HalalRestaurantsState>(
+                            builder: (context, state) {
+                              return OutlinedButton.icon(
+                                onPressed: () {
+                                  if (state is HalalRestaurantsLoaded &&
+                                      state.restaurants.isNotEmpty) {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (_) => HalalRestaurantsMapScreen(
+                                          restaurants: state.restaurants,
+                                          userLatitude: state.userLatitude,
+                                          userLongitude: state.userLongitude,
+                                        ),
+                                      ),
+                                    );
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          AppLocalizations.of(context)
+                                                  ?.pleaseWaitForRestaurantsToLoad ??
+                                              'الرجاء الانتظار حتى يتم تحميل البيانات',
+                                        ),
+                                        duration: const Duration(seconds: 2),
+                                      ),
+                                    );
+                                  }
+                                },
+                                style: OutlinedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(vertical: 14.h),
+                                  side: const BorderSide(
+                                    color: AppColors.goldenColor,
+                                    width: 1.5,
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12.r),
+                                  ),
+                                  foregroundColor: AppColors.goldenColor,
+                                ),
+                                icon: const Icon(Icons.map_outlined, size: 20),
+                                label: Text(
+                                  AppLocalizations.of(context)?.showOnMap ??
+                                      'عرض على الخريطة',
+                                  style: TextStyle(
+                                    fontSize: 13.sp,
+                                    fontFamily: AppFonts.tajawal,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        SizedBox(width: 16.w),
+                        Expanded(
+                          child: BlocBuilder<HalalRestaurantsBloc,
+                              HalalRestaurantsState>(
+                            builder: (context, state) {
+                              final isLoading = state is HalalRestaurantsLoading;
+                              return ElevatedButton.icon(
+                                onPressed: isLoading
+                                    ? null
+                                    : () => context
+                                        .read<HalalRestaurantsBloc>()
+                                        .add(const GetNearbyHalalRestaurantsEvent()),
+                                style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(vertical: 14.h),
+                                  backgroundColor: AppColors.goldenColor,
+                                  foregroundColor: Colors.white,
+                                  elevation: 0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12.r),
+                                  ),
+                                ),
+                                icon: SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: isLoading
+                                      ? const CircularProgressIndicator(
+                                          strokeWidth: 2,
+                                          color: Colors.white,
+                                        )
+                                      : const Icon(Icons.my_location, size: 20),
+                                ),
+                                label: Text(
+                                  isLoading
+                                      ? AppLocalizations.of(context)?.updating ??
+                                          'جارِ التحديث...'
+                                      : AppLocalizations.of(context)
+                                              ?.updateLocation ??
+                                          'تحديث الموقع',
+                                  style: TextStyle(
+                                    fontSize: 13.sp,
+                                    fontFamily: AppFonts.tajawal,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 16.h),
                     Expanded(
                       child: BlocBuilder<HalalRestaurantsBloc,
                           HalalRestaurantsState>(
                         builder: (context, state) {
-                          final isLoading = state is HalalRestaurantsLoading;
-                          return ElevatedButton.icon(
-                            onPressed: isLoading
-                                ? null
-                                : () => context
-                                    .read<HalalRestaurantsBloc>()
-                                    .add(const GetNearbyHalalRestaurantsEvent()),
-                            style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.symmetric(vertical: 14.h),
-                              backgroundColor: AppColors.goldenColor,
-                              foregroundColor: Colors.white,
-                              elevation: 0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12.r),
+                          if (state is HalalRestaurantsLoading) {
+                            return const QuranLottieLoading();
+                          }
+                          if (state is HalalRestaurantsError) {
+                            return Center(
+                              child: Text(
+                                state.message,
+                                style: AppTextStyles.surahName,
+                                textAlign: TextAlign.center,
                               ),
-                            ),
-                            icon: SizedBox(
-                              width: 20,
-                              height: 20,
-                              child: isLoading
-                                  ? const CircularProgressIndicator(
-                                      strokeWidth: 2,
-                                      color: Colors.white,
-                                    )
-                                  : const Icon(Icons.my_location, size: 20),
-                            ),
-                            label: Text(
-                              isLoading
-                                  ? AppLocalizations.of(context)?.updating ??
-                                      'جارِ التحديث...'
-                                  : AppLocalizations.of(context)
-                                          ?.updateLocation ??
-                                      'تحديث الموقع',
-                              style: TextStyle(
-                                fontSize: 13.sp,
-                                fontFamily: AppFonts.tajawal,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          );
+                            );
+                          }
+                          if (state is HalalRestaurantsLoaded) {
+                            if (state.restaurants.isEmpty) {
+                              return Center(
+                                child: Text(
+                                          AppLocalizations.of(context)
+                                                  ?.noNearbyRestaurantsInRange ??
+                                              'لا توجد مطاعم حلال قريبة',
+                                  style: AppTextStyles.surahName.copyWith(
+                                    fontFamily: AppFonts.tajawal,
+                                  ),
+                                ),
+                              );
+                            }
+                            return ListView.separated(
+                              physics: const BouncingScrollPhysics(),
+                              itemCount: state.restaurants.length,
+                              separatorBuilder: (_, __) => SizedBox(height: 12.h),
+                              itemBuilder: (context, index) {
+                                final r = state.restaurants[index];
+                                return RestaurantCard(
+                                  restaurant: r,
+                                  userLat: state.userLatitude,
+                                  userLng: state.userLongitude,
+                                );
+                              },
+                            );
+                          }
+                          return const SizedBox();
                         },
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 16.h),
-                Expanded(
-                  child: BlocBuilder<HalalRestaurantsBloc,
-                      HalalRestaurantsState>(
-                    builder: (context, state) {
-                      if (state is HalalRestaurantsLoading) {
-                        return const QuranLottieLoading();
-                      }
-                      if (state is HalalRestaurantsError) {
-                        return Center(
-                          child: Text(
-                            state.message,
-                            style: AppTextStyles.surahName,
-                            textAlign: TextAlign.center,
-                          ),
-                        );
-                      }
-                      if (state is HalalRestaurantsLoaded) {
-                        if (state.restaurants.isEmpty) {
-                          return Center(
-                            child: Text(
-                                      AppLocalizations.of(context)
-                                              ?.noNearbyRestaurantsInRange ??
-                                          'لا توجد مطاعم حلال قريبة',
-                              style: AppTextStyles.surahName.copyWith(
-                                fontFamily: AppFonts.tajawal,
-                              ),
-                            ),
-                          );
-                        }
-                        return ListView.separated(
-                          physics: const BouncingScrollPhysics(),
-                          itemCount: state.restaurants.length,
-                          separatorBuilder: (_, __) => SizedBox(height: 12.h),
-                          itemBuilder: (context, index) {
-                            final r = state.restaurants[index];
-                            return RestaurantCard(
-                              restaurant: r,
-                              userLat: state.userLatitude,
-                              userLng: state.userLongitude,
-                            );
-                          },
-                        );
-                      }
-                      return const SizedBox();
-                    },
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
