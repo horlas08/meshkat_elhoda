@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:meshkat_elhoda/core/services/flutter_athan_service.dart';
 import 'package:meshkat_elhoda/core/services/khushoo_mode_service.dart';
+import 'package:meshkat_elhoda/core/services/smart_dhikr_service.dart';
 
 /// ✅ معالج الإشعارات - يتحقق من وضع الخشوع ويعالج إشعارات الأذان
 /// ملاحظة مهمة: هذه الدوال يجب أن تكون static و top-level للعمل مع AwesomeNotifications

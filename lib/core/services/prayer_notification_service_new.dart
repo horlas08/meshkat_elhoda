@@ -362,49 +362,74 @@ class PrayerNotificationService {
         log('🌙 شهر رمضان المبارك - بدء جدولة السحور والإفطار...');
 
         // 1. وقت السحور (الفجر - 45 دقيقة)
-        final fajrTime = prayerTimes['Fajr'];
-        if (fajrTime != null) {
-          final suhoorTime = fajrTime.subtract(const Duration(minutes: 45));
-          if (suhoorTime.isAfter(DateTime.now())) {
-            await AwesomeNotifications().createNotification(
-              content: NotificationContent(
-                id: 7001,
-                channelKey: 'ramadan_channel',
-                title: language == 'ar' ? '🌟 وقت السحور' : 'Suhoor Time',
-                body: language == 'ar' 
-                    ? 'تسحروا فإن في السحور بركة' 
-                    : 'Wake up for Suhoor',
-                notificationLayout: NotificationLayout.Default,
-                payload: {'type': 'suhoor'},
-                wakeUpScreen: true,
-                category: NotificationCategory.Reminder,
-              ),
-              schedule: NotificationCalendar.fromDate(date: suhoorTime),
-            );
-            log('🥣 تم جدولة السحور في: $suhoorTime');
+        final fajrTimeStr = prayerTimes['Fajr'];
+        if (fajrTimeStr != null) {
+          try {
+            // Parse "HH:mm" to DateTime
+            final now = DateTime.now();
+            final parts = fajrTimeStr.split(':')[0].split(' '); // Handle "05:45" or "05:45 (EST)"
+            final timeParts = parts[0].split(':'); 
+            final hour = int.parse(timeParts[0]);
+            final minute = int.parse(timeParts[1]);
+            
+            final fajrTime = DateTime(now.year, now.month, now.day, hour, minute);
+            
+            final suhoorTime = fajrTime.subtract(const Duration(minutes: 45));
+            if (suhoorTime.isAfter(DateTime.now())) {
+              await AwesomeNotifications().createNotification(
+                content: NotificationContent(
+                  id: 7001,
+                  channelKey: 'ramadan_channel',
+                  title: language == 'ar' ? '🌟 وقت السحور' : 'Suhoor Time',
+                  body: language == 'ar' 
+                      ? 'تسحروا فإن في السحور بركة' 
+                      : 'Wake up for Suhoor',
+                  notificationLayout: NotificationLayout.Default,
+                  payload: {'type': 'suhoor'},
+                  wakeUpScreen: true,
+                  category: NotificationCategory.Reminder,
+                ),
+                schedule: NotificationCalendar.fromDate(date: suhoorTime),
+              );
+              log('🥣 تم جدولة السحور في: $suhoorTime');
+            }
+          } catch (e) {
+            log('⚠️ خطأ في معالجة وقت السحور: $e');
           }
         }
 
         // 2. وقت الإفطار (المغرب)
-        final maghribTime = prayerTimes['Maghrib'];
-        if (maghribTime != null) {
-          if (maghribTime.isAfter(DateTime.now())) {
-            await AwesomeNotifications().createNotification(
-              content: NotificationContent(
-                id: 7002,
-                channelKey: 'ramadan_channel',
-                title: language == 'ar' ? '🌙 وقت الإفطار' : 'Iftar Time',
-                body: language == 'ar'
-                    ? 'ذهب الظمأ وابتلت العروق وثبت الأجر إن شاء الله'
-                    : 'Time to break your fast',
-                notificationLayout: NotificationLayout.Default,
-                payload: {'type': 'iftar'},
-                wakeUpScreen: true,
-                category: NotificationCategory.Event,
-              ),
-              schedule: NotificationCalendar.fromDate(date: maghribTime),
-            );
-            log('🍇 تم جدولة الإفطار في: $maghribTime');
+        final maghribTimeStr = prayerTimes['Maghrib'];
+        if (maghribTimeStr != null) {
+          try {
+            final now = DateTime.now();
+            final parts = maghribTimeStr.split(':')[0].split(' ');
+            final timeParts = parts[0].split(':');
+            final hour = int.parse(timeParts[0]);
+            final minute = int.parse(timeParts[1]);
+            
+            final maghribTime = DateTime(now.year, now.month, now.day, hour, minute);
+
+            if (maghribTime.isAfter(DateTime.now())) {
+              await AwesomeNotifications().createNotification(
+                content: NotificationContent(
+                  id: 7002,
+                  channelKey: 'ramadan_channel',
+                  title: language == 'ar' ? '🌙 وقت الإفطار' : 'Iftar Time',
+                  body: language == 'ar'
+                      ? 'ذهب الظمأ وابتلت العروق وثبت الأجر إن شاء الله'
+                      : 'Time to break your fast',
+                  notificationLayout: NotificationLayout.Default,
+                  payload: {'type': 'iftar'},
+                  wakeUpScreen: true,
+                  category: NotificationCategory.Event,
+                ),
+                schedule: NotificationCalendar.fromDate(date: maghribTime),
+              );
+              log('🍇 تم جدولة الإفطار في: $maghribTime');
+            }
+          } catch (e) {
+            log('⚠️ خطأ في معالجة وقت الإفطار: $e');
           }
         }
       }
