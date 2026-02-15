@@ -4392,6 +4392,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'La ilaha illa Allah, how cold is this day! O Allah, protect me from the bitter cold of Hellfire.'**
   String get weatherColdBody;
+
+  /// No description provided for @umrahRituals.
+  ///
+  /// In en, this message translates to:
+  /// **'Umrah Rituals'**
+  String get umrahRituals;
+
+  /// No description provided for @hajjRituals.
+  ///
+  /// In en, this message translates to:
+  /// **'Hajj Rituals'**
+  String get hajjRituals;
+
+  /// No description provided for @stepsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Steps'**
+  String get stepsLabel;
+
+  /// No description provided for @supplicationsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Supplications'**
+  String get supplicationsLabel;
+
+  /// No description provided for @stageCompletedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Stage Completed'**
+  String get stageCompletedLabel;
+
+  /// No description provided for @islamicCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Islamic Calendar'**
+  String get islamicCalendar;
+
+  /// No description provided for @hijriCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Hijri'**
+  String get hijriCalendar;
+
+  /// No description provided for @gregorianCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Gregorian'**
+  String get gregorianCalendar;
+
+  /// No description provided for @islamicEvents.
+  ///
+  /// In en, this message translates to:
+  /// **'Islamic Events'**
+  String get islamicEvents;
+
+  /// No description provided for @eventRamadanStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Ramadan Start'**
+  String get eventRamadanStart;
+
+  /// No description provided for @eventLaylatAlQadr.
+  ///
+  /// In en, this message translates to:
+  /// **'Laylat al-Qadr'**
+  String get eventLaylatAlQadr;
+
+  /// No description provided for @eventEidAlFitr.
+  ///
+  /// In en, this message translates to:
+  /// **'Eid al-Fitr'**
+  String get eventEidAlFitr;
+
+  /// No description provided for @eventHajj.
+  ///
+  /// In en, this message translates to:
+  /// **'Hajj'**
+  String get eventHajj;
+
+  /// No description provided for @eventEidAlAdha.
+  ///
+  /// In en, this message translates to:
+  /// **'Eid al-Adha'**
+  String get eventEidAlAdha;
+
+  /// No description provided for @eventAlHijra.
+  ///
+  /// In en, this message translates to:
+  /// **'Islamic New Year'**
+  String get eventAlHijra;
+
+  /// No description provided for @eventAshura.
+  ///
+  /// In en, this message translates to:
+  /// **'Ashura'**
+  String get eventAshura;
+
+  /// No description provided for @eventMawlidAlNabi.
+  ///
+  /// In en, this message translates to:
+  /// **'Mawlid al-Nabi'**
+  String get eventMawlidAlNabi;
+
+  /// No description provided for @eventLaylatAlMiraj.
+  ///
+  /// In en, this message translates to:
+  /// **'Laylat al-Miraj'**
+  String get eventLaylatAlMiraj;
+
+  /// No description provided for @eventLaylatAlBaraat.
+  ///
+  /// In en, this message translates to:
+  /// **'Laylat al-Baraat'**
+  String get eventLaylatAlBaraat;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

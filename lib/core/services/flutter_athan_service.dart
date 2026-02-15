@@ -1,10 +1,14 @@
-import 'dart:async';
 import 'dart:developer';
+import 'dart:ui';
+import 'dart:isolate';
+
+import 'package:audio_session/audio_session.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:meshkat_elhoda/core/services/khushoo_mode_service.dart';
 import 'package:meshkat_elhoda/core/services/service_locator.dart';
-import 'package:meshkat_elhoda/features/prayer_times/domain/repositories/prayer_times_repository.dart';
+
+import '../../features/prayer_times/domain/repositories/prayer_times_repository.dart';
+import 'khushoo_mode_service.dart';
 
 /// ✅ خدمة الأذان الهجينة - تعمل بـ Flutter فقط بدون native code
 ///
@@ -20,11 +24,314 @@ class FlutterAthanService {
 
   /// Notification IDs for Athan (200-210 range)
   static const int _athanNotificationIdBase = 200;
+  
+  /// Isolate Port Name
+  static const String _isolatePortName = 'athan_audio_service_port';
+  ReceivePort? _receivePort;
 
   /// Audio player for full athan playback
   AudioPlayer? _audioPlayer;
   bool _isInitialized = false;
   bool _isPlaying = false;
+  
+  // ... (Other properties remain same)
+
+  /// ✅ تهيئة خدمة الأذان
+  Future<void> initialize() async {
+    if (_isInitialized) {
+      log('ℹ️ FlutterAthanService already initialized (Isolate: ${Isolate.current.hashCode})');
+      return;
+    }
+
+    try {
+      _audioPlayer = AudioPlayer();
+
+      // الاستماع لانتهاء التشغيل
+      _audioPlayer?.playerStateStream.listen((state) {
+        if (state.processingState == ProcessingState.completed) {
+          _onAthanCompleted();
+        }
+      });
+      
+      // ⚠️ Note: We do NOT register the port here anymore.
+      // We only register it in playFullAthan() to prevent the Main Isolate
+      // from stealing the port from the Background Isolate.
+
+      _isInitialized = true;
+      log('✅ FlutterAthanService initialized (Isolate: ${Isolate.current.hashCode})');
+    } catch (e) {
+      log('❌ Error initializing FlutterAthanService: $e');
+      rethrow;
+    }
+  }
+
+  /// ✅ تسجيل منفذ الاستماع للأوامر
+  void _registerIsolatePort() {
+    try {
+      final currentIso = Isolate.current.hashCode;
+      log('🔌 Registering Isolate Port for Isolate: $currentIso');
+      
+      // إزالة أي منفذ مسجل سابقاً بنفس الاسم
+      IsolateNameServer.removePortNameMapping(_isolatePortName);
+      
+      _receivePort = ReceivePort();
+      _receivePort!.listen((message) {
+        log('📩 Received Isolate Message: $message in Isolate: $currentIso');
+        if (message == 'STOP') {
+          stopAthan(fromIsolate: true);
+        }
+      });
+      
+      final registered = IsolateNameServer.registerPortWithName(
+        _receivePort!.sendPort,
+        _isolatePortName,
+      );
+      
+      log('✅ Isolate Port Registered: $registered');
+    } catch (e) {
+      log('❌ Error registering isolate port: $e');
+    }
+  }
+
+  /// ✅ جدولة إشعار الأذان مع صوت
+  ///
+  /// هذا الإشعار سيعمل حتى لو كان التطبيق مغلقاً تماماً
+  /// يستخدم قناة مختلفة لكل مؤذن لضمان تشغيل الصوت الصحيح
+  Future<void> scheduleAthan({
+    required int prayerId,
+    required DateTime prayerTime,
+    required String prayerName,
+  }) async {
+    try {
+      if (!_isInitialized) await initialize();
+
+      final muezzinId = await _getSelectedMuezzinId();
+      final isFajr = prayerName == 'Fajr';
+      final arabicName = _prayerNameArabic[prayerName] ?? prayerName;
+
+      // اختيار القناة المناسبة بناءً على المؤذن ونوع الصلاة
+      final channelKey = _getChannelKeyForMuezzin(muezzinId, isFajr);
+
+      final notificationId = _athanNotificationIdBase + prayerId;
+
+      log('📅 [FlutterAthanService] Scheduling Athan:');
+      log('   - Prayer: $prayerName ($arabicName)');
+      log('   - Time: $prayerTime');
+      log('   - Notification ID: $notificationId');
+      log('   - Muezzin: $muezzinId');
+      log('   - Channel: $channelKey');
+
+      await AwesomeNotifications().createNotification(
+        content: NotificationContent(
+          id: notificationId,
+          channelKey: channelKey,
+          title: '🕌 Prayer Time',
+          body: 'It is time for prayer $arabicName',
+          notificationLayout: NotificationLayout.Default,
+          category: NotificationCategory.Reminder,
+          wakeUpScreen: true,
+          fullScreenIntent: false,
+          criticalAlert: true,
+          autoDismissible: false,
+          payload: {
+            'type': 'athan',
+            'prayer': prayerName,
+            'muezzin': muezzinId,
+            'is_fajr': isFajr.toString(),
+            'play_full_athan': 'true',
+          },
+          actionType: ActionType.KeepOnTop,
+        ),
+        actionButtons: [
+          NotificationActionButton(
+            key: 'DISMISS',
+            label: '✓ Hide',
+            actionType: ActionType.DismissAction,
+          ),
+          NotificationActionButton(
+            key: 'STOP_ATHAN',
+            label: '⏹️ Stop',
+            actionType: ActionType.SilentAction,
+            isDangerousOption: true,
+          ),
+        ],
+        schedule: NotificationCalendar(
+          year: prayerTime.year,
+          month: prayerTime.month,
+          day: prayerTime.day,
+          hour: prayerTime.hour,
+          minute: prayerTime.minute,
+          second: 0,
+          millisecond: 0,
+          allowWhileIdle: true,
+          preciseAlarm: true,
+        ),
+      );
+
+      log('✅ Athan scheduled successfully for $prayerName at $prayerTime');
+    } catch (e) {
+      log('❌ Error scheduling Athan: $e');
+    }
+  }
+
+  /// ✅ تشغيل الأذان كاملاً
+  Future<void> playFullAthan({
+    required String prayerName,
+    String? muezzinId,
+  }) async {
+    try {
+      log('🚀 playFullAthan called in Isolate: ${Isolate.current.hashCode}');
+      
+      // 1. أولاً: إيقاف أي تشغيل سابق وتدمير المشغل القديم (لضمان بداية نظيفة)
+      await stopAthan();
+      
+      // 2. ثانياً: إعادة التهيئة (إنشاء مشغل جديد)
+      await initialize();
+      
+      // 3. ✅ ثالثاً: تسجيل المنفذ هنا حصرياً
+      // هذا يضمن أن المنفذ يشير دائماً للعزل الذي يشغل الصوت حالياً
+      _registerIsolatePort();
+
+      final selectedMuezzin = muezzinId ?? await _getSelectedMuezzinId();
+      final isFajr = prayerName == 'Fajr';
+
+      // اسم ملف الصوت الكامل
+      final audioFileName = isFajr
+          ? '${selectedMuezzin}_fajr'
+          : '${selectedMuezzin}_regular';
+
+      log('▶️ Playing full Athan for $prayerName: $audioFileName');
+
+      // تحميل وتشغيل الصوت
+      await _audioPlayer?.setAudioSource(
+          AudioSource.asset('assets/athan/$audioFileName.mp3'),
+      );
+      
+      // ✅ تكوين جلسة الصوت (Media Stream)
+      final session = await AudioSession.instance;
+      await session.configure(const AudioSessionConfiguration(
+        avAudioSessionCategory: AVAudioSessionCategory.playback,
+        avAudioSessionCategoryOptions: AVAudioSessionCategoryOptions.mixWithOthers,
+        avAudioSessionMode: AVAudioSessionMode.defaultMode,
+        avAudioSessionRouteSharingPolicy: AVAudioSessionRouteSharingPolicy.defaultPolicy,
+        avAudioSessionSetActiveOptions: AVAudioSessionSetActiveOptions.none,
+        androidAudioAttributes: AndroidAudioAttributes(
+          contentType: AndroidAudioContentType.music,
+          flags: AndroidAudioFlags.none,
+          usage: AndroidAudioUsage.media,
+        ),
+        androidAudioFocusGainType: AndroidAudioFocusGainType.gainTransient,
+        androidWillPauseWhenDucked: false,
+      ));
+
+      await _audioPlayer?.setAndroidAudioAttributes(
+        const AndroidAudioAttributes(
+          contentType: AndroidAudioContentType.music,
+          flags: AndroidAudioFlags.none,
+          usage: AndroidAudioUsage.media,
+        ),
+      );
+
+      await _audioPlayer?.setVolume(1.0);
+      
+      // ✅ Set Playing flag BEFORE waiting
+      _isPlaying = true;
+      log('✅ Full Athan playing: $audioFileName');
+      
+      try {
+        await _audioPlayer?.play();
+      } finally {
+        _isPlaying = false;
+        log('🏁 Playback finished or stopped');
+      }
+    } catch (e) {
+      log('❌ Error playing full Athan: $e');
+      _isPlaying = false;
+    }
+  }
+  
+  /// ✅ إيقاف الأذان (يدعم الإيقاف عبر العزل)
+  Future<void> stopAthan({bool fromIsolate = false}) async {
+    final serviceId = hashCode;
+    final playerId = _audioPlayer?.hashCode;
+    
+    log('🛑 Stop Request (iso=$fromIsolate) [Svc:$serviceId, Player:$playerId]');
+    
+    try {
+      // 1. محاولة الإيقاف المحلي - Force Stop regardless of state
+      if (_audioPlayer != null) {
+        log('⚡ Disposing local player to force stop...');
+        try {
+          // Dispose kills the underlying platform channel connection immediately
+          await _audioPlayer!.dispose(); 
+        } catch (e) {
+          log('⚠️ Error disposing player: $e');
+        }
+        
+        _audioPlayer = null; // Clear reference
+        _isInitialized = false; // Require re-init next time
+        
+        _isPlaying = false;
+        
+        // Deactivate Audio Session to kill any lingering focus
+        try {
+          final session = await AudioSession.instance;
+          await session.setActive(false);
+        } catch (e) { /* ignore */ }
+
+        await KhushooModeService().deactivateKhushooMode();
+        log('✅ Player Disposed & Session Deactivated');
+        return;
+      } 
+      
+      // 2. إذا لم نكن في نفس العزل، أرسل رسالة للعزل الأصلي
+      if (!fromIsolate) {
+        log('🔍 Local player null. Checking Isolate Port...');
+        final sendPort = IsolateNameServer.lookupPortByName(_isolatePortName);
+        
+        if (sendPort != null) {
+          log('📤 Sending STOP command to original isolate...');
+          sendPort.send('STOP');
+        } else {
+          log('⚠️ No registered Isolate Port found. Proceeding to Focus Steal...');
+        }
+        
+        // 3. Fallback: Steal Audio Focus (Nuclear Option 2)
+        // Even if message failed, taking Exclusive Focus forces OS to mute/pause the background player
+        try {
+          log('🔇 Initiating Audio Focus Steal to kill background audio...');
+          final session = await AudioSession.instance;
+          await session.configure(const AudioSessionConfiguration(
+            avAudioSessionCategory: AVAudioSessionCategory.playback,
+            avAudioSessionCategoryOptions: AVAudioSessionCategoryOptions.none,
+            avAudioSessionMode: AVAudioSessionMode.defaultMode,
+            avAudioSessionRouteSharingPolicy: AVAudioSessionRouteSharingPolicy.defaultPolicy,
+            avAudioSessionSetActiveOptions: AVAudioSessionSetActiveOptions.none,
+            androidAudioAttributes: AndroidAudioAttributes(
+              contentType: AndroidAudioContentType.speech,
+              flags: AndroidAudioFlags.none,
+              usage: AndroidAudioUsage.media,
+            ),
+            androidAudioFocusGainType: AndroidAudioFocusGainType.gainTransientExclusive,
+          ));
+          
+          await session.setActive(true);
+          await Future.delayed(const Duration(milliseconds: 500));
+          await session.setActive(false);
+          log('✅ Audio Focus Steal completed.');
+        } catch (e) {
+          log('⚠️ Audio Focus Steal failed: $e');
+        }
+        
+      } else {
+        log('⚠️ Stop command via isolate: Player was already null.');
+      }
+      
+      _isPlaying = false;
+    } catch (e) {
+      log('❌ Error stopping Athan: $e');
+    }
+  }
 
   /// Prayer name to Arabic translation
   static const Map<String, String> _prayerNameArabic = {
@@ -71,152 +378,10 @@ class FlutterAthanService {
         ? muezzinId
         : 'ali_almula';
 
-    return 'athan_${actualMuezzin}_$suffix';
+    return 'athan_${actualMuezzin}_${suffix}_v3';
   }
 
-  /// ✅ تهيئة خدمة الأذان
-  /// ملاحظة: القنوات تُهيأ في PrayerNotificationService.initialize()
-  Future<void> initialize() async {
-    if (_isInitialized) {
-      log('ℹ️ FlutterAthanService already initialized');
-      return;
-    }
 
-    try {
-      // ملاحظة: لا نهيئ القنوات هنا لأنها تُهيأ في PrayerNotificationService
-      // نتأكد فقط من تهيئة مشغل الصوت
-
-      // تهيئة مشغل الصوت
-      _audioPlayer = AudioPlayer();
-
-      // الاستماع لانتهاء التشغيل
-      _audioPlayer?.playerStateStream.listen((state) {
-        if (state.processingState == ProcessingState.completed) {
-          _onAthanCompleted();
-        }
-      });
-
-      _isInitialized = true;
-      log('✅ FlutterAthanService initialized');
-    } catch (e) {
-      log('❌ Error initializing FlutterAthanService: $e');
-      rethrow;
-    }
-  }
-
-  /// ✅ جدولة إشعار الأذان مع صوت
-  ///
-  /// هذا الإشعار سيعمل حتى لو كان التطبيق مغلقاً تماماً
-  /// يستخدم قناة مختلفة لكل مؤذن لضمان تشغيل الصوت الصحيح
-  Future<void> scheduleAthan({
-    required int prayerId,
-    required DateTime prayerTime,
-    required String prayerName,
-  }) async {
-    try {
-      if (!_isInitialized) await initialize();
-
-      final muezzinId = await _getSelectedMuezzinId();
-      final isFajr = prayerName == 'Fajr';
-      final arabicName = _prayerNameArabic[prayerName] ?? prayerName;
-
-      // اختيار القناة المناسبة بناءً على المؤذن ونوع الصلاة
-      final channelKey = _getChannelKeyForMuezzin(muezzinId, isFajr);
-
-      final notificationId = _athanNotificationIdBase + prayerId;
-
-      log('📅 [FlutterAthanService] Scheduling Athan:');
-      log('   - Prayer: $prayerName ($arabicName)');
-      log('   - Time: $prayerTime');
-      log('   - Notification ID: $notificationId');
-      log('   - Muezzin: $muezzinId');
-      log('   - Channel: $channelKey');
-
-      await AwesomeNotifications().createNotification(
-        content: NotificationContent(
-          id: notificationId,
-          channelKey: channelKey,
-          title: '🕌 Prayer Time',
-          body: 'It is time for prayer $arabicName',
-          notificationLayout: NotificationLayout.Default,
-          category: NotificationCategory.Reminder,
-          wakeUpScreen: true,
-          fullScreenIntent: false,
-          criticalAlert: false,
-          autoDismissible: true,
-          payload: {
-            'type': 'athan',
-            'prayer': prayerName,
-            'muezzin': muezzinId,
-            'is_fajr': isFajr.toString(),
-            'play_full_athan': 'true',
-          },
-          actionType: ActionType.KeepOnTop,
-        ),
-        actionButtons: [
-          NotificationActionButton(
-            key: 'STOP_ATHAN',
-            label: '⏹️ Stop',
-            actionType: ActionType.SilentAction,
-          ),
-          NotificationActionButton(
-            key: 'DISMISS',
-            label: '✓ Hide',
-            actionType: ActionType.DismissAction,
-          ),
-        ],
-        schedule: NotificationCalendar(
-          year: prayerTime.year,
-          month: prayerTime.month,
-          day: prayerTime.day,
-          hour: prayerTime.hour,
-          minute: prayerTime.minute,
-          second: 0,
-          millisecond: 0,
-          allowWhileIdle: true,
-          preciseAlarm: true,
-        ),
-      );
-
-      log('✅ Athan scheduled successfully for $prayerName at $prayerTime');
-    } catch (e) {
-      log('❌ Error scheduling Athan: $e');
-    }
-  }
-
-  /// ✅ تشغيل الأذان كاملاً (يُستخدم عندما يكون التطبيق في الخلفية)
-  ///
-  /// هذه الدالة تُستدعى من معالج الإشعارات عند استلام إشعار الأذان
-  Future<void> playFullAthan({
-    required String prayerName,
-    String? muezzinId,
-  }) async {
-    try {
-      if (!_isInitialized) await initialize();
-
-      final selectedMuezzin = muezzinId ?? await _getSelectedMuezzinId();
-      final isFajr = prayerName == 'Fajr';
-
-      // اسم ملف الصوت الكامل
-      final audioFileName = isFajr
-          ? '${selectedMuezzin}_fajr'
-          : '${selectedMuezzin}_regular';
-
-      log('▶️ Playing full Athan for $prayerName: $audioFileName');
-
-      // إيقاف أي تشغيل سابق
-      await stopAthan();
-
-      // تحميل وتشغيل الصوت
-      await _audioPlayer?.setAsset('assets/athan/$audioFileName.mp3');
-      await _audioPlayer?.play();
-
-      _isPlaying = true;
-      log('✅ Full Athan playing: $audioFileName');
-    } catch (e) {
-      log('❌ Error playing full Athan: $e');
-    }
-  }
 
   /// ✅ تشغيل الأذان فوراً (للاختبار أو التشغيل اليدوي)
   Future<void> playAthanForPrayer(String prayerName) async {
@@ -266,18 +431,7 @@ class FlutterAthanService {
     }
   }
 
-  /// ✅ إيقاف الأذان
-  Future<void> stopAthan() async {
-    try {
-      if (_audioPlayer != null && _isPlaying) {
-        await _audioPlayer?.stop();
-        _isPlaying = false;
-        log('⏹️ Athan stopped');
-      }
-    } catch (e) {
-      log('❌ Error stopping Athan: $e');
-    }
-  }
+
 
   /// ✅ إلغاء إشعار أذان محدد
   Future<void> cancelAthan(int prayerId) async {
@@ -365,6 +519,11 @@ class FlutterAthanService {
             NotificationPermission.Sound,
             NotificationPermission.Badge,
             NotificationPermission.CriticalAlert,
+            NotificationPermission.OverrideDnD,
+            NotificationPermission.Provisional,
+            NotificationPermission.Vibration,
+            NotificationPermission.Car,
+            NotificationPermission.FullScreenIntent,
           ],
         );
       }

@@ -44,3 +44,7 @@ class RefreshLocationIfNeeded extends LocationEvent {
   @override
   List<Object?> get props => [forceRefresh];
 }
+
+class StartLocationUpdates extends LocationEvent {}
+
+class StopLocationUpdates extends LocationEvent {}

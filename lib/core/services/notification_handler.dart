@@ -56,15 +56,41 @@ class NotificationHandler {
     final payload = receivedNotification.payload;
     if (payload == null) return;
 
-    // ✅ تفعيل وضع الخشوع عند عرض إشعار الأذان
+    // ✅ تفعيل وضع الخشوع وتشغيل الأذان عند عرض الإشعار
     if (payload['type'] == 'athan') {
-      log('🤲 تفعيل وضع الخشوع بعد إشعار الأذان...');
+      log('🕌 تم عرض إشعار الأذان - بدء الإجراءات...');
+      
+      // 1. تشغيل الأذان (Robust Audio Player)
+      // هذا يضمن استمرار الصوت حتى عند التفاعل مع الإشعارات
+      if (payload['play_full_athan'] == 'true') {
+        try {
+          final prayerName = payload['prayer'] ?? 'Prayer';
+          final muezzinId = payload['muezzin'];
+          
+          log('▶️ محاولة تشغيل الأذان عبر FlutterAthanService...');
+          await FlutterAthanService().playFullAthan(
+            prayerName: prayerName,
+            muezzinId: muezzinId,
+          );
+        } catch (e) {
+          log('⚠️ خطأ في تشغيل صوت الأذان: $e');
+        }
+      }
+
+      // 2. تفعيل وضع الخشوع
+      log('🤲 تفعيل وضع الخشوع...');
       try {
         await KhushooModeService().activateKhushooMode();
         log('✅ تم تفعيل وضع الخشوع');
       } catch (e) {
         log('⚠️ خطأ في تفعيل وضع الخشوع: $e');
       }
+    } else if (payload['type'] == 'suhoor') {
+      log('🥣 عرض إشعار السحور - تشغيل الصوت...');
+      await SmartDhikrService().playSuhoorAudio();
+    } else if (payload['type'] == 'iftar') {
+      log('🌙 عرض إشعار الإفطار - تشغيل الدعاء...');
+      await SmartDhikrService().playIftarAudio();
     }
 
     // التحقق من وضع الخشوع للإشعارات الأخرى
@@ -129,13 +155,14 @@ class NotificationHandler {
       log('⏹️ إيقاف الأذان بناءً على طلب المستخدم');
       await FlutterAthanService().stopAthan();
       await AwesomeNotifications().dismiss(receivedAction.id!);
-    } else if (buttonKey.isEmpty || buttonKey == 'DISMISS') {
-      // الضغط على الإشعار نفسه أو زر DISMISS
-      // يمكن فتح التطبيق أو إيقاف الأذان
-      log('🔔 تفاعل مع إشعار الأذان');
-
-      // إذا كان الأذان يعمل، أوقفه
+    } else if (buttonKey == 'DISMISS') {
+      // الضغط على زر DISMISS أو سحب الإشعار
+      log('🔔 تفاعل مع إشعار الأذان (Dismiss)');
       await FlutterAthanService().stopAthan();
+    } else if (buttonKey.isEmpty) {
+      // الضغط على الإشعار نفسه (Tap) -> فتح التطبيق فقط
+      log('🔔 تم الضغط على الإشعار - فتح التطبيق (الصوت سيستمر)');
+      // لا نوقف الأذان هنا
     } else if (payload != null && payload['play_full_athan'] == 'true') {
       // محاولة تشغيل الأذان كاملاً عند الضغط
       final prayerName = payload['prayer'] ?? 'Dhuhr';

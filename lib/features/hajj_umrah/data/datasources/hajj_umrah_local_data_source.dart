@@ -23,7 +23,7 @@ class HajjUmrahLocalDataSourceImpl implements HajjUmrahLocalDataSource {
   }
 
   Future<Map<String, dynamic>> _loadJson() async {
-    final String response = await rootBundle.loadString('assets/json/hajj_umrah_data.json');
+    final String response = await rootBundle.loadString('assets/json/hajj_umrah_detailed.json');
     return json.decode(response);
   }
 
@@ -32,6 +32,11 @@ class HajjUmrahLocalDataSourceImpl implements HajjUmrahLocalDataSource {
       id: map['id'],
       title: Map<String, String>.from(map['title']),
       description: Map<String, String>.from(map['description']),
+      steps: (map['steps'] as List<dynamic>?)
+              ?.map((e) => Map<String, String>.from(e))
+              .toList() ?? 
+          [],
+      tips: map['tips'] != null ? Map<String, String>.from(map['tips']) : null,
       duas: (map['duas'] as List<dynamic>)
           .map((d) => GuideDua(
                 title: Map<String, String>.from(d['title']),

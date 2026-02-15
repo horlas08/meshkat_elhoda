@@ -18,6 +18,8 @@ import 'package:meshkat_elhoda/features/settings/presentation/widgets/delete_acc
 import 'package:meshkat_elhoda/features/prayer_times/presentation/bloc/prayer_times_bloc.dart';
 import 'package:meshkat_elhoda/features/prayer_times/presentation/bloc/prayer_times_event.dart';
 
+import '../widgets/debug_tools_section.dart';
+
 class SettingView extends StatefulWidget {
   const SettingView({super.key});
 
@@ -99,6 +101,8 @@ class _SettingViewState extends State<SettingView>
                     QuranSettings(),
 
                     AccountAndSubscription(),
+                    
+                    const DebugToolsSection(),
 
                     // زر اختبار الاشتراكات (للتطوير فقط - يختفي في Release)
                     if (kDebugMode)

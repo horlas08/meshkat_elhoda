@@ -884,5 +884,25 @@
   "weatherHeatTitle": "Severe Heat Supplication",
   "weatherHeatBody": "La ilaha illa Allah, how hot is this day! O Allah, protect me from the heat of Hellfire.",
   "weatherColdTitle": "Severe Cold Supplication",
-  "weatherColdBody": "La ilaha illa Allah, how cold is this day! O Allah, protect me from the bitter cold of Hellfire."
+  "weatherColdBody": "La ilaha illa Allah, how cold is this day! O Allah, protect me from the bitter cold of Hellfire.",
+
+  "umrahRituals": "Umrah Rituals",
+  "hajjRituals": "Hajj Rituals",
+  "stepsLabel": "Steps",
+  "supplicationsLabel": "Supplications",
+  "stageCompletedLabel": "Stage Completed",
+  "islamicCalendar": "Islamic Calendar",
+  "hijriCalendar": "Hijri",
+  "gregorianCalendar": "Gregorian",
+  "islamicEvents": "Islamic Events",
+  "eventRamadanStart": "Ramadan Start",
+  "eventLaylatAlQadr": "Laylat al-Qadr",
+  "eventEidAlFitr": "Eid al-Fitr",
+  "eventHajj": "Hajj",
+  "eventEidAlAdha": "Eid al-Adha",
+  "eventAlHijra": "Islamic New Year",
+  "eventAshura": "Ashura",
+  "eventMawlidAlNabi": "Mawlid al-Nabi",
+  "eventLaylatAlMiraj": "Laylat al-Miraj",
+  "eventLaylatAlBaraat": "Laylat al-Baraat"
 }

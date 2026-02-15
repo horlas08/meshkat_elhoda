@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:meshkat_elhoda/features/location/domain/usecases/get_current_location.dart'
@@ -40,6 +42,8 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     on<UpdateLocation>(_onUpdateLocation);
     on<ClearLocation>(_onClearLocation);
     on<RefreshLocationIfNeeded>(_onRefreshLocationIfNeeded);
+    on<StartLocationUpdates>(_onStartLocationUpdates);
+    on<StopLocationUpdates>(_onStopLocationUpdates);
   }
 
   Future<void> _onLoadStoredLocation(
@@ -385,5 +389,47 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     } catch (e) {
       log('❌ Error in location refresh check: $e');
     }
+  }
+
+  StreamSubscription<Position>? _locationSubscription;
+
+  Future<void> _onStartLocationUpdates(
+    StartLocationUpdates event,
+    Emitter<LocationState> emit,
+  ) async {
+    await _locationSubscription?.cancel();
+    
+    final permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied || 
+        permission == LocationPermission.deniedForever) {
+      return; 
+    }
+    
+    log('📍 Starting foreground location updates (filter: 1000m)');
+    
+    _locationSubscription = Geolocator.getPositionStream(
+      locationSettings: const LocationSettings(
+        accuracy: LocationAccuracy.medium,
+        distanceFilter: 1000, 
+      ),
+    ).listen((position) {
+      log('📍 Location changed significantly: ${position.latitude}, ${position.longitude}');
+      add(GetCurrentLocationEvent());
+    });
+  }
+
+  Future<void> _onStopLocationUpdates(
+    StopLocationUpdates event,
+    Emitter<LocationState> emit,
+  ) async {
+    log('🛑 Stopping foreground location updates');
+    await _locationSubscription?.cancel();
+    _locationSubscription = null;
+  }
+
+  @override
+  Future<void> close() {
+    _locationSubscription?.cancel();
+    return super.close();
   }
 }

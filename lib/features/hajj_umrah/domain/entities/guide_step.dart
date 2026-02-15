@@ -2,12 +2,16 @@ class GuideStep {
   final String id;
   final Map<String, String> title;
   final Map<String, String> description;
+  final List<Map<String, String>> steps; // New field for detailed steps
+  final Map<String, String>? tips;       // New field for tips
   final List<GuideDua> duas;
 
-  const GuideStep({
+  GuideStep({
     required this.id,
     required this.title,
     required this.description,
+    this.steps = const [],
+    this.tips,
     required this.duas,
   });
 

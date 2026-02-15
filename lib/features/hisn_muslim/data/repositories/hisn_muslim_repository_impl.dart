@@ -11,9 +11,9 @@ class HisnMuslimRepositoryImpl implements HisnMuslimRepository {
   HisnMuslimRepositoryImpl({required this.localDataSource});
 
   @override
-  Future<Either<Failure, List<HisnChapter>>> getChapters() async {
+  Future<Either<Failure, List<HisnChapter>>> getChapters(String languageCode) async {
     try {
-      final chapters = await localDataSource.getHisnCategories();
+      final chapters = await localDataSource.getHisnCategories(languageCode);
       return Right(chapters);
     } catch (e) {
       return Left(CacheFailure(message: "Failed to load chapters"));

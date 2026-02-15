@@ -37,6 +37,13 @@ class NotificationSettingsCubit extends Cubit<NotificationSettingsModel> {
     try {
       // 1. حفظ في SharedPreferences
       await _prefs.setString(_storageKey, newSettings.toJson());
+      
+      // ✅ Sync individual keys for Background Services (SmartDhikrService, etc.)
+      // These services read boolean keys directly to avoid parsing full JSON
+      await _prefs.setBool('isSmartVoiceEnabled', newSettings.isSmartVoiceEnabled);
+      await _prefs.setInt('smartVoiceIntervalMinutes', newSettings.smartVoiceIntervalMinutes);
+      // We can add others if needed, but these are the critical ones for background tasks
+
 
       // 2. تحديث الحالة
       emit(newSettings);

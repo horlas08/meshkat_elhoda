@@ -61,6 +61,11 @@ class _HomeViewState extends State<HomeView>
       final prayerState = context.read<PrayerTimesBloc>().state;
       final locationState = context.read<LocationBloc>().state;
 
+      // إذا الموقع متاح، نبدأ التحديثات فوراً
+      if (locationState is LocationGranted) {
+        context.read<LocationBloc>().add(StartLocationUpdates());
+      }
+
       // إذا لم تكن مواقيت الصلاة محملة، نحاول تحميل الموقع
       if (prayerState is! PrayerTimesLoaded ||
           prayerState.prayerTimes == null) {
@@ -208,6 +213,9 @@ class _HomeViewState extends State<HomeView>
           context.read<PrayerTimesBloc>().add(
             FetchPrayerTimes(location: state.location),
           );
+          // Start foreground location updates
+          context.read<LocationBloc>().add(StartLocationUpdates());
+
           // Check Weather for Thunder Notification
           WeatherService().checkWeatherAndNotify();
         } else if (state is LocationInitial) {

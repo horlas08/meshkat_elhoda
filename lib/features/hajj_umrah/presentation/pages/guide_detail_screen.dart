@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meshkat_elhoda/features/hajj_umrah/domain/entities/guide_step.dart';
 import 'package:meshkat_elhoda/features/hajj_umrah/presentation/bloc/hajj_umrah_cubit.dart';
+import 'package:meshkat_elhoda/l10n/app_localizations.dart';
 import 'package:share_plus/share_plus.dart';
 
 class GuideDetailScreen extends StatelessWidget {
@@ -18,6 +19,7 @@ class GuideDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final lang = Localizations.localeOf(context).languageCode;
+    final s = AppLocalizations.of(context)!;
     
     return Scaffold(
       appBar: AppBar(
@@ -40,13 +42,70 @@ class GuideDetailScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 16),
+
+            // Tips Section
+            if (step.tips != null && (step.tips![lang] ?? step.tips!['en']) != null) ...[
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.amber.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.amber.withOpacity(0.5)),
+                ),
+                child: Row(
+                  children: [
+                    const Icon(Icons.lightbulb_outline, color: Colors.amber),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        step.tips![lang] ?? step.tips!['en'] ?? '',
+                        style: const TextStyle(fontStyle: FontStyle.italic),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 24),
+            ],
+
+            // Steps Section
+            if (step.steps.isNotEmpty) ...[
+              Text(
+                s.stepsLabel,
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 12),
+              ...step.steps.asMap().entries.map((entry) {
+                final index = entry.key + 1;
+                final text = entry.value[lang] ?? entry.value['en'] ?? '';
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 12.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        radius: 12,
+                        backgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
+                        child: Text('$index', style: TextStyle(fontSize: 12, color: Theme.of(context).primaryColor)),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(text, style: const TextStyle(fontSize: 16)),
+                      ),
+                    ],
+                  ),
+                );
+              }),
+              const SizedBox(height: 24),
+            ],
             
             // Duas Section
             if (step.duas.isNotEmpty) ...[
-              const Text(
-                "Supplications / أدعية",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              Text(
+                s.supplicationsLabel,
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 12),
@@ -65,7 +124,7 @@ class GuideDetailScreen extends StatelessWidget {
                 Navigator.pop(context); // Go back to list
               },
               icon: const Icon(Icons.check_circle),
-              label: const Text("Stage Completed / إتمام المناسك"),
+              label: Text(s.stageCompletedLabel),
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16),
               ),

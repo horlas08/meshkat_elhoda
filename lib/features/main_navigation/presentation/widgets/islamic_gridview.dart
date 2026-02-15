@@ -27,6 +27,7 @@ import 'package:meshkat_elhoda/features/halal_restaurants/presentation/pages/hal
 import 'package:meshkat_elhoda/l10n/app_localizations.dart';
 import 'package:meshkat_elhoda/features/hajj_umrah/presentation/pages/hajj_umrah_home_screen.dart';
 import 'package:meshkat_elhoda/features/hisn_muslim/presentation/pages/hisn_chapters_screen.dart';
+import 'package:meshkat_elhoda/features/islamic_calendar/presentation/pages/islamic_calendar_screen.dart';
 
 // تعريف الأقسام المختلفة
 class GridSection {
@@ -235,6 +236,12 @@ class IslamicGrid extends StatelessWidget {
             iconPath: AppAssets.zaka,
             text: AppLocalizations.of(context)!.zakatCalculator,
             destination: const ZakatCalculatorScreen(),
+          ),
+          IslamicItemModel(
+            color: const Color(0xffD4AF37),
+            iconPath: AppAssets.date, // Reuse date icon or find better
+            text: AppLocalizations.of(context)?.islamicCalendar ?? 'Islamic Calendar',
+            destination: const IslamicCalendarScreen(),
           ),
           IslamicItemModel(
             color: const Color(0xffE9C46A),

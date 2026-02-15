@@ -2212,4 +2212,61 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get weatherColdBody => 'La ilaha illa Allah, how cold is this day! O Allah, protect me from the bitter cold of Hellfire.';
+
+  @override
+  String get umrahRituals => 'Ibadah Umrah';
+
+  @override
+  String get hajjRituals => 'Ibadah Haji';
+
+  @override
+  String get stepsLabel => 'Langkah';
+
+  @override
+  String get supplicationsLabel => 'Doa-doa';
+
+  @override
+  String get stageCompletedLabel => 'Tahap Selesai';
+
+  @override
+  String get islamicCalendar => 'Kalendar Islam';
+
+  @override
+  String get hijriCalendar => 'Hijrah';
+
+  @override
+  String get gregorianCalendar => 'Masihi';
+
+  @override
+  String get islamicEvents => 'Peristiwa Islam';
+
+  @override
+  String get eventRamadanStart => 'Awal Ramadan';
+
+  @override
+  String get eventLaylatAlQadr => 'Lailatul Qadar';
+
+  @override
+  String get eventEidAlFitr => 'Hari Raya Aidilfitri';
+
+  @override
+  String get eventHajj => 'Haji';
+
+  @override
+  String get eventEidAlAdha => 'Hari Raya Aidiladha';
+
+  @override
+  String get eventAlHijra => 'Awal Muharam';
+
+  @override
+  String get eventAshura => 'Asyura';
+
+  @override
+  String get eventMawlidAlNabi => 'Maulidur Rasul';
+
+  @override
+  String get eventLaylatAlMiraj => 'Israk Mikraj';
+
+  @override
+  String get eventLaylatAlBaraat => 'Nisfu Syaaban';
 }

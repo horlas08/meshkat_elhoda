@@ -13,7 +13,7 @@ class HisnDhikrModel extends HisnDhikr {
   factory HisnDhikrModel.fromJson(Map<String, dynamic> json) {
     return HisnDhikrModel(
       id: json['ID'] as int? ?? 0,
-      arabicText: json['Text'] as String? ?? '',
+      arabicText: json['ARABIC_TEXT'] as String? ?? json['Text'] as String? ?? '',
       translatedText: json['TRANSLATED_TEXT'] as String? ?? '',
       repeat: json['REPEAT'] as int? ?? 1,
       audio: json['AUDIO'] as String? ?? '',

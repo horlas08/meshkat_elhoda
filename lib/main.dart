@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:meshkat_elhoda/core/services/in_app_purchase_service.dart';
 import 'package:meshkat_elhoda/core/network/network_info.dart';
 import 'package:meshkat_elhoda/core/services/prayer_notification_service_new.dart';
+import 'package:meshkat_elhoda/core/services/background_service.dart';
 import 'package:meshkat_elhoda/core/utils/app_colors.dart';
 import 'package:meshkat_elhoda/features/assistant/data/datasources/assistant_local_data_source.dart';
 import 'package:meshkat_elhoda/features/assistant/data/datasources/assistant_remote_data_source.dart';
@@ -117,10 +118,14 @@ void main() async {
 
     await PrayerNotificationService().initialize();
     await NotificationHandler().initialize();
-    await CollectiveKhatmaNotificationService().initialize();
-    CollectiveKhatmaNotificationService().processBackgroundChecks();
-    
-    // Initialize Smart Voice Dhikr Service
+    // Initialize Background Service (Location & Smart Dhikr) - MUST BE FIRST for WorkManager
+    try {
+      await BackgroundService().initialize();
+      await BackgroundService().registerPeriodicTasks();
+    } catch (e) {
+      log('⚠️ Background Service Init Error: $e');
+    }
+
     await SmartDhikrService().initialize();
 
     try {

@@ -24,26 +24,27 @@ class HajjUmrahHomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: BlocBuilder<SubscriptionBloc, SubscriptionState>(
           builder: (context, state) {
+            final s = AppLocalizations.of(context)!;
             final isPremium = state is SubscriptionLoaded && state.subscription.isPremium;
 
             return Column(
               children: [
                 _buildCard(
                   context,
-                  title: "مناسك العمرة",
+                  title: s.umrahRituals,
                   icon: Icons.refresh, // Replace with proper icon
                   onTap: () {
                     context.read<HajjUmrahCubit>().loadUmrahGuide();
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => const GuideStepsScreen(title: "مناسك العمرة")),
+                      MaterialPageRoute(builder: (_) => GuideStepsScreen(title: s.umrahRituals)),
                     );
                   },
                 ),
                 const SizedBox(height: 16),
                  _buildCard(
                   context,
-                  title: "مناسك الحج",
+                  title: s.hajjRituals,
                   icon: Icons.mosque,
                   isLocked: !isPremium,
                   onTap: () {
@@ -54,7 +55,7 @@ class HajjUmrahHomeScreen extends StatelessWidget {
                     context.read<HajjUmrahCubit>().loadHajjGuide();
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => const GuideStepsScreen(title: "مناسك الحج")),
+                      MaterialPageRoute(builder: (_) => GuideStepsScreen(title: s.hajjRituals)),
                     );
                   },
                 ),

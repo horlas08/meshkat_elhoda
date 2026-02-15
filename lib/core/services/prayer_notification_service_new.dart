@@ -1,4 +1,5 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:hijri/hijri_calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -108,75 +109,75 @@ class PrayerNotificationService {
 
         // قناة علي الملا - عادي
         NotificationChannel(
-          channelKey: 'athan_ali_almula_regular',
+          channelKey: 'athan_ali_almula_regular_v3',
           channelName: 'أذان علي الملا',
           channelDescription: 'إشعارات الأذان بصوت الشيخ علي الملا',
           defaultColor: const Color(0xFF4CAF50),
           importance: NotificationImportance.High,
-          playSound: true,
-          soundSource: 'resource://raw/ali_almula_regular',
+          playSound: false,
+          // soundSource: 'resource://raw/ali_almula_regular',
           enableVibration: false,
           criticalAlerts: false,
         ),
         // قناة علي الملا - فجر
         NotificationChannel(
-          channelKey: 'athan_ali_almula_fajr',
+          channelKey: 'athan_ali_almula_fajr_v3',
           channelName: 'أذان علي الملا - الفجر',
           channelDescription: 'إشعارات أذان الفجر بصوت الشيخ علي الملا',
           defaultColor: const Color(0xFF4CAF50),
           importance: NotificationImportance.High,
-          playSound: true,
-          soundSource: 'resource://raw/ali_almula_fajr',
+          playSound: false,
+          // soundSource: 'resource://raw/ali_almula_fajr',
           enableVibration: false,
           criticalAlerts: false,
         ),
 
         // قناة نصر الدين طوبار - عادي
         NotificationChannel(
-          channelKey: 'athan_nasr_tobar_regular',
+          channelKey: 'athan_nasr_tobar_regular_v3',
           channelName: 'أذان نصر الدين طوبار',
           channelDescription: 'إشعارات الأذان بصوت الشيخ نصر الدين طوبار',
           defaultColor: const Color(0xFF4CAF50),
           importance: NotificationImportance.High,
-          playSound: true,
-          soundSource: 'resource://raw/nasr_tobar_regular',
+          playSound: false,
+          // soundSource: 'resource://raw/nasr_tobar_regular',
           enableVibration: false,
           criticalAlerts: false,
         ),
         // قناة نصر الدين طوبار - فجر
         NotificationChannel(
-          channelKey: 'athan_nasr_tobar_fajr',
+          channelKey: 'athan_nasr_tobar_fajr_v3',
           channelName: 'أذان نصر الدين طوبار - الفجر',
           channelDescription: 'إشعارات أذان الفجر بصوت الشيخ نصر الدين طوبار',
           defaultColor: const Color(0xFF4CAF50),
           importance: NotificationImportance.High,
-          playSound: true,
-          soundSource: 'resource://raw/nasr_tobar_fajr',
+          playSound: false,
+          // soundSource: 'resource://raw/nasr_tobar_fajr',
           enableVibration: false,
           criticalAlerts: false,
         ),
 
         // قناة الشيخ سريحي - عادي
         NotificationChannel(
-          channelKey: 'athan_srehi_regular',
+          channelKey: 'athan_srehi_regular_v3',
           channelName: 'أذان الشيخ سريحي',
           channelDescription: 'إشعارات الأذان بصوت الشيخ سريحي',
           defaultColor: const Color(0xFF4CAF50),
           importance: NotificationImportance.High,
-          playSound: true,
-          soundSource: 'resource://raw/srehi_regular',
+          playSound: false,
+          // soundSource: 'resource://raw/srehi_regular',
           enableVibration: false,
           criticalAlerts: false,
         ),
         // قناة الشيخ سريحي - فجر
         NotificationChannel(
-          channelKey: 'athan_srehi_fajr',
+          channelKey: 'athan_srehi_fajr_v3',
           channelName: 'أذان الشيخ سريحي - الفجر',
           channelDescription: 'إشعارات أذان الفجر بصوت الشيخ سريحي',
           defaultColor: const Color(0xFF4CAF50),
           importance: NotificationImportance.High,
-          playSound: true,
-          soundSource: 'resource://raw/srehi_fajr',
+          playSound: false,
+          // soundSource: 'resource://raw/srehi_fajr',
           enableVibration: false,
           criticalAlerts: false,
         ),
@@ -214,13 +215,36 @@ class PrayerNotificationService {
           defaultColor: const Color(0xFF9C27B0),
           importance: NotificationImportance.High,
           playSound: true,
+
+          enableVibration: true,
+        ),
+        // قناة رمضان (سحور وإفطار)
+        NotificationChannel(
+          channelKey: 'ramadan_channel',
+          channelName: 'Ramadan Reminders',
+          channelDescription: 'Suhoor and Iftar notifications',
+          defaultColor: const Color(0xFF009688),
+          importance: NotificationImportance.High,
+          playSound: false, // Silent so we can play custom audio
           enableVibration: true,
         ),
       ]);
 
       final isAllowed = await AwesomeNotifications().isNotificationAllowed();
       if (!isAllowed) {
-        await AwesomeNotifications().requestPermissionToSendNotifications();
+        await AwesomeNotifications().requestPermissionToSendNotifications(
+          permissions: [
+            NotificationPermission.Alert,
+            NotificationPermission.Sound,
+            NotificationPermission.Badge,
+            NotificationPermission.CriticalAlert,
+            NotificationPermission.OverrideDnD,
+            NotificationPermission.Provisional,
+            NotificationPermission.Vibration,
+            NotificationPermission.Car,
+            NotificationPermission.FullScreenIntent,
+          ]
+        );
       }
 
       _notificationsInitialized = true;
@@ -332,10 +356,89 @@ class PrayerNotificationService {
         log('✅ تم إلغاء إشعارات أذكار الصباح والمساء');
       }
 
+      // 🌙 جدولة إشعارات رمضان (سحور وإفطار)
+      final hijriDate = HijriCalendar.now();
+      if (hijriDate.hMonth == 9) {
+        log('🌙 شهر رمضان المبارك - بدء جدولة السحور والإفطار...');
+
+        // 1. وقت السحور (الفجر - 45 دقيقة)
+        final fajrTime = prayerTimes['Fajr'];
+        if (fajrTime != null) {
+          final suhoorTime = fajrTime.subtract(const Duration(minutes: 45));
+          if (suhoorTime.isAfter(DateTime.now())) {
+            await AwesomeNotifications().createNotification(
+              content: NotificationContent(
+                id: 7001,
+                channelKey: 'ramadan_channel',
+                title: language == 'ar' ? '🌟 وقت السحور' : 'Suhoor Time',
+                body: language == 'ar' 
+                    ? 'تسحروا فإن في السحور بركة' 
+                    : 'Wake up for Suhoor',
+                notificationLayout: NotificationLayout.Default,
+                payload: {'type': 'suhoor'},
+                wakeUpScreen: true,
+                category: NotificationCategory.Reminder,
+              ),
+              schedule: NotificationCalendar.fromDate(date: suhoorTime),
+            );
+            log('🥣 تم جدولة السحور في: $suhoorTime');
+          }
+        }
+
+        // 2. وقت الإفطار (المغرب)
+        final maghribTime = prayerTimes['Maghrib'];
+        if (maghribTime != null) {
+          if (maghribTime.isAfter(DateTime.now())) {
+            await AwesomeNotifications().createNotification(
+              content: NotificationContent(
+                id: 7002,
+                channelKey: 'ramadan_channel',
+                title: language == 'ar' ? '🌙 وقت الإفطار' : 'Iftar Time',
+                body: language == 'ar'
+                    ? 'ذهب الظمأ وابتلت العروق وثبت الأجر إن شاء الله'
+                    : 'Time to break your fast',
+                notificationLayout: NotificationLayout.Default,
+                payload: {'type': 'iftar'},
+                wakeUpScreen: true,
+                category: NotificationCategory.Event,
+              ),
+              schedule: NotificationCalendar.fromDate(date: maghribTime),
+            );
+            log('🍇 تم جدولة الإفطار في: $maghribTime');
+          }
+        }
+      }
+
       log('✅ تم جدولة إشعارات الصلوات بنجاح');
     } catch (e) {
       log('❌ خطأ في جدولة الإشعارات: $e');
       rethrow;
+    }
+  }
+
+  /// ✅ إعادة جدولة جميع الإشعارات (يستخدم في WorkManager)
+  Future<void> rescheduleAll({
+    required double latitude,
+    required double longitude,
+    required String language,
+  }) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final settingsJson = prefs.getString('NOTIFICATION_SETTINGS');
+      final settings = settingsJson != null
+          ? NotificationSettingsModel.fromJson(settingsJson)
+          : const NotificationSettingsModel();
+
+      await scheduleTodayPrayers(
+        latitude: latitude,
+        longitude: longitude,
+        language: language,
+        settings: settings,
+        forceReschedule: true,
+      );
+      log('✅ تم إعادة جدولة جميع الإشعارات بناءً على الموقع الجديد');
+    } catch (e) {
+      log('❌ خطأ في إعادة الجدولة: $e');
     }
   }
 
@@ -434,12 +537,23 @@ class PrayerNotificationService {
       );
 
       final prayerNameAr = _getPrayerNameInArabic(prayerName);
-      final title = language == 'ar'
+      String title = language == 'ar'
           ? '⏳ اقتربت الصلاة'
           : '⏳ Prayer Approaching';
-      final body = language == 'ar'
+      String body = language == 'ar'
           ? 'باقي 5 دقائق على صلاة $prayerNameAr'
           : '5 minutes remaining to $prayerName prayer';
+
+      // 🌙 Ramadan check for Suhoor (Fajr)
+      if (prayerName == 'Fajr') {
+        final hijri = HijriCalendar.fromDate(prayerDateTime);
+        if (hijri.hMonth == 9) {
+           title = language == 'ar' ? '🌙 وقت السحور ينتهي قريباً' : '🌙 Suhoor time is ending';
+           body = language == 'ar' 
+               ? 'باقي 5 دقائق على أذان الفجر. تسحروا فإن في السحور بركة.' 
+               : '5 mins to Fajr. Eat Suhoor for there is blessing in it.';
+        }
+      }
 
       await AwesomeNotifications().createNotification(
         content: NotificationContent(
@@ -493,6 +607,22 @@ class PrayerNotificationService {
       }
 
       final notificationText = _getPrayerNotificationText(prayerName, language);
+
+      // 🌙 Ramadan check for Iftar (Maghrib)
+      if (prayerName == 'Maghrib') {
+        final hijri = HijriCalendar.fromDate(prayerDateTime);
+        if (hijri.hMonth == 9) {
+           final iftarTitle = language == 'ar' ? '🌙 موعد الإفطار' : '🌙 Iftar Time';
+           final iftarBody = language == 'ar'
+               ? 'اللهم لك صمت وعلى رزقك أفطرت. تقبل الله منا ومنكم.'
+               : 'O Allah, for You I have fasted, and with Your provision I have broken my fast.';
+           
+           // Override text
+           // ignore: avoid_as_null_aware_operator
+           notificationText['title'] = iftarTitle;
+           notificationText['body'] = iftarBody;
+        }
+      }
 
       // إذا كان الأذان مفعلاً، استخدم FlutterAthanService
       if (shouldPlayAthan) {
@@ -670,6 +800,39 @@ class PrayerNotificationService {
       log('✅ تم جدولة أذكار الصباح والمساء');
     } catch (e) {
       log('❌ خطأ في جدولة أذكار الصباح والمساء: $e');
+    }
+  }
+
+  /// 🛠️ Debug: Schedule a test Athan notification in 2 minutes
+  Future<void> scheduleImmediateAthanTest() async {
+    try {
+      final now = DateTime.now();
+      final testTime = now.add(const Duration(minutes: 1));
+      
+      debugPrint("🛠️ Scheduling Immediate Athan Test at $testTime...");
+
+      // Use AthanAudioService directly to test audio + notification
+      await AthanAudioService().scheduleAthan(
+        prayerId: 9999, // Debug ID
+        prayerTime: testTime,
+        prayerName: "Test Prayer",
+      );
+      
+      // Also schedule a fallback notification just in case audio service fails silently?
+      // No, let's rely on AthanAudioService as that is what we want to test.
+      // But maybe trigger a simple notification to confirm "Test Scheduled"
+      await AwesomeNotifications().createNotification(
+        content: NotificationContent(
+          id: 9998,
+          channelKey: 'reminder_channel',
+          title: '🛠️ Test Scheduled',
+          body: 'Athan test scheduled for ${testTime.hour}:${testTime.minute}',
+          notificationLayout: NotificationLayout.Default,
+        ),
+      );
+
+    } catch (e) {
+      debugPrint("❌ Error scheduling Athan Test: $e");
     }
   }
 
