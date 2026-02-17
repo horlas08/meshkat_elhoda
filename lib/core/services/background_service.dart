@@ -14,6 +14,7 @@ import 'package:hijri/hijri_calendar.dart';
 
 const String smartDhikrTask = "smartDhikrTask";
 const String locationUpdateTask = "locationUpdateTask";
+const String prayerRescheduleTask = "prayerRescheduleTask";
 
 @pragma('vm:entry-point')
 void callbackDispatcher() {
@@ -46,6 +47,8 @@ void callbackDispatcher() {
         return await _handleSmartDhikrTask();
       } else if (task == locationUpdateTask) {
         return await _handleLocationUpdateTask();
+      } else if (task == prayerRescheduleTask) {
+        return await _handlePrayerRescheduleTask();
       }
 
       return Future.value(true);
@@ -152,6 +155,34 @@ Future<bool> _handleLocationUpdateTask() async {
   }
 }
 
+Future<bool> _handlePrayerRescheduleTask() async {
+  try {
+    debugPrint("🕌 Prayer Reschedule Task Started");
+
+    final prefs = await SharedPreferences.getInstance();
+    final lat = prefs.getDouble('latitude');
+    final lng = prefs.getDouble('longitude');
+    final language = prefs.getString('language') ?? 'ar';
+
+    if (lat == null || lng == null) {
+      debugPrint("⚠️ No cached coordinates found. Skipping prayer reschedule.");
+      return true;
+    }
+
+    await PrayerNotificationService().rescheduleAll(
+      latitude: lat,
+      longitude: lng,
+      language: language,
+    );
+
+    debugPrint("✅ Prayer notifications rescheduled successfully");
+    return true;
+  } catch (e) {
+    debugPrint("❌ Prayer Reschedule Task Error: $e");
+    return false;
+  }
+}
+
 class BackgroundService {
   static final BackgroundService _instance = BackgroundService._internal();
   factory BackgroundService() => _instance;
@@ -177,6 +208,19 @@ class BackgroundService {
       frequency: const Duration(hours: 6),
       constraints: Constraints(
         networkType: NetworkType.connected, 
+        requiresBatteryNotLow: true,
+      ),
+      existingWorkPolicy: ExistingPeriodicWorkPolicy.keep,
+    );
+
+    // 3. Prayer reschedule (Daily-ish) - ensures tomorrow is scheduled even if user doesn't open the app
+    // WorkManager periodic tasks are not exact; 12h reduces risk of missing a day due to OEM restrictions.
+    await Workmanager().registerPeriodicTask(
+      "2003",
+      prayerRescheduleTask,
+      frequency: const Duration(hours: 12),
+      constraints: Constraints(
+        networkType: NetworkType.connected,
         requiresBatteryNotLow: true,
       ),
       existingWorkPolicy: ExistingPeriodicWorkPolicy.keep,

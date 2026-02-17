@@ -1,5 +1,8 @@
 import 'dart:developer';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:meshkat_elhoda/core/services/flutter_athan_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// ✅ خدمة الأذان - تستخدم Flutter فقط بدون native code
 ///
@@ -13,6 +16,20 @@ class AthanAudioService {
   static final AthanAudioService _instance = AthanAudioService._internal();
   factory AthanAudioService() => _instance;
   AthanAudioService._internal();
+
+  static const MethodChannel _channel = MethodChannel('com.meshkatelhoda.pro/athan');
+
+  static const String _selectedMuezzinKey = 'SELECTED_MUEZZIN_ID';
+
+  Future<String> _getSelectedMuezzinIdOrDefault() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      return prefs.getString(_selectedMuezzinKey) ?? 'ali_almula';
+    } catch (e) {
+      log('⚠️ Failed to read selected muezzin from prefs: $e');
+      return 'ali_almula';
+    }
+  }
 
   /// الخدمة الفعلية
   final FlutterAthanService _flutterAthanService = FlutterAthanService();
@@ -28,40 +45,89 @@ class AthanAudioService {
   }
 
   /// ✅ Check if app can schedule exact alarms
-  /// Returns true always for Flutter implementation
   Future<bool> canScheduleExactAlarms() async {
-    return true; // Flutter handles this internally
+    if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+      return true;
+    }
+    try {
+      final res = await _channel.invokeMethod<bool>('canScheduleExactAlarms');
+      return res ?? true;
+    } catch (e) {
+      log('❌ canScheduleExactAlarms MethodChannel error: $e');
+      return true;
+    }
   }
 
   /// ✅ Open system settings to request exact alarm permission
-  /// Not needed for Flutter implementation
   Future<void> requestExactAlarmPermission() async {
-    log('ℹ️ requestExactAlarmPermission not needed for Flutter implementation');
+    if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+      return;
+    }
+    try {
+      await _channel.invokeMethod('requestExactAlarmPermission');
+    } catch (e) {
+      log('❌ requestExactAlarmPermission MethodChannel error: $e');
+    }
   }
 
   /// ✅ Check if app is being battery optimized
-  /// Not needed for Flutter implementation
   Future<bool> isBatteryOptimized() async {
-    return false;
+    if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+      return false;
+    }
+    try {
+      final res = await _channel.invokeMethod<bool>('isBatteryOptimized');
+      return res ?? false;
+    } catch (e) {
+      log('❌ isBatteryOptimized MethodChannel error: $e');
+      return false;
+    }
   }
 
   /// ✅ Request battery optimization exemption
-  /// Not needed for Flutter implementation
   Future<void> requestBatteryOptimizationExemption() async {
-    log(
-      'ℹ️ Battery optimization exemption not needed for Flutter implementation',
-    );
+    if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+      return;
+    }
+    try {
+      await _channel.invokeMethod('requestBatteryOptimizationExemption');
+    } catch (e) {
+      log('❌ requestBatteryOptimizationExemption MethodChannel error: $e');
+    }
   }
 
   /// ✅ Open system app settings
   Future<void> openAppSettings() async {
-    log('ℹ️ openAppSettings - use system settings');
+    if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+      return;
+    }
+    try {
+      await _channel.invokeMethod('openAppSettings');
+    } catch (e) {
+      log('❌ openAppSettings MethodChannel error: $e');
+    }
   }
 
   /// ✅ Play Athan immediately for a prayer
   /// Used for testing or manual trigger from within the app
   Future<void> playAthanForPrayer(String prayerName) async {
     try {
+      if (defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+        log('🔔 Playing Athan for $prayerName via native channel...');
+        final isFajr = prayerName == 'Fajr';
+        final muezzinId = await _getSelectedMuezzinIdOrDefault();
+        // Keep native side responsible for sound in background.
+        await _channel.invokeMethod('playAthan', {
+          'muezzinId': muezzinId,
+          'isFajr': isFajr,
+          'prayerName': prayerName,
+          'title': '🕌 Prayer Time',
+          'body': 'It is time for prayer $prayerName',
+        });
+        log('✅ Native Athan playback triggered');
+        return;
+      }
+
       log('🔔 Playing Athan for $prayerName via Flutter...');
       await _flutterAthanService.playAthanForPrayer(prayerName);
       log('✅ Athan playback started successfully');
@@ -78,16 +144,29 @@ class AthanAudioService {
     required String prayerName,
   }) async {
     try {
-      log(
-        '📅 [AthanAudioService] Scheduling Athan for $prayerName at $prayerTime...',
-      );
+      log('📅 [AthanAudioService] Scheduling Athan for $prayerName at $prayerTime...');
+
+      if (defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+        final isFajr = prayerName == 'Fajr';
+        final muezzinId = await _getSelectedMuezzinIdOrDefault();
+        await _channel.invokeMethod('scheduleAthan', {
+          'prayerId': prayerId,
+          'triggerTimeMillis': prayerTime.millisecondsSinceEpoch,
+          'muezzinId': muezzinId,
+          'isFajr': isFajr,
+          'prayerName': prayerName,
+          'title': '🕌 Prayer Time',
+          'body': 'It is time for prayer $prayerName',
+        });
+        log('✅ Athan scheduled successfully via native for $prayerName');
+        return;
+      }
 
       await _flutterAthanService.scheduleAthan(
         prayerId: prayerId,
         prayerTime: prayerTime,
         prayerName: prayerName,
       );
-
       log('✅ Athan scheduled successfully for $prayerName');
     } catch (e) {
       log('❌ Error scheduling Athan: $e');
@@ -97,7 +176,13 @@ class AthanAudioService {
   /// ✅ Cancel a specific scheduled Athan
   Future<void> cancelAthan(int prayerId) async {
     try {
-      await _flutterAthanService.cancelAthan(prayerId);
+      if (defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+        await _channel.invokeMethod('cancelAthan', {
+          'prayerId': prayerId,
+        });
+      } else {
+        await _flutterAthanService.cancelAthan(prayerId);
+      }
       log('✅ Athan cancelled for prayer ID: $prayerId');
     } catch (e) {
       log('❌ Error cancelling Athan: $e');
@@ -107,7 +192,11 @@ class AthanAudioService {
   /// ✅ Cancel all scheduled Athans
   Future<void> cancelAllAthans() async {
     try {
-      await _flutterAthanService.cancelAllAthans();
+      if (defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+        await _channel.invokeMethod('cancelAllAthans');
+      } else {
+        await _flutterAthanService.cancelAllAthans();
+      }
       log('✅ All Athans cancelled');
     } catch (e) {
       log('❌ Error cancelling all Athans: $e');
@@ -117,10 +206,51 @@ class AthanAudioService {
   /// ✅ Stop currently playing Athan
   Future<void> stopAthan() async {
     try {
-      await _flutterAthanService.stopAthan();
+      if (defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+        await _channel.invokeMethod('stopAthan');
+      } else {
+        await _flutterAthanService.stopAthan();
+      }
       log('✅ Athan stopped');
     } catch (e) {
       log('❌ Error stopping Athan: $e');
+    }
+  }
+
+  /// ✅ Schedule a Pre-Athan reminder (e.g., 5 minutes before prayer)
+  Future<void> schedulePreAthanReminder({
+    required int reminderId,
+    required DateTime triggerTime,
+    required String title,
+    required String body,
+  }) async {
+    try {
+      if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+        return;
+      }
+
+      await _channel.invokeMethod('schedulePreAthanReminder', {
+        'reminderId': reminderId,
+        'triggerTimeMillis': triggerTime.millisecondsSinceEpoch,
+        'title': title,
+        'body': body,
+      });
+    } catch (e) {
+      log('❌ Error scheduling pre-athan reminder: $e');
+    }
+  }
+
+  /// ✅ Cancel a Pre-Athan reminder
+  Future<void> cancelPreAthanReminder(int reminderId) async {
+    try {
+      if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+        return;
+      }
+      await _channel.invokeMethod('cancelPreAthanReminder', {
+        'reminderId': reminderId,
+      });
+    } catch (e) {
+      log('❌ Error cancelling pre-athan reminder: $e');
     }
   }
 

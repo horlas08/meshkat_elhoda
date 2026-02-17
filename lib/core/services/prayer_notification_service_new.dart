@@ -3,6 +3,7 @@ import 'package:hijri/hijri_calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/foundation.dart';
 import 'package:meshkat_elhoda/features/settings/data/models/notification_settings_model.dart';
 import 'package:meshkat_elhoda/core/services/athan_audio_service.dart';
 import 'package:meshkat_elhoda/core/services/khushoo_mode_service.dart';
@@ -365,6 +366,7 @@ class PrayerNotificationService {
         final fajrTimeStr = prayerTimes['Fajr'];
         if (fajrTimeStr != null) {
           try {
+
             // Parse "HH:mm" to DateTime
             final now = DateTime.now();
             final parts = fajrTimeStr.split(':')[0].split(' '); // Handle "05:45" or "05:45 (EST)"
@@ -580,28 +582,39 @@ class PrayerNotificationService {
         }
       }
 
-      await AwesomeNotifications().createNotification(
-        content: NotificationContent(
-          id: id,
-          channelKey: 'reminder_channel',
+      // ✅ On Android (Tecno / aggressive OEMs), schedule pre-Athan reminder via native AlarmManager
+      // for reliability when app is idle/terminated.
+      if (defaultTargetPlatform == TargetPlatform.android) {
+        await AthanAudioService().schedulePreAthanReminder(
+          reminderId: id,
+          triggerTime: notificationTime,
           title: title,
           body: body,
-          notificationLayout: NotificationLayout.Default,
-          category: NotificationCategory.Reminder,
-          wakeUpScreen: true,
-        ),
-        schedule: NotificationCalendar(
-          year: notificationTime.year,
-          month: notificationTime.month,
-          day: notificationTime.day,
-          hour: notificationTime.hour,
-          minute: notificationTime.minute,
-          second: 0,
-          millisecond: 0,
-          allowWhileIdle: true,
-          preciseAlarm: true,
-        ),
-      );
+        );
+      } else {
+        await AwesomeNotifications().createNotification(
+          content: NotificationContent(
+            id: id,
+            channelKey: 'reminder_channel',
+            title: title,
+            body: body,
+            notificationLayout: NotificationLayout.Default,
+            category: NotificationCategory.Reminder,
+            wakeUpScreen: true,
+          ),
+          schedule: NotificationCalendar(
+            year: notificationTime.year,
+            month: notificationTime.month,
+            day: notificationTime.day,
+            hour: notificationTime.hour,
+            minute: notificationTime.minute,
+            second: 0,
+            millisecond: 0,
+            allowWhileIdle: true,
+            preciseAlarm: true,
+          ),
+        );
+      }
 
       log(
         '📅 جدولة تنبيه قبل صلاة $prayerName في ${notificationTime.toString()}',
@@ -1346,6 +1359,13 @@ class PrayerNotificationService {
       // إلغاء إشعارات الصلاة (IDs 1-100)
       for (int i = 1; i <= 100; i++) {
         await AwesomeNotifications().cancel(i);
+      }
+
+      // إلغاء تنبيهات ما قبل الأذان من AlarmManager (Android)
+      if (defaultTargetPlatform == TargetPlatform.android) {
+        for (int i = 1; i <= 100; i++) {
+          await AthanAudioService().cancelPreAthanReminder(i);
+        }
       }
 
       // إلغاء إشعارات ذكرني بالله (IDs 5000-5099)

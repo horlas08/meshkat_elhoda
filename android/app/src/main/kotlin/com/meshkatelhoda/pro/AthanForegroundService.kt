@@ -308,10 +308,10 @@ class AthanForegroundService : Service() {
             .setBigContentTitle(title)
 
         return NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle(title)
-            .setContentText("🔇 اضغط لإيقاف الأذان")
-            .setStyle(bigTextStyle)
             .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
+            .setContentTitle(title)
+            .setContentText(body)
+            .setStyle(bigTextStyle)
             .setPriority(NotificationCompat.PRIORITY_MAX)
             .setCategory(NotificationCompat.CATEGORY_ALARM)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
@@ -321,6 +321,13 @@ class AthanForegroundService : Service() {
             .addAction(
                 android.R.drawable.ic_delete, 
                 "⏹️ إيقاف الأذان", 
+                stopPendingIntent
+            )
+            // Add a secondary hide button (same behavior as stop)
+            // This matches the previous Flutter notification UX where "Hide" stops the Athan.
+            .addAction(
+                android.R.drawable.ic_menu_close_clear_cancel,
+                "✓ إخفاء",
                 stopPendingIntent
             )
             .setOngoing(true)

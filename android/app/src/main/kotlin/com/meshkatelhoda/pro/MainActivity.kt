@@ -76,11 +76,10 @@ class MainActivity: AudioServiceActivity() {
                 // Schedule Athan for a future time using AlarmManager
                 "scheduleAthan" -> {
                     try {
-                        // Check permission first
+                        // Don't hard-block scheduling if permission is missing.
+                        // Some OEMs/devices still deliver inexact alarms; AthanAlarmManager has fallbacks.
                         if (!canScheduleExactAlarms()) {
-                            Log.w(TAG, "⚠️ Exact alarm permission not granted!")
-                            result.error("PERMISSION_DENIED", "Exact alarm permission not granted. Please enable in settings.", null)
-                            return@setMethodCallHandler
+                            Log.w(TAG, "⚠️ Exact alarm permission not granted. Will attempt scheduling with fallbacks.")
                         }
                         
                         val prayerId = call.argument<Int>("prayerId") ?: 1
@@ -131,6 +130,44 @@ class MainActivity: AudioServiceActivity() {
                     } catch (e: Exception) {
                         Log.e(TAG, "❌ Error cancelling all Athans", e)
                         result.error("ATHAN_ERROR", e.message, null)
+                    }
+                }
+                
+                // Schedule Pre-Athan reminder notification (e.g., 5 minutes before prayer)
+                "schedulePreAthanReminder" -> {
+                    try {
+                        if (!canScheduleExactAlarms()) {
+                            Log.w(TAG, "⚠️ Exact alarm permission not granted for reminder. Will attempt scheduling with fallbacks.")
+                        }
+                        
+                        val reminderId = call.argument<Int>("reminderId") ?: 91001
+                        val triggerTimeMillis = call.argument<Long>("triggerTimeMillis") ?: 0L
+                        val title = call.argument<String>("title") ?: "⏳ Prayer Approaching"
+                        val body = call.argument<String>("body") ?: "5 minutes remaining"
+                        
+                        Log.d(TAG, "⏰ Scheduling Pre-Athan reminder: id=$reminderId, time=$triggerTimeMillis")
+                        athanAlarmManager.schedulePreAthanReminderAlarm(
+                            reminderId = reminderId,
+                            triggerTimeMillis = triggerTimeMillis,
+                            title = title,
+                            body = body
+                        )
+                        result.success(true)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "❌ Error scheduling Pre-Athan reminder", e)
+                        result.error("REMINDER_ERROR", e.message, null)
+                    }
+                }
+
+                // Cancel Pre-Athan reminder
+                "cancelPreAthanReminder" -> {
+                    try {
+                        val reminderId = call.argument<Int>("reminderId") ?: 91001
+                        athanAlarmManager.cancelPreAthanReminderAlarm(reminderId)
+                        result.success(true)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "❌ Error cancelling Pre-Athan reminder", e)
+                        result.error("REMINDER_ERROR", e.message, null)
                     }
                 }
                 

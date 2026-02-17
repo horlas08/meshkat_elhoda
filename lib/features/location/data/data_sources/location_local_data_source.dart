@@ -11,6 +11,8 @@ abstract class LocationLocalDataSource {
 
 class LocationLocalDataSourceImpl implements LocationLocalDataSource {
   static const String _locationKey = 'CACHED_LOCATION';
+  static const String _latitudeKey = 'latitude';
+  static const String _longitudeKey = 'longitude';
   final SharedPreferences sharedPreferences;
 
   LocationLocalDataSourceImpl({required this.sharedPreferences});
@@ -34,6 +36,15 @@ class LocationLocalDataSourceImpl implements LocationLocalDataSource {
     try {
       final jsonString = json.encode(location.toJson());
       await sharedPreferences.setString(_locationKey, jsonString);
+
+      // Keep legacy keys in sync.
+      // Prayer notification scheduling on startup reads these keys directly.
+      if (location.latitude != null) {
+        await sharedPreferences.setDouble(_latitudeKey, location.latitude!);
+      }
+      if (location.longitude != null) {
+        await sharedPreferences.setDouble(_longitudeKey, location.longitude!);
+      }
     } catch (e) {
       throw CacheException(message: 'Failed to cache location: $e');
     }
@@ -43,6 +54,8 @@ class LocationLocalDataSourceImpl implements LocationLocalDataSource {
   Future<void> clearLocation() async {
     try {
       await sharedPreferences.remove(_locationKey);
+      await sharedPreferences.remove(_latitudeKey);
+      await sharedPreferences.remove(_longitudeKey);
     } catch (e) {
       throw CacheException(message: 'Failed to clear location: $e');
     }

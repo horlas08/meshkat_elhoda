@@ -6,6 +6,7 @@ import 'package:meshkat_elhoda/core/services/smart_dhikr_service.dart';
 
 /// ✅ معالج الإشعارات - يتحقق من وضع الخشوع ويعالج إشعارات الأذان
 /// ملاحظة مهمة: هذه الدوال يجب أن تكون static و top-level للعمل مع AwesomeNotifications
+@pragma("vm:entry-point")
 class NotificationHandler {
   static final NotificationHandler _instance = NotificationHandler._internal();
   factory NotificationHandler() => _instance;
@@ -69,7 +70,10 @@ class NotificationHandler {
           final muezzinId = payload['muezzin'];
           
           log('▶️ محاولة تشغيل الأذان عبر FlutterAthanService...');
-          await FlutterAthanService().playFullAthan(
+          // Important: Don't await full playback here.
+          // Awaiting would block this background isolate and may prevent STOP_ATHAN
+          // actions from being handled while the audio is playing.
+          FlutterAthanService().playFullAthan(
             prayerName: prayerName,
             muezzinId: muezzinId,
           );

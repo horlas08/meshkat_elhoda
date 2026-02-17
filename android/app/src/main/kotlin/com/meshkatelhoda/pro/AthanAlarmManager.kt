@@ -18,6 +18,7 @@ class AthanAlarmManager(private val context: Context) {
     companion object {
         private const val TAG = "AthanAlarmManager"
         private const val BASE_REQUEST_CODE = 5000
+        private const val REMINDER_BASE_REQUEST_CODE = 6000
     }
     
     private val alarmManager: AlarmManager by lazy {
@@ -72,18 +73,30 @@ class AthanAlarmManager(private val context: Context) {
             intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
+
+        // IMPORTANT: AlarmClockInfo requires a "show intent" (usually an Activity).
+        // Some OEMs behave poorly if this is not an Activity PendingIntent.
+        val showIntent = Intent(context, MainActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        }
+        val showPendingIntent = PendingIntent.getActivity(
+            context,
+            requestCode,
+            showIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
         
         try {
             // Use setAlarmClock for most reliable delivery (appears in status bar)
             // This works on all Android versions and is the most reliable method
             // CRITICAL: setAlarmClock wakes the device even from Doze mode
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                val alarmInfo = AlarmManager.AlarmClockInfo(triggerTimeMillis, pendingIntent)
+                val alarmInfo = AlarmManager.AlarmClockInfo(triggerTimeMillis, showPendingIntent)
                 alarmManager.setAlarmClock(alarmInfo, pendingIntent)
-                Log.d(TAG, "✅ Scheduled Athan alarm with setAlarmClock: prayerId=$prayerId, time=$triggerTimeMillis")
+                Log.d(TAG, "✅ Scheduled Athan alarm with setAlarmClock: prayerId=$prayerId, time=$triggerTimeMillis, requestCode=$requestCode")
             } else {
                 alarmManager.setExact(AlarmManager.RTC_WAKEUP, triggerTimeMillis, pendingIntent)
-                Log.d(TAG, "✅ Scheduled Athan alarm with setExact: prayerId=$prayerId")
+                Log.d(TAG, "✅ Scheduled Athan alarm with setExact: prayerId=$prayerId, requestCode=$requestCode")
             }
         } catch (e: SecurityException) {
             // This can happen on Android 12+ if SCHEDULE_EXACT_ALARM is revoked
@@ -145,5 +158,93 @@ class AthanAlarmManager(private val context: Context) {
             cancelAthanAlarm(i)
         }
         Log.d(TAG, "Cancelled all Athan alarms")
+    }
+
+    /**
+     * Schedule a pre-Athan reminder alarm (e.g., 5 minutes before prayer).
+     * This triggers PreAthanReminderReceiver to show a notification.
+     */
+    fun schedulePreAthanReminderAlarm(
+        reminderId: Int,
+        triggerTimeMillis: Long,
+        title: String,
+        body: String
+    ) {
+        val intent = Intent(context, PreAthanReminderReceiver::class.java).apply {
+            action = PreAthanReminderReceiver.ACTION_PRE_ATHAN_REMINDER
+            putExtra(PreAthanReminderReceiver.EXTRA_TITLE, title)
+            putExtra(PreAthanReminderReceiver.EXTRA_BODY, body)
+            putExtra(PreAthanReminderReceiver.EXTRA_NOTIFICATION_ID, reminderId)
+        }
+
+        val requestCode = REMINDER_BASE_REQUEST_CODE + reminderId
+        val pendingIntent = PendingIntent.getBroadcast(
+            context,
+            requestCode,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        // AlarmClockInfo "show intent" should be an Activity PendingIntent.
+        val showIntent = Intent(context, MainActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        }
+        val showPendingIntent = PendingIntent.getActivity(
+            context,
+            requestCode,
+            showIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                val alarmInfo = AlarmManager.AlarmClockInfo(triggerTimeMillis, showPendingIntent)
+                alarmManager.setAlarmClock(alarmInfo, pendingIntent)
+                Log.d(TAG, "✅ Scheduled Pre-Athan reminder with setAlarmClock: id=$reminderId, time=$triggerTimeMillis, requestCode=$requestCode")
+            } else {
+                alarmManager.setExact(AlarmManager.RTC_WAKEUP, triggerTimeMillis, pendingIntent)
+                Log.d(TAG, "✅ Scheduled Pre-Athan reminder with setExact: id=$reminderId, requestCode=$requestCode")
+            }
+        } catch (e: SecurityException) {
+            Log.e(TAG, "⚠️ SecurityException scheduling reminder - trying setExactAndAllowWhileIdle", e)
+            try {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    alarmManager.setExactAndAllowWhileIdle(
+                        AlarmManager.RTC_WAKEUP,
+                        triggerTimeMillis,
+                        pendingIntent
+                    )
+                    Log.d(TAG, "📌 Reminder scheduled with setExactAndAllowWhileIdle")
+                } else {
+                    alarmManager.setExact(AlarmManager.RTC_WAKEUP, triggerTimeMillis, pendingIntent)
+                    Log.d(TAG, "📌 Reminder scheduled with setExact (pre-M)")
+                }
+            } catch (e2: Exception) {
+                Log.e(TAG, "❌ All exact reminder methods failed, using setAndAllowWhileIdle", e2)
+                alarmManager.setAndAllowWhileIdle(
+                    AlarmManager.RTC_WAKEUP,
+                    triggerTimeMillis,
+                    pendingIntent
+                )
+                Log.w(TAG, "⚠️ Fallback: Scheduled inexact reminder")
+            }
+        }
+    }
+
+    /** Cancel a pre-Athan reminder alarm. */
+    fun cancelPreAthanReminderAlarm(reminderId: Int) {
+        val intent = Intent(context, PreAthanReminderReceiver::class.java).apply {
+            action = PreAthanReminderReceiver.ACTION_PRE_ATHAN_REMINDER
+        }
+
+        val requestCode = REMINDER_BASE_REQUEST_CODE + reminderId
+        val pendingIntent = PendingIntent.getBroadcast(
+            context,
+            requestCode,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+        alarmManager.cancel(pendingIntent)
+        Log.d(TAG, "Cancelled Pre-Athan reminder alarm: id=$reminderId")
     }
 }

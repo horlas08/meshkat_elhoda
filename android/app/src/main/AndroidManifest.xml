@@ -90,6 +90,16 @@
         </intent-filter>
     </receiver>
 
+    <!-- Pre-Athan Reminder Receiver - shows reminder notification (e.g., 5 minutes before prayer) -->
+    <receiver
+        android:name=".PreAthanReminderReceiver"
+        android:enabled="true"
+        android:exported="false">
+        <intent-filter>
+            <action android:name="com.meshkatelhoda.pro.PRE_ATHAN_REMINDER"/>
+        </intent-filter>
+    </receiver>
+
 
         <!-- MainActivity extends AudioServiceActivity -->
         <activity

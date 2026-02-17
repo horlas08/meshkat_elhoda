@@ -202,9 +202,12 @@ class FlutterAthanService {
 
       log('▶️ Playing full Athan for $prayerName: $audioFileName');
 
+      final assetPath = 'assets/athan/$audioFileName.mp3';
+      log('🎵 Athan asset path: $assetPath');
+
       // تحميل وتشغيل الصوت
       await _audioPlayer?.setAudioSource(
-          AudioSource.asset('assets/athan/$audioFileName.mp3'),
+        AudioSource.asset(assetPath),
       );
       
       // ✅ تكوين جلسة الصوت (Media Stream)
@@ -224,6 +227,10 @@ class FlutterAthanService {
         androidWillPauseWhenDucked: false,
       ));
 
+      // ✅ Important on Android: activate the session so audio focus is actually requested.
+      // Without this, play() can be effectively silent on some devices.
+      await session.setActive(true);
+
       await _audioPlayer?.setAndroidAudioAttributes(
         const AndroidAudioAttributes(
           contentType: AndroidAudioContentType.music,
@@ -239,6 +246,7 @@ class FlutterAthanService {
       log('✅ Full Athan playing: $audioFileName');
       
       try {
+        log('🔊 Starting audio playback...');
         await _audioPlayer?.play();
       } finally {
         _isPlaying = false;
