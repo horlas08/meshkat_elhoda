@@ -5,6 +5,9 @@ class NotificationSettingsModel {
   final bool isPreAthanEnabled;
   final bool isAzkarSabahMasaEnabled;
   final bool isZikrAllahEnabled;
+  final bool isAthanOverlayEnabled;
+  final bool isSuhoorAlarmEnabled;
+  final bool isIftarAlarmEnabled;
   final bool isKhushooModeEnabled; // وضع الخشوع
   final bool isCollectiveKhatmaEnabled; // إشعارات الختمة الجماعية
   final bool isSmartVoiceEnabled; // أذكار صوتية ذكية
@@ -16,6 +19,9 @@ class NotificationSettingsModel {
     this.isPreAthanEnabled = true,
     this.isAzkarSabahMasaEnabled = true,
     this.isZikrAllahEnabled = false,
+    this.isAthanOverlayEnabled = true,
+    this.isSuhoorAlarmEnabled = true,
+    this.isIftarAlarmEnabled = true,
     this.isKhushooModeEnabled = false,
     this.isCollectiveKhatmaEnabled = true,
     this.isSmartVoiceEnabled = false,
@@ -28,6 +34,9 @@ class NotificationSettingsModel {
     bool? isPreAthanEnabled,
     bool? isAzkarSabahMasaEnabled,
     bool? isZikrAllahEnabled,
+    bool? isAthanOverlayEnabled,
+    bool? isSuhoorAlarmEnabled,
+    bool? isIftarAlarmEnabled,
     bool? isKhushooModeEnabled,
     bool? isCollectiveKhatmaEnabled,
     bool? isSmartVoiceEnabled,
@@ -40,6 +49,10 @@ class NotificationSettingsModel {
       isAzkarSabahMasaEnabled:
           isAzkarSabahMasaEnabled ?? this.isAzkarSabahMasaEnabled,
       isZikrAllahEnabled: isZikrAllahEnabled ?? this.isZikrAllahEnabled,
+      isAthanOverlayEnabled:
+          isAthanOverlayEnabled ?? this.isAthanOverlayEnabled,
+      isSuhoorAlarmEnabled: isSuhoorAlarmEnabled ?? this.isSuhoorAlarmEnabled,
+      isIftarAlarmEnabled: isIftarAlarmEnabled ?? this.isIftarAlarmEnabled,
       isKhushooModeEnabled: isKhushooModeEnabled ?? this.isKhushooModeEnabled,
       isCollectiveKhatmaEnabled:
           isCollectiveKhatmaEnabled ?? this.isCollectiveKhatmaEnabled,
@@ -56,6 +69,9 @@ class NotificationSettingsModel {
       'isPreAthanEnabled': isPreAthanEnabled,
       'isAzkarSabahMasaEnabled': isAzkarSabahMasaEnabled,
       'isZikrAllahEnabled': isZikrAllahEnabled,
+      'isAthanOverlayEnabled': isAthanOverlayEnabled,
+      'isSuhoorAlarmEnabled': isSuhoorAlarmEnabled,
+      'isIftarAlarmEnabled': isIftarAlarmEnabled,
       'isKhushooModeEnabled': isKhushooModeEnabled,
       'isCollectiveKhatmaEnabled': isCollectiveKhatmaEnabled,
       'isSmartVoiceEnabled': isSmartVoiceEnabled,
@@ -70,6 +86,9 @@ class NotificationSettingsModel {
       isPreAthanEnabled: map['isPreAthanEnabled'] ?? true,
       isAzkarSabahMasaEnabled: map['isAzkarSabahMasaEnabled'] ?? true,
       isZikrAllahEnabled: map['isZikrAllahEnabled'] ?? false,
+      isAthanOverlayEnabled: map['isAthanOverlayEnabled'] ?? true,
+      isSuhoorAlarmEnabled: map['isSuhoorAlarmEnabled'] ?? true,
+      isIftarAlarmEnabled: map['isIftarAlarmEnabled'] ?? true,
       isKhushooModeEnabled: map['isKhushooModeEnabled'] ?? false,
       isCollectiveKhatmaEnabled: map['isCollectiveKhatmaEnabled'] ?? true,
       isSmartVoiceEnabled: map['isSmartVoiceEnabled'] ?? false,

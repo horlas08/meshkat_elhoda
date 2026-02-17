@@ -22,7 +22,7 @@
   "audioError": "آڈیو چلانے میں خرابی",
   "repeat": "دہرائیں",
   "copy": "کاپی کریں",
-  "share": "شیئر کریں",
+  "share": "Share",
   "smartMisbah": "سمارٹ مسبح",
   "startTasbeh": "تسبیح شروع کریں",
   "locationPermissionDeniedTitle": "مقام کی اجازت مسترد کر دی گئی",
@@ -68,6 +68,8 @@
   "audioLoading": "آڈیو لوڈ ہو رہا ہے...",
   "stop": "روکیں",
   "close": "بند کریں",
+  "hide": "چھپائیں",
+  "adhanStopHint": "اذان روکنے کے لیے یہاں دبائیں",
   "ayahOptionLanguage": "زبان",
   "ayahOptionShare": "شیئر کریں",
   "surahArrangementLabel": "نمبر",
@@ -279,7 +281,7 @@
   "verse": "آیت",
   "addNote": "نوٹ شامل کریں",
   "writeNoteHere": "اپنا نوٹ یہاں لکھیں...",
-  "save": "محفوظ کریں",
+  "save": "Save",
   "verseNumber": "آیت",
   "today": "آج",
   "yesterday": "کل",
@@ -769,5 +771,10 @@
   "eventAshura": "عاشورہ",
   "eventMawlidAlNabi": "عید میلاد النبی",
   "eventLaylatAlMiraj": "شب معراج",
-  "eventLaylatAlBaraat": "شب برات"
+  "eventLaylatAlBaraat": "شب برات",
+  "athanOverlaySettingTitle": "Adhan full-screen alarm screen",
+  "suhoorAlarmTitle": "Suhoor alarm",
+  "iftarAlarmTitle": "Iftar alarm",
+  "adhanTroubleshootFixExactAlarmTitle": "Allow exact alarms (Alarms & reminders)",
+  "adhanTroubleshootFixExactAlarmDesc": "Enable exact alarms for this app so prayer times, Suhoor, and Iftar reminders trigger on time even if the app is closed."
 }

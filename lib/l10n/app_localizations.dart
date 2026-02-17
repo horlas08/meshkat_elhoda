@@ -253,11 +253,17 @@ abstract class AppLocalizations {
   /// **'Copy'**
   String get copy;
 
-  /// No description provided for @share.
+  /// No description provided for @ayahOptionShare.
   ///
   /// In en, this message translates to:
-  /// **'Share'**
-  String get share;
+  /// **''**
+  String get ayahOptionShare;
+
+  /// No description provided for @ayahOptionLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **''**
+  String get ayahOptionLanguage;
 
   /// No description provided for @smartMisbah.
   ///
@@ -529,17 +535,215 @@ abstract class AppLocalizations {
   /// **'Close'**
   String get close;
 
-  /// No description provided for @ayahOptionLanguage.
+  /// No description provided for @hide.
   ///
   /// In en, this message translates to:
-  /// **'Language'**
-  String get ayahOptionLanguage;
+  /// **'Hide'**
+  String get hide;
 
-  /// No description provided for @ayahOptionShare.
+  /// No description provided for @adhanStopHint.
   ///
   /// In en, this message translates to:
-  /// **'Share'**
-  String get ayahOptionShare;
+  /// **'Tap here to stop the Adhan'**
+  String get adhanStopHint;
+
+  /// No description provided for @adhanTroubleshootNoticeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Adhan not working?'**
+  String get adhanTroubleshootNoticeTitle;
+
+  /// No description provided for @adhanTroubleshootNoticeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap here to fix device settings so Adhan works on time.'**
+  String get adhanTroubleshootNoticeBody;
+
+  /// No description provided for @adhanTroubleshootTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Adhan alarm is not working?'**
+  String get adhanTroubleshootTitle;
+
+  /// No description provided for @adhanTroubleshootAboutTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s this about?'**
+  String get adhanTroubleshootAboutTitle;
+
+  /// No description provided for @adhanTroubleshootAboutBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Some device settings can stop Adhan from working on time. Follow the tips below to keep your alarms reliable.'**
+  String get adhanTroubleshootAboutBody;
+
+  /// No description provided for @adhanTroubleshootAboutDeviceTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'About this device'**
+  String get adhanTroubleshootAboutDeviceTitle;
+
+  /// No description provided for @adhanTroubleshootAboutDeviceSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Please review the following settings on this device.'**
+  String get adhanTroubleshootAboutDeviceSubtitle;
+
+  /// No description provided for @adhanTroubleshootFixNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Fix now'**
+  String get adhanTroubleshootFixNow;
+
+  /// No description provided for @adhanTroubleshootCheckIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Check it'**
+  String get adhanTroubleshootCheckIt;
+
+  /// No description provided for @adhanTroubleshootAllow.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow'**
+  String get adhanTroubleshootAllow;
+
+  /// No description provided for @adhanTroubleshootDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get adhanTroubleshootDone;
+
+  /// No description provided for @adhanTroubleshootBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get adhanTroubleshootBack;
+
+  /// No description provided for @adhanTroubleshootNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Note: If Adhan still does not work, re-check these settings again.'**
+  String get adhanTroubleshootNote;
+
+  /// No description provided for @adhanTroubleshootBackConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get adhanTroubleshootBackConfirmTitle;
+
+  /// No description provided for @adhanTroubleshootBackConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Please check all settings carefully, otherwise Adhan may still not work. Do you want to go back now?'**
+  String get adhanTroubleshootBackConfirmBody;
+
+  /// No description provided for @adhanTroubleshootBackConfirmStay.
+  ///
+  /// In en, this message translates to:
+  /// **'Stay'**
+  String get adhanTroubleshootBackConfirmStay;
+
+  /// No description provided for @adhanTroubleshootBackConfirmGoBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Go back'**
+  String get adhanTroubleshootBackConfirmGoBack;
+
+  /// No description provided for @adhanTroubleshootFixOverlayTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow alarm pop-up / display over apps'**
+  String get adhanTroubleshootFixOverlayTitle;
+
+  /// No description provided for @adhanTroubleshootFixOverlayDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow the app to show a pop-up when Adhan starts so you can stop or hide it easily.'**
+  String get adhanTroubleshootFixOverlayDesc;
+
+  /// No description provided for @adhanTroubleshootFixExactAlarmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow exact alarms (Alarms & reminders)'**
+  String get adhanTroubleshootFixExactAlarmTitle;
+
+  /// No description provided for @adhanTroubleshootFixExactAlarmDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable exact alarms for this app so prayer times, Suhoor, and Iftar reminders trigger on time even if the app is closed.'**
+  String get adhanTroubleshootFixExactAlarmDesc;
+
+  /// No description provided for @adhanTroubleshootFixAutostartTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto-start'**
+  String get adhanTroubleshootFixAutostartTitle;
+
+  /// No description provided for @adhanTroubleshootFixAutostartDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable auto-start for the app so Adhan works even when the app is closed.'**
+  String get adhanTroubleshootFixAutostartDesc;
+
+  /// No description provided for @adhanTroubleshootFixScreenOffTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Screen-off settings'**
+  String get adhanTroubleshootFixScreenOffTitle;
+
+  /// No description provided for @adhanTroubleshootFixScreenOffDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off any screen-off options that block notifications (sleep / push block / scheduled push).'**
+  String get adhanTroubleshootFixScreenOffDesc;
+
+  /// No description provided for @adhanTroubleshootFixBatterySaverTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Battery Saver'**
+  String get adhanTroubleshootFixBatterySaverTitle;
+
+  /// No description provided for @adhanTroubleshootFixBatterySaverDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Battery Saver may kill the app. Try turning it off during prayer times.'**
+  String get adhanTroubleshootFixBatterySaverDesc;
+
+  /// No description provided for @adhanTroubleshootFixBatteryOptimizationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ignore battery optimization'**
+  String get adhanTroubleshootFixBatteryOptimizationTitle;
+
+  /// No description provided for @adhanTroubleshootFixBatteryOptimizationDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow the app to ignore battery optimizations so it can run in the background.'**
+  String get adhanTroubleshootFixBatteryOptimizationDesc;
+
+  /// No description provided for @adhanTroubleshootFixNotificationsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow notifications'**
+  String get adhanTroubleshootFixNotificationsTitle;
+
+  /// No description provided for @adhanTroubleshootFixNotificationsDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Make sure notifications are allowed for this app.'**
+  String get adhanTroubleshootFixNotificationsDesc;
+
+  /// No description provided for @adhanTroubleshootFixAthanChannelTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Athan channel: enable pop on screen'**
+  String get adhanTroubleshootFixAthanChannelTitle;
+
+  /// No description provided for @adhanTroubleshootFixAthanChannelDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Open the Athan notification channel and set it to High/Max importance and enable full-screen / pop on screen if available.'**
+  String get adhanTroubleshootFixAthanChannelDesc;
 
   /// No description provided for @surahArrangementLabel.
   ///
@@ -1746,12 +1950,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Write your note here...'**
   String get writeNoteHere;
-
-  /// No description provided for @save.
-  ///
-  /// In en, this message translates to:
-  /// **'Save'**
-  String get save;
 
   /// No description provided for @verseNumber.
   ///
@@ -3043,11 +3241,29 @@ abstract class AppLocalizations {
   /// **'Athan Notification'**
   String get athanNotification;
 
+  /// No description provided for @athanOverlaySettingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Adhan full-screen alarm screen'**
+  String get athanOverlaySettingTitle;
+
   /// No description provided for @preAthanNotification.
   ///
   /// In en, this message translates to:
   /// **'5 Minutes Before Athan Alert'**
   String get preAthanNotification;
+
+  /// No description provided for @suhoorAlarmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Suhoor alarm'**
+  String get suhoorAlarmTitle;
+
+  /// No description provided for @iftarAlarmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Iftar alarm'**
+  String get iftarAlarmTitle;
 
   /// No description provided for @khushooMode.
   ///
@@ -4506,6 +4722,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Laylat al-Baraat'**
   String get eventLaylatAlBaraat;
+
+  /// No description provided for @share.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get share;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

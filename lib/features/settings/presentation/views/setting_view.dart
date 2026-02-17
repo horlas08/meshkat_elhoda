@@ -101,8 +101,8 @@ class _SettingViewState extends State<SettingView>
                     QuranSettings(),
 
                     AccountAndSubscription(),
-                    
-                    const DebugToolsSection(),
+
+                    if (kDebugMode) const DebugToolsSection(),
 
                     // زر اختبار الاشتراكات (للتطوير فقط - يختفي في Release)
                     if (kDebugMode)

@@ -39,6 +39,13 @@
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/launcher_icon">
 
+        <activity
+            android:name=".AthanAlarmActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:theme="@style/AthanAlarmTheme" />
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-4204070072716559~8520290982" 
@@ -97,6 +104,64 @@
         android:exported="false">
         <intent-filter>
             <action android:name="com.meshkatelhoda.pro.PRE_ATHAN_REMINDER"/>
+        </intent-filter>
+    </receiver>
+
+    <!-- Smart Dhikr BroadcastReceiver - for playing Smart Voice when app is terminated -->
+    <receiver
+        android:name=".SmartDhikrBroadcastReceiver"
+        android:enabled="true"
+        android:exported="false">
+        <intent-filter>
+            <action android:name="com.meshkatelhoda.pro.PLAY_SMART_DHIKR"/>
+        </intent-filter>
+    </receiver>
+
+    <!-- Ramadan (Suhoor/Iftar) BroadcastReceiver - for playing reminders when app is terminated -->
+    <receiver
+        android:name=".RamadanReminderReceiver"
+        android:enabled="true"
+        android:exported="false">
+        <intent-filter>
+            <action android:name="com.meshkatelhoda.pro.PLAY_RAMADAN_REMINDER"/>
+        </intent-filter>
+    </receiver>
+
+    <!-- Smart Dhikr Foreground Service - for reliable Smart Voice playback -->
+    <service
+        android:name=".SmartDhikrForegroundService"
+        android:enabled="true"
+        android:exported="false"
+        android:foregroundServiceType="mediaPlayback"
+        tools:ignore="Instantiatable">
+    </service>
+
+    <!-- Ramadan Foreground Service - for reliable Suhoor/Iftar playback -->
+    <service
+        android:name=".RamadanReminderForegroundService"
+        android:enabled="true"
+        android:exported="false"
+        android:foregroundServiceType="mediaPlayback"
+        tools:ignore="Instantiatable">
+    </service>
+
+    <!-- Smart Dhikr Stop Receiver -->
+    <receiver
+        android:name=".SmartDhikrStopReceiver"
+        android:enabled="true"
+        android:exported="false">
+        <intent-filter>
+            <action android:name="com.meshkatelhoda.pro.STOP_SMART_DHIKR"/>
+        </intent-filter>
+    </receiver>
+
+    <!-- Ramadan Stop Receiver -->
+    <receiver
+        android:name=".RamadanReminderStopReceiver"
+        android:enabled="true"
+        android:exported="false">
+        <intent-filter>
+            <action android:name="com.meshkatelhoda.pro.STOP_RAMADAN_REMINDER"/>
         </intent-filter>
     </receiver>
 
@@ -163,8 +228,7 @@
             tools:node="merge">
             <meta-data
                 android:name="androidx.work.WorkManagerInitializer"
-                android:value="androidx.startup"
-                tools:node="remove" />
+                android:value="androidx.startup" />
         </provider>
     
         <!-- أضف الـ service -->

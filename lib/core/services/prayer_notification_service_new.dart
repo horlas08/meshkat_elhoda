@@ -362,6 +362,20 @@ class PrayerNotificationService {
       if (hijriDate.hMonth == 9) {
         log('🌙 شهر رمضان المبارك - بدء جدولة السحور والإفطار...');
 
+        if (!effectiveSettings.isSuhoorAlarmEnabled) {
+          await AwesomeNotifications().cancel(7001);
+          if (defaultTargetPlatform == TargetPlatform.android) {
+            await AthanAudioService().cancelRamadanReminderNative(type: 'suhoor');
+          }
+        }
+
+        if (!effectiveSettings.isIftarAlarmEnabled) {
+          await AwesomeNotifications().cancel(7002);
+          if (defaultTargetPlatform == TargetPlatform.android) {
+            await AthanAudioService().cancelRamadanReminderNative(type: 'iftar');
+          }
+        }
+
         // 1. وقت السحور (الفجر - 45 دقيقة)
         final fajrTimeStr = prayerTimes['Fajr'];
         if (fajrTimeStr != null) {
@@ -378,22 +392,36 @@ class PrayerNotificationService {
             
             final suhoorTime = fajrTime.subtract(const Duration(minutes: 45));
             if (suhoorTime.isAfter(DateTime.now())) {
-              await AwesomeNotifications().createNotification(
-                content: NotificationContent(
-                  id: 7001,
-                  channelKey: 'ramadan_channel',
-                  title: language == 'ar' ? '🌟 وقت السحور' : 'Suhoor Time',
-                  body: language == 'ar' 
-                      ? 'تسحروا فإن في السحور بركة' 
-                      : 'Wake up for Suhoor',
-                  notificationLayout: NotificationLayout.Default,
-                  payload: {'type': 'suhoor'},
-                  wakeUpScreen: true,
-                  category: NotificationCategory.Reminder,
-                ),
-                schedule: NotificationCalendar.fromDate(date: suhoorTime),
-              );
-              log('🥣 تم جدولة السحور في: $suhoorTime');
+              if (effectiveSettings.isSuhoorAlarmEnabled) {
+                final title = language == 'ar' ? '🌟 وقت السحور' : 'Suhoor Time';
+                final body = language == 'ar'
+                    ? 'تسحروا فإن في السحور بركة'
+                    : 'Wake up for Suhoor';
+
+                if (defaultTargetPlatform == TargetPlatform.android) {
+                  await AthanAudioService().scheduleRamadanReminderNative(
+                    type: 'suhoor',
+                    triggerTime: suhoorTime,
+                    title: title,
+                    body: body,
+                  );
+                } else {
+                  await AwesomeNotifications().createNotification(
+                    content: NotificationContent(
+                      id: 7001,
+                      channelKey: 'ramadan_channel',
+                      title: title,
+                      body: body,
+                      notificationLayout: NotificationLayout.Default,
+                      payload: {'type': 'suhoor'},
+                      wakeUpScreen: true,
+                      category: NotificationCategory.Reminder,
+                    ),
+                    schedule: NotificationCalendar.fromDate(date: suhoorTime),
+                  );
+                }
+                log('🥣 تم جدولة السحور في: $suhoorTime');
+              }
             }
           } catch (e) {
             log('⚠️ خطأ في معالجة وقت السحور: $e');
@@ -413,26 +441,48 @@ class PrayerNotificationService {
             final maghribTime = DateTime(now.year, now.month, now.day, hour, minute);
 
             if (maghribTime.isAfter(DateTime.now())) {
-              await AwesomeNotifications().createNotification(
-                content: NotificationContent(
-                  id: 7002,
-                  channelKey: 'ramadan_channel',
-                  title: language == 'ar' ? '🌙 وقت الإفطار' : 'Iftar Time',
-                  body: language == 'ar'
-                      ? 'ذهب الظمأ وابتلت العروق وثبت الأجر إن شاء الله'
-                      : 'Time to break your fast',
-                  notificationLayout: NotificationLayout.Default,
-                  payload: {'type': 'iftar'},
-                  wakeUpScreen: true,
-                  category: NotificationCategory.Event,
-                ),
-                schedule: NotificationCalendar.fromDate(date: maghribTime),
-              );
-              log('🍇 تم جدولة الإفطار في: $maghribTime');
+              if (effectiveSettings.isIftarAlarmEnabled) {
+                final title = language == 'ar' ? '🌙 وقت الإفطار' : 'Iftar Time';
+                final body = language == 'ar'
+                    ? 'ذهب الظمأ وابتلت العروق وثبت الأجر إن شاء الله'
+                    : 'Time to break your fast';
+
+                if (defaultTargetPlatform == TargetPlatform.android) {
+                  await AthanAudioService().scheduleRamadanReminderNative(
+                    type: 'iftar',
+                    triggerTime: maghribTime,
+                    title: title,
+                    body: body,
+                  );
+                } else {
+                  await AwesomeNotifications().createNotification(
+                    content: NotificationContent(
+                      id: 7002,
+                      channelKey: 'ramadan_channel',
+                      title: title,
+                      body: body,
+                      notificationLayout: NotificationLayout.Default,
+                      payload: {'type': 'iftar'},
+                      wakeUpScreen: true,
+                      category: NotificationCategory.Event,
+                    ),
+                    schedule: NotificationCalendar.fromDate(date: maghribTime),
+                  );
+                }
+
+                log('🍇 تم جدولة الإفطار في: $maghribTime');
+              }
             }
           } catch (e) {
             log('⚠️ خطأ في معالجة وقت الإفطار: $e');
           }
+        }
+      } else {
+        await AwesomeNotifications().cancel(7001);
+        await AwesomeNotifications().cancel(7002);
+        if (defaultTargetPlatform == TargetPlatform.android) {
+          await AthanAudioService().cancelRamadanReminderNative(type: 'suhoor');
+          await AthanAudioService().cancelRamadanReminderNative(type: 'iftar');
         }
       }
 

@@ -6,6 +6,7 @@ import 'package:meshkat_elhoda/core/utils/app_fonts.dart';
 import 'package:meshkat_elhoda/core/utils/app_text_styles.dart';
 import 'package:meshkat_elhoda/core/utils/size_utils.dart';
 import 'package:meshkat_elhoda/features/favorites/presentation/screens/favorites_screen.dart';
+import 'package:meshkat_elhoda/features/islamic_calendar/presentation/pages/islamic_calendar_screen.dart';
 import 'package:meshkat_elhoda/features/main_navigation/presentation/views/home_view.dart';
 import 'package:meshkat_elhoda/features/settings/presentation/views/setting_view.dart';
 import 'package:meshkat_elhoda/features/tasbeh/presentation/widget/custom_icon.dart';
@@ -32,6 +33,7 @@ class _MainNavigationViewsState extends State<MainNavigationViews>
   final List<Widget> views = const [
     HomeView(),
     FavoritesExampleScreen(),
+    IslamicCalendarScreen(),
     SettingView(),
   ];
 
@@ -114,6 +116,12 @@ class _MainNavigationViewsState extends State<MainNavigationViews>
                 ),
                 bottomNavItem(
                   2,
+                  AppAssets.history,
+                  AppLocalizations.of(context)!.islamicCalendar,
+                  isDark,
+                ),
+                bottomNavItem(
+                  3,
                   AppAssets.setting,
                   AppLocalizations.of(context)!.settings,
                   isDark,

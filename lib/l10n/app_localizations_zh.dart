@@ -78,7 +78,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get copy => '复制';
 
   @override
-  String get share => '分享';
+  String get ayahOptionShare => '分享';
+
+  @override
+  String get ayahOptionLanguage => '语言';
 
   @override
   String get smartMisbah => '智能念珠';
@@ -207,7 +210,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get audioLoadError => '音频加载出错';
 
   @override
-  String get audioLoading => '音频加载中...';
+  String get audioLoading => '正在加载音频...';
 
   @override
   String get stop => '停止';
@@ -216,10 +219,109 @@ class AppLocalizationsZh extends AppLocalizations {
   String get close => '关闭';
 
   @override
-  String get ayahOptionLanguage => '语言';
+  String get hide => '隐藏';
 
   @override
-  String get ayahOptionShare => '分享';
+  String get adhanStopHint => '点击此处停止宣礼';
+
+  @override
+  String get adhanTroubleshootNoticeTitle => 'Adhan not working?';
+
+  @override
+  String get adhanTroubleshootNoticeBody => 'Tap here to fix device settings so Adhan works on time.';
+
+  @override
+  String get adhanTroubleshootTitle => 'Adhan alarm is not working?';
+
+  @override
+  String get adhanTroubleshootAboutTitle => 'What\'s this about?';
+
+  @override
+  String get adhanTroubleshootAboutBody => 'Some device settings can stop Adhan from working on time. Follow the tips below to keep your alarms reliable.';
+
+  @override
+  String get adhanTroubleshootAboutDeviceTitle => 'About this device';
+
+  @override
+  String get adhanTroubleshootAboutDeviceSubtitle => 'Please review the following settings on this device.';
+
+  @override
+  String get adhanTroubleshootFixNow => 'Fix now';
+
+  @override
+  String get adhanTroubleshootCheckIt => 'Check it';
+
+  @override
+  String get adhanTroubleshootAllow => 'Allow';
+
+  @override
+  String get adhanTroubleshootDone => 'Done';
+
+  @override
+  String get adhanTroubleshootBack => 'Back';
+
+  @override
+  String get adhanTroubleshootNote => 'Note: If Adhan still does not work, re-check these settings again.';
+
+  @override
+  String get adhanTroubleshootBackConfirmTitle => 'Confirm';
+
+  @override
+  String get adhanTroubleshootBackConfirmBody => 'Please check all settings carefully, otherwise Adhan may still not work. Do you want to go back now?';
+
+  @override
+  String get adhanTroubleshootBackConfirmStay => 'Stay';
+
+  @override
+  String get adhanTroubleshootBackConfirmGoBack => 'Go back';
+
+  @override
+  String get adhanTroubleshootFixOverlayTitle => 'Allow alarm pop-up / display over apps';
+
+  @override
+  String get adhanTroubleshootFixOverlayDesc => 'Allow the app to show a pop-up when Adhan starts so you can stop or hide it easily.';
+
+  @override
+  String get adhanTroubleshootFixExactAlarmTitle => 'Allow exact alarms (Alarms & reminders)';
+
+  @override
+  String get adhanTroubleshootFixExactAlarmDesc => 'Enable exact alarms for this app so prayer times, Suhoor, and Iftar reminders trigger on time even if the app is closed.';
+
+  @override
+  String get adhanTroubleshootFixAutostartTitle => 'Auto-start';
+
+  @override
+  String get adhanTroubleshootFixAutostartDesc => 'Enable auto-start for the app so Adhan works even when the app is closed.';
+
+  @override
+  String get adhanTroubleshootFixScreenOffTitle => 'Screen-off settings';
+
+  @override
+  String get adhanTroubleshootFixScreenOffDesc => 'Turn off any screen-off options that block notifications (sleep / push block / scheduled push).';
+
+  @override
+  String get adhanTroubleshootFixBatterySaverTitle => 'Battery Saver';
+
+  @override
+  String get adhanTroubleshootFixBatterySaverDesc => 'Battery Saver may kill the app. Try turning it off during prayer times.';
+
+  @override
+  String get adhanTroubleshootFixBatteryOptimizationTitle => 'Ignore battery optimization';
+
+  @override
+  String get adhanTroubleshootFixBatteryOptimizationDesc => 'Allow the app to ignore battery optimizations so it can run in the background.';
+
+  @override
+  String get adhanTroubleshootFixNotificationsTitle => 'Notifications';
+
+  @override
+  String get adhanTroubleshootFixNotificationsDesc => 'Make sure notifications are allowed and sound is enabled.';
+
+  @override
+  String get adhanTroubleshootFixAthanChannelTitle => 'Athan channel: enable pop on screen';
+
+  @override
+  String get adhanTroubleshootFixAthanChannelDesc => 'Open the Athan notification channel and set it to High/Max importance and enable full-screen / pop on screen if available.';
 
   @override
   String get surahArrangementLabel => '编号';
@@ -835,9 +937,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get writeNoteHere => '在此处写下您的笔记...';
-
-  @override
-  String get save => '保存';
 
   @override
   String get verseNumber => '节';
@@ -1517,7 +1616,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get athanNotification => '宣礼通知';
 
   @override
+  String get athanOverlaySettingTitle => 'Adhan full-screen alarm screen';
+
+  @override
   String get preAthanNotification => '宣礼前5分钟提醒';
+
+  @override
+  String get suhoorAlarmTitle => 'Suhoor alarm';
+
+  @override
+  String get iftarAlarmTitle => 'Iftar alarm';
 
   @override
   String get khushooMode => '专注模式（礼拜时静音）';
@@ -2269,4 +2377,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get eventLaylatAlBaraat => '拜拉特夜';
+
+  @override
+  String get share => '分享';
+
+  @override
+  String get save => '保存';
 }

@@ -6,10 +6,12 @@ import 'package:meshkat_elhoda/features/location/presentation/bloc/location_even
 import 'package:meshkat_elhoda/features/location/presentation/bloc/location_state.dart';
 import 'package:meshkat_elhoda/features/main_navigation/presentation/widgets/date_details_widget.dart';
 import 'package:meshkat_elhoda/features/main_navigation/presentation/widgets/home_header_section.dart';
+import 'package:meshkat_elhoda/features/main_navigation/presentation/widgets/adhan_troubleshoot_notice.dart';
 import 'package:meshkat_elhoda/features/main_navigation/presentation/widgets/islamic_gridview.dart';
 import 'package:meshkat_elhoda/features/main_navigation/presentation/widgets/welcome_text.dart';
 import 'package:meshkat_elhoda/features/prayer_times/domain/entities/prayer_times_entity.dart';
 import 'package:meshkat_elhoda/features/prayer_times/domain/entities/next_prayer_info.dart';
+import 'package:meshkat_elhoda/features/prayer_times/presentation/views/adhan_troubleshoot_view.dart';
 import 'package:meshkat_elhoda/features/prayer_times/presentation/bloc/prayer_times_bloc.dart';
 import 'package:meshkat_elhoda/features/prayer_times/presentation/bloc/prayer_times_event.dart';
 import 'package:meshkat_elhoda/features/prayer_times/presentation/bloc/prayer_times_state.dart';
@@ -294,6 +296,7 @@ class _HomeViewState extends State<HomeView>
 
                         SizedBox(height: 20.h),
 
+
                         // Welcome Text with Firebase User Name from Firestore
                         FutureBuilder<String>(
                           future: _getUserName(),
@@ -302,6 +305,8 @@ class _HomeViewState extends State<HomeView>
                             return WelcomeText(userName: userName);
                           },
                         ),
+
+
 
                         SizedBox(height: 20.h),
 
@@ -348,11 +353,18 @@ class _HomeViewState extends State<HomeView>
                         ),
 
                         SizedBox(height: 20.h),
+                        AdhanTroubleshootNotice(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => const AdhanTroubleshootView(),
+                              ),
+                            );
+                          },
+                        ),
 
-                        // Refactored Khatmah Section
-                        SizedBox(height: 10.h),
 
-                        SizedBox(height: 34.h),
+                        SizedBox(height: 24.h),
 
                         // Islamic Grid مع التصميم الجديد
                         IslamicGrid(),

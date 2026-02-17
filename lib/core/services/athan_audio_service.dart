@@ -31,6 +31,91 @@ class AthanAudioService {
     }
   }
 
+  /// ✅ Schedule Smart Voice (Smart Dhikr) via native AlarmManager (Android only)
+  Future<void> scheduleSmartDhikrNative({
+    required int alarmId,
+    required DateTime triggerTime,
+  }) async {
+    try {
+      if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+        return;
+      }
+      await _channel.invokeMethod('scheduleSmartDhikrNative', {
+        'alarmId': alarmId,
+        'triggerTimeMillis': triggerTime.millisecondsSinceEpoch,
+      });
+    } catch (e) {
+      log('❌ Error scheduling Smart Dhikr native: $e');
+    }
+  }
+
+  /// ✅ Cancel Smart Voice (Smart Dhikr) native alarm
+  Future<void> cancelSmartDhikrNative({required int alarmId}) async {
+    try {
+      if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+        return;
+      }
+      await _channel.invokeMethod('cancelSmartDhikrNative', {
+        'alarmId': alarmId,
+      });
+    } catch (e) {
+      log('❌ Error cancelling Smart Dhikr native: $e');
+    }
+  }
+
+  Future<void> scheduleRamadanReminderNative({
+    required String type,
+    required DateTime triggerTime,
+    required String title,
+    required String body,
+  }) async {
+    try {
+      if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+        return;
+      }
+      await _channel.invokeMethod('scheduleRamadanReminder', {
+        'type': type,
+        'triggerTimeMillis': triggerTime.millisecondsSinceEpoch,
+        'title': title,
+        'body': body,
+      });
+    } catch (e) {
+      log('❌ Error scheduling Ramadan reminder native: $e');
+    }
+  }
+
+  Future<void> cancelRamadanReminderNative({required String type}) async {
+    try {
+      if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+        return;
+      }
+      await _channel.invokeMethod('cancelRamadanReminder', {
+        'type': type,
+      });
+    } catch (e) {
+      log('❌ Error cancelling Ramadan reminder native: $e');
+    }
+  }
+
+  Future<void> syncNativeAthanActionLabels({
+    required String stopLabel,
+    required String hideLabel,
+    required String stopHint,
+  }) async {
+    if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+      return;
+    }
+    try {
+      await _channel.invokeMethod('setAthanActionLabels', {
+        'stopLabel': stopLabel,
+        'hideLabel': hideLabel,
+        'stopHint': stopHint,
+      });
+    } catch (e) {
+      log('❌ syncNativeAthanActionLabels error: $e');
+    }
+  }
+
   /// الخدمة الفعلية
   final FlutterAthanService _flutterAthanService = FlutterAthanService();
 
@@ -105,6 +190,91 @@ class AthanAudioService {
       await _channel.invokeMethod('openAppSettings');
     } catch (e) {
       log('❌ openAppSettings MethodChannel error: $e');
+    }
+  }
+
+  Future<String> getDeviceInfo() async {
+    if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+      return '';
+    }
+    try {
+      final res = await _channel.invokeMethod<String>('getDeviceInfo');
+      return res ?? '';
+    } catch (e) {
+      log('❌ getDeviceInfo MethodChannel error: $e');
+      return '';
+    }
+  }
+
+  Future<void> openOverlayPermissionSettings() async {
+    if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+      return;
+    }
+    try {
+      await _channel.invokeMethod('openOverlaySettings');
+    } catch (e) {
+      log('❌ openOverlayPermissionSettings error: $e');
+      await openAppSettings();
+    }
+  }
+
+  Future<void> openAppNotificationSettings() async {
+    if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+      return;
+    }
+    try {
+      await _channel.invokeMethod('openAppNotificationSettings');
+    } catch (e) {
+      log('❌ openAppNotificationSettings error: $e');
+      await openAppSettings();
+    }
+  }
+
+  Future<void> openAthanNotificationChannelSettings() async {
+    if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+      return;
+    }
+    try {
+      await _channel.invokeMethod('openAthanNotificationChannelSettings');
+    } catch (e) {
+      log('❌ openAthanNotificationChannelSettings error: $e');
+      await openAppNotificationSettings();
+    }
+  }
+
+  Future<void> openBatterySaverSettings() async {
+    if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+      return;
+    }
+    try {
+      await _channel.invokeMethod('openBatterySaverSettings');
+    } catch (e) {
+      log('❌ openBatterySaverSettings error: $e');
+      await openAppSettings();
+    }
+  }
+
+  Future<void> openAutoStartSettings() async {
+    if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+      return;
+    }
+    try {
+      await _channel.invokeMethod('openAutoStartSettings');
+    } catch (e) {
+      log('❌ openAutoStartSettings error: $e');
+      await openAppSettings();
+    }
+  }
+
+  Future<void> openAdvancedScreenOffSettings() async {
+    if (!defaultTargetPlatform.toString().toLowerCase().contains('android')) {
+      return;
+    }
+    try {
+      await _channel.invokeMethod('openAdvancedScreenOffSettings');
+    } catch (e) {
+      log('❌ openAdvancedScreenOffSettings error: $e');
+      await openAppSettings();
     }
   }
 

@@ -17,6 +17,7 @@ import android.os.IBinder
 import android.os.PowerManager
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import android.content.SharedPreferences
 
 /**
  * Foreground Service for playing Athan audio reliably on Android 14+.
@@ -32,7 +33,12 @@ class AthanForegroundService : Service() {
     companion object {
         private const val TAG = "AthanForegroundService"
         private const val NOTIFICATION_ID = 2001
-        private const val CHANNEL_ID = "athan_foreground_channel"
+        const val CHANNEL_ID = "athan_foreground_channel"
+
+        private const val PREFS_NAME = "meshkat_athan"
+        private const val PREF_KEY_STOP_LABEL = "athan_stop_label"
+        private const val PREF_KEY_HIDE_LABEL = "athan_hide_label"
+        private const val PREF_KEY_STOP_HINT = "athan_stop_hint"
         
         const val EXTRA_MUEZZIN_ID = "muezzin_id"
         const val EXTRA_IS_FAJR = "is_fajr"
@@ -302,10 +308,37 @@ class AthanForegroundService : Service() {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
         
+        val prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val stopLabel = prefs.getString(PREF_KEY_STOP_LABEL, "⏹️ إيقاف الأذان") ?: "⏹️ إيقاف الأذان"
+        val hideLabel = prefs.getString(PREF_KEY_HIDE_LABEL, "✓ إخفاء") ?: "✓ إخفاء"
+        val stopHint = prefs.getString(PREF_KEY_STOP_HINT, "🔇 اضغط هنا لإيقاف الأذان") ?: "🔇 اضغط هنا لإيقاف الأذان"
+
+        val flutterPrefs = getSharedPreferences("FlutterSharedPreferences", Context.MODE_PRIVATE)
+        val overlayEnabled = flutterPrefs.getBoolean("flutter.isAthanOverlayEnabled", true)
+
+        val fullScreenPendingIntent = if (overlayEnabled) {
+            val overlayIntent = Intent(this, AthanAlarmActivity::class.java).apply {
+                putExtra(AthanAlarmActivity.EXTRA_TITLE, title)
+                putExtra(AthanAlarmActivity.EXTRA_BODY, body)
+                putExtra(AthanAlarmActivity.EXTRA_PRAYER_NAME, prayerName)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            }
+            PendingIntent.getActivity(
+                this,
+                NOTIFICATION_ID + 77,
+                overlayIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            )
+        } else {
+            stopPendingIntent
+        }
+
         // Create a big text style to show the stop instructions prominently
         val bigTextStyle = NotificationCompat.BigTextStyle()
-            .bigText("$body\n\n🔇 اضغط هنا لإيقاف الأذان")
+            .bigText("$body\n\n$stopHint")
             .setBigContentTitle(title)
+
+        val contentPendingIntent = if (overlayEnabled) fullScreenPendingIntent else stopPendingIntent
 
         return NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
@@ -315,25 +348,25 @@ class AthanForegroundService : Service() {
             .setPriority(NotificationCompat.PRIORITY_MAX)
             .setCategory(NotificationCompat.CATEGORY_ALARM)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-            // Clicking the notification stops the Athan
-            .setContentIntent(stopPendingIntent)
+            // Clicking the notification opens overlay (if enabled) otherwise stops the Athan
+            .setContentIntent(contentPendingIntent)
             // Add a prominent stop action button
             .addAction(
                 android.R.drawable.ic_delete, 
-                "⏹️ إيقاف الأذان", 
+                stopLabel, 
                 stopPendingIntent
             )
             // Add a secondary hide button (same behavior as stop)
             // This matches the previous Flutter notification UX where "Hide" stops the Athan.
             .addAction(
                 android.R.drawable.ic_menu_close_clear_cancel,
-                "✓ إخفاء",
+                hideLabel,
                 stopPendingIntent
             )
             .setOngoing(true)
             .setAutoCancel(false)
             // Full screen intent for lock screen visibility
-            .setFullScreenIntent(stopPendingIntent, true)
+            .setFullScreenIntent(fullScreenPendingIntent, true)
             // Delete intent (if user swipes)
             .setDeleteIntent(stopPendingIntent)
             .build()

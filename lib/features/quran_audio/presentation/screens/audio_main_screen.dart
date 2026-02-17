@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meshkat_elhoda/core/utils/app_colors.dart';
+import 'package:meshkat_elhoda/core/services/smart_dhikr_service.dart';
 import 'package:meshkat_elhoda/core/utils/size_utils.dart';
 import 'package:meshkat_elhoda/features/quran_audio/presentation/screens/audio_radio_screen.dart';
 import 'package:meshkat_elhoda/features/quran_audio/presentation/screens/audio_reciters_screen.dart';
@@ -19,6 +20,10 @@ class _AudioMainScreenState extends State<AudioMainScreen>
   late List<Animation<double>> _fadeAnimations;
   late List<Animation<Offset>> _slideAnimations;
 
+  bool _smartVoicePackReady = false;
+  int _smartVoiceDownloadedCount = 0;
+  int _smartVoiceTotalCount = 0;
+
   @override
   void initState() {
     super.initState();
@@ -27,7 +32,7 @@ class _AudioMainScreenState extends State<AudioMainScreen>
       vsync: this,
     );
 
-    _fadeAnimations = List.generate(3, (index) {
+    _fadeAnimations = List.generate(4, (index) {
       return Tween<double>(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(
           parent: _animationController,
@@ -40,7 +45,7 @@ class _AudioMainScreenState extends State<AudioMainScreen>
       );
     });
 
-    _slideAnimations = List.generate(3, (index) {
+    _slideAnimations = List.generate(4, (index) {
       return Tween<Offset>(
         begin: const Offset(0, 0.3),
         end: Offset.zero,
@@ -57,6 +62,115 @@ class _AudioMainScreenState extends State<AudioMainScreen>
     });
 
     _animationController.forward();
+
+    _refreshSmartVoicePackStatus();
+  }
+
+  Future<void> _refreshSmartVoicePackStatus() async {
+    final service = SmartDhikrService();
+    final total = service.getAllDhikrIds().length;
+    final downloaded = await service.getDownloadedDhikrIds();
+    final ready = await service.isDhikrPackFullyDownloaded();
+    if (!mounted) return;
+    setState(() {
+      _smartVoiceTotalCount = total;
+      _smartVoiceDownloadedCount = downloaded.length;
+      _smartVoicePackReady = ready;
+    });
+  }
+
+  Future<void> _showSmartVoicePackDialog(BuildContext context) async {
+    final s = AppLocalizations.of(context)!;
+    await _refreshSmartVoicePackStatus();
+
+    if (!context.mounted) return;
+    await showDialog(
+      context: context,
+      builder: (dialogContext) {
+        return AlertDialog(
+          title: Text(s.smartVoiceDhikr),
+          content: Text(
+            '${s.downloadedAudio} ($_smartVoiceDownloadedCount/$_smartVoiceTotalCount)',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(dialogContext),
+              child: Text(s.cancel),
+            ),
+            TextButton(
+              onPressed: () async {
+                await SmartDhikrService().deleteDhikrPack();
+                await _refreshSmartVoicePackStatus();
+                if (dialogContext.mounted) {
+                  Navigator.pop(dialogContext);
+                }
+              },
+              child: Text(s.delete),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                Navigator.pop(dialogContext);
+
+                if (!context.mounted) return;
+                await showDialog(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (progressDialogContext) {
+                    var started = false;
+                    return StatefulBuilder(
+                      builder: (context, setState) {
+                        var done = 0;
+                        var total = SmartDhikrService().getAllDhikrIds().length;
+                        var currentId = '';
+
+                        if (!started) {
+                          started = true;
+                          Future<void>(() async {
+                            try {
+                              await SmartDhikrService().downloadDhikrPack(
+                                onProgress: (id, d, t) {
+                                  if (!progressDialogContext.mounted) return;
+                                  setState(() {
+                                    currentId = id;
+                                    done = d;
+                                    total = t;
+                                  });
+                                },
+                              );
+                            } finally {
+                              await _refreshSmartVoicePackStatus();
+                              if (progressDialogContext.mounted) {
+                                Navigator.pop(progressDialogContext);
+                              }
+                            }
+                          });
+                        }
+
+                        final percent = total == 0 ? 0.0 : (done / total);
+                        return AlertDialog(
+                          title: Text(s.downloadedAudio),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              LinearProgressIndicator(value: percent),
+                              const SizedBox(height: 12),
+                              Text('$done/$total'),
+                              if (currentId.isNotEmpty) Text('ID: $currentId'),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                );
+              },
+              child: Text(s.downloadSuccess),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -69,11 +183,12 @@ class _AudioMainScreenState extends State<AudioMainScreen>
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final screenWidth = MediaQuery.of(context).size.width;
+    final s = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          AppLocalizations.of(context)!.quranAudio,
+          s.quranAudio,
           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
         ),
         centerTitle: true,
@@ -143,8 +258,8 @@ class _AudioMainScreenState extends State<AudioMainScreen>
                 context: context,
                 isDarkMode: isDarkMode,
                 screenWidth: screenWidth,
-                title: AppLocalizations.of(context)!.downloadedAudio,
-                description: AppLocalizations.of(context)!.downloadedAudioDesc,
+                title: s.downloadedAudio,
+                description: s.downloadedAudioDesc,
                 icon: Icons.cloud_download_rounded,
                 primaryColor: const Color(0xFF00BFA5),
                 secondaryColor: const Color(0xFF00897B),
@@ -157,6 +272,22 @@ class _AudioMainScreenState extends State<AudioMainScreen>
                     ),
                   );
                 },
+              ),
+            ),
+            SizedBox(height: 20.h),
+            _buildAnimatedCard(
+              index: 3,
+              child: _buildModernOptionCard(
+                context: context,
+                isDarkMode: isDarkMode,
+                screenWidth: screenWidth,
+                title: s.smartVoiceDhikr,
+                description: '${s.downloadedAudio} ($_smartVoiceDownloadedCount/$_smartVoiceTotalCount)',
+                icon: Icons.record_voice_over,
+                primaryColor: const Color(0xFF8E24AA),
+                secondaryColor: const Color(0xFF6A1B9A),
+                accentColor: const Color(0xFFF3E5F5),
+                onTap: () => _showSmartVoicePackDialog(context),
               ),
             ),
             SizedBox(height: 40.h),

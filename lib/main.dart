@@ -461,7 +461,21 @@ class _MyAppState extends State<MyApp> {
                     textDirection: isRTL
                         ? TextDirection.rtl
                         : TextDirection.ltr,
-                    child: child!,
+                    child: Builder(
+                      builder: (ctx) {
+                        // Sync native Athan action labels with current app language.
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          final l10n = AppLocalizations.of(ctx);
+                          if (l10n == null) return;
+                          AthanAudioService().syncNativeAthanActionLabels(
+                            stopLabel: l10n.stop,
+                            hideLabel: l10n.hide,
+                            stopHint: l10n.adhanStopHint,
+                          );
+                        });
+                        return child!;
+                      },
+                    ),
                   );
                 },
                 themeMode: themeMode,

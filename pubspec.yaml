@@ -43,6 +43,9 @@ dependencies:
   
   # Network
   http: ^1.1.0
+
+  # File System
+  path_provider: ^2.1.2
   
   # Location Services
   geolocator: ^13.0.2

@@ -3,23 +3,31 @@ package com.meshkatelhoda.pro
 import com.ryanheise.audioservice.AudioServiceActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
-
 import android.util.Log
 import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
+
 import android.os.Build
 import android.provider.Settings
+import android.net.Uri
 
 class MainActivity: AudioServiceActivity() {
     
     companion object {
         private const val TAG = "MainActivity"
         private const val ATHAN_CHANNEL = "com.meshkatelhoda.pro/athan"
+
+        private const val PREFS_NAME = "meshkat_athan"
+        private const val PREF_KEY_STOP_LABEL = "athan_stop_label"
+        private const val PREF_KEY_HIDE_LABEL = "athan_hide_label"
+        private const val PREF_KEY_STOP_HINT = "athan_stop_hint"
     }
     
     private lateinit var athanService: AthanNotificationService
     private lateinit var athanAlarmManager: AthanAlarmManager
+    private lateinit var smartDhikrAlarmManager: SmartDhikrAlarmManager
+    private lateinit var ramadanReminderAlarmManager: RamadanReminderAlarmManager
     
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
@@ -29,6 +37,8 @@ class MainActivity: AudioServiceActivity() {
         // Initialize services
         athanService = AthanNotificationService(applicationContext)
         athanAlarmManager = AthanAlarmManager(applicationContext)
+        smartDhikrAlarmManager = SmartDhikrAlarmManager(applicationContext)
+        ramadanReminderAlarmManager = RamadanReminderAlarmManager(applicationContext)
         
         // Setup MethodChannel for Athan
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, ATHAN_CHANNEL).setMethodCallHandler { call, result ->
@@ -199,6 +209,247 @@ class MainActivity: AudioServiceActivity() {
                     openAppSettings()
                     result.success(true)
                 }
+
+                "getPackageName" -> {
+                    result.success(packageName)
+                }
+
+                "getDeviceInfo" -> {
+                    val manufacturer = Build.MANUFACTURER ?: ""
+                    val model = Build.MODEL ?: ""
+                    val device = Build.DEVICE ?: ""
+                    val sdk = Build.VERSION.SDK_INT
+                    result.success("$manufacturer $model ($device) Android $sdk")
+                }
+
+                "openOverlaySettings" -> {
+                    try {
+                        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION).apply {
+                            data = Uri.parse("package:$packageName")
+                            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                        }
+                        startActivity(intent)
+                        result.success(true)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Error opening overlay settings", e)
+                        openAppSettings()
+                        result.success(false)
+                    }
+                }
+
+                "openAppNotificationSettings" -> {
+                    try {
+                        val intent = Intent().apply {
+                            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                            action = Settings.ACTION_APP_NOTIFICATION_SETTINGS
+                            putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
+                        }
+                        startActivity(intent)
+                        result.success(true)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Error opening notification settings", e)
+                        openAppSettings()
+                        result.success(false)
+                    }
+                }
+
+                "openBatterySaverSettings" -> {
+                    try {
+                        val intent = Intent(Settings.ACTION_BATTERY_SAVER_SETTINGS).apply {
+                            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                        }
+                        startActivity(intent)
+                        result.success(true)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Error opening battery saver settings", e)
+                        openAppSettings()
+                        result.success(false)
+                    }
+                }
+
+                "openAutoStartSettings" -> {
+                    // OEM-specific screens. We try multiple known components, then fallback.
+                    val candidates = listOf(
+                        // Huawei
+                        Intent().setClassName(
+                            "com.huawei.systemmanager",
+                            "com.huawei.systemmanager.startupmgr.ui.StartupNormalAppListActivity"
+                        ),
+
+                        // Tecno / Infinix / Itel (Transsion HiOS/XOS)
+                        Intent().setClassName(
+                            "com.transsion.phonemanager",
+                            "com.transsion.phonemanager.autostart.AutoStartActivity"
+                        ),
+                        Intent().setClassName(
+                            "com.transsion.phonemanager",
+                            "com.transsion.phonemanager.autostart.AutoStartManagementActivity"
+                        ),
+
+                        // Older/alternative Transsion packages
+                        Intent().setClassName(
+                            "com.transsion.phonemaster",
+                            "com.transsion.phonemaster.startupmanager.StartupManagerActivity"
+                        ),
+                        Intent().setClassName(
+                            "com.transsion.phonemaster",
+                            "com.transsion.phonemaster.startupmanager.StartupActivity"
+                        ),
+                        Intent().setClassName(
+                            "com.transsion.powercenter",
+                            "com.transsion.powercenter.startup.StartupActivity"
+                        ),
+                        Intent().setClassName(
+                            "com.transsion.powercenter",
+                            "com.transsion.powercenter.startupmanager.StartupManagerActivity"
+                        ),
+
+                        // App info (Application details)
+                        Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).setData(
+                            Uri.fromParts("package", packageName, null)
+                        ),
+
+                        // Battery optimization settings (last resort)
+                        Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS)
+                    )
+
+                    var opened = false
+                    for (i in candidates.indices) {
+                        try {
+                            val intent = candidates[i].apply {
+                                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            }
+                            startActivity(intent)
+                            opened = true
+                            break
+                        } catch (_: Exception) {
+                            // try next
+                        }
+                    }
+
+                    if (!opened) {
+                        openAppSettings()
+                    }
+                    result.success(opened)
+                }
+
+                "openAdvancedScreenOffSettings" -> {
+                    // OEM-specific screens that contain screen-off / push-block / scheduled-push.
+                    val candidates = listOf(
+                        // Transsion/Tecno/Itel/Infinix commonly use these packages
+                        Intent().setClassName("com.transsion.phonemaster", "com.transsion.phonemaster.setting.AdvancedSettingActivity"),
+                        Intent().setClassName("com.transsion.phonemaster", "com.transsion.phonemaster.setting.AdvancedSettingsActivity"),
+                        Intent().setClassName("com.transsion.powercenter", "com.transsion.powercenter.setting.AdvancedSettingActivity"),
+                        Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).setData(Uri.fromParts("package", packageName, null))
+                    )
+
+                    var opened = false
+                    for (i in candidates.indices) {
+                        try {
+                            val intent = candidates[i].apply {
+                                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            }
+                            startActivity(intent)
+                            opened = true
+                            break
+                        } catch (_: Exception) {
+                            // try next
+                        }
+                    }
+
+                    if (!opened) {
+                        openAppSettings()
+                    }
+                    result.success(opened)
+                }
+                
+                "setAthanActionLabels" -> {
+                    try {
+                        val stopLabel = call.argument<String>("stopLabel") ?: "Stop"
+                        val hideLabel = call.argument<String>("hideLabel") ?: "Hide"
+                        val stopHint = call.argument<String>("stopHint") ?: "Tap to stop"
+
+                        val prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+                        prefs.edit()
+                            .putString(PREF_KEY_STOP_LABEL, stopLabel)
+                            .putString(PREF_KEY_HIDE_LABEL, hideLabel)
+                            .putString(PREF_KEY_STOP_HINT, stopHint)
+                            .apply()
+
+                        result.success(true)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "Error saving Athan action labels", e)
+                        result.success(false)
+                    }
+                }
+
+                // ✅ Native Smart Dhikr scheduling (AlarmManager)
+                "scheduleSmartDhikrNative" -> {
+                    try {
+                        if (!canScheduleExactAlarms()) {
+                            Log.w(TAG, "⚠️ Exact alarm permission not granted for Smart Dhikr. Will attempt scheduling with fallbacks.")
+                        }
+
+                        val alarmId = call.argument<Int>("alarmId") ?: 1
+                        val triggerTimeMillis = call.argument<Long>("triggerTimeMillis") ?: 0L
+
+                        Log.d(TAG, "⏰ Scheduling Smart Dhikr Native: id=$alarmId time=$triggerTimeMillis")
+                        smartDhikrAlarmManager.scheduleSmartDhikrAlarm(
+                            alarmId = alarmId,
+                            triggerTimeMillis = triggerTimeMillis
+                        )
+                        result.success(true)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "❌ Error scheduling Smart Dhikr Native", e)
+                        result.error("SMART_DHIKR_ERROR", e.message, null)
+                    }
+                }
+
+                "cancelSmartDhikrNative" -> {
+                    try {
+                        val alarmId = call.argument<Int>("alarmId") ?: 1
+                        smartDhikrAlarmManager.cancelSmartDhikrAlarm(alarmId)
+                        result.success(true)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "❌ Error cancelling Smart Dhikr Native", e)
+                        result.error("SMART_DHIKR_ERROR", e.message, null)
+                    }
+                }
+                
+                "scheduleRamadanReminder" -> {
+                    try {
+                        if (!canScheduleExactAlarms()) {
+                            Log.w(TAG, "⚠️ Exact alarm permission not granted for Ramadan reminder. Will attempt scheduling with fallbacks.")
+                        }
+
+                        val type = call.argument<String>("type") ?: RamadanReminderAlarmManager.TYPE_SUHOOR
+                        val triggerTimeMillis = call.argument<Long>("triggerTimeMillis") ?: 0L
+                        val title = call.argument<String>("title") ?: ""
+                        val body = call.argument<String>("body") ?: ""
+
+                        ramadanReminderAlarmManager.scheduleReminder(
+                            type = type,
+                            triggerTimeMillis = triggerTimeMillis,
+                            title = title,
+                            body = body
+                        )
+                        result.success(true)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "❌ Error scheduling Ramadan reminder", e)
+                        result.error("RAMADAN_ERROR", e.message, null)
+                    }
+                }
+
+                "cancelRamadanReminder" -> {
+                    try {
+                        val type = call.argument<String>("type") ?: RamadanReminderAlarmManager.TYPE_SUHOOR
+                        ramadanReminderAlarmManager.cancelReminder(type)
+                        result.success(true)
+                    } catch (e: Exception) {
+                        Log.e(TAG, "❌ Error cancelling Ramadan reminder", e)
+                        result.error("RAMADAN_ERROR", e.message, null)
+                    }
+                }
                 
                 else -> {
                     Log.w(TAG, "⚠️ Unknown method: ${call.method}")
@@ -245,7 +496,48 @@ class MainActivity: AudioServiceActivity() {
     }
     
     /**
-     * ✅ Check if the app is being battery optimized (which can prevent Athan from working)
+     * Open Athan notification channel settings
+     */
+    private fun openAthanNotificationChannelSettings() {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val intent = Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
+                    putExtra(Settings.EXTRA_CHANNEL_ID, AthanForegroundService.CHANNEL_ID)
+                }
+                startActivity(intent)
+                return
+            }
+        } catch (_: Exception) {
+            // fallthrough
+        }
+
+        try {
+            openAppNotificationSettings()
+        } catch (_: Exception) {
+            openAppSettings()
+        }
+    }
+    
+    /**
+     * Open app notification settings
+     */
+    private fun openAppNotificationSettings() {
+        try {
+            val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).apply {
+                putExtra(Settings.EXTRA_APP_PACKAGE, packageName)
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            startActivity(intent)
+            Log.d(TAG, " Opened App Notification Settings")
+        } catch (e: Exception) {
+            Log.e(TAG, "Error opening notification settings", e)
+        }
+    }
+
+    /**
+     * Check if the app is being battery optimized (which can prevent Athan from working)
      */
     private fun isBatteryOptimized(): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

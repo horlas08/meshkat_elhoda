@@ -78,7 +78,10 @@ class AppLocalizationsMs extends AppLocalizations {
   String get copy => 'Salin';
 
   @override
-  String get share => 'Kongsi';
+  String get ayahOptionShare => '';
+
+  @override
+  String get ayahOptionLanguage => '';
 
   @override
   String get smartMisbah => 'Misbah Pintar';
@@ -210,16 +213,115 @@ class AppLocalizationsMs extends AppLocalizations {
   String get audioLoading => 'Memuat audio...';
 
   @override
-  String get stop => 'Henti';
+  String get stop => 'Hentikan';
 
   @override
   String get close => 'Tutup';
 
   @override
-  String get ayahOptionLanguage => 'Bahasa';
+  String get hide => 'Sembunyikan';
 
   @override
-  String get ayahOptionShare => 'Kongsi';
+  String get adhanStopHint => 'Ketik di sini untuk menghentikan Azan';
+
+  @override
+  String get adhanTroubleshootNoticeTitle => 'Adhan tidak berfungsi?';
+
+  @override
+  String get adhanTroubleshootNoticeBody => 'Ketuk di sini untuk memperbaiki tetapan peranti sehingga Adhan berfungsi tepat waktu.';
+
+  @override
+  String get adhanTroubleshootTitle => 'Adhan tidak berfungsi?';
+
+  @override
+  String get adhanTroubleshootAboutTitle => 'Apa ini?';
+
+  @override
+  String get adhanTroubleshootAboutBody => 'Beberapa tetapan peranti dapat menghentikan Adhan dari berfungsi tepat waktu. Ikuti tips di bawah untuk menjaga alarm tetap dapat diandalkan.';
+
+  @override
+  String get adhanTroubleshootAboutDeviceTitle => 'Tentang peranti ini';
+
+  @override
+  String get adhanTroubleshootAboutDeviceSubtitle => 'Silakan tinjau tetapan berikut pada peranti ini.';
+
+  @override
+  String get adhanTroubleshootFixNow => 'Perbaiki sekarang';
+
+  @override
+  String get adhanTroubleshootCheckIt => 'Periksa';
+
+  @override
+  String get adhanTroubleshootAllow => 'Izinkan';
+
+  @override
+  String get adhanTroubleshootDone => 'Selesai';
+
+  @override
+  String get adhanTroubleshootBack => 'Back';
+
+  @override
+  String get adhanTroubleshootNote => 'Note: If Adhan still does not work, re-check these settings again.';
+
+  @override
+  String get adhanTroubleshootBackConfirmTitle => 'Konfirmasi';
+
+  @override
+  String get adhanTroubleshootBackConfirmBody => 'Silakan periksa semua tetapan dengan hati-hati, jika tidak, Adhan mungkin masih tidak berfungsi. Apakah Anda ingin kembali sekarang?';
+
+  @override
+  String get adhanTroubleshootBackConfirmStay => 'Tetap';
+
+  @override
+  String get adhanTroubleshootBackConfirmGoBack => 'Kembali';
+
+  @override
+  String get adhanTroubleshootFixOverlayTitle => 'Izinkan pop-up alarm / tampilan di atas aplikasi';
+
+  @override
+  String get adhanTroubleshootFixOverlayDesc => 'Izinkan aplikasi untuk menampilkan pop-up ketika Adhan dimulai sehingga Anda dapat menghentikan atau menyembunyikannya dengan mudah.';
+
+  @override
+  String get adhanTroubleshootFixExactAlarmTitle => 'Allow exact alarms (Alarms & reminders)';
+
+  @override
+  String get adhanTroubleshootFixExactAlarmDesc => 'Enable exact alarms for this app so prayer times, Suhoor, and Iftar reminders trigger on time even if the app is closed.';
+
+  @override
+  String get adhanTroubleshootFixAutostartTitle => 'Mulai otomatis';
+
+  @override
+  String get adhanTroubleshootFixAutostartDesc => 'Aktifkan mulai otomatis untuk aplikasi sehingga Adhan berfungsi bahkan ketika aplikasi ditutup.';
+
+  @override
+  String get adhanTroubleshootFixScreenOffTitle => 'Tetapan layar mati';
+
+  @override
+  String get adhanTroubleshootFixScreenOffDesc => 'Matikan opsi layar mati yang memblokir notifikasi (tidur / blokir dorongan / jadwal dorongan).';
+
+  @override
+  String get adhanTroubleshootFixBatterySaverTitle => 'Penghemat baterai';
+
+  @override
+  String get adhanTroubleshootFixBatterySaverDesc => 'Penghemat baterai mungkin menghentikan aplikasi. Coba matikan selama waktu shalat.';
+
+  @override
+  String get adhanTroubleshootFixBatteryOptimizationTitle => 'Abaikan pengoptimalan baterai';
+
+  @override
+  String get adhanTroubleshootFixBatteryOptimizationDesc => 'Izinkan aplikasi untuk mengabaikan pengoptimalan baterai sehingga dapat berjalan di latar belakang.';
+
+  @override
+  String get adhanTroubleshootFixNotificationsTitle => 'Allow notifications';
+
+  @override
+  String get adhanTroubleshootFixNotificationsDesc => 'Make sure notifications are allowed for this app.';
+
+  @override
+  String get adhanTroubleshootFixAthanChannelTitle => 'Athan channel: enable pop on screen';
+
+  @override
+  String get adhanTroubleshootFixAthanChannelDesc => 'Open the Athan notification channel and set it to High/Max importance and enable full-screen / pop on screen if available.';
 
   @override
   String get surahArrangementLabel => 'Nombor';
@@ -835,9 +937,6 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get writeNoteHere => 'Tulis nota anda di sini...';
-
-  @override
-  String get save => 'Simpan';
 
   @override
   String get verseNumber => 'Ayat';
@@ -1517,7 +1616,16 @@ class AppLocalizationsMs extends AppLocalizations {
   String get athanNotification => 'Pemberitahuan Azan';
 
   @override
+  String get athanOverlaySettingTitle => 'Adhan full-screen alarm screen';
+
+  @override
   String get preAthanNotification => 'Amaran 5 Minit Sebelum Azan';
+
+  @override
+  String get suhoorAlarmTitle => 'Suhoor alarm';
+
+  @override
+  String get iftarAlarmTitle => 'Iftar alarm';
 
   @override
   String get khushooMode => 'Mod Khusyuk (Senapang semasa Solat)';
@@ -2269,4 +2377,10 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get eventLaylatAlBaraat => 'Nisfu Syaaban';
+
+  @override
+  String get share => 'Share';
+
+  @override
+  String get save => 'Save';
 }

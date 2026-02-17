@@ -224,6 +224,125 @@ class DebugToolsSection extends StatelessWidget {
             },
           ),
           ListTile(
+            title: const Text("Schedule Smart Voice (1 min)"),
+            subtitle: const Text("WorkManager one-off (terminate app to test)"),
+            trailing: const Icon(Icons.alarm, color: Colors.teal),
+            onTap: () async {
+              await SmartDhikrService().scheduleImmediateDhikr();
+
+              // ignore: use_build_context_synchronously
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Smart Voice scheduled for 1 minute from now.')),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text("Schedule Smart Voice Native (1 min)"),
+            subtitle: const Text("AlarmManager + ForegroundService (kill app to test)"),
+            trailing: const Icon(Icons.alarm_on, color: Colors.deepPurple),
+            onTap: () async {
+              final triggerTime = DateTime.now().add(const Duration(minutes: 1));
+              await AthanAudioService().scheduleSmartDhikrNative(
+                alarmId: 1,
+                triggerTime: triggerTime,
+              );
+
+              // ignore: use_build_context_synchronously
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Native Smart Voice scheduled for 1 minute from now.')),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text("Download Smart Voice Pack"),
+            subtitle: const Text("Downloads 12 MP3 files for offline playback"),
+            trailing: const Icon(Icons.download, color: Colors.indigo),
+            onTap: () async {
+              try {
+                var done = 0;
+                final total = SmartDhikrService().getAllDhikrIds().length;
+                StateSetter? dialogSetState;
+
+                // ignore: use_build_context_synchronously
+                showDialog<void>(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (ctx) {
+                    return StatefulBuilder(
+                      builder: (ctx, setState) {
+                        dialogSetState = setState;
+                        return AlertDialog(
+                          title: const Text('Downloading Smart Voice pack'),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              LinearProgressIndicator(
+                                value: total == 0 ? null : (done / total),
+                              ),
+                              const SizedBox(height: 12),
+                              Text('$done/$total'),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                );
+
+                await SmartDhikrService().downloadDhikrPack(
+                  onProgress: (id, d, t) {
+                    done = d;
+                    dialogSetState?.call(() {});
+                  },
+                );
+
+                // ignore: use_build_context_synchronously
+                Navigator.of(context, rootNavigator: true).pop();
+
+                // ignore: use_build_context_synchronously
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Smart Voice pack downloaded.')),
+                );
+              } catch (e) {
+                try {
+                  // ignore: use_build_context_synchronously
+                  Navigator.of(context, rootNavigator: true).pop();
+                } catch (_) {}
+                // ignore: use_build_context_synchronously
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Download failed: $e')),
+                );
+              }
+            },
+          ),
+          ListTile(
+            title: const Text("Smart Voice Pack Status"),
+            subtitle: const Text("Shows how many MP3 files are downloaded"),
+            trailing: const Icon(Icons.info_outline, color: Colors.blueGrey),
+            onTap: () async {
+              final ids = await SmartDhikrService().getDownloadedDhikrIds();
+              final total = SmartDhikrService().getAllDhikrIds().length;
+
+              // ignore: use_build_context_synchronously
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('Downloaded: ${ids.length}/$total')),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text("Delete Smart Voice Pack"),
+            subtitle: const Text("Deletes downloaded MP3 files"),
+            trailing: const Icon(Icons.delete_forever, color: Colors.redAccent),
+            onTap: () async {
+              await SmartDhikrService().deleteDhikrPack();
+
+              // ignore: use_build_context_synchronously
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Smart Voice pack deleted.')),
+              );
+            },
+          ),
+          ListTile(
             title: const Text("Run Full Athan NOW"),
             subtitle: const Text("Plays Athan immediately (fg/bg test)"),
             trailing: const Icon(Icons.mosque, color: Colors.green),

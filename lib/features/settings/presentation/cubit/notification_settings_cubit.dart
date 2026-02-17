@@ -42,6 +42,9 @@ class NotificationSettingsCubit extends Cubit<NotificationSettingsModel> {
       // These services read boolean keys directly to avoid parsing full JSON
       await _prefs.setBool('isSmartVoiceEnabled', newSettings.isSmartVoiceEnabled);
       await _prefs.setInt('smartVoiceIntervalMinutes', newSettings.smartVoiceIntervalMinutes);
+      await _prefs.setBool('isAthanOverlayEnabled', newSettings.isAthanOverlayEnabled);
+      await _prefs.setBool('isSuhoorAlarmEnabled', newSettings.isSuhoorAlarmEnabled);
+      await _prefs.setBool('isIftarAlarmEnabled', newSettings.isIftarAlarmEnabled);
       // We can add others if needed, but these are the critical ones for background tasks
 
 
@@ -110,6 +113,21 @@ class NotificationSettingsCubit extends Cubit<NotificationSettingsModel> {
   /// تبديل حالة إشعار ذكرني بالله
   Future<void> toggleZikrAllah(bool value) async {
     final newSettings = state.copyWith(isZikrAllahEnabled: value);
+    await _saveAndReschedule(newSettings);
+  }
+
+  Future<void> toggleAthanOverlay(bool value) async {
+    final newSettings = state.copyWith(isAthanOverlayEnabled: value);
+    await _saveAndReschedule(newSettings);
+  }
+
+  Future<void> toggleSuhoorAlarm(bool value) async {
+    final newSettings = state.copyWith(isSuhoorAlarmEnabled: value);
+    await _saveAndReschedule(newSettings);
+  }
+
+  Future<void> toggleIftarAlarm(bool value) async {
+    final newSettings = state.copyWith(isIftarAlarmEnabled: value);
     await _saveAndReschedule(newSettings);
   }
 

@@ -78,7 +78,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get copy => 'نسخ';
 
   @override
-  String get share => 'مشاركة';
+  String get ayahOptionShare => 'مشاركة';
+
+  @override
+  String get ayahOptionLanguage => 'اللغة';
 
   @override
   String get smartMisbah => 'المسبحة الذكية';
@@ -216,13 +219,112 @@ class AppLocalizationsAr extends AppLocalizations {
   String get close => 'إغلاق';
 
   @override
-  String get ayahOptionLanguage => 'اللغة';
+  String get hide => 'إخفاء';
 
   @override
-  String get ayahOptionShare => 'نشر';
+  String get adhanStopHint => 'اضغط هنا لإيقاف الأذان';
 
   @override
-  String get surahArrangementLabel => 'رقمها';
+  String get adhanTroubleshootNoticeTitle => 'الأذان لا يعمل؟';
+
+  @override
+  String get adhanTroubleshootNoticeBody => 'اضغط هنا لإصلاح إعدادات الهاتف حتى يعمل الأذان في وقته.';
+
+  @override
+  String get adhanTroubleshootTitle => 'منبه الأذان لا يعمل؟';
+
+  @override
+  String get adhanTroubleshootAboutTitle => 'ما سبب هذا؟';
+
+  @override
+  String get adhanTroubleshootAboutBody => 'بعض إعدادات الهاتف قد تمنع الأذان من العمل في الوقت المحدد. اتبع النصائح التالية لجعل التنبيهات أكثر موثوقية.';
+
+  @override
+  String get adhanTroubleshootAboutDeviceTitle => 'حول هذا الجهاز';
+
+  @override
+  String get adhanTroubleshootAboutDeviceSubtitle => 'تحقق من الإعدادات التالية على هذا الجهاز.';
+
+  @override
+  String get adhanTroubleshootFixNow => 'إصلاح الآن';
+
+  @override
+  String get adhanTroubleshootCheckIt => 'تحقق';
+
+  @override
+  String get adhanTroubleshootAllow => 'سماح';
+
+  @override
+  String get adhanTroubleshootDone => 'تم';
+
+  @override
+  String get adhanTroubleshootBack => 'رجوع';
+
+  @override
+  String get adhanTroubleshootNote => 'ملاحظة: إذا لم يعمل الأذان بعد ذلك، أعد فحص هذه الإعدادات مرة أخرى.';
+
+  @override
+  String get adhanTroubleshootBackConfirmTitle => 'تأكيد';
+
+  @override
+  String get adhanTroubleshootBackConfirmBody => 'تأكد من فحص جميع الإعدادات جيداً، وإلا قد لا يعمل الأذان. هل تريد الرجوع الآن؟';
+
+  @override
+  String get adhanTroubleshootBackConfirmStay => 'بقاء';
+
+  @override
+  String get adhanTroubleshootBackConfirmGoBack => 'رجوع';
+
+  @override
+  String get adhanTroubleshootFixOverlayTitle => 'السماح بالظهور فوق التطبيقات';
+
+  @override
+  String get adhanTroubleshootFixOverlayDesc => 'اسمح للتطبيق بإظهار شاشة منبثقة عند بدء الأذان لتسهيل الإيقاف أو الإخفاء.';
+
+  @override
+  String get adhanTroubleshootFixExactAlarmTitle => 'السماح بالتنبيهات الدقيقة (المنبهات والتذكيرات)';
+
+  @override
+  String get adhanTroubleshootFixExactAlarmDesc => 'فعّل التنبيهات الدقيقة لهذا التطبيق حتى تعمل مواقيت الصلاة وتنبيهات السحور والإفطار في وقتها حتى لو كان التطبيق مغلقاً.';
+
+  @override
+  String get adhanTroubleshootFixAutostartTitle => 'التشغيل التلقائي (Auto-start)';
+
+  @override
+  String get adhanTroubleshootFixAutostartDesc => 'فعّل التشغيل التلقائي للتطبيق حتى يعمل الأذان حتى لو كان التطبيق مغلقاً.';
+
+  @override
+  String get adhanTroubleshootFixScreenOffTitle => 'Screen-off settings';
+
+  @override
+  String get adhanTroubleshootFixScreenOffDesc => 'أوقف أي خيارات تمنع الإشعارات عند إطفاء الشاشة (Sleep / Push block / Scheduled push).';
+
+  @override
+  String get adhanTroubleshootFixBatterySaverTitle => 'موفر البطارية';
+
+  @override
+  String get adhanTroubleshootFixBatterySaverDesc => 'قد يقوم موفر البطارية بإيقاف التطبيق. حاول تعطيله أثناء أوقات الصلاة.';
+
+  @override
+  String get adhanTroubleshootFixBatteryOptimizationTitle => 'تجاهل تحسين البطارية';
+
+  @override
+  String get adhanTroubleshootFixBatteryOptimizationDesc => 'اسمح للتطبيق بتجاهل تحسينات البطارية حتى لا يتم إيقافه في الخلفية.';
+
+  @override
+  String get adhanTroubleshootFixNotificationsTitle => 'السماح بالإشعارات';
+
+  @override
+  String get adhanTroubleshootFixNotificationsDesc => 'تأكد من تفعيل الإشعارات لهذا التطبيق.';
+
+  @override
+  String get adhanTroubleshootFixAthanChannelTitle => 'قناة الأذان: تفعيل الظهور على الشاشة';
+
+  @override
+  String get adhanTroubleshootFixAthanChannelDesc => 'افتح إعدادات قناة إشعار الأذان واجعلها عالية/قصوى وفعّل خيار ملء الشاشة/الظهور على الشاشة إن وُجد.';
+
+  @override
+  String get surahArrangementLabel => 'Number';
 
   @override
   String get surahAyahsCountLabel => 'آياتها';
@@ -835,9 +937,6 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get writeNoteHere => 'اكتب ملاحظتك هنا...';
-
-  @override
-  String get save => 'حفظ';
 
   @override
   String get verseNumber => 'الآية';
@@ -1517,7 +1616,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get athanNotification => 'إشعار الأذان';
 
   @override
+  String get athanOverlaySettingTitle => 'شاشة الأذان (ملء الشاشة)';
+
+  @override
   String get preAthanNotification => 'تنبيه قبل الأذان بـ 5 دقائق';
+
+  @override
+  String get suhoorAlarmTitle => 'تنبيه السحور';
+
+  @override
+  String get iftarAlarmTitle => 'تنبيه الإفطار';
 
   @override
   String get khushooMode => 'وضع الخشوع (صامت أثناء الصلاة)';
@@ -2269,4 +2377,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get eventLaylatAlBaraat => 'ليلة النصف من شعبان';
+
+  @override
+  String get share => 'مشاركة';
+
+  @override
+  String get save => 'حفظ';
 }

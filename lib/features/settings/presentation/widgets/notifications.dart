@@ -14,6 +14,8 @@ import 'package:meshkat_elhoda/features/subscription/presentation/bloc/subscript
 import 'package:meshkat_elhoda/features/subscription/presentation/bloc/subscription_state.dart';
 import 'package:meshkat_elhoda/features/subscription/presentation/bloc/subscription_event.dart';
 import 'package:meshkat_elhoda/features/subscription/presentation/pages/subscription_page.dart';
+import 'package:meshkat_elhoda/core/services/smart_dhikr_service.dart';
+import 'package:meshkat_elhoda/features/quran_audio/presentation/screens/audio_main_screen.dart';
 import 'package:meshkat_elhoda/l10n/app_localizations.dart';
 
 class Notifications extends StatefulWidget {
@@ -89,6 +91,25 @@ class _NotificationsState extends State<Notifications> {
                           },
                         ),
 
+                        _buildCheckboxTile(
+                          context,
+                          title: s.athanOverlaySettingTitle,
+                          value: settings.isAthanOverlayEnabled,
+                          isPremium: isPremium,
+                          isLocked: !isPremium,
+                          onChanged: (value) {
+                            if (!isPremium) {
+                              _showPremiumDialog(context);
+                              return;
+                            }
+                            if (value != null) {
+                              context
+                                  .read<NotificationSettingsCubit>()
+                                  .toggleAthanOverlay(value);
+                            }
+                          },
+                        ),
+
                         // 2. إشعار قبل الأذان بـ 5 دقائق (مجاني)
                         _buildCheckboxTile(
                           context,
@@ -117,6 +138,36 @@ class _NotificationsState extends State<Notifications> {
                               context
                                   .read<NotificationSettingsCubit>()
                                   .toggleAzkarSabahMasa(value);
+                            }
+                          },
+                        ),
+
+                        _buildCheckboxTile(
+                          context,
+                          title: s.suhoorAlarmTitle,
+                          value: settings.isSuhoorAlarmEnabled,
+                          isPremium: isPremium,
+                          isLocked: false,
+                          onChanged: (value) {
+                            if (value != null) {
+                              context
+                                  .read<NotificationSettingsCubit>()
+                                  .toggleSuhoorAlarm(value);
+                            }
+                          },
+                        ),
+
+                        _buildCheckboxTile(
+                          context,
+                          title: s.iftarAlarmTitle,
+                          value: settings.isIftarAlarmEnabled,
+                          isPremium: isPremium,
+                          isLocked: false,
+                          onChanged: (value) {
+                            if (value != null) {
+                              context
+                                  .read<NotificationSettingsCubit>()
+                                  .toggleIftarAlarm(value);
                             }
                           },
                         ),
@@ -257,9 +308,36 @@ class _NotificationsState extends State<Notifications> {
                               return;
                             }
                             if (value != null) {
-                              context
-                                  .read<NotificationSettingsCubit>()
-                                  .toggleSmartVoice(value);
+                              if (value == true) {
+                                () async {
+                                  final isReady = await SmartDhikrService().isDhikrPackFullyDownloaded();
+                                  if (!isReady) {
+                                    // ignore: use_build_context_synchronously
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (_) => const AudioMainScreen(),
+                                      ),
+                                    );
+                                    final isReadyAfter = await SmartDhikrService().isDhikrPackFullyDownloaded();
+                                    if (!isReadyAfter) {
+                                      // ignore: use_build_context_synchronously
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(content: Text(s.downloadedAudio)),
+                                      );
+                                      return;
+                                    }
+                                  }
+                                  // ignore: use_build_context_synchronously
+                                  context
+                                      .read<NotificationSettingsCubit>()
+                                      .toggleSmartVoice(true);
+                                }();
+                              } else {
+                                context
+                                    .read<NotificationSettingsCubit>()
+                                    .toggleSmartVoice(false);
+                              }
                             }
                           },
                         ),
