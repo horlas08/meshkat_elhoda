@@ -40,6 +40,13 @@
         android:icon="@mipmap/launcher_icon">
 
         <activity
+            android:name=".AthanFlutterOverlayActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:theme="@style/AthanAlarmTheme" />
+
+        <activity
             android:name=".AthanAlarmActivity"
             android:exported="false"
             android:excludeFromRecents="true"

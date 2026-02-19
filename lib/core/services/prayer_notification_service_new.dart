@@ -381,13 +381,14 @@ class PrayerNotificationService {
         if (fajrTimeStr != null) {
           try {
 
-            // Parse "HH:mm" to DateTime
+            // Parse "HH:mm" to DateTime (robust against extra text)
             final now = DateTime.now();
-            final parts = fajrTimeStr.split(':')[0].split(' '); // Handle "05:45" or "05:45 (EST)"
-            final timeParts = parts[0].split(':'); 
-            final hour = int.parse(timeParts[0]);
-            final minute = int.parse(timeParts[1]);
-            
+            final match = RegExp(r'(\d{1,2}):(\d{2})').firstMatch(fajrTimeStr);
+            if (match == null) {
+              throw FormatException('Invalid Fajr time format: $fajrTimeStr');
+            }
+            final hour = int.parse(match.group(1)!);
+            final minute = int.parse(match.group(2)!);
             final fajrTime = DateTime(now.year, now.month, now.day, hour, minute);
             
             final suhoorTime = fajrTime.subtract(const Duration(minutes: 45));
@@ -433,11 +434,12 @@ class PrayerNotificationService {
         if (maghribTimeStr != null) {
           try {
             final now = DateTime.now();
-            final parts = maghribTimeStr.split(':')[0].split(' ');
-            final timeParts = parts[0].split(':');
-            final hour = int.parse(timeParts[0]);
-            final minute = int.parse(timeParts[1]);
-            
+            final match = RegExp(r'(\d{1,2}):(\d{2})').firstMatch(maghribTimeStr);
+            if (match == null) {
+              throw FormatException('Invalid Maghrib time format: $maghribTimeStr');
+            }
+            final hour = int.parse(match.group(1)!);
+            final minute = int.parse(match.group(2)!);
             final maghribTime = DateTime(now.year, now.month, now.day, hour, minute);
 
             if (maghribTime.isAfter(DateTime.now())) {

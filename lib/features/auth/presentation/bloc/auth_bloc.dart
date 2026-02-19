@@ -56,29 +56,44 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     SignInRequested event,
     Emitter<AuthState> emit,
   ) async {
+    log('[AuthBloc] SignInRequested received. email=${event.email}, passLen=${event.password.length}');
     emit(SignInLoading());
     try {
+      log('[AuthBloc] Calling signInWithEmailAndPassword...');
       final result = await signInWithEmailAndPassword(
         email: event.email,
         password: event.password,
       );
 
-      await result.fold((failure) async => emit(AuthError(failure.message)), (
-        user,
-      ) async {
-        // ✅ حفظ لغة المستخدم من Firebase إلى SharedPreferences
-        try {
-          final prefs = await SharedPreferences.getInstance();
-          await prefs.setString('language', user.language);
-          log('✅ تم حفظ لغة المستخدم: ${user.language}');
-        } catch (e) {
-          log('⚠️ خطأ في حفظ اللغة: $e');
-        }
+      log('[AuthBloc] signInWithEmailAndPassword returned, folding result...');
 
-        // إطلاق حالة Authenticated دائماً بعد تسجيل الدخول الناجح
-        emit(Authenticated(user));
-      });
+      await result.fold(
+        (failure) async {
+          log('[AuthBloc] Sign-in failed: ${failure.message}');
+          emit(AuthError(failure.message));
+          log('[AuthBloc] Emitted AuthError');
+        },
+        (user) async {
+          log('[AuthBloc] Sign-in success. userId=${user.uid}');
+
+          // إطلاق حالة Authenticated فوراً لتجنب تعليق واجهة المستخدم
+          emit(Authenticated(user));
+          log('[AuthBloc] Emitted Authenticated');
+
+          // ✅ حفظ لغة المستخدم من Firebase إلى SharedPreferences (غير حاجب)
+          Future(() async {
+            try {
+              final prefs = await SharedPreferences.getInstance();
+              await prefs.setString('language', user.language);
+              log('✅ تم حفظ لغة المستخدم: ${user.language}');
+            } catch (e) {
+              log('⚠️ خطأ في حفظ اللغة: $e');
+            }
+          });
+        },
+      );
     } catch (e) {
+      log('[AuthBloc] SignInRequested error: $e');
       if (!emit.isDone) {
         emit(AuthError(e.toString()));
       }

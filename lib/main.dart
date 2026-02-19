@@ -26,9 +26,11 @@ import 'package:meshkat_elhoda/features/mosques/data/datasources/mosques_remote_
 import 'package:meshkat_elhoda/features/mosques/data/repositories/mosque_repository_impl.dart';
 import 'package:meshkat_elhoda/features/mosques/domain/usecases/get_nearby_mosques.dart';
 import 'package:meshkat_elhoda/features/mosques/presentation/bloc/mosque_bloc.dart';
+import 'package:meshkat_elhoda/features/subscription/presentation/bloc/subscription_bloc.dart';
+import 'package:meshkat_elhoda/features/subscription/presentation/bloc/subscription_event.dart';
+import 'package:meshkat_elhoda/features/subscription/presentation/bloc/subscription_state.dart';
 import 'package:meshkat_elhoda/features/quran_audio/presentation/bloc/quran_audio_cubit.dart';
 import 'package:meshkat_elhoda/features/quran_index/presentation/widgets/loading_widget.dart';
-import 'package:meshkat_elhoda/features/subscription/presentation/bloc/subscription_bloc.dart';
 import 'package:meshkat_elhoda/features/settings/presentation/cubit/theme_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:meshkat_elhoda/core/utils/app_preferences.dart';
@@ -77,6 +79,7 @@ import 'package:meshkat_elhoda/features/collective_khatma/presentation/bloc/coll
 import 'package:meshkat_elhoda/core/services/athan_audio_service.dart';
 import 'package:meshkat_elhoda/core/services/smart_dhikr_service.dart';
 import 'package:meshkat_elhoda/features/hajj_umrah/presentation/bloc/hajj_umrah_cubit.dart';
+import 'package:meshkat_elhoda/features/prayer_times/presentation/views/athan_overlay_screen.dart';
 
 import 'package:meshkat_elhoda/features/auth/presentation/screens/login_screen.dart';
 
@@ -422,7 +425,8 @@ class _MyAppState extends State<MyApp> {
               create: (context) => getIt<FavoritesBloc>(),
             ),
             BlocProvider<SubscriptionBloc>(
-              create: (context) => getIt<SubscriptionBloc>(),
+              create: (context) => getIt<SubscriptionBloc>()
+                ..add(LoadSubscriptionEvent()),
             ),
             BlocProvider<ThemeCubit>(
               create: (context) => getIt<ThemeCubit>()..loadTheme(),
@@ -446,6 +450,9 @@ class _MyAppState extends State<MyApp> {
                 locale: _locale,
                 localizationsDelegates: AppLocalizations.localizationsDelegates,
                 supportedLocales: AppLocalizations.supportedLocales,
+                routes: {
+                  '/athanOverlay': (_) => const AthanOverlayScreen(),
+                },
                 builder: (context, child) {
                   // ✅ تشغيل فحوصات السياسات (الموقع والبطارية) بعد فتح التطبيق
                   if (!_hasPolicyChecksRun) {
@@ -457,24 +464,31 @@ class _MyAppState extends State<MyApp> {
                       }
                     });
                   }
-                  return Directionality(
-                    textDirection: isRTL
-                        ? TextDirection.rtl
-                        : TextDirection.ltr,
-                    child: Builder(
-                      builder: (ctx) {
-                        // Sync native Athan action labels with current app language.
-                        WidgetsBinding.instance.addPostFrameCallback((_) {
-                          final l10n = AppLocalizations.of(ctx);
-                          if (l10n == null) return;
-                          AthanAudioService().syncNativeAthanActionLabels(
-                            stopLabel: l10n.stop,
-                            hideLabel: l10n.hide,
-                            stopHint: l10n.adhanStopHint,
-                          );
-                        });
-                        return child!;
-                      },
+                  return BlocListener<AuthBloc, AuthState>(
+                    listener: (context, state) {
+                      if (state is Authenticated || state is Unauthenticated) {
+                        context.read<SubscriptionBloc>().add(LoadSubscriptionEvent());
+                      }
+                    },
+                    child: Directionality(
+                      textDirection: isRTL
+                          ? TextDirection.rtl
+                          : TextDirection.ltr,
+                      child: Builder(
+                        builder: (ctx) {
+                          // Sync native Athan action labels with current app language.
+                          WidgetsBinding.instance.addPostFrameCallback((_) {
+                            final l10n = AppLocalizations.of(ctx);
+                            if (l10n == null) return;
+                            AthanAudioService().syncNativeAthanActionLabels(
+                              stopLabel: l10n.stop,
+                              hideLabel: l10n.hide,
+                              stopHint: l10n.adhanStopHint,
+                            );
+                          });
+                          return child!;
+                        },
+                      ),
                     ),
                   );
                 },

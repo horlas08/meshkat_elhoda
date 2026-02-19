@@ -35,6 +35,9 @@ class AthanForegroundService : Service() {
         private const val NOTIFICATION_ID = 2001
         const val CHANNEL_ID = "athan_foreground_channel"
 
+        private const val OVERLAY_LAUNCH_THROTTLE_MS = 10_000L
+        private var lastOverlayLaunchAt: Long = 0L
+
         private const val PREFS_NAME = "meshkat_athan"
         private const val PREF_KEY_STOP_LABEL = "athan_stop_label"
         private const val PREF_KEY_HIDE_LABEL = "athan_hide_label"
@@ -157,11 +160,59 @@ class AthanForegroundService : Service() {
         // Start as foreground service immediately
         val notification = createNotification(title, body, prayerName)
         startForeground(NOTIFICATION_ID, notification)
+
+        // Fallback: some OEMs may ignore fullScreenIntent even on MAX importance channels.
+        // Since we're a foreground service, try launching the overlay activity directly.
+        maybeLaunchOverlayActivity(title = title, body = body, prayerName = prayerName)
         
         // Play the Athan audio
         playAthan(muezzinId, isFajr)
 
         return START_NOT_STICKY
+    }
+
+    private fun maybeLaunchOverlayActivity(title: String, body: String, prayerName: String) {
+        try {
+            val flutterPrefs = getSharedPreferences("FlutterSharedPreferences", Context.MODE_PRIVATE)
+            val overlayEnabled = flutterPrefs.getBoolean("flutter.isAthanOverlayEnabled", true)
+            if (!overlayEnabled) {
+                return
+            }
+
+            val now = System.currentTimeMillis()
+            if (now - lastOverlayLaunchAt < OVERLAY_LAUNCH_THROTTLE_MS) {
+                return
+            }
+            lastOverlayLaunchAt = now
+
+            // Prefer Flutter overlay UI.
+            // If Flutter fails to launch (OEM restrictions / missing engine), fall back to native activity.
+            try {
+                val flutterOverlayIntent = Intent(this, AthanFlutterOverlayActivity::class.java).apply {
+                    putExtra(AthanAlarmActivity.EXTRA_TITLE, title)
+                    putExtra(AthanAlarmActivity.EXTRA_BODY, body)
+                    putExtra(AthanAlarmActivity.EXTRA_PRAYER_NAME, prayerName)
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                }
+                startActivity(flutterOverlayIntent)
+                Log.d(TAG, "� Launched AthanFlutterOverlayActivity")
+                return
+            } catch (e: Exception) {
+                Log.e(TAG, "Failed to launch AthanFlutterOverlayActivity, falling back", e)
+            }
+
+            val nativeOverlayIntent = Intent(this, AthanAlarmActivity::class.java).apply {
+                putExtra(AthanAlarmActivity.EXTRA_TITLE, title)
+                putExtra(AthanAlarmActivity.EXTRA_BODY, body)
+                putExtra(AthanAlarmActivity.EXTRA_PRAYER_NAME, prayerName)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            }
+
+            startActivity(nativeOverlayIntent)
+            Log.d(TAG, "🟨 Launched AthanAlarmActivity (native fallback)")
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to launch AthanAlarmActivity directly", e)
+        }
     }
 
     private fun registerStopReceiver() {

@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meshkat_elhoda/core/utils/app_colors.dart';
@@ -25,8 +26,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
+  final _emailController = TextEditingController(text: kDebugMode ? "waleedd2369@gmail.com" : "");
+  final _passwordController = TextEditingController(text: kDebugMode ? "Ww99887766": "");
+  bool _didNavigate = false;
 
   @override
   void dispose() {
@@ -80,26 +82,16 @@ class _LoginScreenState extends State<LoginScreen> {
               type: SnackBarType.success,
               duration: const Duration(seconds: 2),
             );
-
-            await Future.delayed(const Duration(seconds: 2));
-
-            if (mounted) {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MainNavigationViews(),
-                ),
-              );
-            }
           }
         } else if (state is Authenticated) {
-          if (mounted) {
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute(
-                builder: (context) => const MainNavigationViews(),
-              ),
-            );
-          }
+          if (_didNavigate) return;
+          _didNavigate = true;
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: (context) => const MainNavigationViews(),
+            ),
+            (route) => false,
+          );
         }
       },
       child: Scaffold(
@@ -192,13 +184,20 @@ class _LoginScreenState extends State<LoginScreen> {
                                         state is GuestSignInLoading)
                                     ? null
                                     : () {
-                                        if (_formKey.currentState!.validate()) {
+                                        log(
+                                          '[LoginScreen] Login pressed. email=${_emailController.text}, passLen=${_passwordController.text.length}',
+                                        );
+                                        final isValid =
+                                            _formKey.currentState!.validate();
+                                        log('[LoginScreen] Form valid=$isValid');
+                                        if (isValid) {
                                           context.read<AuthBloc>().add(
                                             SignInRequested(
                                               _emailController.text,
                                               _passwordController.text,
                                             ),
                                           );
+                                          log('[LoginScreen] Dispatched SignInRequested');
                                         }
                                       },
                                 style: ElevatedButton.styleFrom(
