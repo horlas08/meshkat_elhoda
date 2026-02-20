@@ -26,7 +26,8 @@ class HalalRestaurantsBloc
         return;
       }
       final position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
+        desiredAccuracy: LocationAccuracy.best,
+        timeLimit: const Duration(seconds: 15),
       );
 
       final result = await getNearbyHalalRestaurants(

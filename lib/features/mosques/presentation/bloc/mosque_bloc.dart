@@ -24,7 +24,8 @@ class MosqueBloc extends Bloc<MosqueEvent, MosqueState> {
         return;
       }
       final position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
+        desiredAccuracy: LocationAccuracy.best,
+        timeLimit: const Duration(seconds: 15),
       );
 
       final result = await getNearbyMosques(
