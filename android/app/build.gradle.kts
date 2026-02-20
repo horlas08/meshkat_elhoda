@@ -20,10 +20,18 @@ android {
 
     signingConfigs {
         create("release") {
-            storeFile = file("meshkat_alhoda.jks")
-            storePassword = "123456"
-            keyAlias = "meshkat_alhoda"
-            keyPassword = "123456"
+            if (System.getenv()["CI"].toBoolean()) { // CI=true is exported by Codemagic
+                storeFile = file(System.getenv()["CM_KEYSTORE_PATH"])
+                storePassword = System.getenv()["CM_KEYSTORE_PASSWORD"]
+                keyAlias = System.getenv()["CM_KEY_ALIAS"]
+                keyPassword = System.getenv()["CM_KEY_PASSWORD"]
+            } else {
+                storeFile = file("meshkat_alhoda.jks")
+                storePassword = "123456"
+                keyAlias = "meshkat_alhoda"
+                keyPassword = "123456"
+            }
+
         }
     }
     // ⬆️⬆️⬆️ نهاية الإضافة ⬆️⬆️⬆️
