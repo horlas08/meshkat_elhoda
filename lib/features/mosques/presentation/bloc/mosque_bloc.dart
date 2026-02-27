@@ -37,13 +37,37 @@ class MosqueBloc extends Bloc<MosqueEvent, MosqueState> {
 
       result.fold(
         (failure) => emit(MosqueError(failure.message)),
-        (mosques) => emit(
-          MosqueLoaded(
-            mosques: mosques,
-            userLatitude: position.latitude,
-            userLongitude: position.longitude,
-          ),
-        ),
+        (mosques) {
+          final sorted = List.of(mosques);
+          final userLat = position.latitude;
+          final userLng = position.longitude;
+
+          sorted.sort((a, b) {
+            final da = Geolocator.distanceBetween(
+              userLat,
+              userLng,
+              a.latitude,
+              a.longitude,
+            );
+            final db = Geolocator.distanceBetween(
+              userLat,
+              userLng,
+              b.latitude,
+              b.longitude,
+            );
+            final cmp = da.compareTo(db);
+            if (cmp != 0) return cmp;
+            return a.name.compareTo(b.name);
+          });
+
+          emit(
+            MosqueLoaded(
+              mosques: sorted,
+              userLatitude: userLat,
+              userLongitude: userLng,
+            ),
+          );
+        },
       );
     } catch (e) {
       emit(MosqueError(e.toString()));

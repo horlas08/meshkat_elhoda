@@ -39,13 +39,37 @@ class HalalRestaurantsBloc
 
       result.fold(
         (failure) => emit(HalalRestaurantsError(failure.message)),
-        (restaurants) => emit(
-          HalalRestaurantsLoaded(
-            restaurants: restaurants,
-            userLatitude: position.latitude,
-            userLongitude: position.longitude,
-          ),
-        ),
+        (restaurants) {
+          final sorted = List.of(restaurants);
+          final userLat = position.latitude;
+          final userLng = position.longitude;
+
+          sorted.sort((a, b) {
+            final da = Geolocator.distanceBetween(
+              userLat,
+              userLng,
+              a.latitude,
+              a.longitude,
+            );
+            final db = Geolocator.distanceBetween(
+              userLat,
+              userLng,
+              b.latitude,
+              b.longitude,
+            );
+            final cmp = da.compareTo(db);
+            if (cmp != 0) return cmp;
+            return a.name.compareTo(b.name);
+          });
+
+          emit(
+            HalalRestaurantsLoaded(
+              restaurants: sorted,
+              userLatitude: userLat,
+              userLongitude: userLng,
+            ),
+          );
+        },
       );
     } catch (e) {
       emit(HalalRestaurantsError(e.toString()));
