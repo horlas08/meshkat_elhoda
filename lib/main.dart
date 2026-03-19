@@ -4,6 +4,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:awesome_notifications/awesome_notifications.dart'
     hide NotificationHandler;
 import 'package:http/http.dart' as http;
+import 'dart:io';
 import 'package:meshkat_elhoda/core/services/in_app_purchase_service.dart';
 import 'package:meshkat_elhoda/core/network/network_info.dart';
 import 'package:meshkat_elhoda/core/services/prayer_notification_service_new.dart';
@@ -101,7 +102,20 @@ void main() async {
       options: DefaultFirebaseOptions.currentPlatform,
     );
     await configureDependencies();
+  } catch (e) {
+    log('❌ Core Init Error: $e');
+  }
 
+  final sharedPreferences = await SharedPreferences.getInstance();
+
+  runApp(MyApp(sharedPreferences: sharedPreferences));
+
+  // Initialize non-critical services asynchronously after the app frame is drawn.
+  _initNonCriticalServices();
+}
+
+Future<void> _initNonCriticalServices() async {
+  try {
     try {
       await getIt<AdMobService>().initialize(useTestAds: false);
     } catch (e) {
@@ -121,10 +135,13 @@ void main() async {
 
     await PrayerNotificationService().initialize();
     await NotificationHandler().initialize();
+
     // Initialize Background Service (Location & Smart Dhikr) - MUST BE FIRST for WorkManager
     try {
-      await BackgroundService().initialize();
-      await BackgroundService().registerPeriodicTasks();
+      if (Platform.isAndroid || Platform.isIOS) {
+        await BackgroundService().initialize();
+        await BackgroundService().registerPeriodicTasks();
+      }
     } catch (e) {
       log('⚠️ Background Service Init Error: $e');
     }
@@ -137,11 +154,8 @@ void main() async {
       log('⚠️ IAP Error: $e');
     }
   } catch (e) {
-    log('❌ Init Error: $e');
+    log('❌ Non-critical Init Error: $e');
   }
-
-  final sharedPreferences = await SharedPreferences.getInstance();
-  runApp(MyApp(sharedPreferences: sharedPreferences));
 }
 
 class MyApp extends StatefulWidget {
@@ -199,10 +213,6 @@ class _MyAppState extends State<MyApp> {
               : 'Mishkat Al-Hoda needs background location access to ensure accurate prayer times, Athan notifications, and Qibla direction based on your current location even when the app is closed.',
         ),
         actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(dialogContext),
-            child: Text(isRTL ? 'لاحقاً' : 'Later'),
-          ),
           ElevatedButton(
             onPressed: () {
               Navigator.pop(dialogContext);
@@ -211,7 +221,7 @@ class _MyAppState extends State<MyApp> {
                 RequestLocationPermissionEvent(),
               );
             },
-            child: Text(isRTL ? 'موافق' : 'Accept'),
+            child: Text(isRTL ? 'متابعة' : 'Continue'),
           ),
         ],
       ),
@@ -425,8 +435,8 @@ class _MyAppState extends State<MyApp> {
               create: (context) => getIt<FavoritesBloc>(),
             ),
             BlocProvider<SubscriptionBloc>(
-              create: (context) => getIt<SubscriptionBloc>()
-                ..add(LoadSubscriptionEvent()),
+              create: (context) =>
+                  getIt<SubscriptionBloc>()..add(LoadSubscriptionEvent()),
             ),
             BlocProvider<ThemeCubit>(
               create: (context) => getIt<ThemeCubit>()..loadTheme(),
@@ -450,9 +460,7 @@ class _MyAppState extends State<MyApp> {
                 locale: _locale,
                 localizationsDelegates: AppLocalizations.localizationsDelegates,
                 supportedLocales: AppLocalizations.supportedLocales,
-                routes: {
-                  '/athanOverlay': (_) => const AthanOverlayScreen(),
-                },
+                routes: {'/athanOverlay': (_) => const AthanOverlayScreen()},
                 builder: (context, child) {
                   // ✅ تشغيل فحوصات السياسات (الموقع والبطارية) بعد فتح التطبيق
                   if (!_hasPolicyChecksRun) {
@@ -467,7 +475,9 @@ class _MyAppState extends State<MyApp> {
                   return BlocListener<AuthBloc, AuthState>(
                     listener: (context, state) {
                       if (state is Authenticated || state is Unauthenticated) {
-                        context.read<SubscriptionBloc>().add(LoadSubscriptionEvent());
+                        context.read<SubscriptionBloc>().add(
+                          LoadSubscriptionEvent(),
+                        );
                       }
                     },
                     child: Directionality(
@@ -512,15 +522,16 @@ class _MyAppState extends State<MyApp> {
                         if (state is Authenticated) {
                           return const MainNavigationViews();
                         } else if (state is Unauthenticated) {
-                           if (snapshot.connectionState == ConnectionState.waiting) {
-                             return const Scaffold(
-                               body: Center(child: QuranLottieLoading()),
-                             );
-                           }
-                           final isOnboardingCompleted = snapshot.data ?? false;
-                           return isOnboardingCompleted 
-                               ? const LoginScreen() 
-                               : const OnboardingScreen();
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return const Scaffold(
+                              body: Center(child: QuranLottieLoading()),
+                            );
+                          }
+                          final isOnboardingCompleted = snapshot.data ?? false;
+                          return isOnboardingCompleted
+                              ? const LoginScreen()
+                              : const OnboardingScreen();
                         }
                         // Default loading state (AuthInitial or AuthLoading)
                         return const Scaffold(

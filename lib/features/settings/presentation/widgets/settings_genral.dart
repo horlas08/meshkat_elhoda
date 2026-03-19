@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meshkat_elhoda/core/utils/app_assets.dart';
 import 'package:meshkat_elhoda/core/utils/app_colors.dart';
@@ -91,9 +92,7 @@ class _SettingsGeneralState extends State<SettingsGeneral> {
                             Expanded(
                               child: Text(
                                 languageName,
-                                style: TextStyle(
-                                  fontFamily: AppFonts.tajawal,
-                                ),
+                                style: TextStyle(fontFamily: AppFonts.tajawal),
                               ),
                             ),
                           ],
@@ -262,9 +261,7 @@ class _SettingsGeneralState extends State<SettingsGeneral> {
         Navigator.of(navigatorContext).pop();
         ScaffoldMessenger.of(navigatorContext).showSnackBar(
           SnackBar(
-            content: Text(
-              s.languageUpdateError(e.toString()),
-            ),
+            content: Text(s.languageUpdateError(e.toString())),
             backgroundColor: Colors.red,
           ),
         );
@@ -312,7 +309,9 @@ class _SettingsGeneralState extends State<SettingsGeneral> {
                     title: s.rateApp,
                     onTap: () async {
                       final url = Uri.parse(
-                        'https://play.google.com/store/apps/details?id=com.meshkatelhoda.pro',
+                        Platform.isAndroid
+                            ? 'https://play.google.com/store/apps/details?id=com.meshkatelhoda.pro'
+                            : 'https://apps.apple.com/app/id0000000000', // Update with actual App Store ID
                       );
                       if (await canLaunchUrl(url)) {
                         await launchUrl(
