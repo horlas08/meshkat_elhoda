@@ -941,5 +941,8 @@
   "eventLaylatAlMiraj": "Laylat al-Miraj",
   "eventLaylatAlBaraat": "Laylat al-Baraat",
   "share": "Share",
-  "save": "Save"
+  "save": "Save",
+  "restorePurchases": "Restore Purchases",
+  "pricePerMonth": "Price per month",
+  "subscriptionAutoRenewNotice": "Subscription automatically renews unless cancelled"
 }

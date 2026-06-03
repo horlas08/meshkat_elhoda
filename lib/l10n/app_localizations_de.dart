@@ -2383,4 +2383,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get save => 'Speichern';
+
+  @override
+  String get restorePurchases => 'Restore Purchases';
+
+  @override
+  String get pricePerMonth => 'Price per month';
+
+  @override
+  String get subscriptionAutoRenewNotice => 'Subscription automatically renews unless cancelled';
 }

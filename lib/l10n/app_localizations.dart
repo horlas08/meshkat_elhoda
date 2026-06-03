@@ -4734,6 +4734,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save'**
   String get save;
+
+  /// No description provided for @restorePurchases.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore Purchases'**
+  String get restorePurchases;
+
+  /// No description provided for @pricePerMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Price per month'**
+  String get pricePerMonth;
+
+  /// No description provided for @subscriptionAutoRenewNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Subscription automatically renews unless cancelled'**
+  String get subscriptionAutoRenewNotice;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

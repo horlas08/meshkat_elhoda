@@ -744,9 +744,9 @@
       }
     }
   },
-  "featureRemoveAds": "Remove Ads",
-  "featureUnlockReciters": "Unlock All Reciters",
-  "featureDownloadContent": "Download Content",
+  "featureRemoveAds": "إزالة الإعلانات",
+  "featureUnlockReciters": "فتح جميع القراء",
+  "featureDownloadContent": "تحميل المحتوى",
   "noNearbyRestaurantsInRange": "لا توجد مطاعم حلال قريبة",
   "pleaseWaitForRestaurantsToLoad": "الرجاء الانتظار حتى يتم تحميل بيانات المطاعم",
   "hajjAndUmrahGuide": "دليل الحج والعمرة",
@@ -805,5 +805,8 @@
   "eventMawlidAlNabi": "المولد النبوي",
   "eventLaylatAlMiraj": "الإسراء والمعراج",
   "eventLaylatAlBaraat": "ليلة النصف من شعبان",
-  "share": "مشاركة"
+  "share": "مشاركة",
+  "restorePurchases": "استعادة المشتريات",
+  "pricePerMonth": "السعر لكل شهر",
+  "subscriptionAutoRenewNotice": "يتم تجديد الاشتراك تلقائياً ما لم يتم إلغاؤه"
 }

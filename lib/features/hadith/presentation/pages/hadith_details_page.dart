@@ -59,8 +59,10 @@ class _HadithDetailsPageState extends State<HadithDetailsPage> {
     favoritesBloc.add(const LoadFavorites());
   }
 
-  void _shareHadith(Hadith hadith) async {
+  void _shareHadith(BuildContext btnContext, Hadith hadith) async {
     final model = hadith as HadithModel;
+    final box = btnContext.findRenderObject() as RenderBox?;
+    final rect = box != null ? box.localToGlobal(Offset.zero) & box.size : null;
 
     // بناء نص المشاركة الكامل
     StringBuffer text = StringBuffer();
@@ -166,10 +168,11 @@ class _HadithDetailsPageState extends State<HadithDetailsPage> {
         [XFile(file.path)],
         text: text.toString(),
         subject: '📖 حديث شريف',
+        sharePositionOrigin: rect,
       );
     } catch (e) {
       // في حالة فشل تحميل اللوجو، شارك النص فقط
-      Share.share(text.toString());
+      Share.share(text.toString(), sharePositionOrigin: rect);
     }
   }
 
@@ -443,11 +446,13 @@ class _HadithDetailsPageState extends State<HadithDetailsPage> {
                             label: AppLocalizations.of(context)?.copy ?? 'نسخ',
                             onTap: () => _copyHadith(hadith),
                           ),
-                          _buildActionButton(
-                            icon: Icons.share,
-                            label:
-                                AppLocalizations.of(context)?.share ?? 'مشاركة',
-                            onTap: () => _shareHadith(hadith),
+                          Builder(
+                            builder: (btnContext) => _buildActionButton(
+                              icon: Icons.share,
+                              label:
+                                  AppLocalizations.of(context)?.share ?? 'مشاركة',
+                              onTap: () => _shareHadith(btnContext, hadith),
+                            ),
                           ),
                           _buildActionButton(
                             icon: isFavorite

@@ -193,39 +193,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Awesome Notifications Receivers - Required for terminated state -->
-        <receiver
-            android:name="me.carda.awesome_notifications.core.receivers.ScheduledNotificationReceiver"
-            android:enabled="true"
-            android:exported="false" />
-
-        <receiver
-            android:name="me.carda.awesome_notifications.core.receivers.DismissedNotificationReceiver"
-            android:enabled="true"
-            android:exported="false" />
-
-        <receiver
-            android:name="me.carda.awesome_notifications.core.receivers.RefreshSchedulesReceiver"
-            android:enabled="true"
-            android:exported="false" />
-
-        <receiver
-            android:name="me.carda.awesome_notifications.core.receivers.NotificationActionReceiver"
-            android:enabled="true"
-            android:exported="false" />
-
-        <!-- Broadcast receiver for boot completed - reschedule notifications after reboot -->
-        <receiver
-            android:name="me.carda.awesome_notifications.core.receivers.AwesomeEventsReceiver"
-            android:enabled="true"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-                <action android:name="android.intent.action.TIME_SET" />
-                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
-            </intent-filter>
-        </receiver>
 
         <!-- WorkManager -->
         <provider

@@ -43,6 +43,55 @@ class _SettingsGeneralState extends State<SettingsGeneral> {
   };
   final GlobalKey<SettingTitleState> _titleKey = GlobalKey<SettingTitleState>();
 
+  String _signOutLabel(BuildContext context) {
+    final languageCode = Localizations.localeOf(context).languageCode;
+    return languageCode == 'ar' ? 'تسجيل الخروج' : 'Sign Out';
+  }
+
+  String _termsLabel(BuildContext context) {
+    final languageCode = Localizations.localeOf(context).languageCode;
+    return languageCode == 'ar' ? 'شروط الاستخدام' : 'Terms of Use';
+  }
+
+  String _signOutConfirmTitle(BuildContext context) {
+    final languageCode = Localizations.localeOf(context).languageCode;
+    return languageCode == 'ar' ? 'تأكيد تسجيل الخروج' : 'Confirm Sign Out';
+  }
+
+  String _signOutConfirmMessage(BuildContext context) {
+    final languageCode = Localizations.localeOf(context).languageCode;
+    return languageCode == 'ar'
+        ? 'هل تريد تسجيل الخروج من حسابك الآن؟'
+        : 'Do you want to sign out of your account now?';
+  }
+
+  Future<void> _confirmSignOut(BuildContext context) async {
+    final s = AppLocalizations.of(context)!;
+
+    final shouldSignOut = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(_signOutConfirmTitle(context)),
+        content: Text(_signOutConfirmMessage(context)),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext, false),
+            child: Text(s.cancel),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.pop(dialogContext, true),
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+            child: Text(_signOutLabel(context)),
+          ),
+        ],
+      ),
+    );
+
+    if (shouldSignOut == true && context.mounted) {
+      context.read<AuthBloc>().add(SignOutRequested());
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -67,11 +116,6 @@ class _SettingsGeneralState extends State<SettingsGeneral> {
 
           return BlocBuilder<SubscriptionBloc, SubscriptionState>(
             builder: (context, subscriptionState) {
-              // التحقق من حالة الاشتراك
-              final isPremium =
-                  subscriptionState is SubscriptionLoaded &&
-                  subscriptionState.subscription.isPremium;
-
               return AlertDialog(
                 title: Text(s.chooseLanguage),
                 content: SizedBox(
@@ -348,6 +392,27 @@ class _SettingsGeneralState extends State<SettingsGeneral> {
                       }
                     },
                   ),
+                  SettingItem(
+                    iconData: Icons.description_outlined,
+                    title: _termsLabel(context),
+                    onTap: () async {
+                      final url = Uri.parse(
+                        'https://www.apple.com/legal/internet-services/itunes/dev/stdeula/',
+                      );
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(
+                          url,
+                          mode: LaunchMode.externalApplication,
+                        );
+                      }
+                    },
+                  ),
+                  if (state is Authenticated)
+                    SettingItem(
+                      iconData: Icons.logout,
+                      title: _signOutLabel(context),
+                      onTap: () => _confirmSignOut(context),
+                    ),
                 ],
               ),
             ),

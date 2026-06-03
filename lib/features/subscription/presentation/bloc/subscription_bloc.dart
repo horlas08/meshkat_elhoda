@@ -37,6 +37,7 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
         SubscriptionLoaded(
           subscription: subscription,
           featureManager: featureManager,
+          isProductsLoading: false,
         ),
       );
     } catch (e) {
@@ -49,13 +50,28 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
     Emitter<SubscriptionState> emit,
   ) async {
     try {
-      final products = await repository.getProducts();
+      // Show loading indicator in UI if already in Loaded state
+      if (state is SubscriptionLoaded) {
+        final currentState = state as SubscriptionLoaded;
+        emit(currentState.copyWith(isProductsLoading: true));
+      }
+
+      // If products load too fast (before IAP is initialized), we might get empty results.
+      List<ProductDetails> products = await repository.getProducts();
+      
+      // Retry up to 5 times (increased from 3) if empty
+      int retries = 0;
+      while (products.isEmpty && retries < 5) {
+        await Future.delayed(const Duration(seconds: 1));
+        products = await repository.getProducts();
+        retries++;
+      }
 
       if (state is SubscriptionLoaded) {
         final currentState = state as SubscriptionLoaded;
-        emit(currentState.copyWith(products: products));
+        emit(currentState.copyWith(products: products, isProductsLoading: false));
       } else {
-        // Load subscription first
+        // Load subscription first if not loaded
         final subscription = await repository.getSubscription();
         final featureManager = FeatureManager(subscription);
         emit(
@@ -63,12 +79,18 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
             subscription: subscription,
             featureManager: featureManager,
             products: products,
+            isProductsLoading: false,
           ),
         );
       }
     } catch (e) {
       log('❌ Error loading products: $e');
-      emit(const SubscriptionError("Failed to load products"));
+      if (state is SubscriptionLoaded) {
+        final currentState = state as SubscriptionLoaded;
+        emit(currentState.copyWith(isProductsLoading: false));
+      } else {
+        emit(const SubscriptionError("Failed to load products"));
+      }
     }
   }
 
@@ -92,6 +114,12 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
     try {
       emit(const PurchaseProcessing("Restoring purchases..."));
       await repository.restorePurchases();
+      
+      // Wait a short time to allow the purchase stream to emit any events
+      await Future.delayed(const Duration(seconds: 2));
+      
+      // Reload products to reset the UI state to normal, ensuring the spinner stops
+      add(LoadProductsEvent());
     } catch (e) {
       log('❌ Error restoring purchases: $e');
       emit(const SubscriptionError("Failed to restore purchases"));

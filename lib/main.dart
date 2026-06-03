@@ -213,6 +213,7 @@ class _MyAppState extends State<MyApp> {
               : 'Mishkat Al-Hoda needs background location access to ensure accurate prayer times, Athan notifications, and Qibla direction based on your current location even when the app is closed.',
         ),
         actions: [
+
           ElevatedButton(
             onPressed: () {
               Navigator.pop(dialogContext);

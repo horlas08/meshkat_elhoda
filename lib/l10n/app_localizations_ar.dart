@@ -2253,13 +2253,13 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get featureRemoveAds => 'Remove Ads';
+  String get featureRemoveAds => 'إزالة الإعلانات';
 
   @override
-  String get featureUnlockReciters => 'Unlock All Reciters';
+  String get featureUnlockReciters => 'فتح جميع القراء';
 
   @override
-  String get featureDownloadContent => 'Download Content';
+  String get featureDownloadContent => 'تحميل المحتوى';
 
   @override
   String get noNearbyRestaurantsInRange => 'لا توجد مطاعم حلال قريبة';
@@ -2383,4 +2383,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get save => 'حفظ';
+
+  @override
+  String get restorePurchases => 'استعادة المشتريات';
+
+  @override
+  String get pricePerMonth => 'السعر لكل شهر';
+
+  @override
+  String get subscriptionAutoRenewNotice => 'يتم تجديد الاشتراك تلقائياً ما لم يتم إلغاؤه';
 }

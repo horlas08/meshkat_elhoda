@@ -18,25 +18,36 @@ class SubscriptionLoaded extends SubscriptionState {
   final UserSubscriptionEntity subscription;
   final FeatureManager featureManager;
   final List<ProductDetails> products;
+  final bool? _isProductsLoading;
+
+  bool get isProductsLoading => _isProductsLoading ?? false;
 
   const SubscriptionLoaded({
     required this.subscription,
     required this.featureManager,
     this.products = const [],
-  });
+    bool? isProductsLoading = false,
+  }) : _isProductsLoading = isProductsLoading;
 
   @override
-  List<Object> get props => [subscription, featureManager, products];
+  List<Object> get props => [
+        subscription,
+        featureManager,
+        products,
+        isProductsLoading,
+      ];
 
   SubscriptionLoaded copyWith({
     UserSubscriptionEntity? subscription,
     FeatureManager? featureManager,
     List<ProductDetails>? products,
+    bool? isProductsLoading,
   }) {
     return SubscriptionLoaded(
       subscription: subscription ?? this.subscription,
       featureManager: featureManager ?? this.featureManager,
       products: products ?? this.products,
+      isProductsLoading: isProductsLoading ?? _isProductsLoading,
     );
   }
 }

@@ -125,16 +125,7 @@ class _LocationSettingsState extends State<LocationSettings> {
           ),
         ),
         actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(dialogContext),
-            child: Text(
-              isArabic ? 'لاحقاً' : 'Later',
-              style: TextStyle(
-                fontFamily: AppFonts.tajawal,
-                color: Colors.grey,
-              ),
-            ),
-          ),
+
           ElevatedButton(
             onPressed: () async {
               Navigator.pop(dialogContext);

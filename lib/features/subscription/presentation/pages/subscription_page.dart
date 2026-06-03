@@ -9,7 +9,8 @@ import 'package:meshkat_elhoda/features/subscription/presentation/bloc/subscript
 import 'package:meshkat_elhoda/features/subscription/presentation/bloc/subscription_event.dart';
 import 'package:meshkat_elhoda/features/subscription/presentation/bloc/subscription_state.dart';
 import 'package:meshkat_elhoda/l10n/app_localizations.dart';
-
+import 'package:url_launcher/url_launcher.dart';
+//Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 class SubscriptionPage extends StatefulWidget {
   const SubscriptionPage({super.key});
 
@@ -69,7 +70,7 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
               _isPurchaseFlow) {
             _isPurchaseFlow = false;
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Success'), backgroundColor: Colors.green),
+              const SnackBar(content: Text('Success'), backgroundColor: Colors.green),
             );
             Navigator.pop(context);
           }
@@ -79,8 +80,8 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
             fontSize: 14.sp,
             fontWeight: FontWeight.w400,
             color: isDark
-                ? AppColors.whiteColor.withOpacity(0.7)
-                : AppColors.blacColor.withOpacity(0.7),
+                ? AppColors.whiteColor.withValues(alpha: 0.7)
+                : AppColors.blacColor.withValues(alpha: 0.7),
           );
 
           return SingleChildScrollView(
@@ -92,7 +93,9 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                 SizedBox(height: 30.h),
                 _buildFeaturesList(s, isDark, subTitleStyle),
                 SizedBox(height: 40.h),
-                if (state is SubscriptionLoading || state is PurchaseProcessing)
+                if (state is SubscriptionInitial ||
+                    state is SubscriptionLoading ||
+                    state is PurchaseProcessing)
                   const Center(child: CircularProgressIndicator())
                 else if (state is SubscriptionLoaded)
                   Column(
@@ -102,13 +105,13 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                           padding: EdgeInsets.all(16.r),
                           margin: EdgeInsets.only(bottom: 20.h),
                           decoration: BoxDecoration(
-                            color: AppColors.goldenColor.withOpacity(0.1),
+                            color: AppColors.goldenColor.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(15.r),
                             border: Border.all(color: AppColors.goldenColor),
                           ),
                           child: Row(
                             children: [
-                              Icon(Icons.stars, color: AppColors.goldenColor),
+                              const Icon(Icons.stars, color: AppColors.goldenColor),
                               SizedBox(width: 10.w),
                               Expanded(
                                 child: Text(
@@ -122,13 +125,21 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                             ],
                           ),
                         ),
-                      _buildProductsList(
-                        context,
-                        state.products,
-                        s,
-                        isDark,
-                        subTitleStyle,
-                      ),
+                      if (state.isProductsLoading && state.products.isEmpty)
+                        const Center(
+                          child: Padding(
+                            padding: EdgeInsets.all(20.0),
+                            child: CircularProgressIndicator(color: AppColors.goldenColor),
+                          ),
+                        )
+                      else
+                        _buildProductsList(
+                          context,
+                          state.products,
+                          s,
+                          isDark,
+                          subTitleStyle,
+                        ),
                     ],
                   )
                 else
@@ -139,28 +150,32 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                         SizedBox(height: 10.h),
                         ElevatedButton(
                           onPressed: () => context.read<SubscriptionBloc>().add(
-                            LoadProductsEvent(),
-                          ),
+                                LoadProductsEvent(),
+                              ),
                           child: Text(s.retry),
                         ),
                       ],
                     ),
                   ),
-                /*SizedBox(height: 20.h),
+
+                SizedBox(height: 20.h),
+                _buildTermsLinks(s),
+                SizedBox(height: 10.h),
                 TextButton(
                   onPressed: () {
                     setState(() {
                       _isPurchaseFlow = true;
                     });
                     context.read<SubscriptionBloc>().add(
-                      RestorePurchasesEvent(),
-                    );
+                          RestorePurchasesEvent(),
+                        );
                   },
                   child: Text(
-                    s.manageSubscription,
-                    style: TextStyle(color: AppColors.goldenColor),
+                    s.restorePurchases,
+                    style: const TextStyle(color: AppColors.goldenColor),
                   ),
-                ),*/
+                ),
+                SizedBox(height: 20.h),
               ],
             ),
           );
@@ -200,7 +215,7 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
   ) {
     final subscriptionFeatures = [
       s.featureRemoveAds,
-      s.featureUnlockReciters, 
+      s.featureUnlockReciters,
       s.featureDownloadContent,
     ];
 
@@ -278,11 +293,11 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
           color: AppColors.goldenColor,
           width: isYearly ? 2 : 1,
         ),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Colors.black12,
             blurRadius: 10,
-            offset: const Offset(0, 5),
+            offset: Offset(0, 5),
           ),
         ],
       ),
@@ -324,6 +339,14 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
+                  if (isYearly)
+                    Text(
+                      _calculateMonthlyPrice(product, s),
+                      style: subTitleStyle.copyWith(
+                        fontSize: 11.sp,
+                        color: AppColors.goldenColor,
+                      ),
+                    ),
                 ],
               ),
             ),
@@ -339,9 +362,7 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
                   ),
                 ),
                 Text(
-                  isYearly
-                      ? "/ ${s.yearlySubscription}"
-                      : "/ ${s.monthlySubscription}",
+                  isYearly ? s.yearlySubscription : s.monthlySubscription,
                   style: subTitleStyle.copyWith(fontSize: 12.sp),
                 ),
               ],
@@ -352,33 +373,64 @@ class _SubscriptionPageState extends State<SubscriptionPage> {
     );
   }
 
+  String _calculateMonthlyPrice(ProductDetails product, AppLocalizations s) {
+    try {
+      final priceString = product.price;
+      final numericPart =
+          priceString.replaceAll(RegExp(r'[^0-9.,]'), '').replaceAll(',', '.');
+      final price = double.parse(numericPart);
+      final monthly = price / 12;
+
+      // Attempt to preserve currency symbol
+      final currencySymbol =
+          priceString.replaceAll(RegExp(r'[0-9.,]'), '').trim();
+
+      final prefix = s.pricePerMonth;
+
+      return "$prefix: $currencySymbol ${monthly.toStringAsFixed(2)}";
+    } catch (e) {
+      return "";
+    }
+  }
+
   Widget _buildTermsLinks(AppLocalizations s) {
+    final privacyUrl = Uri.parse('https://waleedd2369.github.io/Waleedd2369/');
+    final eulaUrl =
+        Uri.parse('https://www.apple.com/legal/internet-services/itunes/dev/stdeula/');
+
     return Column(
       children: [
         Text(
-          "يتم تجديد الاشتراك تلقائياً ما لم يتم إلغاؤه",
-          style: TextStyle(fontSize: 10.sp, color: Colors.grey),
+          s.subscriptionAutoRenewNotice,
+          style: TextStyle(fontSize: 11.sp, color: Colors.grey),
           textAlign: TextAlign.center,
         ),
         SizedBox(height: 8.h),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        Wrap(
+          alignment: WrapAlignment.center,
           children: [
             TextButton(
-              onPressed: () {
-                // TODO: Add privacy policy link
+              onPressed: () async {
+                if (await canLaunchUrl(privacyUrl)) {
+                  await launchUrl(privacyUrl, mode: LaunchMode.externalApplication);
+                }
               },
-              child: Text(s.privacyPolicy, style: TextStyle(fontSize: 10.sp)),
+              child: Text(s.privacyPolicy, style: TextStyle(fontSize: 11.sp)),
             ),
-            Text(
-              "|",
-              style: TextStyle(fontSize: 10.sp, color: Colors.grey),
+            Padding(
+              padding: EdgeInsets.only(top: 14.h),
+              child: Text(
+                "|",
+                style: TextStyle(fontSize: 11.sp, color: Colors.grey),
+              ),
             ),
             TextButton(
-              onPressed: () {
-                // TODO: Add terms of use link
+              onPressed: () async {
+                if (await canLaunchUrl(eulaUrl)) {
+                  await launchUrl(eulaUrl, mode: LaunchMode.externalApplication);
+                }
               },
-              child: Text(s.termsOfUse, style: TextStyle(fontSize: 10.sp)),
+              child: Text(s.termsOfUse, style: TextStyle(fontSize: 11.sp)),
             ),
           ],
         ),
