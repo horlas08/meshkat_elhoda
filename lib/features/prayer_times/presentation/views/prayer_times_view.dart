@@ -145,14 +145,6 @@ class _PrayerTimesViewState extends State<PrayerTimesView> {
                   barrierDismissible: false,
                   builder: (context) => const LocationPermissionDialog(),
                 );
-              } else if (state is LocationInitial) {
-                Future.delayed(const Duration(milliseconds: 500), () {
-                  if (mounted) {
-                    context.read<LocationBloc>().add(
-                      RequestLocationPermissionEvent(),
-                    );
-                  }
-                });
               } else if (state is LocationError) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(

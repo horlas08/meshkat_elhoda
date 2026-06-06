@@ -56,9 +56,8 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
 
     result.fold(
       (failure) {
-        // No stored location, try to refresh/get location
+        // No stored location — stay at initial, do NOT auto-request permission
         emit(LocationInitial());
-        add(const RefreshLocationIfNeeded(forceRefresh: false));
       },
       (location) {
         if (location != null) {
@@ -66,8 +65,8 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
           // Check if we need to auto-refresh based on settings
           add(const RefreshLocationIfNeeded(forceRefresh: false));
         } else {
+          // No stored location — stay at initial, do NOT auto-request permission
           emit(LocationInitial());
-          add(const RefreshLocationIfNeeded(forceRefresh: false));
         }
       },
     );
@@ -369,10 +368,22 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     try {
       log('🔄 Checking if location refresh is needed...');
 
+      // Check if permission is already granted before doing anything
+      final permissionStatus = await Geolocator.checkPermission();
+      final hasLocationPermission =
+          permissionStatus == LocationPermission.always ||
+          permissionStatus == LocationPermission.whileInUse;
+
       // إذا كان التحديث إجباري
       if (event.forceRefresh) {
         log('🔄 Force refresh requested');
-        add(RequestLocationPermissionEvent());
+        if (hasLocationPermission) {
+          // Permission already granted, just get location directly
+          add(GetCurrentLocationEvent());
+        } else {
+          // Need to request permission
+          add(RequestLocationPermissionEvent());
+        }
         return;
       }
 
@@ -382,10 +393,14 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         return;
       }
 
-      // If auto-refresh is enabled, ALWAYS request location update
-      // This ensures we get the latest location and update Firebase
-      log('📍 Auto-refresh enabled - requesting new location');
-      add(RequestLocationPermissionEvent());
+      // Only auto-refresh if permission is already granted
+      // NEVER prompt the user for permission during auto-refresh
+      if (hasLocationPermission) {
+        log('📍 Auto-refresh enabled & permission granted - fetching location');
+        add(GetCurrentLocationEvent());
+      } else {
+        log('⚠️ Auto-refresh enabled but permission not granted - skipping');
+      }
     } catch (e) {
       log('❌ Error in location refresh check: $e');
     }
@@ -398,24 +413,27 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     Emitter<LocationState> emit,
   ) async {
     await _locationSubscription?.cancel();
-    
+
     final permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied || 
+    if (permission == LocationPermission.denied ||
         permission == LocationPermission.deniedForever) {
-      return; 
+      return;
     }
-    
+
     log('📍 Starting foreground location updates (filter: 1000m)');
-    
-    _locationSubscription = Geolocator.getPositionStream(
-      locationSettings: const LocationSettings(
-        accuracy: LocationAccuracy.medium,
-        distanceFilter: 1000, 
-      ),
-    ).listen((position) {
-      log('📍 Location changed significantly: ${position.latitude}, ${position.longitude}');
-      add(GetCurrentLocationEvent());
-    });
+
+    _locationSubscription =
+        Geolocator.getPositionStream(
+          locationSettings: const LocationSettings(
+            accuracy: LocationAccuracy.medium,
+            distanceFilter: 1000,
+          ),
+        ).listen((position) {
+          log(
+            '📍 Location changed significantly: ${position.latitude}, ${position.longitude}',
+          );
+          add(GetCurrentLocationEvent());
+        });
   }
 
   Future<void> _onStopLocationUpdates(

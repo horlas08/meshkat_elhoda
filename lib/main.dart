@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:permission_handler/permission_handler.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:awesome_notifications/awesome_notifications.dart'
     hide NotificationHandler;
 import 'package:http/http.dart' as http;
@@ -188,19 +188,23 @@ class _MyAppState extends State<MyApp> {
 
   // ✅ إضافة ديالوج الإفصاح عن الموقع (حل مشكلة رفض جوجل)
   Future<void> _showLocationDisclosureDialog() async {
+    // ✅ التحقق من حالة إذن الموقع أولاً - لو ممنوح مش هنعرض الديالوج
+    final permissionStatus = await Geolocator.checkPermission();
     final navContext = _navigatorKey.currentContext;
     if (navContext == null) return;
+    if (!navContext.mounted) return;
 
-    // ✅ التحقق من حالة إذن الموقع أولاً - لو ممنوح مش هنعرض الديالوج
-    final permissionStatus = await Permission.location.status;
-    if (permissionStatus.isGranted) {
+    if (permissionStatus == LocationPermission.always ||
+        permissionStatus == LocationPermission.whileInUse) {
       log('📍 Location permission already granted, skipping disclosure dialog');
+      // Ensure location data is fetched since permission is already granted
+      navContext.read<LocationBloc>().add(GetCurrentLocationEvent());
       return;
     }
 
     final isRTL = _locale?.languageCode == 'ar';
 
-    showDialog(
+    await showDialog(
       context: navContext,
       barrierDismissible: false,
       builder: (dialogContext) => AlertDialog(
@@ -213,14 +217,12 @@ class _MyAppState extends State<MyApp> {
               : 'Mishkat Al-Hoda needs background location access to ensure accurate prayer times, Athan notifications, and Qibla direction based on your current location even when the app is closed.',
         ),
         actions: [
-
           ElevatedButton(
             onPressed: () {
+              final locationBloc = dialogContext.read<LocationBloc>();
               Navigator.pop(dialogContext);
               // استدعاء حدث طلب الموقع في الـ Bloc
-              _navigatorKey.currentContext?.read<LocationBloc>().add(
-                RequestLocationPermissionEvent(),
-              );
+              locationBloc.add(RequestLocationPermissionEvent());
             },
             child: Text(isRTL ? 'متابعة' : 'Continue'),
           ),
@@ -466,9 +468,9 @@ class _MyAppState extends State<MyApp> {
                   // ✅ تشغيل فحوصات السياسات (الموقع والبطارية) بعد فتح التطبيق
                   if (!_hasPolicyChecksRun) {
                     _hasPolicyChecksRun = true;
-                    Future.delayed(const Duration(seconds: 3), () {
+                    Future.delayed(const Duration(seconds: 3), () async {
                       if (mounted) {
-                        _showLocationDisclosureDialog(); // أولاً إفصاح الموقع
+                        await _showLocationDisclosureDialog(); // أولاً إفصاح الموقع
                         _checkBatteryOptimization(); // ثانياً تحسين البطارية
                       }
                     });

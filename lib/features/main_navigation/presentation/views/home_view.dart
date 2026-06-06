@@ -220,15 +220,6 @@ class _HomeViewState extends State<HomeView>
 
           // Check Weather for Thunder Notification
           WeatherService().checkWeatherAndNotify();
-        } else if (state is LocationInitial) {
-          // ✅ لا يوجد موقع مخزن -> طلب الإذن بعد مهلة قصيرة
-          Future.delayed(const Duration(milliseconds: 500), () {
-            if (mounted) {
-              context.read<LocationBloc>().add(
-                RequestLocationPermissionEvent(),
-              );
-            }
-          });
         }
       },
       child: Scaffold(
@@ -296,7 +287,6 @@ class _HomeViewState extends State<HomeView>
 
                         SizedBox(height: 20.h),
 
-
                         // Welcome Text with Firebase User Name from Firestore
                         FutureBuilder<String>(
                           future: _getUserName(),
@@ -305,8 +295,6 @@ class _HomeViewState extends State<HomeView>
                             return WelcomeText(userName: userName);
                           },
                         ),
-
-
 
                         SizedBox(height: 20.h),
 
@@ -362,7 +350,6 @@ class _HomeViewState extends State<HomeView>
                             );
                           },
                         ),
-
 
                         SizedBox(height: 24.h),
 

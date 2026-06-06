@@ -177,6 +177,10 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
 
         // Reload subscription to reflect changes
         add(LoadSubscriptionEvent());
+      } else if (purchase.status == PurchaseStatus.canceled) {
+        log('❌ Purchase canceled');
+        emit(const SubscriptionError("Purchase was canceled"));
+        add(LoadProductsEvent());
       } else if (purchase.status == PurchaseStatus.error) {
         log('❌ Purchase error: ${purchase.error}');
         emit(
@@ -184,6 +188,18 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
             "Purchase failed: ${purchase.error?.message ?? 'Unknown error'}",
           ),
         );
+        add(LoadProductsEvent());
+      }
+
+      // Always complete failed/canceled purchases as well to remove them from the queue
+      if (purchase.status == PurchaseStatus.error || purchase.status == PurchaseStatus.canceled) {
+        if (purchase.pendingCompletePurchase) {
+          try {
+            await InAppPurchase.instance.completePurchase(purchase);
+          } catch (e) {
+            log('❌ Error completing failed purchase: $e');
+          }
+        }
       }
     }
   }

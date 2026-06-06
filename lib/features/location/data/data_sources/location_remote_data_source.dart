@@ -24,10 +24,21 @@ abstract class LocationRemoteDataSource {
 }
 
 class LocationRemoteDataSourceImpl implements LocationRemoteDataSource {
+  PermissionStatus _mapLocationPermission(LocationPermission permission) {
+    return switch (permission) {
+      LocationPermission.always ||
+      LocationPermission.whileInUse => PermissionStatus.granted,
+      LocationPermission.deniedForever => PermissionStatus.permanentlyDenied,
+      LocationPermission.denied ||
+      LocationPermission.unableToDetermine => PermissionStatus.denied,
+    };
+  }
+
   @override
   Future<PermissionStatus> requestLocationPermission() async {
     try {
-      return await Permission.location.request();
+      final permission = await Geolocator.requestPermission();
+      return _mapLocationPermission(permission);
     } catch (e) {
       throw ServerException(
         message: 'Failed to request location permission: $e',
@@ -38,7 +49,8 @@ class LocationRemoteDataSourceImpl implements LocationRemoteDataSource {
   @override
   Future<PermissionStatus> checkLocationPermission() async {
     try {
-      return await Permission.location.status;
+      final permission = await Geolocator.checkPermission();
+      return _mapLocationPermission(permission);
     } catch (e) {
       throw ServerException(message: 'Failed to check location permission: $e');
     }
@@ -48,12 +60,9 @@ class LocationRemoteDataSourceImpl implements LocationRemoteDataSource {
   Future<LocationModel> getCurrentLocation() async {
     try {
       // 1. Check permissions first
-      LocationPermission permission = await Geolocator.checkPermission();
+      final permission = await Geolocator.checkPermission();
       if (permission == LocationPermission.denied) {
-        permission = await Geolocator.requestPermission();
-        if (permission == LocationPermission.denied) {
-          throw ServerException(message: 'تم رفض إذن الوصول للموقع');
-        }
+        throw ServerException(message: 'تم رفض إذن الوصول للموقع');
       }
 
       if (permission == LocationPermission.deniedForever) {
